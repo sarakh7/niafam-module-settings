@@ -8,6 +8,11 @@
     <link rel="stylesheet" type="text/css" href="/assets/scss/espritstyle-v3.css" />
 
     <link rel="stylesheet" type="text/css" href="/assets/css/index-styles.css" />
+    
+    
+    <!-- styles for news and article pages -->
+    <link rel="stylesheet" type="text/css" href="/assets/scss/article.css" />
+
 
     <script src="/assets/js/jquery.js"></script>
   </head>
@@ -53,34 +58,129 @@
           </ul>
         </div>
         <div class="page-content-main">
-          <!-- محتوای اصلی -->
 
-          <article class="esprit-article">
-            <!-- عنوان های اصلی مقاله -->
-            <header class="esprit-article__header">
-              <p class="esprit-article__subtitle">نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران</p>
-              <h1 class="esprit-article__title">برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد 173 سال تجربه و 90 سال افتخارآفرینی دانشگاه علوم پزشکی تهران</h1>
-              <p class="esprit-article__summary">نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران</p>
-            </header>
+          <div class="page-content-main__article">
 
-            <!-- بخش محتوای اصلی -->
-            <div class="esprit-article__content">
-              <!-- پاراگراف ها -->
-              <div class="esprit-article__paragraph">
-                <p>
-                  به گزارش سینا رسانه دانشگاه علوم پزشکی تهران، دکتر سید رضا رئیس کرمی، سرپرست دانشگاه علوم پزشکی تهران، در این نشست ضمن ارزیابی روند اجرای برنامه‌های سالگرد، بر ضرورت برنامه‌ریزی
-                  دقیق، جامع و مشارکت حداکثری خانواده بزرگ دانشگاه در برگزاری این رویداد تأکید کرد.وی افزود: این مراسم، فرصت بی‌نظیری برای نمایش تاریخ پرافتخار، توانمندی‌های علمی و خدمات برجسته
-                  دانشگاه در حوزه‌های مختلف است و نیازمند همدلی و تلاش جمعی برای برگزاری هرچه باشکوه‌تر آن هستیم.تحول در خدمات درمانی بیماران مبتلا به سرطان با راه‌اندازی بیمارستان جدید انستیتو
-                  کانسردکتر رئیس کرمی در ادامه با اشاره به پروژه راه‌اندازی بیمارستان جدید انستیتو کانسر، این اقدام را گامی تحول‌آفرین در بهبود خدمات درمانی به بیماران مبتلا به سرطان عنوان کرد.تأکید
-                  بر بهبود زیرساخت‌های فیزیکی معاونت‌های بهداشت و درمان در بخش دیگری از این نشست، سرپرست دانشگاه بر اختصاص فضای فیزیکی مناسب برای معاونت‌های بهداشت و درمان تأکید کرد.وی اظهار داشت:
-                  بررسی شرایط دسترسی آسان و مؤثر معاونت‌های بهداشت و درمان به پردیس دانشگاه باید در اولویت کار معاونت توسعه قرار گیرد تا زمینه تسریع و تسهیل فعالیت‌های این دو معاونت فراهم شود.دانشگاه
-                  علوم پزشکی تهران در صدر دانشگاه‌های ایران در رتبه‌بندی شانگهایدر ادامه دکتر محمد حسین آیتی معاون بین الملل دانشگاه با اعلام نتایج جدیدترین رتبه‌بندی موضوعی شانگهای 2024، از ارتقای
-                  قابل توجه دانشگاه علوم پزشکی تهران در شش حوزه مختلف پزشکی خبر داد.دکتر آیتی با اعلام خبر خوش دست‌یابی حوزه دندانپزشکی دانشگاه علوم پزشکی تهران به رتبه 201 تا 300 در رتبه‌بندی جهانی
-                  شانگهای، این موفقیت را دستاورد بی‌نظیری در سطح ملی دانست و افزود: دانشگاه علوم پزشکی تهران به عنوان تنها نماینده ایران در این حوزه، در جمع برترین دانشگاه‌های دنیا قرار گرفته است.
-                </p>
+            <article class="esprit-article">
+              <!-- عنوان های اصلی مقاله -->
+              <header class="esprit-article__header">
+                <p class="esprit-article__subtitle" aria-label="article__subtitle">نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران</p>
+                <h1 class="esprit-article__title">برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد 173 سال تجربه و 90 سال افتخارآفرینی دانشگاه علوم پزشکی تهران</h1>
+                <p class="esprit-article__summary" aria-label="article__summary">نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران</p>
+              </header>
+  
+              <!-- بخش محتوای اصلی -->
+              <div class="esprit-article__content">
+                <div class="esprit-article__image-wrapper">
+                  <!-- تصویر شاخص خبر -->
+                  <!-- <img
+                    src="/assets/img/article-content-img.jpg"
+                    alt="article title"
+                    face="دکتر جواد قاسمی,29,121,48,48,dr.Javad Ghasemi,5|دکتر محسن امینی,240,79,65,65,dr. Mohsen Amini,4|دکتر داود زارعیان,128,94,65,65,dr. davood zareian,3|انوش اوحدی,339,27,81,81,Anoush Ohadi,2"
+                  /> -->
+                </div>
+                <!-- پاراگراف ها -->
+                <div class="esprit-article__paragraph">
+                  <p>
+                    به گزارش سینا رسانه دانشگاه علوم پزشکی تهران، دکتر سید رضا رئیس کرمی، سرپرست دانشگاه علوم پزشکی تهران، در این نشست ضمن ارزیابی روند اجرای برنامه‌های سالگرد، بر ضرورت برنامه‌ریزی
+                    دقیق، جامع و مشارکت حداکثری خانواده بزرگ دانشگاه در برگزاری این رویداد تأکید کرد.وی افزود: این مراسم، فرصت بی‌نظیری برای نمایش تاریخ پرافتخار، توانمندی‌های علمی و خدمات برجسته
+                    دانشگاه در حوزه‌های مختلف است و نیازمند همدلی و تلاش جمعی برای برگزاری هرچه باشکوه‌تر آن هستیم.تحول در خدمات درمانی بیماران مبتلا به سرطان با راه‌اندازی بیمارستان جدید انستیتو
+                    کانسردکتر رئیس کرمی در ادامه با اشاره به پروژه راه‌اندازی بیمارستان جدید انستیتو کانسر، این اقدام را گامی تحول‌آفرین در بهبود خدمات درمانی به بیماران مبتلا به سرطان عنوان کرد.تأکید
+                    بر بهبود زیرساخت‌های فیزیکی معاونت‌های بهداشت و درمان در بخش دیگری از این نشست، سرپرست دانشگاه بر اختصاص فضای فیزیکی مناسب برای معاونت‌های بهداشت و درمان تأکید کرد.وی اظهار داشت:
+                    بررسی شرایط دسترسی آسان و مؤثر معاونت‌های بهداشت و درمان به پردیس دانشگاه باید در اولویت کار معاونت توسعه قرار گیرد تا زمینه تسریع و تسهیل فعالیت‌های این دو معاونت فراهم شود.دانشگاه
+                    علوم پزشکی تهران در صدر دانشگاه‌های ایران در رتبه‌بندی شانگهایدر ادامه دکتر محمد حسین آیتی معاون بین الملل دانشگاه با اعلام نتایج جدیدترین رتبه‌بندی موضوعی شانگهای 2024، از ارتقای
+                    قابل توجه دانشگاه علوم پزشکی تهران در شش حوزه مختلف پزشکی خبر داد.دکتر آیتی با اعلام خبر خوش دست‌یابی حوزه دندانپزشکی دانشگاه علوم پزشکی تهران به رتبه 201 تا 300 در رتبه‌بندی جهانی
+                    شانگهای، این موفقیت را دستاورد بی‌نظیری در سطح ملی دانست و افزود: دانشگاه علوم پزشکی تهران به عنوان تنها نماینده ایران در این حوزه، در جمع برترین دانشگاه‌های دنیا قرار گرفته است.
+                  </p>
+                </div>
               </div>
-            </div>
-          </article>
+              <div class="esprit-article__downloadable-files"></div>
+              <div class="esprit-article__pictures"></div>
+              <div class="esprit-article__videos"></div>
+              <div class="esprit-article__sounds"></div>
+              <div class="esprit-article__related-news"></div>
+              <div class="esprit-article__tags"></div>
+              <div class="esprit-article__metadata"></div>
+            </article>
+  
+            <aside class="esprit-aside">
+              <!-- بخش TTS (Text-to-Speech) -->
+              <div class="esprit-article-tts">
+                <audio id="player" controls>
+                  <source src="/path/to/audio.mp3" type="audio/mp3" />
+                  <source src="/path/to/audio.ogg" type="audio/ogg" />
+                </audio>
+              </div>
+  
+              <!-- بخش لینک کوتاه -->
+              <div class="esprit-article-shortlink">
+                
+              </div>
+  
+              <!-- بخش اطلاعات خبر -->
+              <div class="esprit-article-info">
+                <div class="esprit-article-info__item">
+                  <span class="esprit-article-info__label">تاریخ انتشار:</span>
+                  <span class="esprit-article-info__value">۱ فروردین ۱۴۰۲</span>
+                </div>
+                <div class="esprit-article-info__item">
+                  <span class="esprit-article-info__label">تعداد بازدید:</span>
+                  <span class="esprit-article-info__value">۱,۲۳۴</span>
+                </div>
+                <div class="esprit-article-info__item">
+                  <span class="esprit-article-info__label">زمان مطالعه:</span>
+                  <span class="esprit-article-info__value">۵ دقیقه</span>
+                </div>
+                <div class="esprit-article-info__item">
+                  <span class="esprit-article-info__label">عکاس:</span>
+                  <span class="esprit-article-info__value">قاسم صفاری</span>
+                </div>
+                <div class="esprit-article-info__item">
+                  <span class="esprit-article-info__label">فیلمبردار:</span>
+                  <span class="esprit-article-info__value">قاسم صفاری</span>
+                </div>
+                <div class="esprit-article-info__item">
+                  <span class="esprit-article-info__label">تدوین‌گر:</span>
+                  <span class="esprit-article-info__value">زهرا حری</span>
+                </div>
+              </div>
+  
+              <!-- بخش اشتراک گذاری -->
+              <div class="esprit-article-share">
+                <h2 class="esprit-article-share__title">اشتراک گذاری</h2>
+                <div class="esprit-article-share__buttons">
+                  <a href="#" class="esprit-article-share__button esprit-article-share__button--facebook">Facebook</a>
+                  <a href="#" class="esprit-article-share__button esprit-article-share__button--twitter">Twitter</a>
+                  <a href="#" class="esprit-article-share__button esprit-article-share__button--linkedin">LinkedIn</a>
+                  <a href="#" class="esprit-article-share__button esprit-article-share__button--whatsapp">WhatsApp</a>
+                </div>
+              </div>
+  
+              <!-- بخش محتوای مرتبط -->
+              <div class="esprit-article-related-content">
+                <h2 class="esprit-article-related-content__title">محتوای مرتبط با این خبر</h2>
+                <ul class="esprit-article-related-content__list">
+                  <li class="esprit-article-related-content__item">
+                    <a href="#" class="esprit-article-related-content__link">فایل‌های پیوست</a>
+                  </li>
+                  <li class="esprit-article-related-content__item">
+                    <a href="#" class="esprit-article-related-content__link">تصاویر خبر</a>
+                  </li>
+                  <li class="esprit-article-related-content__item">
+                    <a href="#" class="esprit-article-related-content__link">ویدئوهای خبر</a>
+                  </li>
+                  <li class="esprit-article-related-content__item">
+                    <a href="#" class="esprit-article-related-content__link">صوت‌های خبر</a>
+                  </li>
+                  <li class="esprit-article-related-content__item">
+                    <a href="#" class="esprit-article-related-content__link">خبرهای مرتبط</a>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+
+          </div>
+
         </div>
       </div>
     </main>
