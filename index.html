@@ -3,18 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
+    <title>Niafam Modules</title>
+    <link rel="shortcut icon" href="assets/img/niafam-favicon.png" type="image/x-icon" />
+
+    <!-- Niafam Esprit Style -->
     <link rel="stylesheet" type="text/css" href="/assets/css/espritstyle.css?2" />
-    <link rel="stylesheet" type="text/css" href="/assets/scss/espritstyle-v3.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/assets/scss/espritstyle-v3.css" /> -->
+
+    <!-- Niafam Jquery -->
+    <script src="/assets/js/jquery.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/assets/css/index-styles.css" />
-    
-    
+
     <!-- styles for news and article pages -->
     <link rel="stylesheet" type="text/css" href="/assets/scss/article.css" />
 
+    <link rel="stylesheet" href="/assets/components/Justified-Gallery-3.8.0/css/justifiedGallery.min.css" />
+    <script src="/assets/components/Justified-Gallery-3.8.0/js/jquery.justifiedGallery.min.js"></script>
+    <script type="module">
+      import { languageDirections } from "/assets/components/languageDirections.js";
 
-    <script src="/assets/js/jquery.js"></script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const gallery = document.querySelector(".esprit-article__gallery");
+        if (gallery) {
+          const lang = document.documentElement.lang;
+          const isRTL = languageDirections.rtl.includes(lang);
+
+          $(gallery).justifiedGallery({
+            rowHeight: 200,
+            margins: 12,
+            rtl: isRTL,
+            lastRow: isRTL ? "right" : "left",
+            cssAnimation: false,
+            waitThumbnailsLoad: true,
+            nonVisibleOpacity: 0.0,
+          });
+        }
+      });
+
+    </script>
   </head>
   <body>
     <header class="header">
@@ -58,9 +85,7 @@
           </ul>
         </div>
         <div class="page-content-main">
-
           <div class="page-content-main__article">
-
             <article class="esprit-article">
               <!-- عنوان های اصلی مقاله -->
               <header class="esprit-article__header">
@@ -68,7 +93,7 @@
                 <h1 class="esprit-article__title">برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد 173 سال تجربه و 90 سال افتخارآفرینی دانشگاه علوم پزشکی تهران</h1>
                 <p class="esprit-article__summary" aria-label="article__summary">نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران</p>
               </header>
-  
+
               <!-- بخش محتوای اصلی -->
               <div class="esprit-article__content">
                 <div class="esprit-article__image-wrapper">
@@ -87,22 +112,95 @@
                     دانشگاه در حوزه‌های مختلف است و نیازمند همدلی و تلاش جمعی برای برگزاری هرچه باشکوه‌تر آن هستیم.تحول در خدمات درمانی بیماران مبتلا به سرطان با راه‌اندازی بیمارستان جدید انستیتو
                     کانسردکتر رئیس کرمی در ادامه با اشاره به پروژه راه‌اندازی بیمارستان جدید انستیتو کانسر، این اقدام را گامی تحول‌آفرین در بهبود خدمات درمانی به بیماران مبتلا به سرطان عنوان کرد.تأکید
                     بر بهبود زیرساخت‌های فیزیکی معاونت‌های بهداشت و درمان در بخش دیگری از این نشست، سرپرست دانشگاه بر اختصاص فضای فیزیکی مناسب برای معاونت‌های بهداشت و درمان تأکید کرد.وی اظهار داشت:
-                    بررسی شرایط دسترسی آسان و مؤثر معاونت‌های بهداشت و درمان به پردیس دانشگاه باید در اولویت کار معاونت توسعه قرار گیرد تا زمینه تسریع و تسهیل فعالیت‌های این دو معاونت فراهم شود.دانشگاه
-                    علوم پزشکی تهران در صدر دانشگاه‌های ایران در رتبه‌بندی شانگهایدر ادامه دکتر محمد حسین آیتی معاون بین الملل دانشگاه با اعلام نتایج جدیدترین رتبه‌بندی موضوعی شانگهای 2024، از ارتقای
-                    قابل توجه دانشگاه علوم پزشکی تهران در شش حوزه مختلف پزشکی خبر داد.دکتر آیتی با اعلام خبر خوش دست‌یابی حوزه دندانپزشکی دانشگاه علوم پزشکی تهران به رتبه 201 تا 300 در رتبه‌بندی جهانی
-                    شانگهای، این موفقیت را دستاورد بی‌نظیری در سطح ملی دانست و افزود: دانشگاه علوم پزشکی تهران به عنوان تنها نماینده ایران در این حوزه، در جمع برترین دانشگاه‌های دنیا قرار گرفته است.
+                    بررسی شرایط دسترسی آسان و مؤثر معاونت‌های بهداشت و درمان به پردیس دانشگاه باید در اولویت کار معاونت توسعه قرار گیرد تا زمینه تسریع و تسهیل فعالیت‌های این دو معاونت فراهم
+                    شود.دانشگاه علوم پزشکی تهران در صدر دانشگاه‌های ایران در رتبه‌بندی شانگهایدر ادامه دکتر محمد حسین آیتی معاون بین الملل دانشگاه با اعلام نتایج جدیدترین رتبه‌بندی موضوعی شانگهای
+                    2024، از ارتقای قابل توجه دانشگاه علوم پزشکی تهران در شش حوزه مختلف پزشکی خبر داد.دکتر آیتی با اعلام خبر خوش دست‌یابی حوزه دندانپزشکی دانشگاه علوم پزشکی تهران به رتبه 201 تا 300 در
+                    رتبه‌بندی جهانی شانگهای، این موفقیت را دستاورد بی‌نظیری در سطح ملی دانست و افزود: دانشگاه علوم پزشکی تهران به عنوان تنها نماینده ایران در این حوزه، در جمع برترین دانشگاه‌های دنیا
+                    قرار گرفته است.
                   </p>
                 </div>
               </div>
-              <div class="esprit-article__downloadable-files"></div>
-              <div class="esprit-article__pictures"></div>
+
+              <!-- downloadable-files -->
+              <div class="esprit-article__downloadable-files">
+                <ul class="esprit-article__file-list">
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">فرم ثبت‌نام دانشجویان جدید</a>
+                  </li>
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">تقویم آموزشی نیمسال دوم</a>
+                  </li>
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">راهنمای استفاده از سامانه آموزش</a>
+                  </li>
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">فرم درخواست مرخصی تحصیلی</a>
+                  </li>
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">دستورالعمل انتخاب واحد</a>
+                  </li>
+
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">فرم ثبت‌نام دانشجویان جدید</a>
+                  </li>
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">آیین‌نامه آموزشی دوره کارشناسی</a>
+                  </li>
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">تقاضای صدور کارت دانشجویی</a>
+                  </li>
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">فرم ثبت‌نام کتابخانه مرکزی</a>
+                  </li>
+                  <li class="esprit-article__file-item">
+                    <a href="#" class="esprit-article__file-link">راهنمای سامانه مدیریت پایان‌نامه</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- pictures -->
+              <div class="esprit-article__pictures">
+                <div class="esprit-article__gallery">
+                  <a href="/assets/img/img-09.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-09.jpg" alt="Conference participants in discussion at meeting table" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-10.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-10.jpg" alt="Three participants reviewing documents at conference" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-11.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-11.jpg" alt="Conference attendees seated at meeting table" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-12.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-12.jpg" alt="Group discussion during conference meeting" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-13.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-13.jpg" alt="Participants taking notes during meeting" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-14.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-14.jpg" alt="Two attendees reviewing documents" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-15.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-15.jpg" alt="Conference participants in discussion" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-16.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-16.jpg" alt="Meeting participants seated at conference table" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-17.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-17.jpg" alt="Conference overview showing multiple participants" loading="lazy" />
+                  </a>
+                  <a href="/assets/img/img-18.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/img/img-18.jpg" alt="Conference overview showing multiple participants" loading="lazy" />
+                  </a>
+                </div>
+              </div>
+
               <div class="esprit-article__videos"></div>
               <div class="esprit-article__sounds"></div>
               <div class="esprit-article__related-news"></div>
               <div class="esprit-article__tags"></div>
               <div class="esprit-article__metadata"></div>
             </article>
-  
+
             <aside class="esprit-aside">
               <!-- بخش TTS (Text-to-Speech) -->
               <div class="esprit-article-tts">
@@ -111,12 +209,10 @@
                   <source src="/path/to/audio.ogg" type="audio/ogg" />
                 </audio>
               </div>
-  
+
               <!-- بخش لینک کوتاه -->
-              <div class="esprit-article-shortlink">
-                
-              </div>
-  
+              <div class="esprit-article-shortlink"></div>
+
               <!-- بخش اطلاعات خبر -->
               <div class="esprit-article-info">
                 <div class="esprit-article-info__item">
@@ -144,7 +240,7 @@
                   <span class="esprit-article-info__value">زهرا حری</span>
                 </div>
               </div>
-  
+
               <!-- بخش اشتراک گذاری -->
               <div class="esprit-article-share">
                 <h2 class="esprit-article-share__title">اشتراک گذاری</h2>
@@ -155,7 +251,7 @@
                   <a href="#" class="esprit-article-share__button esprit-article-share__button--whatsapp">WhatsApp</a>
                 </div>
               </div>
-  
+
               <!-- بخش محتوای مرتبط -->
               <div class="esprit-article-related-content">
                 <h2 class="esprit-article-related-content__title">محتوای مرتبط با این خبر</h2>
@@ -178,9 +274,7 @@
                 </ul>
               </div>
             </aside>
-
           </div>
-
         </div>
       </div>
     </main>
