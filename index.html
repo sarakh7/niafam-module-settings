@@ -20,8 +20,22 @@
 
     <link rel="stylesheet" href="/assets/components/Justified-Gallery-3.8.0/css/justifiedGallery.min.css" />
     <script src="/assets/components/Justified-Gallery-3.8.0/js/jquery.justifiedGallery.min.js"></script>
+
+    <!-- justifiedGallery - lightGallery -->
+    <link rel="stylesheet" href="/assets/components/lightGallery-2.8.2/css/lightgallery-bundle.min.css" />
     <script type="module">
       import { languageDirections } from "/assets/components/languageDirections.js";
+      
+      // lightGallery 
+      import lightGallery from "/assets/components/lightGallery-2.8.2/lightgallery.es5.js";
+      // Import all plugins
+      import lgZoom from '/assets/components/lightGallery-2.8.2/plugins/zoom/lg-zoom.es5.js';
+      import lgThumbnail from '/assets/components/lightGallery-2.8.2/plugins/thumbnail/lg-thumbnail.es5.js';
+      import lgFullscreen from '/assets/components/lightGallery-2.8.2/plugins/fullscreen/lg-fullscreen.es5.js';
+      import lgAutoplay from '/assets/components/lightGallery-2.8.2/plugins/autoplay/lg-autoplay.es5.js';
+      import lgVideo from '/assets/components/lightGallery-2.8.2/plugins/video/lg-video.es5.js';
+      import lgRotate from '/assets/components/lightGallery-2.8.2/plugins/rotate/lg-rotate.es5.js';
+      import lgShare from '/assets/components/lightGallery-2.8.2/plugins/share/lg-share.es5.js';
 
       document.addEventListener("DOMContentLoaded", function () {
         const gallery = document.querySelector(".esprit-article__gallery");
@@ -29,6 +43,7 @@
           const lang = document.documentElement.lang;
           const isRTL = languageDirections.rtl.includes(lang);
 
+          // Initialize justifiedGallery
           $(gallery).justifiedGallery({
             rowHeight: 200,
             margins: 12,
@@ -38,9 +53,18 @@
             waitThumbnailsLoad: true,
             nonVisibleOpacity: 0.0,
           });
+
+          // Initialize lightGallery
+          lightGallery(gallery, {
+            plugins: [lgZoom,lgThumbnail,lgFullscreen,lgAutoplay,lgVideo,lgRotate,lgShare],
+            selector: ".esprit-article__gallery-item",
+            download: false,
+            counter: false,
+            enableDrag: false,
+            enableSwipe: false,
+          });
         }
       });
-
     </script>
   </head>
   <body>
