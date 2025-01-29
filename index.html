@@ -69,7 +69,8 @@
 
     <!-- plyr -->
     <link rel="stylesheet" href="/assets/components/plyr-3.7.8/dist/plyr.css" />
-    <script src="/assets/components/plyr-3.7.8/dist/plyr.min.mjs"></script>
+
+    <!-- esprit-article__videos plyr -->
     <script type="module">
       import Plyr from "/assets/components/plyr-3.7.8/dist/plyr.min.mjs";
 
@@ -89,6 +90,37 @@
                 },
               ],
             };
+
+            // پخش خودکار پس از تغییر منبع
+            player.play();
+          });
+        });
+      });
+    </script>
+
+    <!-- esprit-article__sounds plyr -->
+    <script type="module">
+      import Plyr from "/assets/components/plyr-3.7.8/dist/plyr.min.mjs";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const player = new Plyr("#main-audio");
+
+        const audioItems = document.querySelectorAll(".sound-list__item");
+        audioItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const audioSrc = item.getAttribute("data-audio-src");
+            player.source = {
+              type: "audio",
+              sources: [
+                {
+                  src: audioSrc,
+                  type: "audio/mp3",
+                },
+              ],
+            };
+
+            // پخش خودکار پس از تغییر منبع
+            player.play();
           });
         });
       });
@@ -274,7 +306,34 @@
                 </div>
               </div>
 
-              <div class="esprit-article__sounds"></div>
+              <div class="esprit-article__sounds">
+                <!-- پلیر صوت اصلی -->
+                <div class="esprit-article__sound-player">
+                  <div class="sound-player__container">
+                    <audio id="main-audio" class="sound-player__audio" controls>
+                      <source src="/assets/sounds/01 Lost Soul.mp3" type="audio/mp3" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                </div>
+
+                <!-- لیست صوت‌ها -->
+                <div class="esprit-article__sound-list">
+                  <div class="sound-list__container">
+                    <div class="sound-list__scroll">
+                      <div class="sound-list__item" data-audio-src="/assets/sounds/06 For The Fallen.mp3">
+                        <img src="path/to/thumbnail1.jpg" alt="Audio 1" class="sound-list__thumbnail" />
+                        <div class="sound-list__title">Audio 1 Title</div>
+                      </div>
+                      <div class="sound-list__item" data-audio-src="/assets/sounds/11 Midnight Thoughts.mp3">
+                        <img src="path/to/thumbnail2.jpg" alt="Audio 2" class="sound-list__thumbnail" />
+                        <div class="sound-list__title">Audio 2 Title</div>
+                      </div>
+                      <!-- صوت‌های بیشتر -->
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="esprit-article__related-news"></div>
               <div class="esprit-article__tags"></div>
               <div class="esprit-article__metadata"></div>
@@ -284,8 +343,7 @@
               <!-- بخش TTS (Text-to-Speech) -->
               <div class="esprit-article-tts">
                 <audio id="player" controls>
-                  <source src="/path/to/audio.mp3" type="audio/mp3" />
-                  <source src="/path/to/audio.ogg" type="audio/ogg" />
+                  <source src="/assets/sounds/11 Midnight Thoughts.mp3" type="audio/mp3" />
                 </audio>
               </div>
 
