@@ -25,17 +25,17 @@
     <link rel="stylesheet" href="/assets/components/lightGallery-2.8.2/css/lightgallery-bundle.min.css" />
     <script type="module">
       import { languageDirections } from "/assets/components/languageDirections.js";
-      
-      // lightGallery 
+
+      // lightGallery
       import lightGallery from "/assets/components/lightGallery-2.8.2/lightgallery.es5.js";
       // Import all plugins
-      import lgZoom from '/assets/components/lightGallery-2.8.2/plugins/zoom/lg-zoom.es5.js';
-      import lgThumbnail from '/assets/components/lightGallery-2.8.2/plugins/thumbnail/lg-thumbnail.es5.js';
-      import lgFullscreen from '/assets/components/lightGallery-2.8.2/plugins/fullscreen/lg-fullscreen.es5.js';
-      import lgAutoplay from '/assets/components/lightGallery-2.8.2/plugins/autoplay/lg-autoplay.es5.js';
-      import lgVideo from '/assets/components/lightGallery-2.8.2/plugins/video/lg-video.es5.js';
-      import lgRotate from '/assets/components/lightGallery-2.8.2/plugins/rotate/lg-rotate.es5.js';
-      import lgShare from '/assets/components/lightGallery-2.8.2/plugins/share/lg-share.es5.js';
+      import lgZoom from "/assets/components/lightGallery-2.8.2/plugins/zoom/lg-zoom.es5.js";
+      import lgThumbnail from "/assets/components/lightGallery-2.8.2/plugins/thumbnail/lg-thumbnail.es5.js";
+      import lgFullscreen from "/assets/components/lightGallery-2.8.2/plugins/fullscreen/lg-fullscreen.es5.js";
+      import lgAutoplay from "/assets/components/lightGallery-2.8.2/plugins/autoplay/lg-autoplay.es5.js";
+      import lgVideo from "/assets/components/lightGallery-2.8.2/plugins/video/lg-video.es5.js";
+      import lgRotate from "/assets/components/lightGallery-2.8.2/plugins/rotate/lg-rotate.es5.js";
+      import lgShare from "/assets/components/lightGallery-2.8.2/plugins/share/lg-share.es5.js";
 
       document.addEventListener("DOMContentLoaded", function () {
         const gallery = document.querySelector(".esprit-article__gallery");
@@ -56,7 +56,7 @@
 
           // Initialize lightGallery
           lightGallery(gallery, {
-            plugins: [lgZoom,lgThumbnail,lgFullscreen,lgAutoplay,lgVideo,lgRotate,lgShare],
+            plugins: [lgZoom, lgThumbnail, lgFullscreen, lgAutoplay, lgVideo, lgRotate, lgShare],
             selector: ".esprit-article__gallery-item",
             download: false,
             counter: false,
@@ -64,6 +64,33 @@
             enableSwipe: false,
           });
         }
+      });
+    </script>
+
+    <!-- plyr -->
+    <link rel="stylesheet" href="/assets/components/plyr-3.7.8/dist/plyr.css" />
+    <script src="/assets/components/plyr-3.7.8/dist/plyr.min.mjs"></script>
+    <script type="module">
+      import Plyr from "/assets/components/plyr-3.7.8/dist/plyr.min.mjs";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const player = new Plyr("#main-video");
+
+        const videoItems = document.querySelectorAll(".video-list__item");
+        videoItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const videoSrc = item.getAttribute("data-video-src");
+            player.source = {
+              type: "video",
+              sources: [
+                {
+                  src: videoSrc,
+                  type: "video/mp4",
+                },
+              ],
+            };
+          });
+        });
       });
     </script>
   </head>
@@ -218,7 +245,35 @@
                 </div>
               </div>
 
-              <div class="esprit-article__videos"></div>
+              <div class="esprit-article__videos">
+                <!-- پلیر ویدئو اصلی -->
+                <div class="esprit-article__video-player">
+                  <div class="video-player__container">
+                    <video id="main-video" class="video-player__video" controls>
+                      <source src="/assets/video/1 Minute Sample Video.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+
+                <!-- لیست ویدئوها -->
+                <div class="esprit-article__video-list">
+                  <div class="video-list__container">
+                    <div class="video-list__scroll">
+                      <div class="video-list__item" data-video-src="/assets/video/1 Minute Sample Video 2.mp4">
+                        <img src="path/to/thumbnail1.jpg" alt="Video 1" class="video-list__thumbnail" />
+                        <div class="video-list__title">Video 1 Title</div>
+                      </div>
+                      <div class="video-list__item" data-video-src="/assets/video/6 AM.mp4">
+                        <img src="path/to/thumbnail2.jpg" alt="Video 2" class="video-list__thumbnail" />
+                        <div class="video-list__title">Video 2 Title</div>
+                      </div>
+                      <!-- ویدئوهای بیشتر -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div class="esprit-article__sounds"></div>
               <div class="esprit-article__related-news"></div>
               <div class="esprit-article__tags"></div>
