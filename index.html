@@ -412,23 +412,46 @@
                 </div>
               </div>
 
-              
               <!-- کلیدواژه‌ها -->
               <div class="esprit-article__tags"></div>
-              
+
               <div class="esprit-article__metadata"></div>
             </article>
 
             <aside class="esprit-aside">
               <!-- بخش TTS (Text-to-Speech) -->
               <div class="esprit-article-tts">
-                <audio id="player" controls>
+                <audio id="tts-audio" controls>
                   <source src="/assets/sounds/11 Midnight Thoughts.mp3" type="audio/mp3" />
                 </audio>
               </div>
 
               <!-- بخش لینک کوتاه -->
-              <div class="esprit-article-shortlink"></div>
+              <div class="esprit-article-shortlink">
+                <!-- Right side - Short link -->
+                <div class="esprit-article-shortlink__link-container">
+                  <span class="esprit-article-shortlink__link-icon">
+                    <img class="esprit-article-shortlink__icon" src="link-icon.svg" alt="Link icon" />
+                  </span>
+                  <span class="esprit-article-shortlink__text">کپی لینک کوتاه</span>
+                </div>
+
+                <!-- Left side - Action buttons -->
+                <div class="esprit-article-shortlink__actions">
+                  <button class="esprit-article-shortlink__action esprit-article-shortlink__action--print">
+                    <img class="esprit-article-shortlink__action-icon" src="print-icon.svg" alt="Print" />
+                  </button>
+                  <button class="esprit-article-shortlink__action esprit-article-shortlink__action--pdf">
+                    <img class="esprit-article-shortlink__action-icon" src="pdf-icon.svg" alt="PDF" />
+                  </button>
+                  <button class="esprit-article-shortlink__action esprit-article-shortlink__action--eamil">
+                    <img class="esprit-article-shortlink__action-icon" src="text-icon.svg" alt="Text only" />
+                  </button>
+                </div>
+              </div>
+
+              <!-- تنظیمات دسترسی پذیری خبر -->
+              <div class="esprit-article-accessibility"></div>
 
               <!-- بخش اطلاعات خبر -->
               <div class="esprit-article-info">
