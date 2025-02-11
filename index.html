@@ -4,38 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Niafam Modules</title>
-    <link rel="shortcut icon" href="assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/production/img/niafam-favicon.png" type="image/x-icon" />
 
     <!-- Niafam Esprit Style -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/espritstyle.css?2" />
-    <!-- <link rel="stylesheet" type="text/css" href="/assets/scss/espritstyle-v3.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/production/css/espritstyle.css?2" />
+    <!-- <link rel="stylesheet" type="text/css" href="production/espritstyle-v3.css" /> -->
 
     <!-- Niafam Jquery -->
-    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/production/js/jquery.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/index-styles.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/development/css/index-styles.css" />
 
     <!-- styles for news and article pages -->
-    <link rel="stylesheet" type="text/css" href="/assets/scss/article.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/production/css/article.css" />
 
-    <link rel="stylesheet" href="/assets/components/Justified-Gallery-3.8.0/css/justifiedGallery.min.css" />
-    <script src="/assets/components/Justified-Gallery-3.8.0/js/jquery.justifiedGallery.min.js"></script>
+    <link rel="stylesheet" href="/assets/production/components/Justified-Gallery-3.8.0/css/justifiedGallery.min.css" />
+    <script src="/assets/production/components/Justified-Gallery-3.8.0/js/jquery.justifiedGallery.min.js"></script>
 
     <!-- justifiedGallery - lightGallery -->
-    <link rel="stylesheet" href="/assets/components/lightGallery-2.8.2/css/lightgallery-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/production/components/lightGallery-2.8.2/css/lightgallery-bundle.min.css" />
     <script type="module">
-      import { languageDirections } from "/assets/components/languageDirections.js";
+      import { languageDirections } from "/assets/production/components/languageDirections.js";
 
       // lightGallery
-      import lightGallery from "/assets/components/lightGallery-2.8.2/lightgallery.es5.js";
+      import lightGallery from "/assets/production/components/lightGallery-2.8.2/lightgallery.es5.js";
       // Import all plugins
-      import lgZoom from "/assets/components/lightGallery-2.8.2/plugins/zoom/lg-zoom.es5.js";
-      import lgThumbnail from "/assets/components/lightGallery-2.8.2/plugins/thumbnail/lg-thumbnail.es5.js";
-      import lgFullscreen from "/assets/components/lightGallery-2.8.2/plugins/fullscreen/lg-fullscreen.es5.js";
-      import lgAutoplay from "/assets/components/lightGallery-2.8.2/plugins/autoplay/lg-autoplay.es5.js";
-      import lgVideo from "/assets/components/lightGallery-2.8.2/plugins/video/lg-video.es5.js";
-      import lgRotate from "/assets/components/lightGallery-2.8.2/plugins/rotate/lg-rotate.es5.js";
-      import lgShare from "/assets/components/lightGallery-2.8.2/plugins/share/lg-share.es5.js";
+      import lgZoom from "/assets/production/components/lightGallery-2.8.2/plugins/zoom/lg-zoom.es5.js";
+      import lgThumbnail from "/assets/production/components/lightGallery-2.8.2/plugins/thumbnail/lg-thumbnail.es5.js";
+      import lgFullscreen from "/assets/production/components/lightGallery-2.8.2/plugins/fullscreen/lg-fullscreen.es5.js";
+      import lgAutoplay from "/assets/production/components/lightGallery-2.8.2/plugins/autoplay/lg-autoplay.es5.js";
+      import lgVideo from "/assets/production/components/lightGallery-2.8.2/plugins/video/lg-video.es5.js";
+      import lgRotate from "/assets/production/components/lightGallery-2.8.2/plugins/rotate/lg-rotate.es5.js";
+      import lgShare from "/assets/production/components/lightGallery-2.8.2/plugins/share/lg-share.es5.js";
 
       document.addEventListener("DOMContentLoaded", function () {
         const gallery = document.querySelector(".esprit-article__gallery");
@@ -68,11 +68,11 @@
     </script>
 
     <!-- plyr -->
-    <link rel="stylesheet" href="/assets/components/plyr-3.7.8/dist/plyr.css" />
+    <link rel="stylesheet" href="/assets/production/components/plyr-3.7.8/dist/plyr.css" />
 
     <!-- esprit-article__videos plyr -->
     <script type="module">
-      import Plyr from "/assets/components/plyr-3.7.8/dist/plyr.min.mjs";
+      import Plyr from "/assets/production/components/plyr-3.7.8/dist/plyr.min.mjs";
 
       document.addEventListener("DOMContentLoaded", () => {
         const player = new Plyr("#main-video");
@@ -100,7 +100,7 @@
 
     <!-- esprit-article__sounds plyr -->
     <script type="module">
-      import Plyr from "/assets/components/plyr-3.7.8/dist/plyr.min.mjs";
+      import Plyr from "/assets/production/components/plyr-3.7.8/dist/plyr.min.mjs";
 
       document.addEventListener("DOMContentLoaded", () => {
         const player = new Plyr("#main-audio");
@@ -128,7 +128,7 @@
   </head>
   <body>
     <header class="header">
-      <img class="vector" src="/assets/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
+      <img class="vector" src="/assets/development/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
       <nav class="auto-layout">
         <a href="#" class="text-wrapper">تماس با ما</a>
         <a href="#" class="text-wrapper">پورتال سازمانی</a>
@@ -182,7 +182,7 @@
                 <div class="esprit-article__image-wrapper">
                   <!-- تصویر شاخص خبر -->
                   <!-- <img
-                    src="/assets/img/article-content-img.jpg"
+                    src="/assets/development/img/article-content-img.jpg"
                     alt="article title"
                     face="دکتر جواد قاسمی,29,121,48,48,dr.Javad Ghasemi,5|دکتر محسن امینی,240,79,65,65,dr. Mohsen Amini,4|دکتر داود زارعیان,128,94,65,65,dr. davood zareian,3|انوش اوحدی,339,27,81,81,Anoush Ohadi,2"
                   /> -->
@@ -244,35 +244,35 @@
               <!-- pictures -->
               <div class="esprit-article__pictures">
                 <div class="esprit-article__gallery">
-                  <a href="/assets/img/img-09.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-09.jpg" alt="Conference participants in discussion at meeting table" loading="lazy" />
+                  <a href="/assets/development/img/img-09.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-09.jpg" alt="Conference participants in discussion at meeting table" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-10.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-10.jpg" alt="Three participants reviewing documents at conference" loading="lazy" />
+                  <a href="/assets/development/img/img-10.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-10.jpg" alt="Three participants reviewing documents at conference" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-11.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-11.jpg" alt="Conference attendees seated at meeting table" loading="lazy" />
+                  <a href="/assets/development/img/img-11.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-11.jpg" alt="Conference attendees seated at meeting table" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-12.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-12.jpg" alt="Group discussion during conference meeting" loading="lazy" />
+                  <a href="/assets/development/img/img-12.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-12.jpg" alt="Group discussion during conference meeting" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-13.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-13.jpg" alt="Participants taking notes during meeting" loading="lazy" />
+                  <a href="/assets/development/img/img-13.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-13.jpg" alt="Participants taking notes during meeting" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-14.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-14.jpg" alt="Two attendees reviewing documents" loading="lazy" />
+                  <a href="/assets/development/img/img-14.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-14.jpg" alt="Two attendees reviewing documents" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-15.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-15.jpg" alt="Conference participants in discussion" loading="lazy" />
+                  <a href="/assets/development/img/img-15.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-15.jpg" alt="Conference participants in discussion" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-16.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-16.jpg" alt="Meeting participants seated at conference table" loading="lazy" />
+                  <a href="/assets/development/img/img-16.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-16.jpg" alt="Meeting participants seated at conference table" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-17.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-17.jpg" alt="Conference overview showing multiple participants" loading="lazy" />
+                  <a href="/assets/development/img/img-17.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-17.jpg" alt="Conference overview showing multiple participants" loading="lazy" />
                   </a>
-                  <a href="/assets/img/img-18.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/img/img-18.jpg" alt="Conference overview showing multiple participants" loading="lazy" />
+                  <a href="/assets/development/img/img-18.jpg" class="esprit-article__gallery-item">
+                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-18.jpg" alt="Conference overview showing multiple participants" loading="lazy" />
                   </a>
                 </div>
               </div>
@@ -282,7 +282,7 @@
                 <div class="esprit-article__video-player">
                   <div class="video-player__container">
                     <video id="main-video" class="video-player__video" controls>
-                      <source src="/assets/video/1 Minute Sample Video.mp4" type="video/mp4" />
+                      <source src="/assets/development/video/1 Minute Sample Video.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -292,11 +292,11 @@
                 <div class="esprit-article__video-list">
                   <div class="video-list__container">
                     <div class="video-list__scroll">
-                      <div class="video-list__item" data-video-src="/assets/video/1 Minute Sample Video 2.mp4">
+                      <div class="video-list__item" data-video-src="/assets/development/video/1 Minute Sample Video 2.mp4">
                         <img src="path/to/thumbnail1.jpg" alt="Video 1" class="video-list__thumbnail" />
                         <div class="video-list__title">Video 1 Title</div>
                       </div>
-                      <div class="video-list__item" data-video-src="/assets/video/6 AM.mp4">
+                      <div class="video-list__item" data-video-src="/assets/development/video/6 AM.mp4">
                         <img src="path/to/thumbnail2.jpg" alt="Video 2" class="video-list__thumbnail" />
                         <div class="video-list__title">Video 2 Title</div>
                       </div>
@@ -311,7 +311,7 @@
                 <div class="esprit-article__sound-player">
                   <div class="sound-player__container">
                     <audio id="main-audio" class="sound-player__audio" controls>
-                      <source src="/assets/sounds/01 Lost Soul.mp3" type="audio/mp3" />
+                      <source src="/assets/development/sounds/01 Lost Soul.mp3" type="audio/mp3" />
                       Your browser does not support the audio element.
                     </audio>
                   </div>
@@ -321,11 +321,11 @@
                 <div class="esprit-article__sound-list">
                   <div class="sound-list__container">
                     <div class="sound-list__scroll">
-                      <div class="sound-list__item" data-audio-src="/assets/sounds/06 For The Fallen.mp3">
+                      <div class="sound-list__item" data-audio-src="/assets/development/sounds/06 For The Fallen.mp3">
                         <img src="path/to/thumbnail1.jpg" alt="Audio 1" class="sound-list__thumbnail" />
                         <div class="sound-list__title">Audio 1 Title</div>
                       </div>
-                      <div class="sound-list__item" data-audio-src="/assets/sounds/11 Midnight Thoughts.mp3">
+                      <div class="sound-list__item" data-audio-src="/assets/development/sounds/11 Midnight Thoughts.mp3">
                         <img src="path/to/thumbnail2.jpg" alt="Audio 2" class="sound-list__thumbnail" />
                         <div class="sound-list__title">Audio 2 Title</div>
                       </div>
@@ -422,7 +422,7 @@
               <!-- بخش TTS (Text-to-Speech) -->
               <div class="esprit-article-tts">
                 <audio id="tts-audio" controls>
-                  <source src="/assets/sounds/11 Midnight Thoughts.mp3" type="audio/mp3" />
+                  <source src="/assets/development/sounds/11 Midnight Thoughts.mp3" type="audio/mp3" />
                 </audio>
               </div>
 
