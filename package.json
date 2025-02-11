@@ -3,5 +3,11 @@
     "bootstrap": "^5.3.3",
     "lightgallery": "^2.8.2",
     "plyr": "^3.7.8"
+  },
+  "devDependencies": {
+    "sass": "^1.84.0"
+  },
+  "scripts": {
+    "scss": "sass assets/development/scss:assets/production/css --style compressed --watch"
   }
 }
