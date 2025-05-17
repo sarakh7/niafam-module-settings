@@ -2,166 +2,86 @@
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Niafam Modules</title>
-    <link rel="shortcut icon" href="/assets/production/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/espritstyle.css" />
+    <link rel="stylesheet" href="/assets/css/article.css" />
+    <!-- <link rel="stylesheet" href="/assets/css/index-styles.css" /> -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
-    <!-- Niafam Esprit Style -->
-    <link rel="stylesheet" type="text/css" href="/assets/production/css/espritstyle.css?2" />
-    <!-- <link rel="stylesheet" type="text/css" href="production/espritstyle-v3.css" /> -->
-
-    <!-- Niafam Jquery -->
-    <script src="/assets/production/js/jquery.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="/assets/development/css/index-styles.css" />
-
-    <!-- styles for news and article pages -->
-    <link rel="stylesheet" type="text/css" href="/assets/production/css/article.css" />
-
-    <link rel="stylesheet" href="/assets/production/components/Justified-Gallery-3.8.0/css/justifiedGallery.min.css" />
-    <script src="/assets/production/components/Justified-Gallery-3.8.0/js/jquery.justifiedGallery.min.js"></script>
-
-    <!-- justifiedGallery - lightGallery -->
-    <link rel="stylesheet" href="/assets/production/components/lightGallery-2.8.2/css/lightgallery-bundle.min.css" />
-    <script type="module">
-      import { languageDirections } from "/assets/production/components/languageDirections.js";
-
-      // lightGallery
-      import lightGallery from "/assets/production/components/lightGallery-2.8.2/lightgallery.es5.js";
-      // Import all plugins
-      import lgZoom from "/assets/production/components/lightGallery-2.8.2/plugins/zoom/lg-zoom.es5.js";
-      import lgThumbnail from "/assets/production/components/lightGallery-2.8.2/plugins/thumbnail/lg-thumbnail.es5.js";
-      import lgFullscreen from "/assets/production/components/lightGallery-2.8.2/plugins/fullscreen/lg-fullscreen.es5.js";
-      import lgAutoplay from "/assets/production/components/lightGallery-2.8.2/plugins/autoplay/lg-autoplay.es5.js";
-      import lgVideo from "/assets/production/components/lightGallery-2.8.2/plugins/video/lg-video.es5.js";
-      import lgRotate from "/assets/production/components/lightGallery-2.8.2/plugins/rotate/lg-rotate.es5.js";
-      import lgShare from "/assets/production/components/lightGallery-2.8.2/plugins/share/lg-share.es5.js";
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const gallery = document.querySelector(".esprit-article__gallery");
-        if (gallery) {
-          const lang = document.documentElement.lang;
-          const isRTL = languageDirections.rtl.includes(lang);
-
-          // Initialize justifiedGallery
-          $(gallery).justifiedGallery({
-            rowHeight: 200,
-            margins: 12,
-            rtl: isRTL,
-            lastRow: isRTL ? "right" : "left",
-            cssAnimation: false,
-            waitThumbnailsLoad: true,
-            nonVisibleOpacity: 0.0,
-          });
-
-          // Initialize lightGallery
-          lightGallery(gallery, {
-            plugins: [lgZoom, lgThumbnail, lgFullscreen, lgAutoplay, lgVideo, lgRotate, lgShare],
-            selector: ".esprit-article__gallery-item",
-            download: false,
-            counter: false,
-            enableDrag: false,
-            enableSwipe: false,
-          });
-        }
-      });
-    </script>
-
-    <!-- plyr -->
-    <link rel="stylesheet" href="/assets/production/components/plyr-3.7.8/dist/plyr.css" />
-
-    <!-- esprit-article__videos plyr -->
-    <script type="module">
-      import Plyr from "/assets/production/components/plyr-3.7.8/dist/plyr.min.mjs";
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const player = new Plyr("#main-video");
-
-        const videoItems = document.querySelectorAll(".video-list__item");
-        videoItems.forEach((item) => {
-          item.addEventListener("click", () => {
-            const videoSrc = item.getAttribute("data-video-src");
-            player.source = {
-              type: "video",
-              sources: [
-                {
-                  src: videoSrc,
-                  type: "video/mp4",
-                },
-              ],
-            };
-
-            // پخش خودکار پس از تغییر منبع
-            player.play();
-          });
-        });
-      });
-    </script>
-
-    <!-- esprit-article__sounds plyr -->
-    <script type="module">
-      import Plyr from "/assets/production/components/plyr-3.7.8/dist/plyr.min.mjs";
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const player = new Plyr("#main-audio");
-
-        const audioItems = document.querySelectorAll(".sound-list__item");
-        audioItems.forEach((item) => {
-          item.addEventListener("click", () => {
-            const audioSrc = item.getAttribute("data-audio-src");
-            player.source = {
-              type: "audio",
-              sources: [
-                {
-                  src: audioSrc,
-                  type: "audio/mp3",
-                },
-              ],
-            };
-
-            // پخش خودکار پس از تغییر منبع
-            player.play();
-          });
-        });
-      });
-    </script>
+    <script src="/assets/js/jquery.js"></script>
   </head>
   <body>
     <header class="header">
-      <img class="vector" src="/assets/development/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
+      <img
+        class="vector"
+        src="/assets/img/niafam-logo.png"
+        alt="Niafam Logo"
+        width="148"
+        height="60"
+      />
       <nav class="auto-layout">
         <a href="#" class="text-wrapper">تماس با ما</a>
         <a href="#" class="text-wrapper">پورتال سازمانی</a>
         <a href="#" class="text-wrapper">درباره نیافام</a>
-        <a href="#" class="style-filled"><span class="do-something">ورود کاربران</span></a>
+        <a href="#" class="style-filled"
+          ><span class="do-something">ورود کاربران</span></a
+        >
       </nav>
     </header>
 
     <main>
       <div class="page-content-wrapper">
         <div class="page-content-breadcrumb">
-          <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+          <ul
+            class="breadcrumb"
+            itemscope=""
+            itemtype="http://schema.org/BreadcrumbList"
+          >
+            <li
+              itemprop="itemListElement"
+              itemscope=""
+              itemtype="http://schema.org/ListItem"
+            >
               <a itemprop="item" href="/">
                 <span itemprop="name">صفحه اصلی</span>
               </a>
               <meta itemprop="position" content="1" />
             </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <li
+              itemprop="itemListElement"
+              itemscope=""
+              itemtype="http://schema.org/ListItem"
+            >
               <a itemprop="item" href="/محتوا">
                 <span itemprop="name">محتوا</span>
               </a>
               <meta itemprop="position" content="2" />
             </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <li
+              itemprop="itemListElement"
+              itemscope=""
+              itemtype="http://schema.org/ListItem"
+            >
               <a itemprop="item" href="/News">
                 <span itemprop="name">اخبار</span>
               </a>
               <meta itemprop="position" content="3" />
             </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="/news/امضای-میثاق-نامه-کلاه-ایمنی-کلاه-زندگی-بین-مرکز-قلب-تهران-و-پلیس-راهنمایی-رانندگی-تهران-بزرگ">
-                <span itemprop="name">برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد 173 سال تجربه و 90 سال افتخارآفرینی دانشگاه علوم پزشکی تهران</span>
+            <li
+              itemprop="itemListElement"
+              itemscope=""
+              itemtype="http://schema.org/ListItem"
+            >
+              <a
+                itemprop="item"
+                href="/news/امضای-میثاق-نامه-کلاه-ایمنی-کلاه-زندگی-بین-مرکز-قلب-تهران-و-پلیس-راهنمایی-رانندگی-تهران-بزرگ"
+              >
+                <span itemprop="name"
+                  >برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد 173 سال تجربه و 90
+                  سال افتخارآفرینی دانشگاه علوم پزشکی تهران</span
+                >
               </a>
               <meta itemprop="position" content="4" />
             </li>
@@ -172,9 +92,22 @@
             <article class="esprit-article">
               <!-- عنوان های اصلی مقاله -->
               <header class="esprit-article__header">
-                <p class="esprit-article__subtitle" aria-label="article__subtitle">نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران</p>
-                <h1 class="esprit-article__title">برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد 173 سال تجربه و 90 سال افتخارآفرینی دانشگاه علوم پزشکی تهران</h1>
-                <p class="esprit-article__summary" aria-label="article__summary">نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران</p>
+                <p
+                  class="esprit-article__subtitle"
+                  aria-label="article__subtitle"
+                >
+                  نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران
+                </p>
+                <h1 class="esprit-article__title">
+                  برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد 173 سال تجربه و 90
+                  سال افتخارآفرینی دانشگاه علوم پزشکی تهران
+                </h1>
+                <p
+                  class="esprit-article__summary"
+                  aria-label="article__summary"
+                >
+                  نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران
+                </p>
               </header>
 
               <!-- بخش محتوای اصلی -->
@@ -182,7 +115,7 @@
                 <div class="esprit-article__image-wrapper">
                   <!-- تصویر شاخص خبر -->
                   <!-- <img
-                    src="/assets/development/img/article-content-img.jpg"
+                    src="/assets/img/article-content-img.jpg"
                     alt="article title"
                     face="دکتر جواد قاسمی,29,121,48,48,dr.Javad Ghasemi,5|دکتر محسن امینی,240,79,65,65,dr. Mohsen Amini,4|دکتر داود زارعیان,128,94,65,65,dr. davood zareian,3|انوش اوحدی,339,27,81,81,Anoush Ohadi,2"
                   /> -->
@@ -190,16 +123,34 @@
                 <!-- پاراگراف ها -->
                 <div class="esprit-article__paragraph">
                   <p>
-                    به گزارش سینا رسانه دانشگاه علوم پزشکی تهران، دکتر سید رضا رئیس کرمی، سرپرست دانشگاه علوم پزشکی تهران، در این نشست ضمن ارزیابی روند اجرای برنامه‌های سالگرد، بر ضرورت برنامه‌ریزی
-                    دقیق، جامع و مشارکت حداکثری خانواده بزرگ دانشگاه در برگزاری این رویداد تأکید کرد.وی افزود: این مراسم، فرصت بی‌نظیری برای نمایش تاریخ پرافتخار، توانمندی‌های علمی و خدمات برجسته
-                    دانشگاه در حوزه‌های مختلف است و نیازمند همدلی و تلاش جمعی برای برگزاری هرچه باشکوه‌تر آن هستیم.تحول در خدمات درمانی بیماران مبتلا به سرطان با راه‌اندازی بیمارستان جدید انستیتو
-                    کانسردکتر رئیس کرمی در ادامه با اشاره به پروژه راه‌اندازی بیمارستان جدید انستیتو کانسر، این اقدام را گامی تحول‌آفرین در بهبود خدمات درمانی به بیماران مبتلا به سرطان عنوان کرد.تأکید
-                    بر بهبود زیرساخت‌های فیزیکی معاونت‌های بهداشت و درمان در بخش دیگری از این نشست، سرپرست دانشگاه بر اختصاص فضای فیزیکی مناسب برای معاونت‌های بهداشت و درمان تأکید کرد.وی اظهار داشت:
-                    بررسی شرایط دسترسی آسان و مؤثر معاونت‌های بهداشت و درمان به پردیس دانشگاه باید در اولویت کار معاونت توسعه قرار گیرد تا زمینه تسریع و تسهیل فعالیت‌های این دو معاونت فراهم
-                    شود.دانشگاه علوم پزشکی تهران در صدر دانشگاه‌های ایران در رتبه‌بندی شانگهایدر ادامه دکتر محمد حسین آیتی معاون بین الملل دانشگاه با اعلام نتایج جدیدترین رتبه‌بندی موضوعی شانگهای
-                    2024، از ارتقای قابل توجه دانشگاه علوم پزشکی تهران در شش حوزه مختلف پزشکی خبر داد.دکتر آیتی با اعلام خبر خوش دست‌یابی حوزه دندانپزشکی دانشگاه علوم پزشکی تهران به رتبه 201 تا 300 در
-                    رتبه‌بندی جهانی شانگهای، این موفقیت را دستاورد بی‌نظیری در سطح ملی دانست و افزود: دانشگاه علوم پزشکی تهران به عنوان تنها نماینده ایران در این حوزه، در جمع برترین دانشگاه‌های دنیا
-                    قرار گرفته است.
+                    به گزارش سینا رسانه دانشگاه علوم پزشکی تهران، دکتر سید رضا
+                    رئیس کرمی، سرپرست دانشگاه علوم پزشکی تهران، در این نشست ضمن
+                    ارزیابی روند اجرای برنامه‌های سالگرد، بر ضرورت برنامه‌ریزی
+                    دقیق، جامع و مشارکت حداکثری خانواده بزرگ دانشگاه در برگزاری
+                    این رویداد تأکید کرد.وی افزود: این مراسم، فرصت بی‌نظیری برای
+                    نمایش تاریخ پرافتخار، توانمندی‌های علمی و خدمات برجسته
+                    دانشگاه در حوزه‌های مختلف است و نیازمند همدلی و تلاش جمعی
+                    برای برگزاری هرچه باشکوه‌تر آن هستیم.تحول در خدمات درمانی
+                    بیماران مبتلا به سرطان با راه‌اندازی بیمارستان جدید انستیتو
+                    کانسردکتر رئیس کرمی در ادامه با اشاره به پروژه راه‌اندازی
+                    بیمارستان جدید انستیتو کانسر، این اقدام را گامی تحول‌آفرین
+                    در بهبود خدمات درمانی به بیماران مبتلا به سرطان عنوان
+                    کرد.تأکید بر بهبود زیرساخت‌های فیزیکی معاونت‌های بهداشت و
+                    درمان در بخش دیگری از این نشست، سرپرست دانشگاه بر اختصاص
+                    فضای فیزیکی مناسب برای معاونت‌های بهداشت و درمان تأکید
+                    کرد.وی اظهار داشت: بررسی شرایط دسترسی آسان و مؤثر معاونت‌های
+                    بهداشت و درمان به پردیس دانشگاه باید در اولویت کار معاونت
+                    توسعه قرار گیرد تا زمینه تسریع و تسهیل فعالیت‌های این دو
+                    معاونت فراهم شود.دانشگاه علوم پزشکی تهران در صدر دانشگاه‌های
+                    ایران در رتبه‌بندی شانگهایدر ادامه دکتر محمد حسین آیتی معاون
+                    بین الملل دانشگاه با اعلام نتایج جدیدترین رتبه‌بندی موضوعی
+                    شانگهای 2024، از ارتقای قابل توجه دانشگاه علوم پزشکی تهران
+                    در شش حوزه مختلف پزشکی خبر داد.دکتر آیتی با اعلام خبر خوش
+                    دست‌یابی حوزه دندانپزشکی دانشگاه علوم پزشکی تهران به رتبه
+                    201 تا 300 در رتبه‌بندی جهانی شانگهای، این موفقیت را دستاورد
+                    بی‌نظیری در سطح ملی دانست و افزود: دانشگاه علوم پزشکی تهران
+                    به عنوان تنها نماینده ایران در این حوزه، در جمع برترین
+                    دانشگاه‌های دنیا قرار گرفته است.
                   </p>
                 </div>
               </div>
@@ -208,71 +159,197 @@
               <div class="esprit-article__downloadable-files">
                 <ul class="esprit-article__file-list">
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">فرم ثبت‌نام دانشجویان جدید</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >فرم ثبت‌نام دانشجویان جدید</a
+                    >
                   </li>
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">تقویم آموزشی نیمسال دوم</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >تقویم آموزشی نیمسال دوم</a
+                    >
                   </li>
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">راهنمای استفاده از سامانه آموزش</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >راهنمای استفاده از سامانه آموزش</a
+                    >
                   </li>
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">فرم درخواست مرخصی تحصیلی</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >فرم درخواست مرخصی تحصیلی</a
+                    >
                   </li>
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">دستورالعمل انتخاب واحد</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >دستورالعمل انتخاب واحد</a
+                    >
                   </li>
 
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">فرم ثبت‌نام دانشجویان جدید</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >فرم ثبت‌نام دانشجویان جدید</a
+                    >
                   </li>
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">آیین‌نامه آموزشی دوره کارشناسی</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >آیین‌نامه آموزشی دوره کارشناسی</a
+                    >
                   </li>
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">تقاضای صدور کارت دانشجویی</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >تقاضای صدور کارت دانشجویی</a
+                    >
                   </li>
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">فرم ثبت‌نام کتابخانه مرکزی</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >فرم ثبت‌نام کتابخانه مرکزی</a
+                    >
                   </li>
                   <li class="esprit-article__file-item">
-                    <a href="#" class="esprit-article__file-link">راهنمای سامانه مدیریت پایان‌نامه</a>
+                    <a href="#" class="esprit-article__file-link"
+                      >راهنمای سامانه مدیریت پایان‌نامه</a
+                    >
                   </li>
                 </ul>
               </div>
 
               <!-- pictures -->
               <div class="esprit-article__pictures">
+                <div id="gallery-loader" class="gallery-loader">
+                  <div class="spinner"></div>
+                </div>
+
                 <div class="esprit-article__gallery">
-                  <a href="/assets/development/img/img-09.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-09.jpg" alt="Conference participants in discussion at meeting table" loading="lazy" />
+                  <a
+                    href="/assets/img/img-09.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-09.jpg"
+                      alt="Conference participants in discussion at meeting table"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-10.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-10.jpg" alt="Three participants reviewing documents at conference" loading="lazy" />
+                  <a
+                    href="/assets/img/img-10.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-10.jpg"
+                      alt="Three participants reviewing documents at conference"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-11.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-11.jpg" alt="Conference attendees seated at meeting table" loading="lazy" />
+                  <a
+                    href="/assets/img/img-11.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-11.jpg"
+                      alt="Conference attendees seated at meeting table"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-12.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-12.jpg" alt="Group discussion during conference meeting" loading="lazy" />
+                  <a
+                    href="/assets/img/img-12.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-12.jpg"
+                      alt="Group discussion during conference meeting"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-13.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-13.jpg" alt="Participants taking notes during meeting" loading="lazy" />
+                  <a
+                    href="/assets/img/nature-1.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/nature-1.jpg"
+                      alt="Group discussion during conference meeting"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-14.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-14.jpg" alt="Two attendees reviewing documents" loading="lazy" />
+                  <a
+                    href="/assets/img/img-13.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-13.jpg"
+                      alt="Participants taking notes during meeting"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-15.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-15.jpg" alt="Conference participants in discussion" loading="lazy" />
+                  <a
+                    href="/assets/img/img-14.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-14.jpg"
+                      alt="Two attendees reviewing documents"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-16.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-16.jpg" alt="Meeting participants seated at conference table" loading="lazy" />
+                  <a
+                    href="/assets/img/nature-2.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/nature-2.jpg"
+                      alt="Two attendees reviewing documents"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-17.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-17.jpg" alt="Conference overview showing multiple participants" loading="lazy" />
+                  <a
+                    href="/assets/img/img-15.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-15.jpg"
+                      alt="Conference participants in discussion"
+                      loading="lazy"
+                    />
                   </a>
-                  <a href="/assets/development/img/img-18.jpg" class="esprit-article__gallery-item">
-                    <img class="esprit-article__gallery-image" src="/assets/development/img/img-18.jpg" alt="Conference overview showing multiple participants" loading="lazy" />
+                  <a
+                    href="/assets/img/img-16.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-16.jpg"
+                      alt="Meeting participants seated at conference table"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    href="/assets/img/img-17.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-17.jpg"
+                      alt="Conference overview showing multiple participants"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    href="/assets/img/img-18.jpg"
+                    class="esprit-article__gallery-item"
+                  >
+                    <img
+                      class="esprit-article__gallery-image"
+                      src="/assets/img/img-18.jpg"
+                      alt="Conference overview showing multiple participants"
+                      loading="lazy"
+                    />
                   </a>
                 </div>
               </div>
@@ -282,7 +359,10 @@
                 <div class="esprit-article__video-player">
                   <div class="video-player__container">
                     <video id="main-video" class="video-player__video" controls>
-                      <source src="/assets/development/video/1 Minute Sample Video.mp4" type="video/mp4" />
+                      <source
+                        src="/assets/video/1 Minute Sample Video.mp4"
+                        type="video/mp4"
+                      />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -292,12 +372,26 @@
                 <div class="esprit-article__video-list">
                   <div class="video-list__container">
                     <div class="video-list__scroll">
-                      <div class="video-list__item" data-video-src="/assets/development/video/1 Minute Sample Video 2.mp4">
-                        <img src="path/to/thumbnail1.jpg" alt="Video 1" class="video-list__thumbnail" />
+                      <div
+                        class="video-list__item"
+                        data-video-src="/assets/video/1 Minute Sample Video 2.mp4"
+                      >
+                        <img
+                          src="path/to/thumbnail1.jpg"
+                          alt="Video 1"
+                          class="video-list__thumbnail"
+                        />
                         <div class="video-list__title">Video 1 Title</div>
                       </div>
-                      <div class="video-list__item" data-video-src="/assets/development/video/6 AM.mp4">
-                        <img src="path/to/thumbnail2.jpg" alt="Video 2" class="video-list__thumbnail" />
+                      <div
+                        class="video-list__item"
+                        data-video-src="/assets/video/6 AM.mp4"
+                      >
+                        <img
+                          src="path/to/thumbnail2.jpg"
+                          alt="Video 2"
+                          class="video-list__thumbnail"
+                        />
                         <div class="video-list__title">Video 2 Title</div>
                       </div>
                       <!-- ویدئوهای بیشتر -->
@@ -311,7 +405,10 @@
                 <div class="esprit-article__sound-player">
                   <div class="sound-player__container">
                     <audio id="main-audio" class="sound-player__audio" controls>
-                      <source src="/assets/development/sounds/01 Lost Soul.mp3" type="audio/mp3" />
+                      <source
+                        src="/assets/sounds/01 Lost Soul.mp3"
+                        type="audio/mp3"
+                      />
                       Your browser does not support the audio element.
                     </audio>
                   </div>
@@ -321,12 +418,26 @@
                 <div class="esprit-article__sound-list">
                   <div class="sound-list__container">
                     <div class="sound-list__scroll">
-                      <div class="sound-list__item" data-audio-src="/assets/development/sounds/06 For The Fallen.mp3">
-                        <img src="path/to/thumbnail1.jpg" alt="Audio 1" class="sound-list__thumbnail" />
+                      <div
+                        class="sound-list__item"
+                        data-audio-src="/assets/sounds/06 For The Fallen.mp3"
+                      >
+                        <img
+                          src="path/to/thumbnail1.jpg"
+                          alt="Audio 1"
+                          class="sound-list__thumbnail"
+                        />
                         <div class="sound-list__title">Audio 1 Title</div>
                       </div>
-                      <div class="sound-list__item" data-audio-src="/assets/development/sounds/11 Midnight Thoughts.mp3">
-                        <img src="path/to/thumbnail2.jpg" alt="Audio 2" class="sound-list__thumbnail" />
+                      <div
+                        class="sound-list__item"
+                        data-audio-src="/assets/sounds/11 Midnight Thoughts.mp3"
+                      >
+                        <img
+                          src="path/to/thumbnail2.jpg"
+                          alt="Audio 2"
+                          class="sound-list__thumbnail"
+                        />
                         <div class="sound-list__title">Audio 2 Title</div>
                       </div>
                       <!-- صوت‌های بیشتر -->
@@ -341,13 +452,25 @@
                 <div class="esprit-article__news-section">
                   <h2 class="esprit-article__news-title">خبرهای متنی</h2>
                   <div class="esprit-article__news-list">
-                    <article class="esprit-article__news-item esprit-article__news-item--text">
+                    <article
+                      class="esprit-article__news-item esprit-article__news-item--text"
+                    >
                       <a href="#" class="esprit-article__news-link">
                         <div class="esprit-article__news-content">
-                          <img class="esprit-article__news-image" src="path/to/image.jpg" alt="خبر متنی" />
-                          <h3 class="esprit-article__news-headline">دانشگاه علوم پزشکی تهران</h3>
-                          <p class="esprit-article__news-description">برنامه‌ریزی جامع برای برگزاری باشکوه سالگرد...</p>
-                          <time class="esprit-article__news-date">۱۴۰۲/۰۹/۲۷</time>
+                          <img
+                            class="esprit-article__news-image"
+                            src="path/to/image.jpg"
+                            alt="خبر متنی"
+                          />
+                          <h3 class="esprit-article__news-headline">
+                            دانشگاه علوم پزشکی تهران
+                          </h3>
+                          <p class="esprit-article__news-description">
+                            برنامه‌ریزی جامع برای برگزاری باشکوه سالگرد...
+                          </p>
+                          <time class="esprit-article__news-date"
+                            >۱۴۰۲/۰۹/۲۷</time
+                          >
                         </div>
                       </a>
                     </article>
@@ -358,15 +481,27 @@
                 <div class="esprit-article__news-section">
                   <h2 class="esprit-article__news-title">خبرهای تصویری</h2>
                   <div class="esprit-article__news-list">
-                    <article class="esprit-article__news-item esprit-article__news-item--image">
+                    <article
+                      class="esprit-article__news-item esprit-article__news-item--image"
+                    >
                       <a href="#" class="esprit-article__news-link">
                         <div class="esprit-article__news-content">
                           <div class="esprit-article__news-image-wrapper">
-                            <img class="esprit-article__news-image" src="path/to/image.jpg" alt="خبر تصویری" />
-                            <span class="esprit-article__news-icon esprit-article__news-icon--image"></span>
+                            <img
+                              class="esprit-article__news-image"
+                              src="path/to/image.jpg"
+                              alt="خبر تصویری"
+                            />
+                            <span
+                              class="esprit-article__news-icon esprit-article__news-icon--image"
+                            ></span>
                           </div>
-                          <h3 class="esprit-article__news-headline">افتتاح مرکز تحقیقاتی پیشرفته سرطان</h3>
-                          <time class="esprit-article__news-date">۱۴۰۲/۰۹/۲۷</time>
+                          <h3 class="esprit-article__news-headline">
+                            افتتاح مرکز تحقیقاتی پیشرفته سرطان
+                          </h3>
+                          <time class="esprit-article__news-date"
+                            >۱۴۰۲/۰۹/۲۷</time
+                          >
                         </div>
                       </a>
                     </article>
@@ -377,15 +512,27 @@
                 <div class="esprit-article__news-section">
                   <h2 class="esprit-article__news-title">خبرهای ویدئویی</h2>
                   <div class="esprit-article__news-list">
-                    <article class="esprit-article__news-item esprit-article__news-item--video">
+                    <article
+                      class="esprit-article__news-item esprit-article__news-item--video"
+                    >
                       <a href="#" class="esprit-article__news-link">
                         <div class="esprit-article__news-content">
                           <div class="esprit-article__news-image-wrapper">
-                            <img class="esprit-article__news-image" src="path/to/image.jpg" alt="خبر ویدئویی" />
-                            <span class="esprit-article__news-icon esprit-article__news-icon--video"></span>
+                            <img
+                              class="esprit-article__news-image"
+                              src="path/to/image.jpg"
+                              alt="خبر ویدئویی"
+                            />
+                            <span
+                              class="esprit-article__news-icon esprit-article__news-icon--video"
+                            ></span>
                           </div>
-                          <h3 class="esprit-article__news-headline">گزارش ویدئویی از بیمارستان آموزش</h3>
-                          <time class="esprit-article__news-date">۱۴۰۲/۰۹/۲۷</time>
+                          <h3 class="esprit-article__news-headline">
+                            گزارش ویدئویی از بیمارستان آموزش
+                          </h3>
+                          <time class="esprit-article__news-date"
+                            >۱۴۰۲/۰۹/۲۷</time
+                          >
                         </div>
                       </a>
                     </article>
@@ -396,15 +543,27 @@
                 <div class="esprit-article__news-section">
                   <h2 class="esprit-article__news-title">خبرهای صوتی</h2>
                   <div class="esprit-article__news-list">
-                    <article class="esprit-article__news-item esprit-article__news-item--audio">
+                    <article
+                      class="esprit-article__news-item esprit-article__news-item--audio"
+                    >
                       <a href="#" class="esprit-article__news-link">
                         <div class="esprit-article__news-content">
                           <div class="esprit-article__news-image-wrapper">
-                            <img class="esprit-article__news-image" src="path/to/image.jpg" alt="خبر صوتی" />
-                            <span class="esprit-article__news-icon esprit-article__news-icon--audio"></span>
+                            <img
+                              class="esprit-article__news-image"
+                              src="path/to/image.jpg"
+                              alt="خبر صوتی"
+                            />
+                            <span
+                              class="esprit-article__news-icon esprit-article__news-icon--audio"
+                            ></span>
                           </div>
-                          <h3 class="esprit-article__news-headline">نشست تخصصی با موضوع سلامت روان</h3>
-                          <time class="esprit-article__news-date">۱۴۰۲/۰۹/۲۷</time>
+                          <h3 class="esprit-article__news-headline">
+                            نشست تخصصی با موضوع سلامت روان
+                          </h3>
+                          <time class="esprit-article__news-date"
+                            >۱۴۰۲/۰۹/۲۷</time
+                          >
                         </div>
                       </a>
                     </article>
@@ -422,7 +581,10 @@
               <!-- بخش TTS (Text-to-Speech) -->
               <div class="esprit-article-tts">
                 <audio id="tts-audio" controls>
-                  <source src="/assets/development/sounds/11 Midnight Thoughts.mp3" type="audio/mp3" />
+                  <source
+                    src="/assets/sounds/11 Midnight Thoughts.mp3"
+                    type="audio/mp3"
+                  />
                 </audio>
               </div>
 
@@ -431,21 +593,45 @@
                 <!-- Right side - Short link -->
                 <div class="esprit-article-shortlink__link-container">
                   <span class="esprit-article-shortlink__link-icon">
-                    <img class="esprit-article-shortlink__icon" src="link-icon.svg" alt="Link icon" />
+                    <img
+                      class="esprit-article-shortlink__icon"
+                      src="link-icon.svg"
+                      alt="Link icon"
+                    />
                   </span>
-                  <span class="esprit-article-shortlink__text">کپی لینک کوتاه</span>
+                  <span class="esprit-article-shortlink__text"
+                    >کپی لینک کوتاه</span
+                  >
                 </div>
 
                 <!-- Left side - Action buttons -->
                 <div class="esprit-article-shortlink__actions">
-                  <button class="esprit-article-shortlink__action esprit-article-shortlink__action--print">
-                    <img class="esprit-article-shortlink__action-icon" src="print-icon.svg" alt="Print" />
+                  <button
+                    class="esprit-article-shortlink__action esprit-article-shortlink__action--print"
+                  >
+                    <img
+                      class="esprit-article-shortlink__action-icon"
+                      src="print-icon.svg"
+                      alt="Print"
+                    />
                   </button>
-                  <button class="esprit-article-shortlink__action esprit-article-shortlink__action--pdf">
-                    <img class="esprit-article-shortlink__action-icon" src="pdf-icon.svg" alt="PDF" />
+                  <button
+                    class="esprit-article-shortlink__action esprit-article-shortlink__action--pdf"
+                  >
+                    <img
+                      class="esprit-article-shortlink__action-icon"
+                      src="pdf-icon.svg"
+                      alt="PDF"
+                    />
                   </button>
-                  <button class="esprit-article-shortlink__action esprit-article-shortlink__action--eamil">
-                    <img class="esprit-article-shortlink__action-icon" src="text-icon.svg" alt="Text only" />
+                  <button
+                    class="esprit-article-shortlink__action esprit-article-shortlink__action--eamil"
+                  >
+                    <img
+                      class="esprit-article-shortlink__action-icon"
+                      src="text-icon.svg"
+                      alt="Text only"
+                    />
                   </button>
                 </div>
               </div>
@@ -455,31 +641,55 @@
                 <!-- Text controls container -->
                 <div class="esprit-article-accessibility__controls">
                   <!-- Text-only mode button -->
-                  <button class="esprit-article-accessibility__button esprit-article-accessibility__button--readonly" aria-label="حالت فقط متن">
-                    <span class="esprit-article-accessibility__icon esprit-article-accessibility__icon--readonly"></span>
+                  <button
+                    class="esprit-article-accessibility__button esprit-article-accessibility__button--readonly"
+                    aria-label="حالت فقط متن"
+                  >
+                    <span
+                      class="esprit-article-accessibility__icon esprit-article-accessibility__icon--readonly"
+                    ></span>
                   </button>
 
                   <!-- Line height adjustment button -->
-                  <button class="esprit-article-accessibility__button esprit-article-accessibility__button--line-height" aria-label="تنظیم فاصله خطوط">
-                    <span class="esprit-article-accessibility__icon esprit-article-accessibility__icon--line-height"></span>
+                  <button
+                    class="esprit-article-accessibility__button esprit-article-accessibility__button--line-height"
+                    aria-label="تنظیم فاصله خطوط"
+                  >
+                    <span
+                      class="esprit-article-accessibility__icon esprit-article-accessibility__icon--line-height"
+                    ></span>
                   </button>
 
                   <!-- Word spacing adjustment button -->
-                  <button class="esprit-article-accessibility__button esprit-article-accessibility__button--word-spacing" aria-label="تنظیم فاصله کلمات">
-                    <span class="esprit-article-accessibility__icon esprit-article-accessibility__icon--word-spacing"></span>
+                  <button
+                    class="esprit-article-accessibility__button esprit-article-accessibility__button--word-spacing"
+                    aria-label="تنظیم فاصله کلمات"
+                  >
+                    <span
+                      class="esprit-article-accessibility__icon esprit-article-accessibility__icon--word-spacing"
+                    ></span>
                   </button>
 
                   <!-- Font size adjustment button -->
-                  <button class="esprit-article-accessibility__button esprit-article-accessibility__button--font-size" aria-label="تنظیم اندازه فونت">
-                    <span class="esprit-article-accessibility__icon esprit-article-accessibility__icon--font-size"></span>
+                  <button
+                    class="esprit-article-accessibility__button esprit-article-accessibility__button--font-size"
+                    aria-label="تنظیم اندازه فونت"
+                  >
+                    <span
+                      class="esprit-article-accessibility__icon esprit-article-accessibility__icon--font-size"
+                    ></span>
                   </button>
                 </div>
 
                 <!-- Size indicator -->
                 <div class="esprit-article-accessibility__size-indicator">
                   <div class="esprit-article-accessibility__progress-bar">
-                    <div class="esprit-article-accessibility__progress-track"></div>
-                    <span class="esprit-article-accessibility__progress-value">۵۰٪</span>
+                    <div
+                      class="esprit-article-accessibility__progress-track"
+                    ></div>
+                    <span class="esprit-article-accessibility__progress-value"
+                      >۵۰٪</span
+                    >
                   </div>
                 </div>
               </div>
@@ -516,31 +726,59 @@
               <div class="esprit-article-share">
                 <h2 class="esprit-article-share__title">اشتراک گذاری</h2>
                 <div class="esprit-article-share__buttons">
-                  <a href="#" class="esprit-article-share__button esprit-article-share__button--facebook">Facebook</a>
-                  <a href="#" class="esprit-article-share__button esprit-article-share__button--twitter">Twitter</a>
-                  <a href="#" class="esprit-article-share__button esprit-article-share__button--linkedin">LinkedIn</a>
-                  <a href="#" class="esprit-article-share__button esprit-article-share__button--whatsapp">WhatsApp</a>
+                  <a
+                    href="#"
+                    class="esprit-article-share__button esprit-article-share__button--facebook"
+                    >Facebook</a
+                  >
+                  <a
+                    href="#"
+                    class="esprit-article-share__button esprit-article-share__button--twitter"
+                    >Twitter</a
+                  >
+                  <a
+                    href="#"
+                    class="esprit-article-share__button esprit-article-share__button--linkedin"
+                    >LinkedIn</a
+                  >
+                  <a
+                    href="#"
+                    class="esprit-article-share__button esprit-article-share__button--whatsapp"
+                    >WhatsApp</a
+                  >
                 </div>
               </div>
 
               <!-- بخش محتوای مرتبط -->
               <div class="esprit-article-related-content">
-                <h2 class="esprit-article-related-content__title">محتوای مرتبط با این خبر</h2>
+                <h2 class="esprit-article-related-content__title">
+                  محتوای مرتبط با این خبر
+                </h2>
                 <ul class="esprit-article-related-content__list">
                   <li class="esprit-article-related-content__item">
-                    <a href="#" class="esprit-article-related-content__link">فایل‌های پیوست</a>
+                    <a href="#" class="esprit-article-related-content__link"
+                      >فایل‌های پیوست</a
+                    >
                   </li>
                   <li class="esprit-article-related-content__item">
-                    <a href="#" class="esprit-article-related-content__link">تصاویر خبر</a>
+                    <a href="#" class="esprit-article-related-content__link"
+                      >تصاویر خبر</a
+                    >
                   </li>
                   <li class="esprit-article-related-content__item">
-                    <a href="#" class="esprit-article-related-content__link">ویدئوهای خبر</a>
+                    <a href="#" class="esprit-article-related-content__link"
+                      >ویدئوهای خبر</a
+                    >
                   </li>
                   <li class="esprit-article-related-content__item">
-                    <a href="#" class="esprit-article-related-content__link">صوت‌های خبر</a>
+                    <a href="#" class="esprit-article-related-content__link"
+                      >صوت‌های خبر</a
+                    >
                   </li>
                   <li class="esprit-article-related-content__item">
-                    <a href="#" class="esprit-article-related-content__link">خبرهای مرتبط</a>
+                    <a href="#" class="esprit-article-related-content__link"
+                      >خبرهای مرتبط</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -549,5 +787,7 @@
         </div>
       </div>
     </main>
+
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
