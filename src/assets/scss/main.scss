@@ -1,4 +1,6 @@
 @use 'variables';
 @use 'mixins';
 @use 'reset';
+@use './components/colors';
 @use './components/gallery';
+@use './components/article';

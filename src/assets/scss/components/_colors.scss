@@ -1,0 +1,52 @@
+// Blue gray colors
+$blue-gray-50: hsla(231, 36%, 98%, 1);
+$blue-gray-100: hsla(231, 36%, 94%, 1);
+$blue-gray-200: hsla(229, 35%, 88%, 1);
+$blue-gray-300: hsla(231, 36%, 77%, 1);
+$blue-gray-400: hsla(232, 36%, 59%, 1);
+$blue-gray-600: hsla(232, 36%, 38%, 1);
+$blue-gray-700: hsla(231, 36%, 33%, 1);
+$blue-gray-800: hsla(230, 36%, 25%, 1);
+
+// Error color
+$error-700: hsla(4, 76%, 40%, 1);
+
+// Gray colors
+$gray-25: hsla(0, 0%, 99%, 1);
+$gray-50: hsla(0, 0%, 98%, 1);
+$gray-100: hsla(0, 0%, 96%, 1);
+$gray-200: hsla(220, 5%, 92%, 1);
+$gray-300: hsla(220, 6%, 85%, 1);
+$gray-400: hsla(220, 6%, 66%, 1);
+$gray-500: hsla(220, 6%, 47%, 1);
+$gray-600: hsla(220, 8%, 35%, 1);
+$gray-700: hsla(220, 11%, 29%, 1);
+$gray-900: hsla(220, 24%, 12%, 1);
+
+// Output CSS with variable names as comments
+:root {
+  /* Blue gray colors */
+  --blue-gray-50: #{$blue-gray-50};
+  --blue-gray-100: #{$blue-gray-100};
+  --blue-gray-200: #{$blue-gray-200};
+  --blue-gray-300: #{$blue-gray-300};
+  --blue-gray-400: #{$blue-gray-400};
+  --blue-gray-600: #{$blue-gray-600};
+  --blue-gray-700: #{$blue-gray-700};
+  --blue-gray-800: #{$blue-gray-800};
+
+  /* Error color */
+  --error-700: #{$error-700};
+
+  /* Gray colors */
+  --gray-25: #{$gray-25};
+  --gray-50: #{$gray-50};
+  --gray-100: #{$gray-100};
+  --gray-200: #{$gray-200};
+  --gray-300: #{$gray-300};
+  --gray-400: #{$gray-400};
+  --gray-500: #{$gray-500};
+  --gray-600: #{$gray-600};
+  --gray-700: #{$gray-700};
+  --gray-900: #{$gray-900};
+}
