@@ -379,6 +379,1981 @@ a {
   --gray-900: hsl(220, 24%, 12%);
 }
 
+@font-face {
+  font-family: "esfonticon";
+  src: url("/assets/fonts/esfonticon.ttf?ywxt1p") format("truetype"), url("/assets/fonts/esfonticon.woff?ywxt1p") format("woff"), url("/assets/fonts/esfonticon.svg?ywxt1p#esfonticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+i.es,
+span.es {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "esfonticon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.esprit-AngelList:before {
+  content: "\e900";
+  color: #e9eaeb;
+}
+
+.esprit-Apple:before {
+  content: "\e901";
+  color: #717680;
+}
+
+.esprit-Clubhouse:before {
+  content: "\e902";
+  color: #717680;
+}
+
+.esprit-Discord:before {
+  content: "\e903";
+  color: #717680;
+}
+
+.esprit-Dribbble:before {
+  content: "\e904";
+  color: #717680;
+}
+
+.esprit-Facebook:before {
+  content: "\e905";
+  color: #717680;
+}
+
+.esprit-Figma:before {
+  content: "\e906";
+  color: #717680;
+}
+
+.esprit-GitHub:before {
+  content: "\e907";
+  color: #e9eaeb;
+}
+
+.esprit-Google:before {
+  content: "\e908";
+  color: #717680;
+}
+
+.esprit-Instagram:before {
+  content: "\e909";
+  color: #717680;
+}
+
+.esprit-Layers .path1:before {
+  content: "\e90a";
+  color: rgb(233, 234, 235);
+  opacity: 0.2;
+}
+
+.esprit-Layers .path2:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: rgb(233, 234, 235);
+  opacity: 0.5;
+}
+
+.esprit-Layers .path3:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(233, 234, 235);
+  opacity: 0.8;
+}
+
+.esprit-LinkedIn:before {
+  content: "\e90d";
+  color: #717680;
+}
+
+.esprit-Pinterest:before {
+  content: "\e90e";
+  color: #717680;
+}
+
+.esprit-Reddit:before {
+  content: "\e90f";
+  color: #717680;
+}
+
+.esprit-Signal:before {
+  content: "\e910";
+  color: #717680;
+}
+
+.esprit-Snapchat:before {
+  content: "\e911";
+  color: #717680;
+}
+
+.esprit-Telegram:before {
+  content: "\e912";
+  color: #717680;
+}
+
+.esprit-TikTok:before {
+  content: "\e913";
+  color: #717680;
+}
+
+.esprit-Tumblr:before {
+  content: "\e914";
+  color: #717680;
+}
+
+.esprit-X-Twitter:before {
+  content: "\e915";
+  color: #717680;
+}
+
+.esprit-YouTube:before {
+  content: "\e916";
+  color: #717680;
+}
+
+.esprit-ai-portal:before {
+  content: "\e917";
+}
+
+.esprit-aparat:before {
+  content: "\e918";
+}
+
+.esprit-bale:before {
+  content: "\e919";
+}
+
+.esprit-bisphon:before {
+  content: "\e91a";
+}
+
+.esprit-eita:before {
+  content: "\e91b";
+}
+
+.esprit-facebook:before {
+  content: "\e91c";
+}
+
+.esprit-fi-rr-add:before {
+  content: "\e91d";
+  color: #374957;
+}
+
+.esprit-fi-rr-address-book:before {
+  content: "\e91e";
+  color: #374957;
+}
+
+.esprit-fi-rr-alarm-clock:before {
+  content: "\e91f";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-double-left:before {
+  content: "\e920";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-double-right:before {
+  content: "\e921";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-double-small-left:before {
+  content: "\e922";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-double-small-right:before {
+  content: "\e923";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-down:before {
+  content: "\e924";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-left:before {
+  content: "\e925";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-right:before {
+  content: "\e926";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-small-down:before {
+  content: "\e927";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-small-left:before {
+  content: "\e928";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-small-right:before {
+  content: "\e929";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-small-up:before {
+  content: "\e92a";
+  color: #374957;
+}
+
+.esprit-fi-rr-angle-up:before {
+  content: "\e92b";
+  color: #374957;
+}
+
+.esprit-fi-rr-apps:before {
+  content: "\e92c";
+  color: #374957;
+}
+
+.esprit-fi-rr-apps-add:before {
+  content: "\e92d";
+  color: #374957;
+}
+
+.esprit-fi-rr-apps-delete:before {
+  content: "\e92e";
+  color: #374957;
+}
+
+.esprit-fi-rr-apps-sort:before {
+  content: "\e92f";
+  color: #374957;
+}
+
+.esprit-fi-rr-archive:before {
+  content: "\e930";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-down:before {
+  content: "\e931";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-from-bottom:before {
+  content: "\e932";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-left:before {
+  content: "\e933";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-right:before {
+  content: "\e934";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-small-down:before {
+  content: "\e935";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-small-left:before {
+  content: "\e936";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-small-right:before {
+  content: "\e937";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-small-up:before {
+  content: "\e938";
+  color: #374957;
+}
+
+.esprit-fi-rr-arrow-up:before {
+  content: "\e939";
+  color: #374957;
+}
+
+.esprit-fi-rr-asterik:before {
+  content: "\e93a";
+  color: #374957;
+}
+
+.esprit-fi-rr-at:before {
+  content: "\e93b";
+  color: #374957;
+}
+
+.esprit-fi-rr-ban:before {
+  content: "\e93c";
+  color: #374957;
+}
+
+.esprit-fi-rr-bell:before {
+  content: "\e93d";
+  color: #374957;
+}
+
+.esprit-fi-rr-bell-ring:before {
+  content: "\e93e";
+  color: #374957;
+}
+
+.esprit-fi-rr-bell-school:before {
+  content: "\e93f";
+  color: #374957;
+}
+
+.esprit-fi-rr-book:before {
+  content: "\e940";
+  color: #374957;
+}
+
+.esprit-fi-rr-book-alt:before {
+  content: "\e941";
+  color: #374957;
+}
+
+.esprit-fi-rr-bookmark:before {
+  content: "\e942";
+  color: #374957;
+}
+
+.esprit-fi-rr-box:before {
+  content: "\e943";
+  color: #374957;
+}
+
+.esprit-fi-rr-box-alt:before {
+  content: "\e944";
+  color: #374957;
+}
+
+.esprit-fi-rr-bread-slice:before {
+  content: "\e945";
+  color: #374957;
+}
+
+.esprit-fi-rr-briefcase:before {
+  content: "\e946";
+  color: #374957;
+}
+
+.esprit-fi-rr-broom:before {
+  content: "\e947";
+  color: #374957;
+}
+
+.esprit-fi-rr-browser:before {
+  content: "\e948";
+  color: #374957;
+}
+
+.esprit-fi-rr-brush:before {
+  content: "\e949";
+  color: #374957;
+}
+
+.esprit-fi-rr-building:before {
+  content: "\e94a";
+  color: #374957;
+}
+
+.esprit-fi-rr-bulb:before {
+  content: "\e94b";
+  color: #374957;
+}
+
+.esprit-fi-rr-calculator:before {
+  content: "\e94c";
+  color: #374957;
+}
+
+.esprit-fi-rr-calendar:before {
+  content: "\e94d";
+  color: #374957;
+}
+
+.esprit-fi-rr-call-history:before {
+  content: "\e94e";
+  color: #374957;
+}
+
+.esprit-fi-rr-call-incoming:before {
+  content: "\e94f";
+  color: #374957;
+}
+
+.esprit-fi-rr-call-missed:before {
+  content: "\e950";
+  color: #374957;
+}
+
+.esprit-fi-rr-call-outgoing:before {
+  content: "\e951";
+  color: #374957;
+}
+
+.esprit-fi-rr-camera:before {
+  content: "\e952";
+  color: #374957;
+}
+
+.esprit-fi-rr-camping:before {
+  content: "\e953";
+  color: #374957;
+}
+
+.esprit-fi-rr-caret-down:before {
+  content: "\e954";
+  color: #374957;
+}
+
+.esprit-fi-rr-caret-left:before {
+  content: "\e955";
+  color: #374957;
+}
+
+.esprit-fi-rr-caret-right:before {
+  content: "\e956";
+  color: #374957;
+}
+
+.esprit-fi-rr-caret-up:before {
+  content: "\e957";
+  color: #374957;
+}
+
+.esprit-fi-rr-chart-connected:before {
+  content: "\e958";
+  color: #374957;
+}
+
+.esprit-fi-rr-chart-histogram:before {
+  content: "\e959";
+  color: #374957;
+}
+
+.esprit-fi-rr-chart-network:before {
+  content: "\e95a";
+  color: #374957;
+}
+
+.esprit-fi-rr-chart-pie:before {
+  content: "\e95b";
+  color: #374957;
+}
+
+.esprit-fi-rr-chart-pie-alt:before {
+  content: "\e95c";
+  color: #374957;
+}
+
+.esprit-fi-rr-chart-set-theory:before {
+  content: "\e95d";
+  color: #374957;
+}
+
+.esprit-fi-rr-chart-tree:before {
+  content: "\e95e";
+  color: #374957;
+}
+
+.esprit-fi-rr-chat-arrow-down:before {
+  content: "\e95f";
+  color: #374957;
+}
+
+.esprit-fi-rr-chat-arrow-grow:before {
+  content: "\e960";
+  color: #374957;
+}
+
+.esprit-fi-rr-check:before {
+  content: "\e961";
+  color: #374957;
+}
+
+.esprit-fi-rr-checkbox:before {
+  content: "\e962";
+  color: #374957;
+}
+
+.esprit-fi-rr-clip:before {
+  content: "\e963";
+  color: #374957;
+}
+
+.esprit-fi-rr-clock:before {
+  content: "\e964";
+  color: #374957;
+}
+
+.esprit-fi-rr-cloud:before {
+  content: "\e965";
+  color: #374957;
+}
+
+.esprit-fi-rr-cloud-check:before {
+  content: "\e966";
+  color: #374957;
+}
+
+.esprit-fi-rr-cloud-disabled:before {
+  content: "\e967";
+  color: #374957;
+}
+
+.esprit-fi-rr-cloud-download:before {
+  content: "\e968";
+  color: #374957;
+}
+
+.esprit-fi-rr-clouds:before {
+  content: "\e969";
+  color: #374957;
+}
+
+.esprit-fi-rr-cloud-share:before {
+  content: "\e96a";
+  color: #374957;
+}
+
+.esprit-fi-rr-cloud-upload:before {
+  content: "\e96b";
+  color: #374957;
+}
+
+.esprit-fi-rr-comment:before {
+  content: "\e96c";
+  color: #374957;
+}
+
+.esprit-fi-rr-comment-alt:before {
+  content: "\e96d";
+  color: #374957;
+}
+
+.esprit-fi-rr-comment-check:before {
+  content: "\e96e";
+  color: #374957;
+}
+
+.esprit-fi-rr-comment-heart:before {
+  content: "\e96f";
+  color: #374957;
+}
+
+.esprit-fi-rr-comment-info:before {
+  content: "\e970";
+  color: #374957;
+}
+
+.esprit-fi-rr-comments:before {
+  content: "\e971";
+  color: #374957;
+}
+
+.esprit-fi-rr-comment-user:before {
+  content: "\e972";
+  color: #374957;
+}
+
+.esprit-fi-rr-compress:before {
+  content: "\e973";
+  color: #374957;
+}
+
+.esprit-fi-rr-compress-alt:before {
+  content: "\e974";
+  color: #374957;
+}
+
+.esprit-fi-rr-computer:before {
+  content: "\e975";
+  color: #374957;
+}
+
+.esprit-fi-rr-confetti:before {
+  content: "\e976";
+  color: #374957;
+}
+
+.esprit-fi-rr-copy:before {
+  content: "\e977";
+  color: #374957;
+}
+
+.esprit-fi-rr-copy-alt:before {
+  content: "\e978";
+  color: #374957;
+}
+
+.esprit-fi-rr-copyright:before {
+  content: "\e979";
+  color: #374957;
+}
+
+.esprit-fi-rr-credit-card:before {
+  content: "\e97a";
+  color: #374957;
+}
+
+.esprit-fi-rr-cross:before {
+  content: "\e97b";
+  color: #374957;
+}
+
+.esprit-fi-rr-cross-circle:before {
+  content: "\e97c";
+  color: #374957;
+}
+
+.esprit-fi-rr-cross-small:before {
+  content: "\e97d";
+  color: #374957;
+}
+
+.esprit-fi-rr-cube:before {
+  content: "\e97e";
+  color: #374957;
+}
+
+.esprit-fi-rr-cursor:before {
+  content: "\e97f";
+  color: #374957;
+}
+
+.esprit-fi-rr-cursor-finger:before {
+  content: "\e980";
+  color: #374957;
+}
+
+.esprit-fi-rr-cursor-plus:before {
+  content: "\e981";
+  color: #374957;
+}
+
+.esprit-fi-rr-cursor-text:before {
+  content: "\e982";
+  color: #374957;
+}
+
+.esprit-fi-rr-cursor-text-alt:before {
+  content: "\e983";
+  color: #374957;
+}
+
+.esprit-fi-rr-dart:before {
+  content: "\e984";
+  color: #374957;
+}
+
+.esprit-fi-rr-dashboard:before {
+  content: "\e985";
+  color: #374957;
+}
+
+.esprit-fi-rr-database:before {
+  content: "\e986";
+  color: #374957;
+}
+
+.esprit-fi-rr-data-transfer:before {
+  content: "\e987";
+  color: #374957;
+}
+
+.esprit-fi-rr-delete:before {
+  content: "\e988";
+  color: #374957;
+}
+
+.esprit-fi-rr-diploma:before {
+  content: "\e989";
+  color: #374957;
+}
+
+.esprit-fi-rr-disco-ball:before {
+  content: "\e98a";
+  color: #374957;
+}
+
+.esprit-fi-rr-disk:before {
+  content: "\e98b";
+  color: #374957;
+}
+
+.esprit-fi-rr-doctor:before {
+  content: "\e98c";
+  color: #374957;
+}
+
+.esprit-fi-rr-document:before {
+  content: "\e98d";
+  color: #374957;
+}
+
+.esprit-fi-rr-document-pdf:before {
+  content: "\e98e";
+  color: #374957;
+}
+
+.esprit-fi-rr-document-signed:before {
+  content: "\e98f";
+  color: #374957;
+}
+
+.esprit-fi-rr-download:before {
+  content: "\e990";
+  color: #374957;
+}
+
+.esprit-fi-rr-duplicate:before {
+  content: "\e991";
+  color: #374957;
+}
+
+.esprit-fi-rr-earnings:before {
+  content: "\e992";
+  color: #374957;
+}
+
+.esprit-fi-rr-edit:before {
+  content: "\e993";
+  color: #374957;
+}
+
+.esprit-fi-rr-edit-alt:before {
+  content: "\e994";
+  color: #374957;
+}
+
+.esprit-fi-rr-e-learning:before {
+  content: "\e995";
+  color: #374957;
+}
+
+.esprit-fi-rr-envelope:before {
+  content: "\e996";
+  color: #374957;
+}
+
+.esprit-fi-rr-envelope-ban:before {
+  content: "\e997";
+  color: #374957;
+}
+
+.esprit-fi-rr-envelope-download:before {
+  content: "\e998";
+  color: #374957;
+}
+
+.esprit-fi-rr-envelope-marker:before {
+  content: "\e999";
+  color: #374957;
+}
+
+.esprit-fi-rr-envelope-open:before {
+  content: "\e99a";
+  color: #374957;
+}
+
+.esprit-fi-rr-envelope-plus:before {
+  content: "\e99b";
+  color: #374957;
+}
+
+.esprit-fi-rr-exclamation:before {
+  content: "\e99c";
+  color: #374957;
+}
+
+.esprit-fi-rr-expand:before {
+  content: "\e99d";
+  color: #374957;
+}
+
+.esprit-fi-rr-eye:before {
+  content: "\e99e";
+  color: #374957;
+}
+
+.esprit-fi-rr-eye-crossed:before {
+  content: "\e99f";
+  color: #374957;
+}
+
+.esprit-fi-rr-eye-dropper:before {
+  content: "\e9a0";
+  color: #374957;
+}
+
+.esprit-fi-rr-ferris-wheel:before {
+  content: "\e9a1";
+  color: #374957;
+}
+
+.esprit-fi-rr-file:before {
+  content: "\e9a2";
+  color: #374957;
+}
+
+.esprit-fi-rr-file-add:before {
+  content: "\e9a3";
+  color: #374957;
+}
+
+.esprit-fi-rr-file-check:before {
+  content: "\e9a4";
+  color: #374957;
+}
+
+.esprit-fi-rr-file-delete:before {
+  content: "\e9a5";
+  color: #374957;
+}
+
+.esprit-fi-rr-file-music:before {
+  content: "\e9a6";
+  color: #374957;
+}
+
+.esprit-fi-rr-fill:before {
+  content: "\e9a7";
+  color: #374957;
+}
+
+.esprit-fi-rr-film:before {
+  content: "\e9a8";
+  color: #374957;
+}
+
+.esprit-fi-rr-filter:before {
+  content: "\e9a9";
+  color: #374957;
+}
+
+.esprit-fi-rr-fingerprint:before {
+  content: "\e9aa";
+  color: #374957;
+}
+
+.esprit-fi-rr-flag:before {
+  content: "\e9ab";
+  color: #374957;
+}
+
+.esprit-fi-rr-flame:before {
+  content: "\e9ac";
+  color: #374957;
+}
+
+.esprit-fi-rr-flip-horizontal:before {
+  content: "\e9ad";
+  color: #374957;
+}
+
+.esprit-fi-rr-flower:before {
+  content: "\e9ae";
+  color: #374957;
+}
+
+.esprit-fi-rr-folder:before {
+  content: "\e9af";
+  color: #374957;
+}
+
+.esprit-fi-rr-folder-add:before {
+  content: "\e9b0";
+  color: #374957;
+}
+
+.esprit-fi-rr-following:before {
+  content: "\e9b1";
+  color: #374957;
+}
+
+.esprit-fi-rr-form:before {
+  content: "\e9b2";
+  color: #374957;
+}
+
+.esprit-fi-rr-forward:before {
+  content: "\e9b3";
+  color: #374957;
+}
+
+.esprit-fi-rr-gallery:before {
+  content: "\e9b4";
+  color: #374957;
+}
+
+.esprit-fi-rr-gem:before {
+  content: "\e9b5";
+  color: #374957;
+}
+
+.esprit-fi-rr-gift:before {
+  content: "\e9b6";
+  color: #374957;
+}
+
+.esprit-fi-rr-glasses:before {
+  content: "\e9b7";
+  color: #374957;
+}
+
+.esprit-fi-rr-globe:before {
+  content: "\e9b8";
+  color: #374957;
+}
+
+.esprit-fi-rr-globe-alt:before {
+  content: "\e9b9";
+  color: #374957;
+}
+
+.esprit-fi-rr-graduation-cap:before {
+  content: "\e9ba";
+  color: #374957;
+}
+
+.esprit-fi-rr-hand-holding-heart:before {
+  content: "\e9bb";
+  color: #374957;
+}
+
+.esprit-fi-rr-hastag:before {
+  content: "\e9bc";
+  color: #374957;
+}
+
+.esprit-fi-rr-hat-birthday:before {
+  content: "\e9bd";
+  color: #374957;
+}
+
+.esprit-fi-rr-headphones:before {
+  content: "\e9be";
+  color: #374957;
+}
+
+.esprit-fi-rr-headset:before {
+  content: "\e9bf";
+  color: #374957;
+}
+
+.esprit-fi-rr-head-side-thinking:before {
+  content: "\e9c0";
+  color: #374957;
+}
+
+.esprit-fi-rr-heart:before {
+  content: "\e9c1";
+  color: #374957;
+}
+
+.esprit-fi-rr-heart-arrow:before {
+  content: "\e9c2";
+  color: #374957;
+}
+
+.esprit-fi-rr-home:before {
+  content: "\e9c3";
+  color: #374957;
+}
+
+.esprit-fi-rr-home-location:before {
+  content: "\e9c4";
+  color: #374957;
+}
+
+.esprit-fi-rr-home-location-alt:before {
+  content: "\e9c5";
+  color: #374957;
+}
+
+.esprit-fi-rr-hourglass:before {
+  content: "\e9c6";
+  color: #374957;
+}
+
+.esprit-fi-rr-hourglass-end:before {
+  content: "\e9c7";
+  color: #374957;
+}
+
+.esprit-fi-rr-id-badge:before {
+  content: "\e9c8";
+  color: #374957;
+}
+
+.esprit-fi-rr-inbox:before {
+  content: "\e9c9";
+  color: #374957;
+}
+
+.esprit-fi-rr-incognito:before {
+  content: "\e9ca";
+  color: #374957;
+}
+
+.esprit-fi-rr-info:before {
+  content: "\e9cb";
+  color: #374957;
+}
+
+.esprit-fi-rr-interactive:before {
+  content: "\e9cc";
+  color: #374957;
+}
+
+.esprit-fi-rr-interrogation:before {
+  content: "\e9cd";
+  color: #374957;
+}
+
+.esprit-fi-rr-key:before {
+  content: "\e9ce";
+  color: #374957;
+}
+
+.esprit-fi-rr-keyboard:before {
+  content: "\e9cf";
+  color: #374957;
+}
+
+.esprit-fi-rr-layers:before {
+  content: "\e9d0";
+  color: #374957;
+}
+
+.esprit-fi-rr-layout-fluid:before {
+  content: "\e9d1";
+  color: #374957;
+}
+
+.esprit-fi-rr-line-width:before {
+  content: "\e9d2";
+  color: #374957;
+}
+
+.esprit-fi-rr-link:before {
+  content: "\e9d3";
+  color: #374957;
+}
+
+.esprit-fi-rr-location-alt:before {
+  content: "\e9d4";
+  color: #374957;
+}
+
+.esprit-fi-rr-lock:before {
+  content: "\e9d5";
+  color: #374957;
+}
+
+.esprit-fi-rr-lock-alt:before {
+  content: "\e9d6";
+  color: #374957;
+}
+
+.esprit-fi-rr-luggage-rolling:before {
+  content: "\e9d7";
+  color: #374957;
+}
+
+.esprit-fi-rr-magic-wand:before {
+  content: "\e9d8";
+  color: #374957;
+}
+
+.esprit-fi-rr-makeup-brush:before {
+  content: "\e9d9";
+  color: #374957;
+}
+
+.esprit-fi-rr-man-head:before {
+  content: "\e9da";
+  color: #374957;
+}
+
+.esprit-fi-rr-map:before {
+  content: "\e9db";
+  color: #374957;
+}
+
+.esprit-fi-rr-map-marker:before {
+  content: "\e9dc";
+  color: #374957;
+}
+
+.esprit-fi-rr-map-marker-cross:before {
+  content: "\e9dd";
+  color: #374957;
+}
+
+.esprit-fi-rr-map-marker-home:before {
+  content: "\e9de";
+  color: #374957;
+}
+
+.esprit-fi-rr-map-marker-minus:before {
+  content: "\e9df";
+  color: #374957;
+}
+
+.esprit-fi-rr-map-marker-plus:before {
+  content: "\e9e0";
+  color: #374957;
+}
+
+.esprit-fi-rr-marker:before {
+  content: "\e9e1";
+  color: #374957;
+}
+
+.esprit-fi-rr-marker-time:before {
+  content: "\e9e2";
+  color: #374957;
+}
+
+.esprit-fi-rr-menu-burger:before {
+  content: "\e9e3";
+  color: #374957;
+}
+
+.esprit-fi-rr-menu-dots:before {
+  content: "\e9e4";
+  color: #374957;
+}
+
+.esprit-fi-rr-menu-dots-vertical:before {
+  content: "\e9e5";
+  color: #374957;
+}
+
+.esprit-fi-rr-microphone:before {
+  content: "\e9e6";
+  color: #374957;
+}
+
+.esprit-fi-rr-minus:before {
+  content: "\e9e7";
+  color: #374957;
+}
+
+.esprit-fi-rr-minus-small:before {
+  content: "\e9e8";
+  color: #374957;
+}
+
+.esprit-fi-rr-mobile:before {
+  content: "\e9e9";
+  color: #374957;
+}
+
+.esprit-fi-rr-mode-landscape:before {
+  content: "\e9ea";
+  color: #374957;
+}
+
+.esprit-fi-rr-mode-portrait:before {
+  content: "\e9eb";
+  color: #374957;
+}
+
+.esprit-fi-rr-money:before {
+  content: "\e9ec";
+  color: #374957;
+}
+
+.esprit-fi-rr-moon:before {
+  content: "\e9ed";
+  color: #374957;
+}
+
+.esprit-fi-rr-mountains:before {
+  content: "\e9ee";
+  color: #374957;
+}
+
+.esprit-fi-rr-mouse:before {
+  content: "\e9ef";
+  color: #374957;
+}
+
+.esprit-fi-rr-mug-alt:before {
+  content: "\e9f0";
+  color: #374957;
+}
+
+.esprit-fi-rr-music:before {
+  content: "\e9f1";
+  color: #374957;
+}
+
+.esprit-fi-rr-music-alt:before {
+  content: "\e9f2";
+  color: #374957;
+}
+
+.esprit-fi-rr-navigation:before {
+  content: "\e9f3";
+  color: #374957;
+}
+
+.esprit-fi-rr-network:before {
+  content: "\e9f4";
+  color: #374957;
+}
+
+.esprit-fi-rr-network-cloud:before {
+  content: "\e9f5";
+  color: #374957;
+}
+
+.esprit-fi-rr-notebook:before {
+  content: "\e9f6";
+  color: #374957;
+}
+
+.esprit-fi-rr-opacity:before {
+  content: "\e9f7";
+  color: #374957;
+}
+
+.esprit-fi-rr-package:before {
+  content: "\e9f8";
+  color: #374957;
+}
+
+.esprit-fi-rr-paint-brush:before {
+  content: "\e9f9";
+  color: #374957;
+}
+
+.esprit-fi-rr-palette:before {
+  content: "\e9fa";
+  color: #374957;
+}
+
+.esprit-fi-rr-pause:before {
+  content: "\e9fb";
+  color: #374957;
+}
+
+.esprit-fi-rr-pencil:before {
+  content: "\e9fc";
+  color: #374957;
+}
+
+.esprit-fi-rr-pharmacy:before {
+  content: "\e9fd";
+  color: #374957;
+}
+
+.esprit-fi-rr-phone-call:before {
+  content: "\e9fe";
+  color: #374957;
+}
+
+.esprit-fi-rr-phone-cross:before {
+  content: "\e9ff";
+  color: #374957;
+}
+
+.esprit-fi-rr-phone-pause:before {
+  content: "\ea00";
+  color: #374957;
+}
+
+.esprit-fi-rr-phone-slash:before {
+  content: "\ea01";
+  color: #374957;
+}
+
+.esprit-fi-rr-physics:before {
+  content: "\ea02";
+  color: #374957;
+}
+
+.esprit-fi-rr-picture:before {
+  content: "\ea03";
+  color: #374957;
+}
+
+.esprit-fi-rr-play:before {
+  content: "\ea04";
+  color: #374957;
+}
+
+.esprit-fi-rr-play-alt:before {
+  content: "\ea05";
+  color: #374957;
+}
+
+.esprit-fi-rr-plus:before {
+  content: "\ea06";
+  color: #374957;
+}
+
+.esprit-fi-rr-plus-small:before {
+  content: "\ea07";
+  color: #374957;
+}
+
+.esprit-fi-rr-portrait:before {
+  content: "\ea08";
+  color: #374957;
+}
+
+.esprit-fi-rr-power:before {
+  content: "\ea09";
+  color: #374957;
+}
+
+.esprit-fi-rr-presentation:before {
+  content: "\ea0a";
+  color: #374957;
+}
+
+.esprit-fi-rr-print:before {
+  content: "\ea0b";
+  color: #374957;
+}
+
+.esprit-fi-rr-pulse:before {
+  content: "\ea0c";
+  color: #374957;
+}
+
+.esprit-fi-rr-pyramid:before {
+  content: "\ea0d";
+  color: #374957;
+}
+
+.esprit-fi-rr-quote-right:before {
+  content: "\ea0e";
+  color: #374957;
+}
+
+.esprit-fi-rr-rainbow:before {
+  content: "\ea0f";
+  color: #374957;
+}
+
+.esprit-fi-rr-raindrops:before {
+  content: "\ea10";
+  color: #374957;
+}
+
+.esprit-fi-rr-rec:before {
+  content: "\ea11";
+  color: #374957;
+}
+
+.esprit-fi-rr-receipt:before {
+  content: "\ea12";
+  color: #374957;
+}
+
+.esprit-fi-rr-record-vinyl:before {
+  content: "\ea13";
+  color: #374957;
+}
+
+.esprit-fi-rr-rectabgle-vertical:before {
+  content: "\ea14";
+  color: #374957;
+}
+
+.esprit-fi-rr-rectangle-horizontal:before {
+  content: "\ea15";
+  color: #374957;
+}
+
+.esprit-fi-rr-rectangle-panoramic:before {
+  content: "\ea16";
+  color: #374957;
+}
+
+.esprit-fi-rr-recycle:before {
+  content: "\ea17";
+  color: #374957;
+}
+
+.esprit-fi-rr-redo:before {
+  content: "\ea18";
+  color: #374957;
+}
+
+.esprit-fi-rr-redo-alt:before {
+  content: "\ea19";
+  color: #374957;
+}
+
+.esprit-fi-rr-reflect:before {
+  content: "\ea1a";
+  color: #374957;
+}
+
+.esprit-fi-rr-refresh:before {
+  content: "\ea1b";
+  color: #374957;
+}
+
+.esprit-fi-rr-resize:before {
+  content: "\ea1c";
+  color: #374957;
+}
+
+.esprit-fi-rr-resources:before {
+  content: "\ea1d";
+  color: #374957;
+}
+
+.esprit-fi-rr-rewind:before {
+  content: "\ea1e";
+  color: #374957;
+}
+
+.esprit-fi-rr-rhombus:before {
+  content: "\ea1f";
+  color: #374957;
+}
+
+.esprit-fi-rr-road:before {
+  content: "\ea20";
+  color: #374957;
+}
+
+.esprit-fi-rr-rotate-right:before {
+  content: "\ea21";
+  color: #374957;
+}
+
+.esprit-fi-rr-sad:before {
+  content: "\ea22";
+  color: #374957;
+}
+
+.esprit-fi-rr-scale:before {
+  content: "\ea23";
+  color: #374957;
+}
+
+.esprit-fi-rr-scissors:before {
+  content: "\ea24";
+  color: #374957;
+}
+
+.esprit-fi-rr-screen:before {
+  content: "\ea25";
+  color: #374957;
+}
+
+.esprit-fi-rr-search:before {
+  content: "\ea26";
+  color: #374957;
+}
+
+.esprit-fi-rr-search-alt:before {
+  content: "\ea27";
+  color: #374957;
+}
+
+.esprit-fi-rr-search-heart:before {
+  content: "\ea28";
+  color: #374957;
+}
+
+.esprit-fi-rr-settings:before {
+  content: "\ea29";
+  color: #374957;
+}
+
+.esprit-fi-rr-settings-sliders:before {
+  content: "\ea2a";
+  color: #374957;
+}
+
+.esprit-fi-rr-share:before {
+  content: "\ea2b";
+  color: #374957;
+}
+
+.esprit-fi-rr-shield:before {
+  content: "\ea2c";
+  color: #374957;
+}
+
+.esprit-fi-rr-shield-check:before {
+  content: "\ea2d";
+  color: #374957;
+}
+
+.esprit-fi-rr-shield-exclamation:before {
+  content: "\ea2e";
+  color: #374957;
+}
+
+.esprit-fi-rr-shield-interrogation:before {
+  content: "\ea2f";
+  color: #374957;
+}
+
+.esprit-fi-rr-shield-plus:before {
+  content: "\ea30";
+  color: #374957;
+}
+
+.esprit-fi-rr-shuffle:before {
+  content: "\ea31";
+  color: #374957;
+}
+
+.esprit-fi-rr-signal-alt:before {
+  content: "\ea32";
+  color: #374957;
+}
+
+.esprit-fi-rr-signal-alt-1:before {
+  content: "\ea33";
+  color: #374957;
+}
+
+.esprit-fi-rr-signal-alt-2:before {
+  content: "\ea34";
+  color: #374957;
+}
+
+.esprit-fi-rr-sign-in:before {
+  content: "\ea35";
+  color: #374957;
+}
+
+.esprit-fi-rr-sign-in-alt:before {
+  content: "\ea36";
+  color: #374957;
+}
+
+.esprit-fi-rr-sign-out:before {
+  content: "\ea37";
+  color: #374957;
+}
+
+.esprit-fi-rr-sign-out-alt:before {
+  content: "\ea38";
+  color: #374957;
+}
+
+.esprit-fi-rr-skateboard:before {
+  content: "\ea39";
+  color: #374957;
+}
+
+.esprit-fi-rr-smartphone:before {
+  content: "\ea3a";
+  color: #374957;
+}
+
+.esprit-fi-rr-smile:before {
+  content: "\ea3b";
+  color: #374957;
+}
+
+.esprit-fi-rr-smile-wink:before {
+  content: "\ea3c";
+  color: #374957;
+}
+
+.esprit-fi-rr-snowflake:before {
+  content: "\ea3d";
+  color: #374957;
+}
+
+.esprit-fi-rr-speaker:before {
+  content: "\ea3e";
+  color: #374957;
+}
+
+.esprit-fi-rr-star:before {
+  content: "\ea3f";
+  color: #374957;
+}
+
+.esprit-fi-rr-stats:before {
+  content: "\ea40";
+  color: #374957;
+}
+
+.esprit-fi-rr-stethoscope:before {
+  content: "\ea41";
+  color: #374957;
+}
+
+.esprit-fi-rr-sticker:before {
+  content: "\ea42";
+  color: #374957;
+}
+
+.esprit-fi-rr-stopwatch:before {
+  content: "\ea43";
+  color: #374957;
+}
+
+.esprit-fi-rr-subtitles:before {
+  content: "\ea44";
+  color: #374957;
+}
+
+.esprit-fi-rr-sun:before {
+  content: "\ea45";
+  color: #374957;
+}
+
+.esprit-fi-rr-sunrise:before {
+  content: "\ea46";
+  color: #374957;
+}
+
+.esprit-fi-rr-text:before {
+  content: "\ea47";
+  color: #374957;
+}
+
+.esprit-fi-rr-text-height:before {
+  content: "\ea48";
+  color: #374957;
+}
+
+.esprit-fi-rr-text-size:before {
+  content: "\ea49";
+  color: #374957;
+}
+
+.esprit-fi-rr-text-width:before {
+  content: "\ea4a";
+  color: #374957;
+}
+
+.esprit-fi-rr-thermometer-half:before {
+  content: "\ea4b";
+  color: #374957;
+}
+
+.esprit-fi-rr-thumbs-down:before {
+  content: "\ea4c";
+  color: #374957;
+}
+
+.esprit-fi-rr-thumbs-up:before {
+  content: "\ea4d";
+  color: #374957;
+}
+
+.esprit-fi-rr-thumbtack:before {
+  content: "\ea4e";
+  color: #374957;
+}
+
+.esprit-fi-rr-ticket:before {
+  content: "\ea4f";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-add:before {
+  content: "\ea50";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-check:before {
+  content: "\ea51";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-delete:before {
+  content: "\ea52";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-fast:before {
+  content: "\ea53";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-forward:before {
+  content: "\ea54";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-forward-sixty:before {
+  content: "\ea55";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-forward-ten:before {
+  content: "\ea56";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-half-past:before {
+  content: "\ea57";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-oclock:before {
+  content: "\ea58";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-past:before {
+  content: "\ea59";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-quarter-past:before {
+  content: "\ea5a";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-quarter-to:before {
+  content: "\ea5b";
+  color: #374957;
+}
+
+.esprit-fi-rr-time-twenty-four:before {
+  content: "\ea5c";
+  color: #374957;
+}
+
+.esprit-fi-rr-tool-crop:before {
+  content: "\ea5d";
+  color: #374957;
+}
+
+.esprit-fi-rr-tool-marquee:before {
+  content: "\ea5e";
+  color: #374957;
+}
+
+.esprit-fi-rr-transform:before {
+  content: "\ea5f";
+  color: #374957;
+}
+
+.esprit-fi-rr-trash:before {
+  content: "\ea60";
+  color: #374957;
+}
+
+.esprit-fi-rr-treatment:before {
+  content: "\ea61";
+  color: #374957;
+}
+
+.esprit-fi-rr-underline:before {
+  content: "\ea62";
+  color: #374957;
+}
+
+.esprit-fi-rr-undo:before {
+  content: "\ea63";
+  color: #374957;
+}
+
+.esprit-fi-rr-undo-alt:before {
+  content: "\ea64";
+  color: #374957;
+}
+
+.esprit-fi-rr-unlock:before {
+  content: "\ea65";
+  color: #374957;
+}
+
+.esprit-fi-rr-upload:before {
+  content: "\ea66";
+  color: #374957;
+}
+
+.esprit-fi-rr-user:before {
+  content: "\ea67";
+  color: #374957;
+}
+
+.esprit-fi-rr-user-add:before {
+  content: "\ea68";
+  color: #374957;
+}
+
+.esprit-fi-rr-user-delete:before {
+  content: "\ea69";
+  color: #374957;
+}
+
+.esprit-fi-rr-user-remove:before {
+  content: "\ea6a";
+  color: #374957;
+}
+
+.esprit-fi-rr-user-time:before {
+  content: "\ea6b";
+  color: #374957;
+}
+
+.esprit-fi-rr-video-camera:before {
+  content: "\ea6c";
+  color: #374957;
+}
+
+.esprit-fi-rr-volume:before {
+  content: "\ea6d";
+  color: #374957;
+}
+
+.esprit-fi-rr-wheelchair:before {
+  content: "\ea6e";
+  color: #374957;
+}
+
+.esprit-fi-rr-world:before {
+  content: "\ea6f";
+  color: #374957;
+}
+
+.esprit-fi-rr-zoom-in:before {
+  content: "\ea70";
+  color: #374957;
+}
+
+.esprit-fi-rr-zoom-out:before {
+  content: "\ea71";
+  color: #374957;
+}
+
+.esprit-gap:before {
+  content: "\ea72";
+}
+
+.esprit-instagram-2:before {
+  content: "\ea73";
+}
+
+.esprit-linkedin:before {
+  content: "\ea74";
+}
+
+.esprit-messages:before {
+  content: "\ea75";
+}
+
+.esprit-plyr-airplay:before {
+  content: "\ea76";
+}
+
+.esprit-plyr-captions-off:before {
+  content: "\ea77";
+}
+
+.esprit-plyr-captions-on:before {
+  content: "\ea78";
+}
+
+.esprit-plyr-download:before {
+  content: "\ea79";
+}
+
+.esprit-plyr-enter-fullscreen:before {
+  content: "\ea7a";
+}
+
+.esprit-plyr-exit-fullscreen:before {
+  content: "\ea7b";
+}
+
+.esprit-plyr-fast-forward:before {
+  content: "\ea7c";
+}
+
+.esprit-plyr-logo-vimeo:before {
+  content: "\ea7d";
+}
+
+.esprit-plyr-logo-youtube:before {
+  content: "\ea7e";
+}
+
+.esprit-plyr-muted:before {
+  content: "\ea7f";
+}
+
+.esprit-plyr-pause:before {
+  content: "\ea80";
+}
+
+.esprit-plyr-pip:before {
+  content: "\ea81";
+}
+
+.esprit-plyr-play:before {
+  content: "\ea82";
+}
+
+.esprit-plyr-restart:before {
+  content: "\ea83";
+}
+
+.esprit-plyr-rewind:before {
+  content: "\ea84";
+}
+
+.esprit-plyr-settings:before {
+  content: "\ea85";
+}
+
+.esprit-plyr-volume:before {
+  content: "\ea86";
+}
+
+.esprit-Social-Icons:before {
+  content: "\ea87";
+}
+
+.esprit-soroush:before {
+  content: "\ea88";
+}
+
+.esprit-telegram:before {
+  content: "\ea89";
+}
+
+.esprit-twitter:before {
+  content: "\ea8a";
+}
+
+.esprit-whatsapp:before {
+  content: "\ea8b";
+}
+
 .lg-outer {
   direction: ltr;
 }
@@ -422,6 +2397,17 @@ a {
 .esprit-article__gallery.is-visible {
   opacity: 1;
   pointer-events: auto;
+}
+
+.esprit-article-shortlink {
+  background: #FFFFFF;
+  border: 1px solid hsl(220, 5%, 92%);
+  border-radius: 8px;
+  display: flex;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-inline-start: 4px;
+  padding-inline-end: 8px;
 }
 
 .page-content-main__article {

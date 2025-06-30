@@ -1,0 +1,12 @@
+@use '../globals' as *;
+
+.esprit-article-shortlink {
+    background: #FFFFFF;
+    border: 1px solid $gray-200;
+    border-radius: 8px;
+    display: flex;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-inline-start: 4px;
+    padding-inline-end: 8px;
+}

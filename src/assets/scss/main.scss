@@ -1,6 +1,7 @@
-@use 'variables';
+@use 'variables' as *;
 @use 'mixins';
 @use 'reset';
-@use './components/colors';
+@use 'colors' as *;
+@use 'esfonticon/style';
 @use './components/gallery';
 @use './components/article';
