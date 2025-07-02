@@ -1,12 +1,56 @@
 @use '../globals' as *;
 
 .esprit-article-shortlink {
-    background: #FFFFFF;
-    border: 1px solid $gray-200;
-    border-radius: 8px;
+    @include sideBox;
     display: flex;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-inline-start: 4px;
-    padding-inline-end: 8px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+
+    * {
+        transition: $transition;
+    }
+
+    &__link-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 14px;
+        gap: 8px;
+        background: $blue-gray-100;
+        color: $blue-gray-600;
+        border: 1px solid $blue-gray-100;
+        box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: map-get($text-sizes, 14);
+        font-weight: $text-medium;
+
+        &:hover {
+            background: $blue-gray-600;
+            border: 1px solid $blue-gray-600;
+            box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+            color: #FFFFFF;
+        }
+
+    }
+
+    &__link-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1px;
+    }
+
+    &__action {
+        @include iconButton;
+        font-size: 20px;
+        width: 36px;
+        height: 36px;
+
+    }
 }

@@ -1,0 +1,18 @@
+$text-regular: 400;
+$text-medium: 500;
+$text-semi-bold: 600;
+$text-bold: 700;
+$text-extra-bold: 800;
+$text-black: 900;
+
+$text-sizes: (
+);
+
+@for $i from 8 through 100 {
+    $em: (
+        $i / 16)*1em;
+    $text-sizes: map-merge($text-sizes, ($i: $em)
+    );
+}
+
+$transition: linear 0.3s;

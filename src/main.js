@@ -1,9 +1,11 @@
 import { initGallery } from "./features/gallery";
 import { initAudioPlayer, initVideoPlayer } from "./features/mediaPlayer";
-//import "esfonticon/style.scss";
+import { initAccessibilitySliders } from "./features/accessibilityControls";
+import "./assets/scss/main.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
   initGallery();
   initVideoPlayer();
   initAudioPlayer();
+  initAccessibilitySliders();
 });

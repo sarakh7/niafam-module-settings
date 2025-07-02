@@ -1,0 +1,6 @@
+@use '../globals' as *;
+
+.esprit-article-info {
+    @include sideBox;
+    margin-top: 12px;
+}

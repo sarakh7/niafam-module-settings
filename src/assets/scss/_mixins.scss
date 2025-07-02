@@ -1,0 +1,30 @@
+@use 'variables' as *;
+@use 'colors' as *;
+
+@mixin iconButton {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+
+    &:hover,
+    &.active {
+        background: $blue-gray-600;
+        box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+        color: #FFFFFF;
+    }
+}
+
+@mixin sideBox {
+    background: #FFFFFF;
+    border: 1px solid $gray-200;
+    border-radius: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-inline-start: 4px;
+    padding-inline-end: 8px;
+}
