@@ -1,3 +1,4 @@
+@use "sass:map";
 @use '../globals' as *;
 
 .esprit-article-accessibility {
@@ -114,7 +115,7 @@ $handle-bg: white;
         color: #ffffff;
         border-radius: 8px;
         min-width: 48px;
-        font-size: map-get($text-sizes, 12);
+        font-size: map.get($text-sizes, 12);
         font-weight: $text-regular;
 
         &::after {
