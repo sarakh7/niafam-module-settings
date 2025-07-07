@@ -3,6 +3,10 @@
 
 .esprit-article-accessibility {
     @include sideBox;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-inline-start: 4px;
+    padding-inline-end: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -61,6 +65,15 @@
                 visibility: visible;
             }
         }
+
+        &:hover {
+            .noUi-horizontal {
+                .noUi-tooltip {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+        }
     }
 }
 
@@ -117,6 +130,9 @@ $handle-bg: white;
         min-width: 48px;
         font-size: map.get($text-sizes, 12);
         font-weight: $text-regular;
+        opacity: 0;
+        pointer-events: none;
+        transition: $transition;
 
         &::after {
             content: "";

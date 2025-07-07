@@ -3,6 +3,10 @@
 
 .esprit-article-shortlink {
     @include sideBox;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-inline-start: 4px;
+    padding-inline-end: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
