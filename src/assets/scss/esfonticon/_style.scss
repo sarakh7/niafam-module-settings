@@ -2,10 +2,9 @@
 
 @font-face {
   font-family: '#{$icomoon-font-family}';
-  src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?ron46o') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?ron46o') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?ron46o##{$icomoon-font-family}') format('svg');
+  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?ron46o') format('truetype'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?ron46o') format('woff'),
+  url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?ron46o##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -29,2010 +28,2376 @@ span.es {
 
 .esprit-AngelList {
   &:before {
-    content: $esprit-AngelList;     
-    color: #e9eaeb;
-  }
-}
-.esprit-Apple {
-  &:before {
-    content: $esprit-Apple;     
-    color: #717680;
-  }
-}
-.esprit-Clubhouse {
-  &:before {
-    content: $esprit-Clubhouse;     
-    color: #717680;
-  }
-}
-.esprit-Discord {
-  &:before {
-    content: $esprit-Discord;     
-    color: #717680;
-  }
-}
-.esprit-Dribbble {
-  &:before {
-    content: $esprit-Dribbble;     
-    color: #717680;
-  }
-}
-.esprit-Facebook {
-  &:before {
-    content: $esprit-Facebook;     
-    color: #717680;
-  }
-}
-.esprit-Figma {
-  &:before {
-    content: $esprit-Figma;     
-    color: #717680;
-  }
-}
-.esprit-GitHub {
-  &:before {
-    content: $esprit-GitHub;     
-    color: #e9eaeb;
-  }
-}
-.esprit-Google {
-  &:before {
-    content: $esprit-Google;     
-    color: #717680;
-  }
-}
-.esprit-Instagram {
-  &:before {
-    content: $esprit-Instagram;     
-    color: #717680;
-  }
-}
-.esprit-Layers .path1 {
-  &:before {
-    content: $esprit-Layers-path1;  
-    color: rgb(233, 234, 235);  
-    opacity: 0.2;
-  }
-}
-.esprit-Layers .path2 {
-  &:before {
-    content: $esprit-Layers-path2;  
-    margin-left: -1em;  
-    color: rgb(233, 234, 235);  
-    opacity: 0.5;
-  }
-}
-.esprit-Layers .path3 {
-  &:before {
-    content: $esprit-Layers-path3;  
-    margin-left: -1em;  
-    color: rgb(233, 234, 235);  
-    opacity: 0.8;
-  }
-}
-.esprit-LinkedIn {
-  &:before {
-    content: $esprit-LinkedIn;     
-    color: #717680;
-  }
-}
-.esprit-Pinterest {
-  &:before {
-    content: $esprit-Pinterest;     
-    color: #717680;
-  }
-}
-.esprit-Reddit {
-  &:before {
-    content: $esprit-Reddit;     
-    color: #717680;
-  }
-}
-.esprit-Signal {
-  &:before {
-    content: $esprit-Signal;     
-    color: #717680;
-  }
-}
-.esprit-Snapchat {
-  &:before {
-    content: $esprit-Snapchat;     
-    color: #717680;
-  }
-}
-.esprit-Telegram {
-  &:before {
-    content: $esprit-Telegram;     
-    color: #717680;
-  }
-}
-.esprit-TikTok {
-  &:before {
-    content: $esprit-TikTok;     
-    color: #717680;
-  }
-}
-.esprit-Tumblr {
-  &:before {
-    content: $esprit-Tumblr;     
-    color: #717680;
-  }
-}
-.esprit-X-Twitter {
-  &:before {
-    content: $esprit-X-Twitter;     
-    color: #717680;
-  }
-}
-.esprit-YouTube {
-  &:before {
-    content: $esprit-YouTube;     
-    color: #717680;
-  }
-}
-.esprit-ai-portal {
-  &:before {
-    content: $esprit-ai-portal; 
-  }
-}
-.esprit-aparat {
-  &:before {
-    content: $esprit-aparat; 
-  }
-}
-.esprit-bale {
-  &:before {
-    content: $esprit-bale; 
-  }
-}
-.esprit-bisphon {
-  &:before {
-    content: $esprit-bisphon; 
-  }
-}
-.esprit-eita {
-  &:before {
-    content: $esprit-eita; 
-  }
-}
-.esprit-facebook {
-  &:before {
-    content: $esprit-facebook; 
-  }
-}
-.esprit-fi-rr-add {
-  &:before {
-    content: $esprit-fi-rr-add; 
-  }
-}
-.esprit-fi-rr-address-book {
-  &:before {
-    content: $esprit-fi-rr-address-book; 
-  }
-}
-.esprit-fi-rr-alarm-clock {
-  &:before {
-    content: $esprit-fi-rr-alarm-clock; 
-  }
-}
-.esprit-fi-rr-angle-double-left {
-  &:before {
-    content: $esprit-fi-rr-angle-double-left; 
-  }
-}
-.esprit-fi-rr-angle-double-right {
-  &:before {
-    content: $esprit-fi-rr-angle-double-right; 
-  }
-}
-.esprit-fi-rr-angle-double-small-left {
-  &:before {
-    content: $esprit-fi-rr-angle-double-small-left; 
-  }
-}
-.esprit-fi-rr-angle-double-small-right {
-  &:before {
-    content: $esprit-fi-rr-angle-double-small-right; 
-  }
-}
-.esprit-fi-rr-angle-down {
-  &:before {
-    content: $esprit-fi-rr-angle-down; 
-  }
-}
-.esprit-fi-rr-angle-left {
-  &:before {
-    content: $esprit-fi-rr-angle-left; 
-  }
-}
-.esprit-fi-rr-angle-right {
-  &:before {
-    content: $esprit-fi-rr-angle-right; 
-  }
-}
-.esprit-fi-rr-angle-small-down {
-  &:before {
-    content: $esprit-fi-rr-angle-small-down; 
-  }
-}
-.esprit-fi-rr-angle-small-left {
-  &:before {
-    content: $esprit-fi-rr-angle-small-left; 
-  }
-}
-.esprit-fi-rr-angle-small-right {
-  &:before {
-    content: $esprit-fi-rr-angle-small-right; 
-  }
-}
-.esprit-fi-rr-angle-small-up {
-  &:before {
-    content: $esprit-fi-rr-angle-small-up; 
-  }
-}
-.esprit-fi-rr-angle-up {
-  &:before {
-    content: $esprit-fi-rr-angle-up; 
-  }
-}
-.esprit-fi-rr-apps {
-  &:before {
-    content: $esprit-fi-rr-apps; 
-  }
-}
-.esprit-fi-rr-apps-add {
-  &:before {
-    content: $esprit-fi-rr-apps-add; 
-  }
-}
-.esprit-fi-rr-apps-delete {
-  &:before {
-    content: $esprit-fi-rr-apps-delete; 
-  }
-}
-.esprit-fi-rr-apps-sort {
-  &:before {
-    content: $esprit-fi-rr-apps-sort; 
-  }
-}
-.esprit-fi-rr-archive {
-  &:before {
-    content: $esprit-fi-rr-archive; 
-  }
-}
-.esprit-fi-rr-arrow-down {
-  &:before {
-    content: $esprit-fi-rr-arrow-down; 
-  }
-}
-.esprit-fi-rr-arrow-from-bottom {
-  &:before {
-    content: $esprit-fi-rr-arrow-from-bottom; 
-  }
-}
-.esprit-fi-rr-arrow-left {
-  &:before {
-    content: $esprit-fi-rr-arrow-left; 
-  }
-}
-.esprit-fi-rr-arrow-right {
-  &:before {
-    content: $esprit-fi-rr-arrow-right; 
-  }
-}
-.esprit-fi-rr-arrow-small-down {
-  &:before {
-    content: $esprit-fi-rr-arrow-small-down; 
-  }
-}
-.esprit-fi-rr-arrow-small-left {
-  &:before {
-    content: $esprit-fi-rr-arrow-small-left; 
-  }
-}
-.esprit-fi-rr-arrow-small-right {
-  &:before {
-    content: $esprit-fi-rr-arrow-small-right; 
-  }
-}
-.esprit-fi-rr-arrow-small-up {
-  &:before {
-    content: $esprit-fi-rr-arrow-small-up; 
-  }
-}
-.esprit-fi-rr-arrow-up {
-  &:before {
-    content: $esprit-fi-rr-arrow-up; 
-  }
-}
-.esprit-fi-rr-asterik {
-  &:before {
-    content: $esprit-fi-rr-asterik; 
-  }
-}
-.esprit-fi-rr-at {
-  &:before {
-    content: $esprit-fi-rr-at; 
-  }
-}
-.esprit-fi-rr-ban {
-  &:before {
-    content: $esprit-fi-rr-ban; 
-  }
-}
-.esprit-fi-rr-bell {
-  &:before {
-    content: $esprit-fi-rr-bell; 
-  }
-}
-.esprit-fi-rr-bell-ring {
-  &:before {
-    content: $esprit-fi-rr-bell-ring; 
-  }
-}
-.esprit-fi-rr-bell-school {
-  &:before {
-    content: $esprit-fi-rr-bell-school; 
-  }
-}
-.esprit-fi-rr-book {
-  &:before {
-    content: $esprit-fi-rr-book; 
-  }
-}
-.esprit-fi-rr-book-alt {
-  &:before {
-    content: $esprit-fi-rr-book-alt; 
-  }
-}
-.esprit-fi-rr-bookmark {
-  &:before {
-    content: $esprit-fi-rr-bookmark; 
-  }
-}
-.esprit-fi-rr-box {
-  &:before {
-    content: $esprit-fi-rr-box; 
-  }
-}
-.esprit-fi-rr-box-alt {
-  &:before {
-    content: $esprit-fi-rr-box-alt; 
-  }
-}
-.esprit-fi-rr-bread-slice {
-  &:before {
-    content: $esprit-fi-rr-bread-slice; 
-  }
-}
-.esprit-fi-rr-briefcase {
-  &:before {
-    content: $esprit-fi-rr-briefcase; 
-  }
-}
-.esprit-fi-rr-broom {
-  &:before {
-    content: $esprit-fi-rr-broom; 
-  }
-}
-.esprit-fi-rr-browser {
-  &:before {
-    content: $esprit-fi-rr-browser; 
-  }
-}
-.esprit-fi-rr-brush {
-  &:before {
-    content: $esprit-fi-rr-brush; 
-  }
-}
-.esprit-fi-rr-building {
-  &:before {
-    content: $esprit-fi-rr-building; 
-  }
-}
-.esprit-fi-rr-bulb {
-  &:before {
-    content: $esprit-fi-rr-bulb; 
-  }
-}
-.esprit-fi-rr-calculator {
-  &:before {
-    content: $esprit-fi-rr-calculator; 
-  }
-}
-.esprit-fi-rr-calendar {
-  &:before {
-    content: $esprit-fi-rr-calendar; 
-  }
-}
-.esprit-fi-rr-call-history {
-  &:before {
-    content: $esprit-fi-rr-call-history; 
-  }
-}
-.esprit-fi-rr-call-incoming {
-  &:before {
-    content: $esprit-fi-rr-call-incoming; 
-  }
-}
-.esprit-fi-rr-call-missed {
-  &:before {
-    content: $esprit-fi-rr-call-missed; 
-  }
-}
-.esprit-fi-rr-call-outgoing {
-  &:before {
-    content: $esprit-fi-rr-call-outgoing; 
-  }
-}
-.esprit-fi-rr-camera {
-  &:before {
-    content: $esprit-fi-rr-camera; 
-  }
-}
-.esprit-fi-rr-camping {
-  &:before {
-    content: $esprit-fi-rr-camping; 
-  }
-}
-.esprit-fi-rr-caret-down {
-  &:before {
-    content: $esprit-fi-rr-caret-down; 
-  }
-}
-.esprit-fi-rr-caret-left {
-  &:before {
-    content: $esprit-fi-rr-caret-left; 
-  }
-}
-.esprit-fi-rr-caret-right {
-  &:before {
-    content: $esprit-fi-rr-caret-right; 
-  }
-}
-.esprit-fi-rr-caret-up {
-  &:before {
-    content: $esprit-fi-rr-caret-up; 
-  }
-}
-.esprit-fi-rr-chart-connected {
-  &:before {
-    content: $esprit-fi-rr-chart-connected; 
-  }
-}
-.esprit-fi-rr-chart-histogram {
-  &:before {
-    content: $esprit-fi-rr-chart-histogram; 
-  }
-}
-.esprit-fi-rr-chart-network {
-  &:before {
-    content: $esprit-fi-rr-chart-network; 
-  }
-}
-.esprit-fi-rr-chart-pie {
-  &:before {
-    content: $esprit-fi-rr-chart-pie; 
-  }
-}
-.esprit-fi-rr-chart-pie-alt {
-  &:before {
-    content: $esprit-fi-rr-chart-pie-alt; 
-  }
-}
-.esprit-fi-rr-chart-set-theory {
-  &:before {
-    content: $esprit-fi-rr-chart-set-theory; 
-  }
-}
-.esprit-fi-rr-chart-tree {
-  &:before {
-    content: $esprit-fi-rr-chart-tree; 
-  }
-}
-.esprit-fi-rr-chat-arrow-down {
-  &:before {
-    content: $esprit-fi-rr-chat-arrow-down; 
-  }
-}
-.esprit-fi-rr-chat-arrow-grow {
-  &:before {
-    content: $esprit-fi-rr-chat-arrow-grow; 
-  }
-}
-.esprit-fi-rr-check {
-  &:before {
-    content: $esprit-fi-rr-check; 
-  }
-}
-.esprit-fi-rr-checkbox {
-  &:before {
-    content: $esprit-fi-rr-checkbox; 
-  }
-}
-.esprit-fi-rr-clip {
-  &:before {
-    content: $esprit-fi-rr-clip; 
-  }
-}
-.esprit-fi-rr-clock {
-  &:before {
-    content: $esprit-fi-rr-clock; 
-  }
-}
-.esprit-fi-rr-cloud {
-  &:before {
-    content: $esprit-fi-rr-cloud; 
-  }
-}
-.esprit-fi-rr-cloud-check {
-  &:before {
-    content: $esprit-fi-rr-cloud-check; 
-  }
-}
-.esprit-fi-rr-cloud-disabled {
-  &:before {
-    content: $esprit-fi-rr-cloud-disabled; 
-  }
-}
-.esprit-fi-rr-cloud-download {
-  &:before {
-    content: $esprit-fi-rr-cloud-download; 
-  }
-}
-.esprit-fi-rr-clouds {
-  &:before {
-    content: $esprit-fi-rr-clouds; 
-  }
-}
-.esprit-fi-rr-cloud-share {
-  &:before {
-    content: $esprit-fi-rr-cloud-share; 
-  }
-}
-.esprit-fi-rr-cloud-upload {
-  &:before {
-    content: $esprit-fi-rr-cloud-upload; 
-  }
-}
-.esprit-fi-rr-comment {
-  &:before {
-    content: $esprit-fi-rr-comment; 
-  }
-}
-.esprit-fi-rr-comment-alt {
-  &:before {
-    content: $esprit-fi-rr-comment-alt; 
-  }
-}
-.esprit-fi-rr-comment-check {
-  &:before {
-    content: $esprit-fi-rr-comment-check; 
-  }
-}
-.esprit-fi-rr-comment-heart {
-  &:before {
-    content: $esprit-fi-rr-comment-heart; 
-  }
-}
-.esprit-fi-rr-comment-info {
-  &:before {
-    content: $esprit-fi-rr-comment-info; 
-  }
-}
-.esprit-fi-rr-comments {
-  &:before {
-    content: $esprit-fi-rr-comments; 
-  }
-}
-.esprit-fi-rr-comment-user {
-  &:before {
-    content: $esprit-fi-rr-comment-user; 
-  }
-}
-.esprit-fi-rr-compress {
-  &:before {
-    content: $esprit-fi-rr-compress; 
-  }
-}
-.esprit-fi-rr-compress-alt {
-  &:before {
-    content: $esprit-fi-rr-compress-alt; 
-  }
-}
-.esprit-fi-rr-computer {
-  &:before {
-    content: $esprit-fi-rr-computer; 
-  }
-}
-.esprit-fi-rr-confetti {
-  &:before {
-    content: $esprit-fi-rr-confetti; 
-  }
-}
-.esprit-fi-rr-copy {
-  &:before {
-    content: $esprit-fi-rr-copy; 
-  }
-}
-.esprit-fi-rr-copy-alt {
-  &:before {
-    content: $esprit-fi-rr-copy-alt; 
-  }
-}
-.esprit-fi-rr-copyright {
-  &:before {
-    content: $esprit-fi-rr-copyright; 
-  }
-}
-.esprit-fi-rr-credit-card {
-  &:before {
-    content: $esprit-fi-rr-credit-card; 
-  }
-}
-.esprit-fi-rr-cross {
-  &:before {
-    content: $esprit-fi-rr-cross; 
-  }
-}
-.esprit-fi-rr-cross-circle {
-  &:before {
-    content: $esprit-fi-rr-cross-circle; 
-  }
-}
-.esprit-fi-rr-cross-small {
-  &:before {
-    content: $esprit-fi-rr-cross-small; 
-  }
-}
-.esprit-fi-rr-cube {
-  &:before {
-    content: $esprit-fi-rr-cube; 
-  }
-}
-.esprit-fi-rr-cursor {
-  &:before {
-    content: $esprit-fi-rr-cursor; 
-  }
-}
-.esprit-fi-rr-cursor-finger {
-  &:before {
-    content: $esprit-fi-rr-cursor-finger; 
-  }
-}
-.esprit-fi-rr-cursor-plus {
-  &:before {
-    content: $esprit-fi-rr-cursor-plus; 
-  }
-}
-.esprit-fi-rr-cursor-text {
-  &:before {
-    content: $esprit-fi-rr-cursor-text; 
-  }
-}
-.esprit-fi-rr-cursor-text-alt {
-  &:before {
-    content: $esprit-fi-rr-cursor-text-alt; 
-  }
-}
-.esprit-fi-rr-dart {
-  &:before {
-    content: $esprit-fi-rr-dart; 
-  }
-}
-.esprit-fi-rr-dashboard {
-  &:before {
-    content: $esprit-fi-rr-dashboard; 
-  }
-}
-.esprit-fi-rr-database {
-  &:before {
-    content: $esprit-fi-rr-database; 
-  }
-}
-.esprit-fi-rr-data-transfer {
-  &:before {
-    content: $esprit-fi-rr-data-transfer; 
-  }
-}
-.esprit-fi-rr-delete {
-  &:before {
-    content: $esprit-fi-rr-delete; 
-  }
-}
-.esprit-fi-rr-diploma {
-  &:before {
-    content: $esprit-fi-rr-diploma; 
-  }
-}
-.esprit-fi-rr-disco-ball {
-  &:before {
-    content: $esprit-fi-rr-disco-ball; 
-  }
-}
-.esprit-fi-rr-disk {
-  &:before {
-    content: $esprit-fi-rr-disk; 
-  }
-}
-.esprit-fi-rr-doctor {
-  &:before {
-    content: $esprit-fi-rr-doctor; 
-  }
-}
-.esprit-fi-rr-document {
-  &:before {
-    content: $esprit-fi-rr-document; 
-  }
-}
-.esprit-fi-rr-document-pdf {
-  &:before {
-    content: $esprit-fi-rr-document-pdf; 
-  }
-}
-.esprit-fi-rr-document-signed {
-  &:before {
-    content: $esprit-fi-rr-document-signed; 
-  }
-}
-.esprit-fi-rr-download {
-  &:before {
-    content: $esprit-fi-rr-download; 
-  }
-}
-.esprit-fi-rr-duplicate {
-  &:before {
-    content: $esprit-fi-rr-duplicate; 
-  }
-}
-.esprit-fi-rr-earnings {
-  &:before {
-    content: $esprit-fi-rr-earnings; 
-  }
-}
-.esprit-fi-rr-edit {
-  &:before {
-    content: $esprit-fi-rr-edit; 
-  }
-}
-.esprit-fi-rr-edit-alt {
-  &:before {
-    content: $esprit-fi-rr-edit-alt; 
-  }
-}
-.esprit-fi-rr-e-learning {
-  &:before {
-    content: $esprit-fi-rr-e-learning; 
-  }
-}
-.esprit-fi-rr-envelope {
-  &:before {
-    content: $esprit-fi-rr-envelope; 
-  }
-}
-.esprit-fi-rr-envelope-ban {
-  &:before {
-    content: $esprit-fi-rr-envelope-ban; 
-  }
-}
-.esprit-fi-rr-envelope-download {
-  &:before {
-    content: $esprit-fi-rr-envelope-download; 
-  }
-}
-.esprit-fi-rr-envelope-marker {
-  &:before {
-    content: $esprit-fi-rr-envelope-marker; 
-  }
-}
-.esprit-fi-rr-envelope-open {
-  &:before {
-    content: $esprit-fi-rr-envelope-open; 
-  }
-}
-.esprit-fi-rr-envelope-plus {
-  &:before {
-    content: $esprit-fi-rr-envelope-plus; 
-  }
-}
-.esprit-fi-rr-exclamation {
-  &:before {
-    content: $esprit-fi-rr-exclamation; 
-  }
-}
-.esprit-fi-rr-expand {
-  &:before {
-    content: $esprit-fi-rr-expand; 
-  }
-}
-.esprit-fi-rr-eye {
-  &:before {
-    content: $esprit-fi-rr-eye; 
-  }
-}
-.esprit-fi-rr-eye-crossed {
-  &:before {
-    content: $esprit-fi-rr-eye-crossed; 
-  }
-}
-.esprit-fi-rr-eye-dropper {
-  &:before {
-    content: $esprit-fi-rr-eye-dropper; 
-  }
-}
-.esprit-fi-rr-ferris-wheel {
-  &:before {
-    content: $esprit-fi-rr-ferris-wheel; 
-  }
-}
-.esprit-fi-rr-file {
-  &:before {
-    content: $esprit-fi-rr-file; 
-  }
-}
-.esprit-fi-rr-file-add {
-  &:before {
-    content: $esprit-fi-rr-file-add; 
-  }
-}
-.esprit-fi-rr-file-check {
-  &:before {
-    content: $esprit-fi-rr-file-check; 
-  }
-}
-.esprit-fi-rr-file-delete {
-  &:before {
-    content: $esprit-fi-rr-file-delete; 
-  }
-}
-.esprit-fi-rr-file-music {
-  &:before {
-    content: $esprit-fi-rr-file-music; 
-  }
-}
-.esprit-fi-rr-fill {
-  &:before {
-    content: $esprit-fi-rr-fill; 
-  }
-}
-.esprit-fi-rr-film {
-  &:before {
-    content: $esprit-fi-rr-film; 
-  }
-}
-.esprit-fi-rr-filter {
-  &:before {
-    content: $esprit-fi-rr-filter; 
-  }
-}
-.esprit-fi-rr-fingerprint {
-  &:before {
-    content: $esprit-fi-rr-fingerprint; 
-  }
-}
-.esprit-fi-rr-flag {
-  &:before {
-    content: $esprit-fi-rr-flag; 
-  }
-}
-.esprit-fi-rr-flame {
-  &:before {
-    content: $esprit-fi-rr-flame; 
-  }
-}
-.esprit-fi-rr-flip-horizontal {
-  &:before {
-    content: $esprit-fi-rr-flip-horizontal; 
-  }
-}
-.esprit-fi-rr-flower {
-  &:before {
-    content: $esprit-fi-rr-flower; 
-  }
-}
-.esprit-fi-rr-folder {
-  &:before {
-    content: $esprit-fi-rr-folder; 
-  }
-}
-.esprit-fi-rr-folder-add {
-  &:before {
-    content: $esprit-fi-rr-folder-add; 
-  }
-}
-.esprit-fi-rr-following {
-  &:before {
-    content: $esprit-fi-rr-following; 
-  }
-}
-.esprit-fi-rr-form {
-  &:before {
-    content: $esprit-fi-rr-form; 
-  }
-}
-.esprit-fi-rr-forward {
-  &:before {
-    content: $esprit-fi-rr-forward; 
-  }
-}
-.esprit-fi-rr-gallery {
-  &:before {
-    content: $esprit-fi-rr-gallery; 
-  }
-}
-.esprit-fi-rr-gem {
-  &:before {
-    content: $esprit-fi-rr-gem; 
-  }
-}
-.esprit-fi-rr-gift {
-  &:before {
-    content: $esprit-fi-rr-gift; 
-  }
-}
-.esprit-fi-rr-glasses {
-  &:before {
-    content: $esprit-fi-rr-glasses; 
-  }
-}
-.esprit-fi-rr-globe {
-  &:before {
-    content: $esprit-fi-rr-globe; 
-  }
-}
-.esprit-fi-rr-globe-alt {
-  &:before {
-    content: $esprit-fi-rr-globe-alt; 
-  }
-}
-.esprit-fi-rr-graduation-cap {
-  &:before {
-    content: $esprit-fi-rr-graduation-cap; 
-  }
-}
-.esprit-fi-rr-hand-holding-heart {
-  &:before {
-    content: $esprit-fi-rr-hand-holding-heart; 
-  }
-}
-.esprit-fi-rr-hastag {
-  &:before {
-    content: $esprit-fi-rr-hastag; 
-  }
-}
-.esprit-fi-rr-hat-birthday {
-  &:before {
-    content: $esprit-fi-rr-hat-birthday; 
-  }
-}
-.esprit-fi-rr-headphones {
-  &:before {
-    content: $esprit-fi-rr-headphones; 
-  }
-}
-.esprit-fi-rr-headset {
-  &:before {
-    content: $esprit-fi-rr-headset; 
-  }
-}
-.esprit-fi-rr-head-side-thinking {
-  &:before {
-    content: $esprit-fi-rr-head-side-thinking; 
-  }
-}
-.esprit-fi-rr-heart {
-  &:before {
-    content: $esprit-fi-rr-heart; 
-  }
-}
-.esprit-fi-rr-heart-arrow {
-  &:before {
-    content: $esprit-fi-rr-heart-arrow; 
-  }
-}
-.esprit-fi-rr-home {
-  &:before {
-    content: $esprit-fi-rr-home; 
-  }
-}
-.esprit-fi-rr-home-location {
-  &:before {
-    content: $esprit-fi-rr-home-location; 
-  }
-}
-.esprit-fi-rr-home-location-alt {
-  &:before {
-    content: $esprit-fi-rr-home-location-alt; 
-  }
-}
-.esprit-fi-rr-hourglass {
-  &:before {
-    content: $esprit-fi-rr-hourglass; 
-  }
-}
-.esprit-fi-rr-hourglass-end {
-  &:before {
-    content: $esprit-fi-rr-hourglass-end; 
-  }
-}
-.esprit-fi-rr-id-badge {
-  &:before {
-    content: $esprit-fi-rr-id-badge; 
-  }
-}
-.esprit-fi-rr-inbox {
-  &:before {
-    content: $esprit-fi-rr-inbox; 
-  }
-}
-.esprit-fi-rr-incognito {
-  &:before {
-    content: $esprit-fi-rr-incognito; 
-  }
-}
-.esprit-fi-rr-info {
-  &:before {
-    content: $esprit-fi-rr-info; 
-  }
-}
-.esprit-fi-rr-interactive {
-  &:before {
-    content: $esprit-fi-rr-interactive; 
-  }
-}
-.esprit-fi-rr-interrogation {
-  &:before {
-    content: $esprit-fi-rr-interrogation; 
-  }
-}
-.esprit-fi-rr-key {
-  &:before {
-    content: $esprit-fi-rr-key; 
-  }
-}
-.esprit-fi-rr-keyboard {
-  &:before {
-    content: $esprit-fi-rr-keyboard; 
-  }
-}
-.esprit-fi-rr-layers {
-  &:before {
-    content: $esprit-fi-rr-layers; 
-  }
-}
-.esprit-fi-rr-layout-fluid {
-  &:before {
-    content: $esprit-fi-rr-layout-fluid; 
-  }
-}
-.esprit-fi-rr-line-width {
-  &:before {
-    content: $esprit-fi-rr-line-width; 
-  }
-}
-.esprit-fi-rr-link {
-  &:before {
-    content: $esprit-fi-rr-link; 
-  }
-}
-.esprit-fi-rr-location-alt {
-  &:before {
-    content: $esprit-fi-rr-location-alt; 
-  }
-}
-.esprit-fi-rr-lock {
-  &:before {
-    content: $esprit-fi-rr-lock; 
-  }
-}
-.esprit-fi-rr-lock-alt {
-  &:before {
-    content: $esprit-fi-rr-lock-alt; 
-  }
-}
-.esprit-fi-rr-luggage-rolling {
-  &:before {
-    content: $esprit-fi-rr-luggage-rolling; 
-  }
-}
-.esprit-fi-rr-magic-wand {
-  &:before {
-    content: $esprit-fi-rr-magic-wand; 
-  }
-}
-.esprit-fi-rr-makeup-brush {
-  &:before {
-    content: $esprit-fi-rr-makeup-brush; 
-  }
-}
-.esprit-fi-rr-man-head {
-  &:before {
-    content: $esprit-fi-rr-man-head; 
-  }
-}
-.esprit-fi-rr-map {
-  &:before {
-    content: $esprit-fi-rr-map; 
-  }
-}
-.esprit-fi-rr-map-marker {
-  &:before {
-    content: $esprit-fi-rr-map-marker; 
-  }
-}
-.esprit-fi-rr-map-marker-cross {
-  &:before {
-    content: $esprit-fi-rr-map-marker-cross; 
-  }
-}
-.esprit-fi-rr-map-marker-home {
-  &:before {
-    content: $esprit-fi-rr-map-marker-home; 
-  }
-}
-.esprit-fi-rr-map-marker-minus {
-  &:before {
-    content: $esprit-fi-rr-map-marker-minus; 
-  }
-}
-.esprit-fi-rr-map-marker-plus {
-  &:before {
-    content: $esprit-fi-rr-map-marker-plus; 
-  }
-}
-.esprit-fi-rr-marker {
-  &:before {
-    content: $esprit-fi-rr-marker; 
-  }
-}
-.esprit-fi-rr-marker-time {
-  &:before {
-    content: $esprit-fi-rr-marker-time; 
-  }
-}
-.esprit-fi-rr-menu-burger {
-  &:before {
-    content: $esprit-fi-rr-menu-burger; 
-  }
-}
-.esprit-fi-rr-menu-dots {
-  &:before {
-    content: $esprit-fi-rr-menu-dots; 
-  }
-}
-.esprit-fi-rr-menu-dots-vertical {
-  &:before {
-    content: $esprit-fi-rr-menu-dots-vertical; 
-  }
-}
-.esprit-fi-rr-microphone {
-  &:before {
-    content: $esprit-fi-rr-microphone; 
-  }
-}
-.esprit-fi-rr-minus {
-  &:before {
-    content: $esprit-fi-rr-minus; 
-  }
-}
-.esprit-fi-rr-minus-small {
-  &:before {
-    content: $esprit-fi-rr-minus-small; 
-  }
-}
-.esprit-fi-rr-mobile {
-  &:before {
-    content: $esprit-fi-rr-mobile; 
-  }
-}
-.esprit-fi-rr-mode-landscape {
-  &:before {
-    content: $esprit-fi-rr-mode-landscape; 
-  }
-}
-.esprit-fi-rr-mode-portrait {
-  &:before {
-    content: $esprit-fi-rr-mode-portrait; 
-  }
-}
-.esprit-fi-rr-money {
-  &:before {
-    content: $esprit-fi-rr-money; 
-  }
-}
-.esprit-fi-rr-moon {
-  &:before {
-    content: $esprit-fi-rr-moon; 
-  }
-}
-.esprit-fi-rr-mountains {
-  &:before {
-    content: $esprit-fi-rr-mountains; 
-  }
-}
-.esprit-fi-rr-mouse {
-  &:before {
-    content: $esprit-fi-rr-mouse; 
-  }
-}
-.esprit-fi-rr-mug-alt {
-  &:before {
-    content: $esprit-fi-rr-mug-alt; 
-  }
-}
-.esprit-fi-rr-music {
-  &:before {
-    content: $esprit-fi-rr-music; 
-  }
-}
-.esprit-fi-rr-music-alt {
-  &:before {
-    content: $esprit-fi-rr-music-alt; 
-  }
-}
-.esprit-fi-rr-navigation {
-  &:before {
-    content: $esprit-fi-rr-navigation; 
-  }
-}
-.esprit-fi-rr-network {
-  &:before {
-    content: $esprit-fi-rr-network; 
-  }
-}
-.esprit-fi-rr-network-cloud {
-  &:before {
-    content: $esprit-fi-rr-network-cloud; 
-  }
-}
-.esprit-fi-rr-notebook {
-  &:before {
-    content: $esprit-fi-rr-notebook; 
-  }
-}
-.esprit-fi-rr-opacity {
-  &:before {
-    content: $esprit-fi-rr-opacity; 
-  }
-}
-.esprit-fi-rr-package {
-  &:before {
-    content: $esprit-fi-rr-package; 
-  }
-}
-.esprit-fi-rr-paint-brush {
-  &:before {
-    content: $esprit-fi-rr-paint-brush; 
-  }
-}
-.esprit-fi-rr-palette {
-  &:before {
-    content: $esprit-fi-rr-palette; 
-  }
-}
-.esprit-fi-rr-pause {
-  &:before {
-    content: $esprit-fi-rr-pause; 
-  }
-}
-.esprit-fi-rr-pencil {
-  &:before {
-    content: $esprit-fi-rr-pencil; 
-  }
-}
-.esprit-fi-rr-pharmacy {
-  &:before {
-    content: $esprit-fi-rr-pharmacy; 
-  }
-}
-.esprit-fi-rr-phone-call {
-  &:before {
-    content: $esprit-fi-rr-phone-call; 
-  }
-}
-.esprit-fi-rr-phone-cross {
-  &:before {
-    content: $esprit-fi-rr-phone-cross; 
-  }
-}
-.esprit-fi-rr-phone-pause {
-  &:before {
-    content: $esprit-fi-rr-phone-pause; 
-  }
-}
-.esprit-fi-rr-phone-slash {
-  &:before {
-    content: $esprit-fi-rr-phone-slash; 
-  }
-}
-.esprit-fi-rr-physics {
-  &:before {
-    content: $esprit-fi-rr-physics; 
-  }
-}
-.esprit-fi-rr-picture {
-  &:before {
-    content: $esprit-fi-rr-picture; 
-  }
-}
-.esprit-fi-rr-play {
-  &:before {
-    content: $esprit-fi-rr-play; 
-  }
-}
-.esprit-fi-rr-play-alt {
-  &:before {
-    content: $esprit-fi-rr-play-alt; 
-  }
-}
-.esprit-fi-rr-plus {
-  &:before {
-    content: $esprit-fi-rr-plus; 
-  }
-}
-.esprit-fi-rr-plus-small {
-  &:before {
-    content: $esprit-fi-rr-plus-small; 
-  }
-}
-.esprit-fi-rr-portrait {
-  &:before {
-    content: $esprit-fi-rr-portrait; 
-  }
-}
-.esprit-fi-rr-power {
-  &:before {
-    content: $esprit-fi-rr-power; 
-  }
-}
-.esprit-fi-rr-presentation {
-  &:before {
-    content: $esprit-fi-rr-presentation; 
-  }
-}
-.esprit-fi-rr-print {
-  &:before {
-    content: $esprit-fi-rr-print; 
-  }
-}
-.esprit-fi-rr-pulse {
-  &:before {
-    content: $esprit-fi-rr-pulse; 
-  }
-}
-.esprit-fi-rr-pyramid {
-  &:before {
-    content: $esprit-fi-rr-pyramid; 
-  }
-}
-.esprit-fi-rr-quote-right {
-  &:before {
-    content: $esprit-fi-rr-quote-right; 
-  }
-}
-.esprit-fi-rr-rainbow {
-  &:before {
-    content: $esprit-fi-rr-rainbow; 
-  }
-}
-.esprit-fi-rr-raindrops {
-  &:before {
-    content: $esprit-fi-rr-raindrops; 
-  }
-}
-.esprit-fi-rr-rec {
-  &:before {
-    content: $esprit-fi-rr-rec; 
-  }
-}
-.esprit-fi-rr-receipt {
-  &:before {
-    content: $esprit-fi-rr-receipt; 
-  }
-}
-.esprit-fi-rr-record-vinyl {
-  &:before {
-    content: $esprit-fi-rr-record-vinyl; 
-  }
-}
-.esprit-fi-rr-rectabgle-vertical {
-  &:before {
-    content: $esprit-fi-rr-rectabgle-vertical; 
-  }
-}
-.esprit-fi-rr-rectangle-horizontal {
-  &:before {
-    content: $esprit-fi-rr-rectangle-horizontal; 
-  }
-}
-.esprit-fi-rr-rectangle-panoramic {
-  &:before {
-    content: $esprit-fi-rr-rectangle-panoramic; 
-  }
-}
-.esprit-fi-rr-recycle {
-  &:before {
-    content: $esprit-fi-rr-recycle; 
-  }
-}
-.esprit-fi-rr-redo {
-  &:before {
-    content: $esprit-fi-rr-redo; 
-  }
-}
-.esprit-fi-rr-redo-alt {
-  &:before {
-    content: $esprit-fi-rr-redo-alt; 
-  }
-}
-.esprit-fi-rr-reflect {
-  &:before {
-    content: $esprit-fi-rr-reflect; 
-  }
-}
-.esprit-fi-rr-refresh {
-  &:before {
-    content: $esprit-fi-rr-refresh; 
-  }
-}
-.esprit-fi-rr-resize {
-  &:before {
-    content: $esprit-fi-rr-resize; 
-  }
-}
-.esprit-fi-rr-resources {
-  &:before {
-    content: $esprit-fi-rr-resources; 
-  }
-}
-.esprit-fi-rr-rewind {
-  &:before {
-    content: $esprit-fi-rr-rewind; 
-  }
-}
-.esprit-fi-rr-rhombus {
-  &:before {
-    content: $esprit-fi-rr-rhombus; 
-  }
-}
-.esprit-fi-rr-road {
-  &:before {
-    content: $esprit-fi-rr-road; 
-  }
-}
-.esprit-fi-rr-rotate-right {
-  &:before {
-    content: $esprit-fi-rr-rotate-right; 
-  }
-}
-.esprit-fi-rr-sad {
-  &:before {
-    content: $esprit-fi-rr-sad; 
-  }
-}
-.esprit-fi-rr-scale {
-  &:before {
-    content: $esprit-fi-rr-scale; 
-  }
-}
-.esprit-fi-rr-scissors {
-  &:before {
-    content: $esprit-fi-rr-scissors; 
-  }
-}
-.esprit-fi-rr-screen {
-  &:before {
-    content: $esprit-fi-rr-screen; 
-  }
-}
-.esprit-fi-rr-search {
-  &:before {
-    content: $esprit-fi-rr-search; 
-  }
-}
-.esprit-fi-rr-search-alt {
-  &:before {
-    content: $esprit-fi-rr-search-alt; 
-  }
-}
-.esprit-fi-rr-search-heart {
-  &:before {
-    content: $esprit-fi-rr-search-heart; 
-  }
-}
-.esprit-fi-rr-settings {
-  &:before {
-    content: $esprit-fi-rr-settings; 
-  }
-}
-.esprit-fi-rr-settings-sliders {
-  &:before {
-    content: $esprit-fi-rr-settings-sliders; 
-  }
-}
-.esprit-fi-rr-share {
-  &:before {
-    content: $esprit-fi-rr-share; 
-  }
-}
-.esprit-fi-rr-shield {
-  &:before {
-    content: $esprit-fi-rr-shield; 
-  }
-}
-.esprit-fi-rr-shield-check {
-  &:before {
-    content: $esprit-fi-rr-shield-check; 
-  }
-}
-.esprit-fi-rr-shield-exclamation {
-  &:before {
-    content: $esprit-fi-rr-shield-exclamation; 
-  }
-}
-.esprit-fi-rr-shield-interrogation {
-  &:before {
-    content: $esprit-fi-rr-shield-interrogation; 
-  }
-}
-.esprit-fi-rr-shield-plus {
-  &:before {
-    content: $esprit-fi-rr-shield-plus; 
-  }
-}
-.esprit-fi-rr-shuffle {
-  &:before {
-    content: $esprit-fi-rr-shuffle; 
-  }
-}
-.esprit-fi-rr-signal-alt {
-  &:before {
-    content: $esprit-fi-rr-signal-alt; 
-  }
-}
-.esprit-fi-rr-signal-alt-1 {
-  &:before {
-    content: $esprit-fi-rr-signal-alt-1; 
-  }
-}
-.esprit-fi-rr-signal-alt-2 {
-  &:before {
-    content: $esprit-fi-rr-signal-alt-2; 
-  }
-}
-.esprit-fi-rr-sign-in {
-  &:before {
-    content: $esprit-fi-rr-sign-in; 
-  }
-}
-.esprit-fi-rr-sign-in-alt {
-  &:before {
-    content: $esprit-fi-rr-sign-in-alt; 
-  }
-}
-.esprit-fi-rr-sign-out {
-  &:before {
-    content: $esprit-fi-rr-sign-out; 
-  }
-}
-.esprit-fi-rr-sign-out-alt {
-  &:before {
-    content: $esprit-fi-rr-sign-out-alt; 
-  }
-}
-.esprit-fi-rr-skateboard {
-  &:before {
-    content: $esprit-fi-rr-skateboard; 
-  }
-}
-.esprit-fi-rr-smartphone {
-  &:before {
-    content: $esprit-fi-rr-smartphone; 
-  }
-}
-.esprit-fi-rr-smile {
-  &:before {
-    content: $esprit-fi-rr-smile; 
-  }
-}
-.esprit-fi-rr-smile-wink {
-  &:before {
-    content: $esprit-fi-rr-smile-wink; 
-  }
-}
-.esprit-fi-rr-snowflake {
-  &:before {
-    content: $esprit-fi-rr-snowflake; 
-  }
-}
-.esprit-fi-rr-speaker {
-  &:before {
-    content: $esprit-fi-rr-speaker; 
-  }
-}
-.esprit-fi-rr-star {
-  &:before {
-    content: $esprit-fi-rr-star; 
-  }
-}
-.esprit-fi-rr-stats {
-  &:before {
-    content: $esprit-fi-rr-stats; 
-  }
-}
-.esprit-fi-rr-stethoscope {
-  &:before {
-    content: $esprit-fi-rr-stethoscope; 
-  }
-}
-.esprit-fi-rr-sticker {
-  &:before {
-    content: $esprit-fi-rr-sticker; 
-  }
-}
-.esprit-fi-rr-stopwatch {
-  &:before {
-    content: $esprit-fi-rr-stopwatch; 
-  }
-}
-.esprit-fi-rr-subtitles {
-  &:before {
-    content: $esprit-fi-rr-subtitles; 
-  }
-}
-.esprit-fi-rr-sun {
-  &:before {
-    content: $esprit-fi-rr-sun; 
-  }
-}
-.esprit-fi-rr-sunrise {
-  &:before {
-    content: $esprit-fi-rr-sunrise; 
-  }
-}
-.esprit-fi-rr-text {
-  &:before {
-    content: $esprit-fi-rr-text; 
-  }
-}
-.esprit-fi-rr-text-height {
-  &:before {
-    content: $esprit-fi-rr-text-height; 
-  }
-}
-.esprit-fi-rr-text-size {
-  &:before {
-    content: $esprit-fi-rr-text-size; 
-  }
-}
-.esprit-fi-rr-text-width {
-  &:before {
-    content: $esprit-fi-rr-text-width; 
-  }
-}
-.esprit-fi-rr-thermometer-half {
-  &:before {
-    content: $esprit-fi-rr-thermometer-half; 
-  }
-}
-.esprit-fi-rr-thumbs-down {
-  &:before {
-    content: $esprit-fi-rr-thumbs-down; 
-  }
-}
-.esprit-fi-rr-thumbs-up {
-  &:before {
-    content: $esprit-fi-rr-thumbs-up; 
-  }
-}
-.esprit-fi-rr-thumbtack {
-  &:before {
-    content: $esprit-fi-rr-thumbtack; 
-  }
-}
-.esprit-fi-rr-ticket {
-  &:before {
-    content: $esprit-fi-rr-ticket; 
-  }
-}
-.esprit-fi-rr-time-add {
-  &:before {
-    content: $esprit-fi-rr-time-add; 
-  }
-}
-.esprit-fi-rr-time-check {
-  &:before {
-    content: $esprit-fi-rr-time-check; 
-  }
-}
-.esprit-fi-rr-time-delete {
-  &:before {
-    content: $esprit-fi-rr-time-delete; 
-  }
-}
-.esprit-fi-rr-time-fast {
-  &:before {
-    content: $esprit-fi-rr-time-fast; 
-  }
-}
-.esprit-fi-rr-time-forward {
-  &:before {
-    content: $esprit-fi-rr-time-forward; 
-  }
-}
-.esprit-fi-rr-time-forward-sixty {
-  &:before {
-    content: $esprit-fi-rr-time-forward-sixty; 
-  }
-}
-.esprit-fi-rr-time-forward-ten {
-  &:before {
-    content: $esprit-fi-rr-time-forward-ten; 
-  }
-}
-.esprit-fi-rr-time-half-past {
-  &:before {
-    content: $esprit-fi-rr-time-half-past; 
-  }
-}
-.esprit-fi-rr-time-oclock {
-  &:before {
-    content: $esprit-fi-rr-time-oclock; 
-  }
-}
-.esprit-fi-rr-time-past {
-  &:before {
-    content: $esprit-fi-rr-time-past; 
-  }
-}
-.esprit-fi-rr-time-quarter-past {
-  &:before {
-    content: $esprit-fi-rr-time-quarter-past; 
-  }
-}
-.esprit-fi-rr-time-quarter-to {
-  &:before {
-    content: $esprit-fi-rr-time-quarter-to; 
-  }
-}
-.esprit-fi-rr-time-twenty-four {
-  &:before {
-    content: $esprit-fi-rr-time-twenty-four; 
-  }
-}
-.esprit-fi-rr-tool-crop {
-  &:before {
-    content: $esprit-fi-rr-tool-crop; 
-  }
-}
-.esprit-fi-rr-tool-marquee {
-  &:before {
-    content: $esprit-fi-rr-tool-marquee; 
-  }
-}
-.esprit-fi-rr-transform {
-  &:before {
-    content: $esprit-fi-rr-transform; 
-  }
-}
-.esprit-fi-rr-trash {
-  &:before {
-    content: $esprit-fi-rr-trash; 
-  }
-}
-.esprit-fi-rr-treatment {
-  &:before {
-    content: $esprit-fi-rr-treatment; 
-  }
-}
-.esprit-fi-rr-underline {
-  &:before {
-    content: $esprit-fi-rr-underline; 
-  }
-}
-.esprit-fi-rr-undo {
-  &:before {
-    content: $esprit-fi-rr-undo; 
-  }
-}
-.esprit-fi-rr-undo-alt {
-  &:before {
-    content: $esprit-fi-rr-undo-alt; 
-  }
-}
-.esprit-fi-rr-unlock {
-  &:before {
-    content: $esprit-fi-rr-unlock; 
-  }
-}
-.esprit-fi-rr-upload {
-  &:before {
-    content: $esprit-fi-rr-upload; 
-  }
-}
-.esprit-fi-rr-user {
-  &:before {
-    content: $esprit-fi-rr-user; 
-  }
-}
-.esprit-fi-rr-user-add {
-  &:before {
-    content: $esprit-fi-rr-user-add; 
-  }
-}
-.esprit-fi-rr-user-delete {
-  &:before {
-    content: $esprit-fi-rr-user-delete; 
-  }
-}
-.esprit-fi-rr-user-remove {
-  &:before {
-    content: $esprit-fi-rr-user-remove; 
-  }
-}
-.esprit-fi-rr-user-time {
-  &:before {
-    content: $esprit-fi-rr-user-time; 
-  }
-}
-.esprit-fi-rr-video-camera {
-  &:before {
-    content: $esprit-fi-rr-video-camera; 
-  }
-}
-.esprit-fi-rr-volume {
-  &:before {
-    content: $esprit-fi-rr-volume; 
-  }
-}
-.esprit-fi-rr-wheelchair {
-  &:before {
-    content: $esprit-fi-rr-wheelchair; 
-  }
-}
-.esprit-fi-rr-world {
-  &:before {
-    content: $esprit-fi-rr-world; 
-  }
-}
-.esprit-fi-rr-zoom-in {
-  &:before {
-    content: $esprit-fi-rr-zoom-in; 
-  }
-}
-.esprit-fi-rr-zoom-out {
-  &:before {
-    content: $esprit-fi-rr-zoom-out; 
-  }
-}
-.esprit-gap {
-  &:before {
-    content: $esprit-gap; 
-  }
-}
-.esprit-instagram-2 {
-  &:before {
-    content: $esprit-instagram-2; 
-  }
-}
-.esprit-linkedin {
-  &:before {
-    content: $esprit-linkedin; 
-  }
-}
-.esprit-messages {
-  &:before {
-    content: $esprit-messages; 
-  }
-}
-.esprit-plyr-airplay {
-  &:before {
-    content: $esprit-plyr-airplay; 
-  }
-}
-.esprit-plyr-captions-off {
-  &:before {
-    content: $esprit-plyr-captions-off; 
-  }
-}
-.esprit-plyr-captions-on {
-  &:before {
-    content: $esprit-plyr-captions-on; 
-  }
-}
-.esprit-plyr-download {
-  &:before {
-    content: $esprit-plyr-download; 
-  }
-}
-.esprit-plyr-enter-fullscreen {
-  &:before {
-    content: $esprit-plyr-enter-fullscreen; 
-  }
-}
-.esprit-plyr-exit-fullscreen {
-  &:before {
-    content: $esprit-plyr-exit-fullscreen; 
-  }
-}
-.esprit-plyr-fast-forward {
-  &:before {
-    content: $esprit-plyr-fast-forward; 
-  }
-}
-.esprit-plyr-logo-vimeo {
-  &:before {
-    content: $esprit-plyr-logo-vimeo; 
-  }
-}
-.esprit-plyr-logo-youtube {
-  &:before {
-    content: $esprit-plyr-logo-youtube; 
-  }
-}
-.esprit-plyr-muted {
-  &:before {
-    content: $esprit-plyr-muted; 
-  }
-}
-.esprit-plyr-pause {
-  &:before {
-    content: $esprit-plyr-pause; 
-  }
-}
-.esprit-plyr-pip {
-  &:before {
-    content: $esprit-plyr-pip; 
-  }
-}
-.esprit-plyr-play {
-  &:before {
-    content: $esprit-plyr-play; 
-  }
-}
-.esprit-plyr-restart {
-  &:before {
-    content: $esprit-plyr-restart; 
-  }
-}
-.esprit-plyr-rewind {
-  &:before {
-    content: $esprit-plyr-rewind; 
-  }
-}
-.esprit-plyr-settings {
-  &:before {
-    content: $esprit-plyr-settings; 
-  }
-}
-.esprit-plyr-volume {
-  &:before {
-    content: $esprit-plyr-volume; 
-  }
-}
-.esprit-Social-Icons {
-  &:before {
-    content: $esprit-Social-Icons; 
-  }
-}
-.esprit-soroush {
-  &:before {
-    content: $esprit-soroush; 
-  }
-}
-.esprit-telegram {
-  &:before {
-    content: $esprit-telegram; 
-  }
-}
-.esprit-twitter {
-  &:before {
-    content: $esprit-twitter; 
-  }
-}
-.esprit-whatsapp {
-  &:before {
-    content: $esprit-whatsapp; 
+    content: $esprit-AngelList;
   }
 }
 
+.esprit-Apple {
+  &:before {
+    content: $esprit-Apple;
+  }
+}
+
+.esprit-Clubhouse {
+  &:before {
+    content: $esprit-Clubhouse;
+  }
+}
+
+.esprit-Discord {
+  &:before {
+    content: $esprit-Discord;
+  }
+}
+
+.esprit-Dribbble {
+  &:before {
+    content: $esprit-Dribbble;
+  }
+}
+
+.esprit-Facebook {
+  &:before {
+    content: $esprit-Facebook;
+  }
+}
+
+.esprit-Figma {
+  &:before {
+    content: $esprit-Figma;
+  }
+}
+
+.esprit-GitHub {
+  &:before {
+    content: $esprit-GitHub;
+  }
+}
+
+.esprit-Google {
+  &:before {
+    content: $esprit-Google;
+  }
+}
+
+.esprit-Instagram {
+  &:before {
+    content: $esprit-Instagram;
+  }
+}
+
+.esprit-Layers .path1 {
+  &:before {
+    content: $esprit-Layers-path1;
+  }
+}
+
+.esprit-Layers .path2 {
+  &:before {
+    content: $esprit-Layers-path2;
+  }
+}
+
+.esprit-Layers .path3 {
+  &:before {
+    content: $esprit-Layers-path3;
+  }
+}
+
+.esprit-LinkedIn {
+  &:before {
+    content: $esprit-LinkedIn;
+  }
+}
+
+.esprit-Pinterest {
+  &:before {
+    content: $esprit-Pinterest;
+  }
+}
+
+.esprit-Reddit {
+  &:before {
+    content: $esprit-Reddit;
+  }
+}
+
+.esprit-Signal {
+  &:before {
+    content: $esprit-Signal;
+  }
+}
+
+.esprit-Snapchat {
+  &:before {
+    content: $esprit-Snapchat;
+  }
+}
+
+.esprit-Telegram {
+  &:before {
+    content: $esprit-Telegram;
+  }
+}
+
+.esprit-TikTok {
+  &:before {
+    content: $esprit-TikTok;
+  }
+}
+
+.esprit-Tumblr {
+  &:before {
+    content: $esprit-Tumblr;
+  }
+}
+
+.esprit-X-Twitter {
+  &:before {
+    content: $esprit-X-Twitter;
+  }
+}
+
+.esprit-YouTube {
+  &:before {
+    content: $esprit-YouTube;
+  }
+}
+
+.esprit-ai-portal {
+  &:before {
+    content: $esprit-ai-portal;
+  }
+}
+
+.esprit-aparat {
+  &:before {
+    content: $esprit-aparat;
+  }
+}
+
+.esprit-bale {
+  &:before {
+    content: $esprit-bale;
+  }
+}
+
+.esprit-bisphon {
+  &:before {
+    content: $esprit-bisphon;
+  }
+}
+
+.esprit-eita {
+  &:before {
+    content: $esprit-eita;
+  }
+}
+
+.esprit-facebook {
+  &:before {
+    content: $esprit-facebook;
+  }
+}
+
+.esprit-fi-rr-add {
+  &:before {
+    content: $esprit-fi-rr-add;
+  }
+}
+
+.esprit-fi-rr-address-book {
+  &:before {
+    content: $esprit-fi-rr-address-book;
+  }
+}
+
+.esprit-fi-rr-alarm-clock {
+  &:before {
+    content: $esprit-fi-rr-alarm-clock;
+  }
+}
+
+.esprit-fi-rr-angle-double-left {
+  &:before {
+    content: $esprit-fi-rr-angle-double-left;
+  }
+}
+
+.esprit-fi-rr-angle-double-right {
+  &:before {
+    content: $esprit-fi-rr-angle-double-right;
+  }
+}
+
+.esprit-fi-rr-angle-double-small-left {
+  &:before {
+    content: $esprit-fi-rr-angle-double-small-left;
+  }
+}
+
+.esprit-fi-rr-angle-double-small-right {
+  &:before {
+    content: $esprit-fi-rr-angle-double-small-right;
+  }
+}
+
+.esprit-fi-rr-angle-down {
+  &:before {
+    content: $esprit-fi-rr-angle-down;
+  }
+}
+
+.esprit-fi-rr-angle-left {
+  &:before {
+    content: $esprit-fi-rr-angle-left;
+  }
+}
+
+.esprit-fi-rr-angle-right {
+  &:before {
+    content: $esprit-fi-rr-angle-right;
+  }
+}
+
+.esprit-fi-rr-angle-small-down {
+  &:before {
+    content: $esprit-fi-rr-angle-small-down;
+  }
+}
+
+.esprit-fi-rr-angle-small-left {
+  &:before {
+    content: $esprit-fi-rr-angle-small-left;
+  }
+}
+
+.esprit-fi-rr-angle-small-right {
+  &:before {
+    content: $esprit-fi-rr-angle-small-right;
+  }
+}
+
+.esprit-fi-rr-angle-small-up {
+  &:before {
+    content: $esprit-fi-rr-angle-small-up;
+  }
+}
+
+.esprit-fi-rr-angle-up {
+  &:before {
+    content: $esprit-fi-rr-angle-up;
+  }
+}
+
+.esprit-fi-rr-apps {
+  &:before {
+    content: $esprit-fi-rr-apps;
+  }
+}
+
+.esprit-fi-rr-apps-add {
+  &:before {
+    content: $esprit-fi-rr-apps-add;
+  }
+}
+
+.esprit-fi-rr-apps-delete {
+  &:before {
+    content: $esprit-fi-rr-apps-delete;
+  }
+}
+
+.esprit-fi-rr-apps-sort {
+  &:before {
+    content: $esprit-fi-rr-apps-sort;
+  }
+}
+
+.esprit-fi-rr-archive {
+  &:before {
+    content: $esprit-fi-rr-archive;
+  }
+}
+
+.esprit-fi-rr-arrow-down {
+  &:before {
+    content: $esprit-fi-rr-arrow-down;
+  }
+}
+
+.esprit-fi-rr-arrow-from-bottom {
+  &:before {
+    content: $esprit-fi-rr-arrow-from-bottom;
+  }
+}
+
+.esprit-fi-rr-arrow-left {
+  &:before {
+    content: $esprit-fi-rr-arrow-left;
+  }
+}
+
+.esprit-fi-rr-arrow-right {
+  &:before {
+    content: $esprit-fi-rr-arrow-right;
+  }
+}
+
+.esprit-fi-rr-arrow-small-down {
+  &:before {
+    content: $esprit-fi-rr-arrow-small-down;
+  }
+}
+
+.esprit-fi-rr-arrow-small-left {
+  &:before {
+    content: $esprit-fi-rr-arrow-small-left;
+  }
+}
+
+.esprit-fi-rr-arrow-small-right {
+  &:before {
+    content: $esprit-fi-rr-arrow-small-right;
+  }
+}
+
+.esprit-fi-rr-arrow-small-up {
+  &:before {
+    content: $esprit-fi-rr-arrow-small-up;
+  }
+}
+
+.esprit-fi-rr-arrow-up {
+  &:before {
+    content: $esprit-fi-rr-arrow-up;
+  }
+}
+
+.esprit-fi-rr-asterik {
+  &:before {
+    content: $esprit-fi-rr-asterik;
+  }
+}
+
+.esprit-fi-rr-at {
+  &:before {
+    content: $esprit-fi-rr-at;
+  }
+}
+
+.esprit-fi-rr-ban {
+  &:before {
+    content: $esprit-fi-rr-ban;
+  }
+}
+
+.esprit-fi-rr-bell {
+  &:before {
+    content: $esprit-fi-rr-bell;
+  }
+}
+
+.esprit-fi-rr-bell-ring {
+  &:before {
+    content: $esprit-fi-rr-bell-ring;
+  }
+}
+
+.esprit-fi-rr-bell-school {
+  &:before {
+    content: $esprit-fi-rr-bell-school;
+  }
+}
+
+.esprit-fi-rr-book {
+  &:before {
+    content: $esprit-fi-rr-book;
+  }
+}
+
+.esprit-fi-rr-book-alt {
+  &:before {
+    content: $esprit-fi-rr-book-alt;
+  }
+}
+
+.esprit-fi-rr-bookmark {
+  &:before {
+    content: $esprit-fi-rr-bookmark;
+  }
+}
+
+.esprit-fi-rr-box {
+  &:before {
+    content: $esprit-fi-rr-box;
+  }
+}
+
+.esprit-fi-rr-box-alt {
+  &:before {
+    content: $esprit-fi-rr-box-alt;
+  }
+}
+
+.esprit-fi-rr-bread-slice {
+  &:before {
+    content: $esprit-fi-rr-bread-slice;
+  }
+}
+
+.esprit-fi-rr-briefcase {
+  &:before {
+    content: $esprit-fi-rr-briefcase;
+  }
+}
+
+.esprit-fi-rr-broom {
+  &:before {
+    content: $esprit-fi-rr-broom;
+  }
+}
+
+.esprit-fi-rr-browser {
+  &:before {
+    content: $esprit-fi-rr-browser;
+  }
+}
+
+.esprit-fi-rr-brush {
+  &:before {
+    content: $esprit-fi-rr-brush;
+  }
+}
+
+.esprit-fi-rr-building {
+  &:before {
+    content: $esprit-fi-rr-building;
+  }
+}
+
+.esprit-fi-rr-bulb {
+  &:before {
+    content: $esprit-fi-rr-bulb;
+  }
+}
+
+.esprit-fi-rr-calculator {
+  &:before {
+    content: $esprit-fi-rr-calculator;
+  }
+}
+
+.esprit-fi-rr-calendar {
+  &:before {
+    content: $esprit-fi-rr-calendar;
+  }
+}
+
+.esprit-fi-rr-call-history {
+  &:before {
+    content: $esprit-fi-rr-call-history;
+  }
+}
+
+.esprit-fi-rr-call-incoming {
+  &:before {
+    content: $esprit-fi-rr-call-incoming;
+  }
+}
+
+.esprit-fi-rr-call-missed {
+  &:before {
+    content: $esprit-fi-rr-call-missed;
+  }
+}
+
+.esprit-fi-rr-call-outgoing {
+  &:before {
+    content: $esprit-fi-rr-call-outgoing;
+  }
+}
+
+.esprit-fi-rr-camera {
+  &:before {
+    content: $esprit-fi-rr-camera;
+  }
+}
+
+.esprit-fi-rr-camping {
+  &:before {
+    content: $esprit-fi-rr-camping;
+  }
+}
+
+.esprit-fi-rr-caret-down {
+  &:before {
+    content: $esprit-fi-rr-caret-down;
+  }
+}
+
+.esprit-fi-rr-caret-left {
+  &:before {
+    content: $esprit-fi-rr-caret-left;
+  }
+}
+
+.esprit-fi-rr-caret-right {
+  &:before {
+    content: $esprit-fi-rr-caret-right;
+  }
+}
+
+.esprit-fi-rr-caret-up {
+  &:before {
+    content: $esprit-fi-rr-caret-up;
+  }
+}
+
+.esprit-fi-rr-chart-connected {
+  &:before {
+    content: $esprit-fi-rr-chart-connected;
+  }
+}
+
+.esprit-fi-rr-chart-histogram {
+  &:before {
+    content: $esprit-fi-rr-chart-histogram;
+  }
+}
+
+.esprit-fi-rr-chart-network {
+  &:before {
+    content: $esprit-fi-rr-chart-network;
+  }
+}
+
+.esprit-fi-rr-chart-pie {
+  &:before {
+    content: $esprit-fi-rr-chart-pie;
+  }
+}
+
+.esprit-fi-rr-chart-pie-alt {
+  &:before {
+    content: $esprit-fi-rr-chart-pie-alt;
+  }
+}
+
+.esprit-fi-rr-chart-set-theory {
+  &:before {
+    content: $esprit-fi-rr-chart-set-theory;
+  }
+}
+
+.esprit-fi-rr-chart-tree {
+  &:before {
+    content: $esprit-fi-rr-chart-tree;
+  }
+}
+
+.esprit-fi-rr-chat-arrow-down {
+  &:before {
+    content: $esprit-fi-rr-chat-arrow-down;
+  }
+}
+
+.esprit-fi-rr-chat-arrow-grow {
+  &:before {
+    content: $esprit-fi-rr-chat-arrow-grow;
+  }
+}
+
+.esprit-fi-rr-check {
+  &:before {
+    content: $esprit-fi-rr-check;
+  }
+}
+
+.esprit-fi-rr-checkbox {
+  &:before {
+    content: $esprit-fi-rr-checkbox;
+  }
+}
+
+.esprit-fi-rr-clip {
+  &:before {
+    content: $esprit-fi-rr-clip;
+  }
+}
+
+.esprit-fi-rr-clock {
+  &:before {
+    content: $esprit-fi-rr-clock;
+  }
+}
+
+.esprit-fi-rr-cloud {
+  &:before {
+    content: $esprit-fi-rr-cloud;
+  }
+}
+
+.esprit-fi-rr-cloud-check {
+  &:before {
+    content: $esprit-fi-rr-cloud-check;
+  }
+}
+
+.esprit-fi-rr-cloud-disabled {
+  &:before {
+    content: $esprit-fi-rr-cloud-disabled;
+  }
+}
+
+.esprit-fi-rr-cloud-download {
+  &:before {
+    content: $esprit-fi-rr-cloud-download;
+  }
+}
+
+.esprit-fi-rr-clouds {
+  &:before {
+    content: $esprit-fi-rr-clouds;
+  }
+}
+
+.esprit-fi-rr-cloud-share {
+  &:before {
+    content: $esprit-fi-rr-cloud-share;
+  }
+}
+
+.esprit-fi-rr-cloud-upload {
+  &:before {
+    content: $esprit-fi-rr-cloud-upload;
+  }
+}
+
+.esprit-fi-rr-comment {
+  &:before {
+    content: $esprit-fi-rr-comment;
+  }
+}
+
+.esprit-fi-rr-comment-alt {
+  &:before {
+    content: $esprit-fi-rr-comment-alt;
+  }
+}
+
+.esprit-fi-rr-comment-check {
+  &:before {
+    content: $esprit-fi-rr-comment-check;
+  }
+}
+
+.esprit-fi-rr-comment-heart {
+  &:before {
+    content: $esprit-fi-rr-comment-heart;
+  }
+}
+
+.esprit-fi-rr-comment-info {
+  &:before {
+    content: $esprit-fi-rr-comment-info;
+  }
+}
+
+.esprit-fi-rr-comments {
+  &:before {
+    content: $esprit-fi-rr-comments;
+  }
+}
+
+.esprit-fi-rr-comment-user {
+  &:before {
+    content: $esprit-fi-rr-comment-user;
+  }
+}
+
+.esprit-fi-rr-compress {
+  &:before {
+    content: $esprit-fi-rr-compress;
+  }
+}
+
+.esprit-fi-rr-compress-alt {
+  &:before {
+    content: $esprit-fi-rr-compress-alt;
+  }
+}
+
+.esprit-fi-rr-computer {
+  &:before {
+    content: $esprit-fi-rr-computer;
+  }
+}
+
+.esprit-fi-rr-confetti {
+  &:before {
+    content: $esprit-fi-rr-confetti;
+  }
+}
+
+.esprit-fi-rr-copy {
+  &:before {
+    content: $esprit-fi-rr-copy;
+  }
+}
+
+.esprit-fi-rr-copy-alt {
+  &:before {
+    content: $esprit-fi-rr-copy-alt;
+  }
+}
+
+.esprit-fi-rr-copyright {
+  &:before {
+    content: $esprit-fi-rr-copyright;
+  }
+}
+
+.esprit-fi-rr-credit-card {
+  &:before {
+    content: $esprit-fi-rr-credit-card;
+  }
+}
+
+.esprit-fi-rr-cross {
+  &:before {
+    content: $esprit-fi-rr-cross;
+  }
+}
+
+.esprit-fi-rr-cross-circle {
+  &:before {
+    content: $esprit-fi-rr-cross-circle;
+  }
+}
+
+.esprit-fi-rr-cross-small {
+  &:before {
+    content: $esprit-fi-rr-cross-small;
+  }
+}
+
+.esprit-fi-rr-cube {
+  &:before {
+    content: $esprit-fi-rr-cube;
+  }
+}
+
+.esprit-fi-rr-cursor {
+  &:before {
+    content: $esprit-fi-rr-cursor;
+  }
+}
+
+.esprit-fi-rr-cursor-finger {
+  &:before {
+    content: $esprit-fi-rr-cursor-finger;
+  }
+}
+
+.esprit-fi-rr-cursor-plus {
+  &:before {
+    content: $esprit-fi-rr-cursor-plus;
+  }
+}
+
+.esprit-fi-rr-cursor-text {
+  &:before {
+    content: $esprit-fi-rr-cursor-text;
+  }
+}
+
+.esprit-fi-rr-cursor-text-alt {
+  &:before {
+    content: $esprit-fi-rr-cursor-text-alt;
+  }
+}
+
+.esprit-fi-rr-dart {
+  &:before {
+    content: $esprit-fi-rr-dart;
+  }
+}
+
+.esprit-fi-rr-dashboard {
+  &:before {
+    content: $esprit-fi-rr-dashboard;
+  }
+}
+
+.esprit-fi-rr-database {
+  &:before {
+    content: $esprit-fi-rr-database;
+  }
+}
+
+.esprit-fi-rr-data-transfer {
+  &:before {
+    content: $esprit-fi-rr-data-transfer;
+  }
+}
+
+.esprit-fi-rr-delete {
+  &:before {
+    content: $esprit-fi-rr-delete;
+  }
+}
+
+.esprit-fi-rr-diploma {
+  &:before {
+    content: $esprit-fi-rr-diploma;
+  }
+}
+
+.esprit-fi-rr-disco-ball {
+  &:before {
+    content: $esprit-fi-rr-disco-ball;
+  }
+}
+
+.esprit-fi-rr-disk {
+  &:before {
+    content: $esprit-fi-rr-disk;
+  }
+}
+
+.esprit-fi-rr-doctor {
+  &:before {
+    content: $esprit-fi-rr-doctor;
+  }
+}
+
+.esprit-fi-rr-document {
+  &:before {
+    content: $esprit-fi-rr-document;
+  }
+}
+
+.esprit-fi-rr-document-pdf {
+  &:before {
+    content: $esprit-fi-rr-document-pdf;
+  }
+}
+
+.esprit-fi-rr-document-signed {
+  &:before {
+    content: $esprit-fi-rr-document-signed;
+  }
+}
+
+.esprit-fi-rr-download {
+  &:before {
+    content: $esprit-fi-rr-download;
+  }
+}
+
+.esprit-fi-rr-duplicate {
+  &:before {
+    content: $esprit-fi-rr-duplicate;
+  }
+}
+
+.esprit-fi-rr-earnings {
+  &:before {
+    content: $esprit-fi-rr-earnings;
+  }
+}
+
+.esprit-fi-rr-edit {
+  &:before {
+    content: $esprit-fi-rr-edit;
+  }
+}
+
+.esprit-fi-rr-edit-alt {
+  &:before {
+    content: $esprit-fi-rr-edit-alt;
+  }
+}
+
+.esprit-fi-rr-e-learning {
+  &:before {
+    content: $esprit-fi-rr-e-learning;
+  }
+}
+
+.esprit-fi-rr-envelope {
+  &:before {
+    content: $esprit-fi-rr-envelope;
+  }
+}
+
+.esprit-fi-rr-envelope-ban {
+  &:before {
+    content: $esprit-fi-rr-envelope-ban;
+  }
+}
+
+.esprit-fi-rr-envelope-download {
+  &:before {
+    content: $esprit-fi-rr-envelope-download;
+  }
+}
+
+.esprit-fi-rr-envelope-marker {
+  &:before {
+    content: $esprit-fi-rr-envelope-marker;
+  }
+}
+
+.esprit-fi-rr-envelope-open {
+  &:before {
+    content: $esprit-fi-rr-envelope-open;
+  }
+}
+
+.esprit-fi-rr-envelope-plus {
+  &:before {
+    content: $esprit-fi-rr-envelope-plus;
+  }
+}
+
+.esprit-fi-rr-exclamation {
+  &:before {
+    content: $esprit-fi-rr-exclamation;
+  }
+}
+
+.esprit-fi-rr-expand {
+  &:before {
+    content: $esprit-fi-rr-expand;
+  }
+}
+
+.esprit-fi-rr-eye {
+  &:before {
+    content: $esprit-fi-rr-eye;
+  }
+}
+
+.esprit-fi-rr-eye-crossed {
+  &:before {
+    content: $esprit-fi-rr-eye-crossed;
+  }
+}
+
+.esprit-fi-rr-eye-dropper {
+  &:before {
+    content: $esprit-fi-rr-eye-dropper;
+  }
+}
+
+.esprit-fi-rr-ferris-wheel {
+  &:before {
+    content: $esprit-fi-rr-ferris-wheel;
+  }
+}
+
+.esprit-fi-rr-file {
+  &:before {
+    content: $esprit-fi-rr-file;
+  }
+}
+
+.esprit-fi-rr-file-add {
+  &:before {
+    content: $esprit-fi-rr-file-add;
+  }
+}
+
+.esprit-fi-rr-file-check {
+  &:before {
+    content: $esprit-fi-rr-file-check;
+  }
+}
+
+.esprit-fi-rr-file-delete {
+  &:before {
+    content: $esprit-fi-rr-file-delete;
+  }
+}
+
+.esprit-fi-rr-file-music {
+  &:before {
+    content: $esprit-fi-rr-file-music;
+  }
+}
+
+.esprit-fi-rr-fill {
+  &:before {
+    content: $esprit-fi-rr-fill;
+  }
+}
+
+.esprit-fi-rr-film {
+  &:before {
+    content: $esprit-fi-rr-film;
+  }
+}
+
+.esprit-fi-rr-filter {
+  &:before {
+    content: $esprit-fi-rr-filter;
+  }
+}
+
+.esprit-fi-rr-fingerprint {
+  &:before {
+    content: $esprit-fi-rr-fingerprint;
+  }
+}
+
+.esprit-fi-rr-flag {
+  &:before {
+    content: $esprit-fi-rr-flag;
+  }
+}
+
+.esprit-fi-rr-flame {
+  &:before {
+    content: $esprit-fi-rr-flame;
+  }
+}
+
+.esprit-fi-rr-flip-horizontal {
+  &:before {
+    content: $esprit-fi-rr-flip-horizontal;
+  }
+}
+
+.esprit-fi-rr-flower {
+  &:before {
+    content: $esprit-fi-rr-flower;
+  }
+}
+
+.esprit-fi-rr-folder {
+  &:before {
+    content: $esprit-fi-rr-folder;
+  }
+}
+
+.esprit-fi-rr-folder-add {
+  &:before {
+    content: $esprit-fi-rr-folder-add;
+  }
+}
+
+.esprit-fi-rr-following {
+  &:before {
+    content: $esprit-fi-rr-following;
+  }
+}
+
+.esprit-fi-rr-form {
+  &:before {
+    content: $esprit-fi-rr-form;
+  }
+}
+
+.esprit-fi-rr-forward {
+  &:before {
+    content: $esprit-fi-rr-forward;
+  }
+}
+
+.esprit-fi-rr-gallery {
+  &:before {
+    content: $esprit-fi-rr-gallery;
+  }
+}
+
+.esprit-fi-rr-gem {
+  &:before {
+    content: $esprit-fi-rr-gem;
+  }
+}
+
+.esprit-fi-rr-gift {
+  &:before {
+    content: $esprit-fi-rr-gift;
+  }
+}
+
+.esprit-fi-rr-glasses {
+  &:before {
+    content: $esprit-fi-rr-glasses;
+  }
+}
+
+.esprit-fi-rr-globe {
+  &:before {
+    content: $esprit-fi-rr-globe;
+  }
+}
+
+.esprit-fi-rr-globe-alt {
+  &:before {
+    content: $esprit-fi-rr-globe-alt;
+  }
+}
+
+.esprit-fi-rr-graduation-cap {
+  &:before {
+    content: $esprit-fi-rr-graduation-cap;
+  }
+}
+
+.esprit-fi-rr-hand-holding-heart {
+  &:before {
+    content: $esprit-fi-rr-hand-holding-heart;
+  }
+}
+
+.esprit-fi-rr-hastag {
+  &:before {
+    content: $esprit-fi-rr-hastag;
+  }
+}
+
+.esprit-fi-rr-hat-birthday {
+  &:before {
+    content: $esprit-fi-rr-hat-birthday;
+  }
+}
+
+.esprit-fi-rr-headphones {
+  &:before {
+    content: $esprit-fi-rr-headphones;
+  }
+}
+
+.esprit-fi-rr-headset {
+  &:before {
+    content: $esprit-fi-rr-headset;
+  }
+}
+
+.esprit-fi-rr-head-side-thinking {
+  &:before {
+    content: $esprit-fi-rr-head-side-thinking;
+  }
+}
+
+.esprit-fi-rr-heart {
+  &:before {
+    content: $esprit-fi-rr-heart;
+  }
+}
+
+.esprit-fi-rr-heart-arrow {
+  &:before {
+    content: $esprit-fi-rr-heart-arrow;
+  }
+}
+
+.esprit-fi-rr-home {
+  &:before {
+    content: $esprit-fi-rr-home;
+  }
+}
+
+.esprit-fi-rr-home-location {
+  &:before {
+    content: $esprit-fi-rr-home-location;
+  }
+}
+
+.esprit-fi-rr-home-location-alt {
+  &:before {
+    content: $esprit-fi-rr-home-location-alt;
+  }
+}
+
+.esprit-fi-rr-hourglass {
+  &:before {
+    content: $esprit-fi-rr-hourglass;
+  }
+}
+
+.esprit-fi-rr-hourglass-end {
+  &:before {
+    content: $esprit-fi-rr-hourglass-end;
+  }
+}
+
+.esprit-fi-rr-id-badge {
+  &:before {
+    content: $esprit-fi-rr-id-badge;
+  }
+}
+
+.esprit-fi-rr-inbox {
+  &:before {
+    content: $esprit-fi-rr-inbox;
+  }
+}
+
+.esprit-fi-rr-incognito {
+  &:before {
+    content: $esprit-fi-rr-incognito;
+  }
+}
+
+.esprit-fi-rr-info {
+  &:before {
+    content: $esprit-fi-rr-info;
+  }
+}
+
+.esprit-fi-rr-interactive {
+  &:before {
+    content: $esprit-fi-rr-interactive;
+  }
+}
+
+.esprit-fi-rr-interrogation {
+  &:before {
+    content: $esprit-fi-rr-interrogation;
+  }
+}
+
+.esprit-fi-rr-key {
+  &:before {
+    content: $esprit-fi-rr-key;
+  }
+}
+
+.esprit-fi-rr-keyboard {
+  &:before {
+    content: $esprit-fi-rr-keyboard;
+  }
+}
+
+.esprit-fi-rr-layers {
+  &:before {
+    content: $esprit-fi-rr-layers;
+  }
+}
+
+.esprit-fi-rr-layout-fluid {
+  &:before {
+    content: $esprit-fi-rr-layout-fluid;
+  }
+}
+
+.esprit-fi-rr-line-width {
+  &:before {
+    content: $esprit-fi-rr-line-width;
+  }
+}
+
+.esprit-fi-rr-link {
+  &:before {
+    content: $esprit-fi-rr-link;
+  }
+}
+
+.esprit-fi-rr-location-alt {
+  &:before {
+    content: $esprit-fi-rr-location-alt;
+  }
+}
+
+.esprit-fi-rr-lock {
+  &:before {
+    content: $esprit-fi-rr-lock;
+  }
+}
+
+.esprit-fi-rr-lock-alt {
+  &:before {
+    content: $esprit-fi-rr-lock-alt;
+  }
+}
+
+.esprit-fi-rr-luggage-rolling {
+  &:before {
+    content: $esprit-fi-rr-luggage-rolling;
+  }
+}
+
+.esprit-fi-rr-magic-wand {
+  &:before {
+    content: $esprit-fi-rr-magic-wand;
+  }
+}
+
+.esprit-fi-rr-makeup-brush {
+  &:before {
+    content: $esprit-fi-rr-makeup-brush;
+  }
+}
+
+.esprit-fi-rr-man-head {
+  &:before {
+    content: $esprit-fi-rr-man-head;
+  }
+}
+
+.esprit-fi-rr-map {
+  &:before {
+    content: $esprit-fi-rr-map;
+  }
+}
+
+.esprit-fi-rr-map-marker {
+  &:before {
+    content: $esprit-fi-rr-map-marker;
+  }
+}
+
+.esprit-fi-rr-map-marker-cross {
+  &:before {
+    content: $esprit-fi-rr-map-marker-cross;
+  }
+}
+
+.esprit-fi-rr-map-marker-home {
+  &:before {
+    content: $esprit-fi-rr-map-marker-home;
+  }
+}
+
+.esprit-fi-rr-map-marker-minus {
+  &:before {
+    content: $esprit-fi-rr-map-marker-minus;
+  }
+}
+
+.esprit-fi-rr-map-marker-plus {
+  &:before {
+    content: $esprit-fi-rr-map-marker-plus;
+  }
+}
+
+.esprit-fi-rr-marker {
+  &:before {
+    content: $esprit-fi-rr-marker;
+  }
+}
+
+.esprit-fi-rr-marker-time {
+  &:before {
+    content: $esprit-fi-rr-marker-time;
+  }
+}
+
+.esprit-fi-rr-menu-burger {
+  &:before {
+    content: $esprit-fi-rr-menu-burger;
+  }
+}
+
+.esprit-fi-rr-menu-dots {
+  &:before {
+    content: $esprit-fi-rr-menu-dots;
+  }
+}
+
+.esprit-fi-rr-menu-dots-vertical {
+  &:before {
+    content: $esprit-fi-rr-menu-dots-vertical;
+  }
+}
+
+.esprit-fi-rr-microphone {
+  &:before {
+    content: $esprit-fi-rr-microphone;
+  }
+}
+
+.esprit-fi-rr-minus {
+  &:before {
+    content: $esprit-fi-rr-minus;
+  }
+}
+
+.esprit-fi-rr-minus-small {
+  &:before {
+    content: $esprit-fi-rr-minus-small;
+  }
+}
+
+.esprit-fi-rr-mobile {
+  &:before {
+    content: $esprit-fi-rr-mobile;
+  }
+}
+
+.esprit-fi-rr-mode-landscape {
+  &:before {
+    content: $esprit-fi-rr-mode-landscape;
+  }
+}
+
+.esprit-fi-rr-mode-portrait {
+  &:before {
+    content: $esprit-fi-rr-mode-portrait;
+  }
+}
+
+.esprit-fi-rr-money {
+  &:before {
+    content: $esprit-fi-rr-money;
+  }
+}
+
+.esprit-fi-rr-moon {
+  &:before {
+    content: $esprit-fi-rr-moon;
+  }
+}
+
+.esprit-fi-rr-mountains {
+  &:before {
+    content: $esprit-fi-rr-mountains;
+  }
+}
+
+.esprit-fi-rr-mouse {
+  &:before {
+    content: $esprit-fi-rr-mouse;
+  }
+}
+
+.esprit-fi-rr-mug-alt {
+  &:before {
+    content: $esprit-fi-rr-mug-alt;
+  }
+}
+
+.esprit-fi-rr-music {
+  &:before {
+    content: $esprit-fi-rr-music;
+  }
+}
+
+.esprit-fi-rr-music-alt {
+  &:before {
+    content: $esprit-fi-rr-music-alt;
+  }
+}
+
+.esprit-fi-rr-navigation {
+  &:before {
+    content: $esprit-fi-rr-navigation;
+  }
+}
+
+.esprit-fi-rr-network {
+  &:before {
+    content: $esprit-fi-rr-network;
+  }
+}
+
+.esprit-fi-rr-network-cloud {
+  &:before {
+    content: $esprit-fi-rr-network-cloud;
+  }
+}
+
+.esprit-fi-rr-notebook {
+  &:before {
+    content: $esprit-fi-rr-notebook;
+  }
+}
+
+.esprit-fi-rr-opacity {
+  &:before {
+    content: $esprit-fi-rr-opacity;
+  }
+}
+
+.esprit-fi-rr-package {
+  &:before {
+    content: $esprit-fi-rr-package;
+  }
+}
+
+.esprit-fi-rr-paint-brush {
+  &:before {
+    content: $esprit-fi-rr-paint-brush;
+  }
+}
+
+.esprit-fi-rr-palette {
+  &:before {
+    content: $esprit-fi-rr-palette;
+  }
+}
+
+.esprit-fi-rr-pause {
+  &:before {
+    content: $esprit-fi-rr-pause;
+  }
+}
+
+.esprit-fi-rr-pencil {
+  &:before {
+    content: $esprit-fi-rr-pencil;
+  }
+}
+
+.esprit-fi-rr-pharmacy {
+  &:before {
+    content: $esprit-fi-rr-pharmacy;
+  }
+}
+
+.esprit-fi-rr-phone-call {
+  &:before {
+    content: $esprit-fi-rr-phone-call;
+  }
+}
+
+.esprit-fi-rr-phone-cross {
+  &:before {
+    content: $esprit-fi-rr-phone-cross;
+  }
+}
+
+.esprit-fi-rr-phone-pause {
+  &:before {
+    content: $esprit-fi-rr-phone-pause;
+  }
+}
+
+.esprit-fi-rr-phone-slash {
+  &:before {
+    content: $esprit-fi-rr-phone-slash;
+  }
+}
+
+.esprit-fi-rr-physics {
+  &:before {
+    content: $esprit-fi-rr-physics;
+  }
+}
+
+.esprit-fi-rr-picture {
+  &:before {
+    content: $esprit-fi-rr-picture;
+  }
+}
+
+.esprit-fi-rr-play {
+  &:before {
+    content: $esprit-fi-rr-play;
+  }
+}
+
+.esprit-fi-rr-play-alt {
+  &:before {
+    content: $esprit-fi-rr-play-alt;
+  }
+}
+
+.esprit-fi-rr-plus {
+  &:before {
+    content: $esprit-fi-rr-plus;
+  }
+}
+
+.esprit-fi-rr-plus-small {
+  &:before {
+    content: $esprit-fi-rr-plus-small;
+  }
+}
+
+.esprit-fi-rr-portrait {
+  &:before {
+    content: $esprit-fi-rr-portrait;
+  }
+}
+
+.esprit-fi-rr-power {
+  &:before {
+    content: $esprit-fi-rr-power;
+  }
+}
+
+.esprit-fi-rr-presentation {
+  &:before {
+    content: $esprit-fi-rr-presentation;
+  }
+}
+
+.esprit-fi-rr-print {
+  &:before {
+    content: $esprit-fi-rr-print;
+  }
+}
+
+.esprit-fi-rr-pulse {
+  &:before {
+    content: $esprit-fi-rr-pulse;
+  }
+}
+
+.esprit-fi-rr-pyramid {
+  &:before {
+    content: $esprit-fi-rr-pyramid;
+  }
+}
+
+.esprit-fi-rr-quote-right {
+  &:before {
+    content: $esprit-fi-rr-quote-right;
+  }
+}
+
+.esprit-fi-rr-rainbow {
+  &:before {
+    content: $esprit-fi-rr-rainbow;
+  }
+}
+
+.esprit-fi-rr-raindrops {
+  &:before {
+    content: $esprit-fi-rr-raindrops;
+  }
+}
+
+.esprit-fi-rr-rec {
+  &:before {
+    content: $esprit-fi-rr-rec;
+  }
+}
+
+.esprit-fi-rr-receipt {
+  &:before {
+    content: $esprit-fi-rr-receipt;
+  }
+}
+
+.esprit-fi-rr-record-vinyl {
+  &:before {
+    content: $esprit-fi-rr-record-vinyl;
+  }
+}
+
+.esprit-fi-rr-rectabgle-vertical {
+  &:before {
+    content: $esprit-fi-rr-rectabgle-vertical;
+  }
+}
+
+.esprit-fi-rr-rectangle-horizontal {
+  &:before {
+    content: $esprit-fi-rr-rectangle-horizontal;
+  }
+}
+
+.esprit-fi-rr-rectangle-panoramic {
+  &:before {
+    content: $esprit-fi-rr-rectangle-panoramic;
+  }
+}
+
+.esprit-fi-rr-recycle {
+  &:before {
+    content: $esprit-fi-rr-recycle;
+  }
+}
+
+.esprit-fi-rr-redo {
+  &:before {
+    content: $esprit-fi-rr-redo;
+  }
+}
+
+.esprit-fi-rr-redo-alt {
+  &:before {
+    content: $esprit-fi-rr-redo-alt;
+  }
+}
+
+.esprit-fi-rr-reflect {
+  &:before {
+    content: $esprit-fi-rr-reflect;
+  }
+}
+
+.esprit-fi-rr-refresh {
+  &:before {
+    content: $esprit-fi-rr-refresh;
+  }
+}
+
+.esprit-fi-rr-resize {
+  &:before {
+    content: $esprit-fi-rr-resize;
+  }
+}
+
+.esprit-fi-rr-resources {
+  &:before {
+    content: $esprit-fi-rr-resources;
+  }
+}
+
+.esprit-fi-rr-rewind {
+  &:before {
+    content: $esprit-fi-rr-rewind;
+  }
+}
+
+.esprit-fi-rr-rhombus {
+  &:before {
+    content: $esprit-fi-rr-rhombus;
+  }
+}
+
+.esprit-fi-rr-road {
+  &:before {
+    content: $esprit-fi-rr-road;
+  }
+}
+
+.esprit-fi-rr-rotate-right {
+  &:before {
+    content: $esprit-fi-rr-rotate-right;
+  }
+}
+
+.esprit-fi-rr-sad {
+  &:before {
+    content: $esprit-fi-rr-sad;
+  }
+}
+
+.esprit-fi-rr-scale {
+  &:before {
+    content: $esprit-fi-rr-scale;
+  }
+}
+
+.esprit-fi-rr-scissors {
+  &:before {
+    content: $esprit-fi-rr-scissors;
+  }
+}
+
+.esprit-fi-rr-screen {
+  &:before {
+    content: $esprit-fi-rr-screen;
+  }
+}
+
+.esprit-fi-rr-search {
+  &:before {
+    content: $esprit-fi-rr-search;
+  }
+}
+
+.esprit-fi-rr-search-alt {
+  &:before {
+    content: $esprit-fi-rr-search-alt;
+  }
+}
+
+.esprit-fi-rr-search-heart {
+  &:before {
+    content: $esprit-fi-rr-search-heart;
+  }
+}
+
+.esprit-fi-rr-settings {
+  &:before {
+    content: $esprit-fi-rr-settings;
+  }
+}
+
+.esprit-fi-rr-settings-sliders {
+  &:before {
+    content: $esprit-fi-rr-settings-sliders;
+  }
+}
+
+.esprit-fi-rr-share {
+  &:before {
+    content: $esprit-fi-rr-share;
+  }
+}
+
+.esprit-fi-rr-shield {
+  &:before {
+    content: $esprit-fi-rr-shield;
+  }
+}
+
+.esprit-fi-rr-shield-check {
+  &:before {
+    content: $esprit-fi-rr-shield-check;
+  }
+}
+
+.esprit-fi-rr-shield-exclamation {
+  &:before {
+    content: $esprit-fi-rr-shield-exclamation;
+  }
+}
+
+.esprit-fi-rr-shield-interrogation {
+  &:before {
+    content: $esprit-fi-rr-shield-interrogation;
+  }
+}
+
+.esprit-fi-rr-shield-plus {
+  &:before {
+    content: $esprit-fi-rr-shield-plus;
+  }
+}
+
+.esprit-fi-rr-shuffle {
+  &:before {
+    content: $esprit-fi-rr-shuffle;
+  }
+}
+
+.esprit-fi-rr-signal-alt {
+  &:before {
+    content: $esprit-fi-rr-signal-alt;
+  }
+}
+
+.esprit-fi-rr-signal-alt-1 {
+  &:before {
+    content: $esprit-fi-rr-signal-alt-1;
+  }
+}
+
+.esprit-fi-rr-signal-alt-2 {
+  &:before {
+    content: $esprit-fi-rr-signal-alt-2;
+  }
+}
+
+.esprit-fi-rr-sign-in {
+  &:before {
+    content: $esprit-fi-rr-sign-in;
+  }
+}
+
+.esprit-fi-rr-sign-in-alt {
+  &:before {
+    content: $esprit-fi-rr-sign-in-alt;
+  }
+}
+
+.esprit-fi-rr-sign-out {
+  &:before {
+    content: $esprit-fi-rr-sign-out;
+  }
+}
+
+.esprit-fi-rr-sign-out-alt {
+  &:before {
+    content: $esprit-fi-rr-sign-out-alt;
+  }
+}
+
+.esprit-fi-rr-skateboard {
+  &:before {
+    content: $esprit-fi-rr-skateboard;
+  }
+}
+
+.esprit-fi-rr-smartphone {
+  &:before {
+    content: $esprit-fi-rr-smartphone;
+  }
+}
+
+.esprit-fi-rr-smile {
+  &:before {
+    content: $esprit-fi-rr-smile;
+  }
+}
+
+.esprit-fi-rr-smile-wink {
+  &:before {
+    content: $esprit-fi-rr-smile-wink;
+  }
+}
+
+.esprit-fi-rr-snowflake {
+  &:before {
+    content: $esprit-fi-rr-snowflake;
+  }
+}
+
+.esprit-fi-rr-speaker {
+  &:before {
+    content: $esprit-fi-rr-speaker;
+  }
+}
+
+.esprit-fi-rr-star {
+  &:before {
+    content: $esprit-fi-rr-star;
+  }
+}
+
+.esprit-fi-rr-stats {
+  &:before {
+    content: $esprit-fi-rr-stats;
+  }
+}
+
+.esprit-fi-rr-stethoscope {
+  &:before {
+    content: $esprit-fi-rr-stethoscope;
+  }
+}
+
+.esprit-fi-rr-sticker {
+  &:before {
+    content: $esprit-fi-rr-sticker;
+  }
+}
+
+.esprit-fi-rr-stopwatch {
+  &:before {
+    content: $esprit-fi-rr-stopwatch;
+  }
+}
+
+.esprit-fi-rr-subtitles {
+  &:before {
+    content: $esprit-fi-rr-subtitles;
+  }
+}
+
+.esprit-fi-rr-sun {
+  &:before {
+    content: $esprit-fi-rr-sun;
+  }
+}
+
+.esprit-fi-rr-sunrise {
+  &:before {
+    content: $esprit-fi-rr-sunrise;
+  }
+}
+
+.esprit-fi-rr-text {
+  &:before {
+    content: $esprit-fi-rr-text;
+  }
+}
+
+.esprit-fi-rr-text-height {
+  &:before {
+    content: $esprit-fi-rr-text-height;
+  }
+}
+
+.esprit-fi-rr-text-size {
+  &:before {
+    content: $esprit-fi-rr-text-size;
+  }
+}
+
+.esprit-fi-rr-text-width {
+  &:before {
+    content: $esprit-fi-rr-text-width;
+  }
+}
+
+.esprit-fi-rr-thermometer-half {
+  &:before {
+    content: $esprit-fi-rr-thermometer-half;
+  }
+}
+
+.esprit-fi-rr-thumbs-down {
+  &:before {
+    content: $esprit-fi-rr-thumbs-down;
+  }
+}
+
+.esprit-fi-rr-thumbs-up {
+  &:before {
+    content: $esprit-fi-rr-thumbs-up;
+  }
+}
+
+.esprit-fi-rr-thumbtack {
+  &:before {
+    content: $esprit-fi-rr-thumbtack;
+  }
+}
+
+.esprit-fi-rr-ticket {
+  &:before {
+    content: $esprit-fi-rr-ticket;
+  }
+}
+
+.esprit-fi-rr-time-add {
+  &:before {
+    content: $esprit-fi-rr-time-add;
+  }
+}
+
+.esprit-fi-rr-time-check {
+  &:before {
+    content: $esprit-fi-rr-time-check;
+  }
+}
+
+.esprit-fi-rr-time-delete {
+  &:before {
+    content: $esprit-fi-rr-time-delete;
+  }
+}
+
+.esprit-fi-rr-time-fast {
+  &:before {
+    content: $esprit-fi-rr-time-fast;
+  }
+}
+
+.esprit-fi-rr-time-forward {
+  &:before {
+    content: $esprit-fi-rr-time-forward;
+  }
+}
+
+.esprit-fi-rr-time-forward-sixty {
+  &:before {
+    content: $esprit-fi-rr-time-forward-sixty;
+  }
+}
+
+.esprit-fi-rr-time-forward-ten {
+  &:before {
+    content: $esprit-fi-rr-time-forward-ten;
+  }
+}
+
+.esprit-fi-rr-time-half-past {
+  &:before {
+    content: $esprit-fi-rr-time-half-past;
+  }
+}
+
+.esprit-fi-rr-time-oclock {
+  &:before {
+    content: $esprit-fi-rr-time-oclock;
+  }
+}
+
+.esprit-fi-rr-time-past {
+  &:before {
+    content: $esprit-fi-rr-time-past;
+  }
+}
+
+.esprit-fi-rr-time-quarter-past {
+  &:before {
+    content: $esprit-fi-rr-time-quarter-past;
+  }
+}
+
+.esprit-fi-rr-time-quarter-to {
+  &:before {
+    content: $esprit-fi-rr-time-quarter-to;
+  }
+}
+
+.esprit-fi-rr-time-twenty-four {
+  &:before {
+    content: $esprit-fi-rr-time-twenty-four;
+  }
+}
+
+.esprit-fi-rr-tool-crop {
+  &:before {
+    content: $esprit-fi-rr-tool-crop;
+  }
+}
+
+.esprit-fi-rr-tool-marquee {
+  &:before {
+    content: $esprit-fi-rr-tool-marquee;
+  }
+}
+
+.esprit-fi-rr-transform {
+  &:before {
+    content: $esprit-fi-rr-transform;
+  }
+}
+
+.esprit-fi-rr-trash {
+  &:before {
+    content: $esprit-fi-rr-trash;
+  }
+}
+
+.esprit-fi-rr-treatment {
+  &:before {
+    content: $esprit-fi-rr-treatment;
+  }
+}
+
+.esprit-fi-rr-underline {
+  &:before {
+    content: $esprit-fi-rr-underline;
+  }
+}
+
+.esprit-fi-rr-undo {
+  &:before {
+    content: $esprit-fi-rr-undo;
+  }
+}
+
+.esprit-fi-rr-undo-alt {
+  &:before {
+    content: $esprit-fi-rr-undo-alt;
+  }
+}
+
+.esprit-fi-rr-unlock {
+  &:before {
+    content: $esprit-fi-rr-unlock;
+  }
+}
+
+.esprit-fi-rr-upload {
+  &:before {
+    content: $esprit-fi-rr-upload;
+  }
+}
+
+.esprit-fi-rr-user {
+  &:before {
+    content: $esprit-fi-rr-user;
+  }
+}
+
+.esprit-fi-rr-user-add {
+  &:before {
+    content: $esprit-fi-rr-user-add;
+  }
+}
+
+.esprit-fi-rr-user-delete {
+  &:before {
+    content: $esprit-fi-rr-user-delete;
+  }
+}
+
+.esprit-fi-rr-user-remove {
+  &:before {
+    content: $esprit-fi-rr-user-remove;
+  }
+}
+
+.esprit-fi-rr-user-time {
+  &:before {
+    content: $esprit-fi-rr-user-time;
+  }
+}
+
+.esprit-fi-rr-video-camera {
+  &:before {
+    content: $esprit-fi-rr-video-camera;
+  }
+}
+
+.esprit-fi-rr-volume {
+  &:before {
+    content: $esprit-fi-rr-volume;
+  }
+}
+
+.esprit-fi-rr-wheelchair {
+  &:before {
+    content: $esprit-fi-rr-wheelchair;
+  }
+}
+
+.esprit-fi-rr-world {
+  &:before {
+    content: $esprit-fi-rr-world;
+  }
+}
+
+.esprit-fi-rr-zoom-in {
+  &:before {
+    content: $esprit-fi-rr-zoom-in;
+  }
+}
+
+.esprit-fi-rr-zoom-out {
+  &:before {
+    content: $esprit-fi-rr-zoom-out;
+  }
+}
+
+.esprit-gap {
+  &:before {
+    content: $esprit-gap;
+  }
+}
+
+.esprit-instagram-2 {
+  &:before {
+    content: $esprit-instagram-2;
+  }
+}
+
+.esprit-linkedin {
+  &:before {
+    content: $esprit-linkedin;
+  }
+}
+
+.esprit-messages {
+  &:before {
+    content: $esprit-messages;
+  }
+}
+
+.esprit-plyr-airplay {
+  &:before {
+    content: $esprit-plyr-airplay;
+  }
+}
+
+.esprit-plyr-captions-off {
+  &:before {
+    content: $esprit-plyr-captions-off;
+  }
+}
+
+.esprit-plyr-captions-on {
+  &:before {
+    content: $esprit-plyr-captions-on;
+  }
+}
+
+.esprit-plyr-download {
+  &:before {
+    content: $esprit-plyr-download;
+  }
+}
+
+.esprit-plyr-enter-fullscreen {
+  &:before {
+    content: $esprit-plyr-enter-fullscreen;
+  }
+}
+
+.esprit-plyr-exit-fullscreen {
+  &:before {
+    content: $esprit-plyr-exit-fullscreen;
+  }
+}
+
+.esprit-plyr-fast-forward {
+  &:before {
+    content: $esprit-plyr-fast-forward;
+  }
+}
+
+.esprit-plyr-logo-vimeo {
+  &:before {
+    content: $esprit-plyr-logo-vimeo;
+  }
+}
+
+.esprit-plyr-logo-youtube {
+  &:before {
+    content: $esprit-plyr-logo-youtube;
+  }
+}
+
+.esprit-plyr-muted {
+  &:before {
+    content: $esprit-plyr-muted;
+  }
+}
+
+.esprit-plyr-pause {
+  &:before {
+    content: $esprit-plyr-pause;
+  }
+}
+
+.esprit-plyr-pip {
+  &:before {
+    content: $esprit-plyr-pip;
+  }
+}
+
+.esprit-plyr-play {
+  &:before {
+    content: $esprit-plyr-play;
+  }
+}
+
+.esprit-plyr-restart {
+  &:before {
+    content: $esprit-plyr-restart;
+  }
+}
+
+.esprit-plyr-rewind {
+  &:before {
+    content: $esprit-plyr-rewind;
+  }
+}
+
+.esprit-plyr-settings {
+  &:before {
+    content: $esprit-plyr-settings;
+  }
+}
+
+.esprit-plyr-volume {
+  &:before {
+    content: $esprit-plyr-volume;
+  }
+}
+
+.esprit-Social-Icons {
+  &:before {
+    content: $esprit-Social-Icons;
+  }
+}
+
+.esprit-soroush {
+  &:before {
+    content: $esprit-soroush;
+  }
+}
+
+.esprit-telegram {
+  &:before {
+    content: $esprit-telegram;
+  }
+}
+
+.esprit-twitter {
+  &:before {
+    content: $esprit-twitter;
+  }
+}
+
+.esprit-whatsapp {
+  &:before {
+    content: $esprit-whatsapp;
+  }
+}
