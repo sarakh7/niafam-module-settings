@@ -1,0 +1,22 @@
+@use './components/sidebar';
+
+.page-content-main__article {
+  display: grid;
+  grid-template-columns: 1fr 315px;
+  gap: 24px;
+  width: 100%;
+
+  .esprit-aside {
+    width: 315px;
+  }
+
+  @media (max-width: 991.98px) {
+    & {
+      grid-template-columns: 1fr;
+    }
+
+    .esprit-aside {
+      width: 100%;
+    }
+  }
+}

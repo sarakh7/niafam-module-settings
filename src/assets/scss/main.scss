@@ -3,5 +3,6 @@
 @use 'reset';
 @use 'colors' as *;
 @use 'esfonticon/style';
-@use './components/gallery';
+@use 'layout';
 @use './components/article';
+@use './components/gallery';
