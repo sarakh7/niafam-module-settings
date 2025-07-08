@@ -1,5 +1,12 @@
+  @use 'articleHeader';
+  @use 'articleContent';
+
   .esprit-article {
       max-width: 100%;
+
+      &__header {}
+
+      &__content {}
 
       //downloadable-files style
       &__downloadable-files {}

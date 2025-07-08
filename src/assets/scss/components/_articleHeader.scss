@@ -1,0 +1,39 @@
+@use "sass:map";
+@use '../globals' as *;
+
+.esprit-article {
+    &__header {}
+
+    &__subtitle {
+        color: $gray-900;
+        font-size: map.get($text-sizes, 14);
+        font-weight: $text-regular;
+
+        @include respond-to(xs) {
+            font-size: map.get($text-sizes, 12);
+        }
+    }
+
+    &__title {
+        color: $gray-900;
+        font-size: map.get($text-sizes, 16);
+        font-weight: $text-bold;
+
+        @include respond-to(xs) {
+            font-size: map.get($text-sizes, 14);
+        }
+    }
+
+    &__summary {
+        color: $gray-700;
+        font-size: map.get($text-sizes, 16);
+        font-weight: $text-regular;
+        padding: 16px;
+        border-radius: 8px;
+        background: $gray-100;
+
+        @include respond-to(xs) {
+            font-size: map.get($text-sizes, 14);
+        }
+    }
+}
