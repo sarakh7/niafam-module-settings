@@ -14,32 +14,34 @@ function createSlider(id, start, callback) {
     },
     step: 1,
     tooltips: {
-      to: value => Math.round(value) + "%",
-      from: value => Number(value.replace("%", "")),
+      to: (value) => Math.round(value) + "%",
+      from: (value) => Number(value.replace("%", "")),
     },
     pips: {
       mode: "positions",
       values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
       density: 10,
       format: {
-        to: value => Math.round(value) + "%",
+        to: (value) => Math.round(value) + "%",
       },
     },
   });
 
-  // فقط زمانی که کاربر تعامل داشته باشد، callback اجرا شود
-  slider.noUiSlider.on("update", function (values, handle, unencoded, tap, positions) {
-    if (!hasInteracted) return;
-    const percentValue = parseFloat(values[handle]);
-    callback(percentValue);
-  });
+  // Only run the callback when the user interacts.
+  slider.noUiSlider.on(
+    "update",
+    function (values, handle, unencoded, tap, positions) {
+      if (!hasInteracted) return;
+      const percentValue = parseFloat(values[handle]);
+      callback(percentValue);
+    }
+  );
 
-  // زمانی که کاربر اسلایدر را لمس کرد (تغییر داد)، پرچم را فعال کن
+  // Activate the flag when the user touches (changes) the slider.
   slider.noUiSlider.on("start", function () {
     hasInteracted = true;
   });
 }
-
 
 export function initAccessibilitySliders() {
   const newsContainer = document.querySelector(".esprit-article");
