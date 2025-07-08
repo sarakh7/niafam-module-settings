@@ -1,5 +1,7 @@
+  @use 'common';
   @use 'articleHeader';
   @use 'articleContent';
+  @use 'articleDownloadable';
 
   .esprit-article {
       max-width: 100%;
