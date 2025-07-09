@@ -1,9 +1,9 @@
-@use './components/sidebar';
+@use 'variables' as *;
 
 .page-content-main__article {
   display: grid;
   grid-template-columns: 1fr 315px;
-  gap: 24px;
+  gap: $spacing-4;
   width: 100%;
 
   .esprit-aside {

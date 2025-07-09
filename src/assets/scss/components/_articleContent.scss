@@ -6,7 +6,7 @@
 
     &__image-wrapper {
         float: left;
-        border-radius: 8px;
+        border-radius: $spacing-1;
         overflow: hidden;
         width: 44%;
         max-width: 396px;
@@ -55,7 +55,7 @@
             transition: $transition;
 
             &:hover {
-                color: $error-700;
+                color: $link-hover-color;
             }
         }
     }

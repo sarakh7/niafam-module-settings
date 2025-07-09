@@ -22,5 +22,5 @@
 @mixin sideBox {
     background: #FFFFFF;
     border: 1px solid $gray-200;
-    border-radius: 8px;
+    border-radius: $radius-default;
 }

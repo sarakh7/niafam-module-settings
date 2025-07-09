@@ -6,7 +6,7 @@
 
     &__file-list {
         display: flex;
-        row-gap: 16px;
+        row-gap: $spacing-3;
         column-gap: 60px;
         flex-wrap: wrap;
         align-items: start;
@@ -14,7 +14,7 @@
         padding-inline-start: 24px;
 
         @include respond-to(sm) {
-            column-gap: 16px;
+            column-gap: $spacing-3;
         }
     }
 
@@ -33,7 +33,7 @@
         width: calc(50% - 30px);
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: $spacing-1;
 
         i {
             font-size: map.get($text-sizes, 20);
@@ -43,11 +43,11 @@
 
         &:hover {
             .esprit-article__file-link {
-                color: $error-700;
+                color: $link-hover-color;
             }
 
             i {
-                color: $error-700;
+                color: $link-hover-color;
             }
         }
 

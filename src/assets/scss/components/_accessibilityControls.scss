@@ -29,6 +29,7 @@
         height: 36px;
         font-size: 20px;
         flex-shrink: 0;
+        transition: $transition;
     }
 
 
@@ -126,7 +127,7 @@ $handle-bg: white;
         padding: 8px 12px;
         background: $blue-gray-700;
         color: #ffffff;
-        border-radius: 8px;
+        border-radius: $spacing-1;
         min-width: 48px;
         font-size: map.get($text-sizes, 12);
         font-weight: $text-regular;

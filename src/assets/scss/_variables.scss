@@ -15,4 +15,24 @@ $text-sizes: (
     $text-sizes: map.merge($text-sizes, ($i: $em));
 }
 
-$transition: linear 0.3s;
+$transition: linear 0.2s;
+
+$radius-none: 0px;
+$radius-xs: 2px;
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+$radius-xl: 12px;
+$radius-2xl: 16px;
+$radius-3xl: 24px;
+$radius-4xl: 32px;
+$radius-full: 9999px;
+$radius-default: $radius-lg;
+
+$spacing-1: 8px;
+$spacing-2: 12px;
+$spacing-3: 16px;
+$spacing-4: 24px;
+$spacing-5: 32px;
+
+$link-hover-color: hsla(4, 76%, 40%, 1);

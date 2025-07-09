@@ -13,7 +13,7 @@
         margin: 0;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: $spacing-1;
         color: $gray-700;
         font-size: map.get($text-sizes, 14);
         font-weight: $text-medium;
@@ -28,7 +28,7 @@
         display: flex;
         align-items: center;
         justify-content: end;
-        gap: 16px;
+        gap: $spacing-3;
     }
 
     &__button {

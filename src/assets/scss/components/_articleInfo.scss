@@ -10,9 +10,9 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        padding-bottom: 16px;
+        padding-bottom: $spacing-3;
         border-bottom: 1px solid $blue-gray-200;
-        margin-bottom: 16px;
+        margin-bottom: $spacing-3;
     }
 
     &__author-img {
@@ -35,7 +35,7 @@
     &__item {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: $spacing-1;
 
         &:not(:last-child) {
             margin-bottom: 12px;
