@@ -44,7 +44,7 @@ function createSlider(id, start, callback) {
 }
 
 export function initAccessibilitySliders() {
-  const newsContainer = document.querySelector(".esprit-article");
+  const newsContainer = document.querySelector(".esprit-article__main-content");
 
   // 1. Get the parent element's font size in pixels
   const parentFontSizePx = parseFloat(
