@@ -2,20 +2,22 @@
   @use 'articleHeader';
   @use 'articleContent';
   @use 'articleDownloadable';
+  @use 'videoList';
 
   .esprit-article {
-      max-width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 
-      &__header {}
+    &__header {}
 
-      &__content {}
+    &__content {}
 
-      //downloadable-files style
-      &__downloadable-files {}
+    //downloadable-files style
+    &__downloadable-files {}
 
-      &__file-list {}
+    &__file-list {}
 
-      &__file-item {}
+    &__file-item {}
 
-      &__file-link {}
+    &__file-link {}
   }
