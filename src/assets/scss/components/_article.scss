@@ -3,6 +3,8 @@
   @use 'articleContent';
   @use 'articleDownloadable';
   @use 'videoList';
+  @use 'soundList';
+  @use 'relatedNews';
 
   .esprit-article {
     max-width: 100%;
