@@ -5,6 +5,8 @@
   @use 'videoList';
   @use 'soundList';
   @use 'relatedNews';
+  @use 'articleTags';
+  @use 'articleMetadata';
 
   .esprit-article {
     max-width: 100%;

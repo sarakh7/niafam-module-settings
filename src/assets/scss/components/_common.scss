@@ -40,4 +40,11 @@
    &__section-subtitle {
      @include sectionTitle($size: 32, $color: $gray-700);
    }
+
+   &__section-divider {
+     height: 1px;
+     width: 100%;
+     background: $gray-300;
+     margin: $spacing-4 0;
+   }
  }
