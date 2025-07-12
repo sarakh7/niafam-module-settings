@@ -141,6 +141,8 @@ export function initAudioPlayer(
   const audioItems = document.querySelectorAll(listSelector);
   audioItems.forEach((item) => {
     item.addEventListener("click", () => {
+      audioItems.forEach((v) => v.classList.remove("active"));
+      item.classList.add("active");
       const audioSrc = item.getAttribute("data-audio-src");
       if (audioSrc) {
         player.source = {
