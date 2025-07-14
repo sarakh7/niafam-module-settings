@@ -1,4 +1,9 @@
   @use 'common';
+  @use 'shortLink';
+  @use 'accessibilityControls';
+  @use 'articleInfo';
+  @use 'sharing';
+  @use 'relatedContent';
   @use 'articleHeader';
   @use 'articleContent';
   @use 'articleDownloadable';
@@ -7,6 +12,7 @@
   @use 'relatedNews';
   @use 'articleTags';
   @use 'articleMetadata';
+  @use 'articleTts';
 
   .esprit-article {
     max-width: 100%;

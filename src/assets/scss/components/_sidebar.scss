@@ -1,5 +1,17 @@
-@use 'shortLink';
-@use 'accessibilityControls';
-@use 'articleInfo';
-@use 'sharing';
-@use 'relatedContent';
+@use '../globals' as *;
+
+.esprit-aside {
+    margin: $spacing-2 0;
+    padding: $spacing-2 0;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

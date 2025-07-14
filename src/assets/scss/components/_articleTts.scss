@@ -1,0 +1,12 @@
+@use '../globals' as *;
+
+.esprit-article {
+    &-tts {
+        audio {
+            width: 100%;
+            // background: $gray-50;
+            // border: 1px solid $gray-200;
+            // border-radius: $radius-default;
+        }
+    }
+}
