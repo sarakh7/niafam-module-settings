@@ -30,6 +30,7 @@
         cursor: pointer;
         font-size: map.get($text-sizes, 14);
         font-weight: $text-medium;
+        position: relative;
 
         &:hover {
             background: $blue-gray-600;
@@ -57,5 +58,54 @@
         width: 36px;
         height: 36px;
 
+    }
+
+    &__tooltip {
+        position: absolute;
+        z-index: 100;
+        top: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        background: $blue-gray-700;
+        color: #ffffff;
+        border-radius: $spacing-1;
+        min-width: 48px;
+        font-size: map.get($text-sizes, 12);
+        font-weight: $text-regular;
+        pointer-events: none;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 6px solid $blue-gray-700;
+            position: absolute;
+            left: 50%;
+            top: -5px;
+            transform: translateX(-50%);
+
+        }
+
+        &.show {
+            visibility: visible;
+            opacity: 1;
+
+            &--error {
+                background: $error-700;
+                visibility: visible;
+                opacity: 1;
+
+                &::after {
+                    border-bottom: 6px solid $error-700;
+                }
+            }
+        }
     }
 }
