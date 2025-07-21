@@ -98,14 +98,13 @@
             visibility: visible;
             opacity: 1;
 
-            &--error {
-                background: $error-700;
-                visibility: visible;
-                opacity: 1;
+        }
 
-                &::after {
-                    border-bottom: 6px solid $error-700;
-                }
+        &.error {
+            background: $error-700;
+
+            &::after {
+                border-bottom: 6px solid $error-700;
             }
         }
     }

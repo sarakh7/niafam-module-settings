@@ -37,18 +37,24 @@ async function copyToClipboard(text) {
   }
 }
 
-function showTooltip(el, duration = 2000, tooltipClass = "show") {
-  el.classList.add(tooltipClass);
-  setTimeout(() => {
-    el.classList.remove(tooltipClass);
-  }, duration);
+function showAlert(options = {}) {
+  const { el, duration = 2000, alertClass = "default", content = "" } = options;
+  if (el) {
+    el.innerHTML = content;
+
+    el.classList.add("show", alertClass);
+    setTimeout(() => {
+      el.classList.remove("show", alertClass);
+    }, duration);
+  }
 }
 
-export function copyShortUrl(
-  btnId = "copy-shorturl-btn",
-  inputId = "shorturlitem",
-  tooltipId = "shortur-alert"
-) {
+export function copyShortUrl(options = {}) {
+  const {
+    btnId = "copy-shorturl-btn",
+    inputId = "shorturlitem",
+    alertId = "shortur-alert",
+  } = options;
   const copyLinkButton = document.getElementById(btnId);
 
   if (!copyLinkButton) return;
@@ -56,17 +62,21 @@ export function copyShortUrl(
   copyLinkButton.addEventListener("click", (e) => {
     e.preventDefault();
     const shortUrlItem = document.getElementById(inputId);
-    const shortUlrTolltip = document.getElementById(tooltipId);
+    const shortUlrTolltip = document.getElementById(alertId);
 
     if (shortUrlItem) {
       const text = shortUrlItem.getAttribute("value");
       copyToClipboard(text || "").then((success) => {
         if (success && shortUlrTolltip) {
-          shortUlrTolltip.innerHTML = `<i class="es esprit-fi-rr-check"></i><span>کپی شد</span>`;
-          showTooltip(shortUlrTolltip);
+          const alertContent = `<i class="es esprit-fi-rr-check"></i><span>کپی شد</span>`;
+          showAlert({ el: shortUlrTolltip, content: alertContent });
         } else {
-          shortUlrTolltip.innerHTML = `<i class="es esprit-fi-rr-cross"></i><span>کپی نشد!</span>`;
-          showTooltip(shortUlrTolltip, 2000, "show--error");
+          const alertContent = `<i class="es esprit-fi-rr-cross"></i><span>کپی نشد!</span>`;
+          showAlert({
+            el: shortUlrTolltip,
+            alertClass: "error",
+            content: alertContent,
+          });
         }
       });
     }
