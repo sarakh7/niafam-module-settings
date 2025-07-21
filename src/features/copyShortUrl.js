@@ -47,7 +47,7 @@ function showTooltip(el, duration = 2000, tooltipClass = "show") {
 export function copyShortUrl(
   btnId = "copy-shorturl-btn",
   inputId = "shorturlitem",
-  tooltipId = "shortur-tooltip"
+  tooltipId = "shortur-alert"
 ) {
   const copyLinkButton = document.getElementById(btnId);
 
@@ -62,10 +62,10 @@ export function copyShortUrl(
       const text = shortUrlItem.getAttribute("value");
       copyToClipboard(text || "").then((success) => {
         if (success && shortUlrTolltip) {
-          shortUlrTolltip.innerHTML = "کپی شد!";
+          shortUlrTolltip.innerHTML = `<i class="es esprit-fi-rr-check"></i><span>کپی شد</span>`;
           showTooltip(shortUlrTolltip);
         } else {
-          shortUlrTolltip.innerHTML = "متاسفانه کپی نشد!";
+          shortUlrTolltip.innerHTML = `<i class="es esprit-fi-rr-cross"></i><span>کپی نشد!</span>`;
           showTooltip(shortUlrTolltip, 2000, "show--error");
         }
       });
