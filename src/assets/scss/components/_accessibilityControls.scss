@@ -76,6 +76,18 @@
             }
         }
     }
+
+    &__reloadPageBtn {
+        position: fixed;
+        inset-inline-start: $spacing-3;
+        bottom: $spacing-3;
+        display: none;
+
+        &.active {
+            display: flex !important;
+        }
+
+    }
 }
 
 
