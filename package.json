@@ -14,10 +14,14 @@
     "vite": "^6.3.5"
   },
   "dependencies": {
+    "html-to-pdfmake": "^2.5.28",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
     "justified-layout": "^4.1.0",
     "justifiedGallery": "^3.8.1",
     "lightgallery": "^2.8.3",
     "nouislider": "^15.8.1",
+    "pdfmake": "^0.2.20",
     "plyr": "^3.7.8"
   }
 }

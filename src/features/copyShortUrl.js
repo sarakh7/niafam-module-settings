@@ -49,7 +49,7 @@ function showAlert(options = {}) {
   }
 }
 
-export function copyShortUrl(options = {}) {
+export function initCopyShortUrl(options = {}) {
   const {
     btnId = "copy-shorturl-btn",
     inputId = "shorturlitem",
