@@ -5,6 +5,7 @@ import { initScrollNav } from "./utils/scrollNav";
 import "./assets/scss/main.scss";
 import { initCopyShortUrl } from "./features/copyShortUrl";
 import { initPdfGenerator } from "./features/pdfGenerator";
+import { initPrintNewsContent } from "./features/printNewsContent";
 
 document.addEventListener("DOMContentLoaded", () => {
   initGallery();
@@ -14,4 +15,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollNav("related-content-list");
   initCopyShortUrl();
   initPdfGenerator();
+  initPrintNewsContent();
 });
