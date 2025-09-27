@@ -159,3 +159,10 @@ export function initAudioPlayer(
     });
   });
 }
+
+export function initTts(audioSelector = "#tts-audio") {
+  const audioElement = document.querySelector(audioSelector);
+  if (!audioElement) return;
+
+  const player = new Plyr(audioElement);
+}

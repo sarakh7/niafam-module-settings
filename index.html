@@ -882,10 +882,15 @@
           <aside class="esprit-aside es-sidebar">
             <div class="sidebar__inner">
               <!-- بخش TTS (Text-to-Speech) -->
-              <div class="esprit-article-tts">
-                <audio id="tts-audio" controls>
+              <div class="sound-player__container accessible-keep">
+                <audio id="tts-audio" class="sound-player__audio" controls>
                   <source src="/assets/sounds/11 Midnight Thoughts.mp3" type="audio/mp3" />
+                  Your browser does not support the audio element.
                 </audio>
+
+                <!-- <audio id="tts-audio" controls>
+                  <source src="/assets/sounds/11 Midnight Thoughts.mp3" type="audio/mp3" />
+                </audio> -->
               </div>
 
               <!-- بخش لینک کوتاه -->
@@ -1121,10 +1126,10 @@
   <script src="/assets/js/theia-sticky-sidebar.js"></script>
   <script type="text/javascript">
     $(".es-sidebar").theiaStickySidebar({
-        // Settings
-        additionalMarginTop: 60,
-        containerSelector: "es-main-content"
-      });
+      // Settings
+      additionalMarginTop: 60,
+      containerSelector: "es-main-content"
+    });
 
   </script>
   <script type="module" src="/src/main.js"></script>
