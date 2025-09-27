@@ -6,6 +6,8 @@ import "./assets/scss/main.scss";
 import { initCopyShortUrl } from "./features/copyShortUrl";
 import { initPdfGenerator } from "./features/pdfGenerator";
 import { initPrintNewsContent } from "./features/printNewsContent";
+import { setShareLinks } from "./features/shareLinks";
+// import { initStickySidebar } from "./features/stickySidebars";
 
 document.addEventListener("DOMContentLoaded", () => {
   initGallery();
@@ -16,4 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initCopyShortUrl();
   initPdfGenerator();
   initPrintNewsContent();
+  setShareLinks("");
+ // initStickySidebar(".es-sidebar", ".es-container", 20, 20, 768);
 });
