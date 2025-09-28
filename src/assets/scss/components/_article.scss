@@ -12,7 +12,7 @@
   @use 'relatedNews';
   @use 'articleTags';
   @use 'articleMetadata';
-  @use 'articleTts';
+  @use 'tts';
 
   .esprit-article {
     max-width: 100%;

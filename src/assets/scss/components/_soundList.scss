@@ -13,15 +13,11 @@
     &__sound-player {
         margin: 0 $spacing-1;
 
-        .sound-player__container {
-            .plyr__controls {
-                border-radius: $radius-default;
-            }
-        }
-
         .plyr--audio {
             .plyr__controls {
                 padding: $spacing-1;
+                color: $gray-500;
+                border-radius: $radius-default;
             }
         }
     }
