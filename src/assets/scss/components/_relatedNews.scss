@@ -57,7 +57,7 @@
 
         }
 
-        &.display-in-mobile {
+        &.display-on-mobile {
 
             @include respond-to(sm) {
                 width: 90px;
