@@ -20,6 +20,7 @@
     "justified-layout": "^4.1.0",
     "justifiedGallery": "^3.8.1",
     "lightgallery": "^2.8.3",
+    "micromodal": "^0.6.1",
     "nouislider": "^15.8.1",
     "pdfmake": "^0.2.20",
     "plyr": "^3.7.8"

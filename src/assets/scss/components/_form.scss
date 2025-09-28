@@ -1,0 +1,116 @@
+@use '../globals' as *;
+
+// 🎨 Variables
+$border-radius: $radius-default;
+$border-color: $blue-gray-300;
+$focus-color: #0d6efd;
+$btn-success-bg: #28a745;
+$btn-danger-bg: #dc3545;
+$btn-text-color: #fff;
+$spacing: $spacing-2;
+
+// 🔹 Base form styles
+.nes-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.nes-form-group {
+  margin-bottom: 1rem;
+}
+
+// 🔹 Inputs
+.nes-input {
+  width: 100%;
+  padding: $spacing;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  font-family: inherit;
+
+  &:focus {
+    border-color: $focus-color;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($focus-color, 0.2);
+  }
+}
+
+// 🔹 Labels
+.nes-label {
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+// 🔹 Captcha group
+.nes-captcha-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .nes-captcha-img {
+    width: 80px;
+    height: 35px;
+    object-fit: cover;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+
+  .nes-captcha-input {
+    width: 80px;
+    text-align: center;
+  }
+}
+
+// 🔹 Buttons
+.nes-btn {
+  display: inline-block;
+  padding: $spacing;
+  font-size: 1rem;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
+
+  &.nes-btn-icon {
+    background: #f8f9fa;
+    border: 1px solid $border-color;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1;
+
+    &:hover {
+      background: #e9ecef;
+    }
+  }
+
+  &.nes-btn-success {
+    background-color: $btn-success-bg;
+    color: $btn-text-color;
+
+    &:hover {
+      background-color: darken($btn-success-bg, 5%);
+    }
+  }
+
+  &.nes-btn-danger {
+    background-color: $btn-danger-bg;
+    color: $btn-text-color;
+
+    &:hover {
+      background-color: darken($btn-danger-bg, 5%);
+    }
+  }
+}
+
+// 🔹 Form actions
+.nes-form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .nes-btn {
+    width: 100%;
+  }
+}

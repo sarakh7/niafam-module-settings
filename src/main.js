@@ -9,6 +9,7 @@ import { initPrintNewsContent } from "./features/printNewsContent";
 import { setShareLinks } from "./features/shareLinks";
 import StickySidebar from "./utils/sticky-sidebar.esm";
 import { initStickySidebar } from "./features/stickySidebar";
+import { initModal } from "./features/modal";
 // import { initStickySidebar } from "./features/stickySidebars";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,5 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setShareLinks("");
   initTts();
   initStickySidebar();
- // initStickySidebar(".es-sidebar", ".es-container", 20, 20, 768);
+ initModal();
 });
