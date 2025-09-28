@@ -7,6 +7,8 @@ import { initCopyShortUrl } from "./features/copyShortUrl";
 import { initPdfGenerator } from "./features/pdfGenerator";
 import { initPrintNewsContent } from "./features/printNewsContent";
 import { setShareLinks } from "./features/shareLinks";
+import StickySidebar from "./utils/sticky-sidebar.esm";
+import { initStickySidebar } from "./features/stickySidebar";
 // import { initStickySidebar } from "./features/stickySidebars";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,5 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initPrintNewsContent();
   setShareLinks("");
   initTts();
+  initStickySidebar();
  // initStickySidebar(".es-sidebar", ".es-container", 20, 20, 768);
 });

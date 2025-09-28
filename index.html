@@ -142,8 +142,8 @@
         </ul>
       </div>
       <div class="page-content-main">
-        <div class="page-content-main__article es-main-content">
-          <article class="esprit-article es-main-content__main">
+        <div class="page-content-main__article es-page-content-container">
+          <article class="esprit-article es-page-content">
             <div id="pdf-content" class="esprit-article__main-content">
               <!-- عنوان های اصلی مقاله -->
               <header class="esprit-article__header">
@@ -879,7 +879,7 @@
             </div>
           </article>
 
-          <aside class="esprit-aside es-sidebar">
+          <aside class="esprit-aside es-page-sidebar">
             <div class="sidebar__inner">
               <!-- بخش TTS (Text-to-Speech) -->
               <div class="sound-player__container accessible-keep">
@@ -1122,16 +1122,6 @@
     </div>
   </main>
 
-
-  <script src="/assets/js/theia-sticky-sidebar.js"></script>
-  <script type="text/javascript">
-    $(".es-sidebar").theiaStickySidebar({
-      // Settings
-      additionalMarginTop: 60,
-      containerSelector: "es-main-content"
-    });
-
-  </script>
   <script type="module" src="/src/main.js"></script>
 </body>
 
