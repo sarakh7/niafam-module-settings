@@ -53,6 +53,27 @@
             @include respond-to(sm) {
                 display: none;
             }
+
+
+        }
+
+        &.display-in-mobile {
+
+            @include respond-to(sm) {
+                width: 90px;
+                height: auto;
+                aspect-ratio: 180 / 140;
+
+                img {
+                    display: block;
+                }
+
+                .esprit-article__news-icon {
+                    background: none;
+                    border: none;
+                    color: #fff;
+                }
+            }
         }
     }
 
@@ -128,7 +149,6 @@
         margin: 0;
 
         @include respond-to(sm) {
-            @include lineClamp(1);
             font-size: map.get($text-sizes, 14);
         }
     }
