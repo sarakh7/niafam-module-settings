@@ -110,7 +110,8 @@ export async function generatePDF() {
   }
 
   // ---------- ✅ عنوان مقاله (Title) ----------
-  const title = document.querySelector("h1")?.innerText.trim() || "";
+  const title =
+    document.querySelector(".esprit-article__title")?.innerText.trim() || "";
   if (title) {
     // Style for title: larger font, bold, dark color
     pdf.setFontSize(18);
@@ -302,6 +303,14 @@ export async function generatePDF() {
       document.getElementById("editor")?.innerText ||
       document.querySelector(".editor")?.innerText ||
       "",
+    "کد خبر":
+      document.getElementById("news-code")?.innerText ||
+      document.querySelector(".news-code")?.innerText ||
+      "",
+    "گروه خبری":
+      document.getElementById("news-groups")?.innerText ||
+      document.querySelector(".news-groups")?.innerText ||
+      "",
   };
 
   // Filter out empty values
@@ -388,10 +397,13 @@ export async function generatePDF() {
   }
 
   // ---------- ✅ ذخیره فایل ----------
-  const filename = title
-    ? `${title.substring(0, 50).replace(/[^\w\s-]/g, "")}.pdf`
-    : "esprit-article.pdf";
+  let safeTitle = title.replace(/[^آ-ی0-9a-zA-Z\s-]/g, "").trim();
+  if (safeTitle.length > 150) {
+    safeTitle = safeTitle.substring(0, 150);
+  }
+  const filename = `${safeTitle}.pdf`;
 
+  console.log(filename);
   pdf.save(filename);
 }
 
