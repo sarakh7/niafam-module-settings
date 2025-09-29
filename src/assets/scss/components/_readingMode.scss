@@ -1,14 +1,81 @@
-.modal-reading-mode-accessibility {
-    background: #FFFFFF;
-    border: 1px solid hsl(220, 5%, 92%);
-    border-radius: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-inline-start: 4px;
-    padding-inline-end: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 12px;
-    width: 265px;
+@use "sass:map";
+@use '../globals' as *;
+
+#modal-reading-mode {
+
+    .modal-reading-mode-accessibility {
+        background: #FFFFFF;
+        border: 1px solid hsl(220, 5%, 92%);
+        border-radius: 8px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-inline-start: 4px;
+        padding-inline-end: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+
+    }
+
+    .modal__container{
+        background-color: $blue-gray-100;
+        padding: $spacing-3;
+    }
+    .modal__content {
+        padding: $spacing-3;
+        margin-top: $spacing-3;
+        border-radius: $radius-default;
+    }
+
+    .accessibility-bg-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .accessibility-bg-dropdown-toggle:hover {
+        background: $blue-gray-600 !important;
+    }
+
+    .accessibility-bg-dropdown-menu {
+        display: none;
+        position: absolute;
+        margin-top: 4px;
+        list-style: none;
+        border: 1px solid $blue-gray-200;
+        background: white;
+        z-index: 100;
+        border-radius: $radius-default;
+        padding: $spacing-2 0;
+        left: 0;
+    }
+
+    .accessibility-bg-dropdown-menu li {
+        padding: 12px 24px;
+        cursor: pointer;
+        position: relative;
+        padding-inline-start: 55px;
+        text-wrap: nowrap;
+
+        &::after {
+            content: "";
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            inset-inline-start: 24px;
+            transform: translateY(-50%);
+            background-color: var(--color-circle, #ccc);
+            border: 1px solid $blue-gray-200;
+        }
+    }
+
+    .accessibility-bg-dropdown-menu li:hover {
+        background: #eee;
+    }
+
+    .accessibility-bg-dropdown-open .accessibility-bg-dropdown-menu {
+        display: block;
+    }
 }

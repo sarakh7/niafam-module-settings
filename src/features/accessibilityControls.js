@@ -331,6 +331,57 @@ function HandleButtonToggling(containerSelector) {
   });
 }
 
+export function initBackgroundColorDropdown(
+  containerSelector,
+  dropdownSelector
+) {
+  const container = document.querySelector(containerSelector);
+  const dropdown = document.querySelector(dropdownSelector);
+  if (!container || !dropdown) return;
+
+  const toggleBtn = dropdown.querySelector(".accessibility-bg-dropdown-toggle");
+  const menu = dropdown.querySelector(".accessibility-bg-dropdown-menu");
+
+  // باز و بسته کردن منو
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("accessibility-bg-dropdown-open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("accessibility-bg-dropdown-open");
+    }
+  });
+
+  // کلیک روی گزینه‌ها
+  menu.querySelectorAll("li").forEach((item) => {
+    const color = item.dataset.color;
+    // رنگ رو به صورت CSS variable ذخیره کن
+    item.style.setProperty("--color-circle", color);
+
+    item.addEventListener("click", () => {
+      container.style.backgroundColor = color;
+      toggleBtn.style.backgroundColor = color;
+      dropdown.classList.remove("accessibility-bg-dropdown-open");
+    });
+  });
+
+  // بستن منو با کلیک بیرون
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("dropdown-open");
+    }
+  });
+
+  return {
+    reset: (defaultColor = "#ffffffff") => {
+      container.style.backgroundColor = defaultColor;
+      toggleBtn.style.backgroundColor = "";
+    },
+  };
+}
+
 export function initAccessibilityActions() {
   // Create article sliders
   const {
@@ -364,5 +415,13 @@ export function initAccessibilityActions() {
     });
   });
 
-  showTextOnly(readingModeResetAllSlider);
+  const { reset: readingModeBackgroundReset } = initBackgroundColorDropdown(
+    "#modal-reading-mode-content",
+    ".accessibility-bg-dropdown"
+  );
+
+  showTextOnly(() => {
+    readingModeResetAllSlider();
+    readingModeBackgroundReset();
+  });
 }

@@ -1781,71 +1781,86 @@
           aria-labelledby="modal-reading-mode-title"
         >
           <header class="modal__header">
-              <div class="modal-reading-mode-accessibility">
+            <div class="modal-reading-mode-accessibility">
+              <div class="esprit-article-accessibility__controls">
+                <!-- Text-only mode button -->
+                <div class="esprit-article-accessibility__container">
                   <div
-                    class="esprit-article-accessibility__controls accessible-hidden"
+                    class="esprit-article-accessibility__slider"
+                    id="reading-mode-fontSizeSlider"
+                  ></div>
+                  <button
+                    class="es-article-accessibility-control-btn esprit-article-accessibility__button esprit-article-accessibility__button--readonly active"
+                    aria-label=" اندازه فونت"
                   >
-                    <!-- Text-only mode button -->
-                    <div class="esprit-article-accessibility__container">
-                      <div
-                        class="esprit-article-accessibility__slider"
-                        id="reading-mode-fontSizeSlider"
-                      ></div>
-                      <button
-                        class="es-article-accessibility-control-btn esprit-article-accessibility__button esprit-article-accessibility__button--readonly active"
-                        aria-label=" اندازه فونت"
-                      >
-                        <span
-                          class="esprit-article-accessibility__icon esprit-article-accessibility__icon--readonly"
-                          ><i class="es esprit-fi-rr-text-size"></i
-                        ></span>
-                      </button>
-                    </div>
-
-                    <!-- Line height adjustment button -->
-                    <div class="esprit-article-accessibility__container">
-                      <div
-                        class="esprit-article-accessibility__slider"
-                        id="reading-mode-wordSpacingSlider"
-                      ></div>
-                      <button
-                        class="es-article-accessibility-control-btn esprit-article-accessibility__button es-article-accessibility-control-btn esprit-article-accessibility__button--line-height"
-                        aria-label="تنظیم فاصله خطوط"
-                      >
-                        <span
-                          class="esprit-article-accessibility__icon esprit-article-accessibility__icon--line-height"
-                          ><i class="es esprit-fi-rr-text-width"></i
-                        ></span>
-                      </button>
-                    </div>
-
-                    <!-- Word spacing adjustment button -->
-                    <div class="esprit-article-accessibility__container">
-                      <div
-                        class="esprit-article-accessibility__slider"
-                        id="reading-mode-lineHeightSlider"
-                      ></div>
-                      <button
-                        class="es-article-accessibility-control-btn esprit-article-accessibility__button es-article-accessibility-control-btn esprit-article-accessibility__button--word-spacing"
-                        aria-label="تنظیم فاصله کلمات"
-                      >
-                        <span
-                          class="esprit-article-accessibility__icon esprit-article-accessibility__icon--word-spacing"
-                          ><i class="es esprit-fi-rr-text-height"></i
-                        ></span>
-                      </button>
-                    </div>
-
-                  </div>
+                    <span
+                      class="esprit-article-accessibility__icon esprit-article-accessibility__icon--readonly"
+                      ><i class="es esprit-fi-rr-text-size"></i
+                    ></span>
+                  </button>
                 </div>
+
+                <!-- Line height adjustment button -->
+                <div class="esprit-article-accessibility__container">
+                  <div
+                    class="esprit-article-accessibility__slider"
+                    id="reading-mode-wordSpacingSlider"
+                  ></div>
+                  <button
+                    class="es-article-accessibility-control-btn esprit-article-accessibility__button es-article-accessibility-control-btn esprit-article-accessibility__button--line-height"
+                    aria-label="تنظیم فاصله خطوط"
+                  >
+                    <span
+                      class="esprit-article-accessibility__icon esprit-article-accessibility__icon--line-height"
+                      ><i class="es esprit-fi-rr-text-width"></i
+                    ></span>
+                  </button>
+                </div>
+
+                <!-- Word spacing adjustment button -->
+                <div class="esprit-article-accessibility__container">
+                  <div
+                    class="esprit-article-accessibility__slider"
+                    id="reading-mode-lineHeightSlider"
+                  ></div>
+                  <button
+                    class="es-article-accessibility-control-btn esprit-article-accessibility__button es-article-accessibility-control-btn esprit-article-accessibility__button--word-spacing"
+                    aria-label="تنظیم فاصله کلمات"
+                  >
+                    <span
+                      class="esprit-article-accessibility__icon esprit-article-accessibility__icon--word-spacing"
+                      ><i class="es esprit-fi-rr-text-height"></i
+                    ></span>
+                  </button>
+                </div>
+              </div>
+              <div class="accessibility-bg-dropdown">
+                <div class="esprit-article-accessibility__container">
+                  <button
+                    class="accessibility-bg-dropdown-toggle es-article-accessibility-control-btn esprit-article-accessibility__button "
+                    aria-label=" اندازه فونت"
+                  >
+                    <span
+                      class="esprit-article-accessibility__icon esprit-article-accessibility__icon--readonly"
+                      ><i class="es esprit-fi-rr-palette"></i
+                    ></span>
+                  </button>
+                </div>
+                <ul class="accessibility-bg-dropdown-menu">
+                  <li data-color="#ffffffff">پیش فرض</li>
+                  <!-- <li data-color="#ffffffff">روشن</li> -->
+                  <li data-color="#feefc3ff">زرد</li>
+                  <li data-color="#d2e3fcff">آبی</li>
+                </ul>
+              </div>
+            </div>
             <button
               class="modal__close"
               aria-label="Close modal"
               data-custom-close="modal-reading-mode"
             ></button>
           </header>
-          <main class="modal__content" id="modal-reading-mode-content">
-          </main>
+          <main class="modal__content" id="modal-reading-mode-content"></main>
         </div>
       </div>
     </div>
