@@ -13,6 +13,7 @@
   @use 'articleTags';
   @use 'articleMetadata';
   @use 'tts';
+  @use 'readingMode';
 
   .esprit-article {
     max-width: 100%;

@@ -1,6 +1,6 @@
 import { initGallery } from "./features/gallery";
 import { initAudioPlayer, initTts, initVideoPlayer } from "./features/mediaPlayer";
-import { initAccessibilitySliders } from "./features/accessibilityControls";
+import { initAccessibilityActions } from "./features/accessibilityControls";
 import { initScrollNav } from "./utils/scrollNav";
 import "./assets/scss/main.scss";
 import { initCopyShortUrl } from "./features/copyShortUrl";
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGallery();
   initVideoPlayer();
   initAudioPlayer();
-  initAccessibilitySliders();
+  initAccessibilityActions();
   initScrollNav("related-content-list");
   initCopyShortUrl();
   initPdfGenerator();
@@ -24,5 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setShareLinks("");
   initTts();
   initStickySidebar();
- initModal();
+  initModal();
 });

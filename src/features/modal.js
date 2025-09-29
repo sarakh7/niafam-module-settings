@@ -12,8 +12,8 @@ export function initModal() {
     debugMode: true,
   });
 
-//   var button = document.querySelector("#open-modal-send-to-friend");
-//   button.addEventListener("click", function () {
-//     MicroModal.show("modal-send-to-friend");
-//   });
+  // var button = document.querySelector("#open-modal-send-to-friend");
+  // button.addEventListener("click", function () {
+  //   MicroModal.show("modal-send-to-friend");
+  // });
 }

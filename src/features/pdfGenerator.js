@@ -403,7 +403,6 @@ export async function generatePDF() {
   }
   const filename = `${safeTitle}.pdf`;
 
-  console.log(filename);
   pdf.save(filename);
 }
 
