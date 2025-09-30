@@ -43,69 +43,8 @@ function createSlider(id, start, callback) {
   });
 }
 
-function oldShowTextOnly() {
-  const textOnlyBtn = document.querySelector(
-    ".esprit-article-accessibility__text-only"
-  );
-
-  if (!textOnlyBtn) return;
-
-  textOnlyBtn.addEventListener("click", function () {
-    document.getElementById("reloadPageBtn").classList.add("active");
-
-    const container = document.querySelector(".page-content-main__article");
-    if (!container) return;
-
-    container.removeAttribute("class");
-
-    const allElements = container.querySelectorAll("*");
-    const keepClasses = [
-      "accessible-keep",
-      "accessible-hidden",
-      "esprit-article-accessibility__reloadPageBtn",
-    ]; // لیست کلاس‌هایی که نباید حذف بشن
-
-    // مرحله ۱: مشخص‌کردن المان‌هایی که باید حفظ شوند
-    const protectedElements = new Set();
-    const keepRoots = container.querySelectorAll(".accessible-keep");
-    keepRoots.forEach((el) => {
-      protectedElements.add(el);
-      const descendants = el.querySelectorAll("*");
-      descendants.forEach((child) => protectedElements.add(child));
-    });
-
-    // مرحله ۳: حذف کلاس‌ها و ویژگی‌ها از بقیه عناصر
-    allElements.forEach((el) => {
-      if (protectedElements.has(el)) return;
-
-      const kept = [...el.classList].filter((cls) => keepClasses.includes(cls));
-      el.className = kept.join(" ");
-
-      el.removeAttribute("style");
-      el.removeAttribute("role");
-      el.removeAttribute("aria-label");
-      el.removeAttribute("aria-hidden");
-      el.removeAttribute("tabindex");
-    });
-
-    // مرحله ۲: پنهان‌سازی المان‌هایی که باید مخفی شوند
-    const hiddenElements = container.querySelectorAll(".accessible-hidden");
-    hiddenElements.forEach((el) => {
-      el.style.display = "none";
-    });
-  });
-
-  document
-    .getElementById("reloadPageBtn")
-    .addEventListener("click", function () {
-      location.reload();
-    });
-}
-
 function showTextOnly(resetSettings) {
-  const textOnlyBtn = document.querySelector(
-    ".esprit-article-accessibility__text-only"
-  );
+  const textOnlyBtn = document.querySelector("#open-reading-mode");
 
   if (!textOnlyBtn) return;
 

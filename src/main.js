@@ -1,5 +1,10 @@
 import { initGallery } from "./features/gallery";
-import { initAudioPlayer, initReadingModeTts, initTts, initVideoPlayer } from "./features/mediaPlayer";
+import {
+  initAudioPlayer,
+  initReadingModeTts,
+  initTts,
+  initVideoPlayer,
+} from "./features/mediaPlayer";
 import { initAccessibilityActions } from "./features/accessibilityControls";
 import { initScrollNav } from "./utils/scrollNav";
 import "./assets/scss/main.scss";
@@ -10,6 +15,7 @@ import { setShareLinks } from "./features/shareLinks";
 import StickySidebar from "./utils/sticky-sidebar.esm";
 import { initStickySidebar } from "./features/stickySidebar";
 import { initModal } from "./features/modal";
+import { setLayout } from "./features/layout";
 // import { initStickySidebar } from "./features/stickySidebars";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -26,4 +32,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initReadingModeTts();
   initStickySidebar();
   initModal();
+  setLayout();
 });

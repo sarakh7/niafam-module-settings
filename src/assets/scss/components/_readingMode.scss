@@ -14,14 +14,19 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 300px;
+        min-width: 300px;
+
+        @include respond-to(sm) {
+            min-width: 285px;
+        }
 
     }
 
-    .modal__container{
+    .modal__container {
         background-color: $blue-gray-100;
         padding: $spacing-3;
     }
+
     .modal__content {
         padding: $spacing-3;
         margin-top: $spacing-3;
@@ -87,11 +92,24 @@
     .modal__header {
         gap: $spacing-3;
         justify-content: start;
-        flex-wrap: wrap;
+
         @include respond-to(sm) {
             padding-top: $spacing-2;
+            flex-wrap: wrap;
+
+
+            .plyr__volume {
+                display: none;
+            }
+
+            .plyr__controls {
+                max-width: 200px;
+            }
         }
+
+        @include respond-to(xs) {}
     }
+
     .modal__close-wrapper {
         position: absolute;
         top: 10px;
