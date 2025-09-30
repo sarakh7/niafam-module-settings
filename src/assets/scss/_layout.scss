@@ -14,9 +14,16 @@
     & {
       grid-template-columns: 1fr;
     }
+    
+    .es-page-content {
+    }
 
     .esprit-aside {
       width: 100%;
     }
+  }
+  
+  &.hide-sidebar {
+    
   }
 }
