@@ -166,3 +166,13 @@ export function initTts(audioSelector = "#tts-audio") {
 
   const player = new Plyr(audioElement);
 }
+export function initReadingModeTts(audioSelector = "#reading-mode-tts-audio") {
+  const audioElement = document.querySelector(audioSelector);
+  if (!audioElement) return;
+
+  const player = new Plyr(audioElement);
+
+  document.getElementById("modal-reading-mode0close").addEventListener("click", () => {
+    player.stop();
+  })
+}

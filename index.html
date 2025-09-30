@@ -1837,7 +1837,7 @@
               <div class="accessibility-bg-dropdown">
                 <div class="esprit-article-accessibility__container">
                   <button
-                    class="accessibility-bg-dropdown-toggle es-article-accessibility-control-btn esprit-article-accessibility__button "
+                    class="accessibility-bg-dropdown-toggle es-article-accessibility-control-btn esprit-article-accessibility__button"
                     aria-label=" اندازه فونت"
                   >
                     <span
@@ -1854,11 +1854,27 @@
                 </ul>
               </div>
             </div>
-            <button
-              class="modal__close"
-              aria-label="Close modal"
-              data-custom-close="modal-reading-mode"
-            ></button>
+            <div class="tts__container sound-player__container accessible-keep">
+              <audio
+                id="reading-mode-tts-audio"
+                class="sound-player__audio"
+                controls
+              >
+                <source
+                  src="/assets/sounds/11 Midnight Thoughts.mp3"
+                  type="audio/mp3"
+                />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+            <div class="modal__close-wrapper">
+              <button
+                id="modal-reading-mode0close"
+                class="modal__close"
+                aria-label="Close modal"
+                data-custom-close="modal-reading-mode"
+              ></button>
+            </div>
           </header>
           <main class="modal__content" id="modal-reading-mode-content"></main>
         </div>

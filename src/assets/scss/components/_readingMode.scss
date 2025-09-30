@@ -78,4 +78,18 @@
     .accessibility-bg-dropdown-open .accessibility-bg-dropdown-menu {
         display: block;
     }
+
+    .modal__header {
+        gap: $spacing-3;
+        justify-content: start;
+        flex-wrap: wrap;
+        @include respond-to(sm) {
+            padding-top: $spacing-2;
+        }
+    }
+    .modal__close-wrapper {
+        position: absolute;
+        top: 10px;
+        inset-inline-end: 10px;
+    }
 }

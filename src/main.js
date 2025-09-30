@@ -1,5 +1,5 @@
 import { initGallery } from "./features/gallery";
-import { initAudioPlayer, initTts, initVideoPlayer } from "./features/mediaPlayer";
+import { initAudioPlayer, initReadingModeTts, initTts, initVideoPlayer } from "./features/mediaPlayer";
 import { initAccessibilityActions } from "./features/accessibilityControls";
 import { initScrollNav } from "./utils/scrollNav";
 import "./assets/scss/main.scss";
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPrintNewsContent();
   setShareLinks("");
   initTts();
+  initReadingModeTts();
   initStickySidebar();
   initModal();
 });
