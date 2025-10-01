@@ -31,6 +31,7 @@
         padding: $spacing-3;
         border-radius: $radius-default;
         background: $gray-100;
+        text-align: justify;
 
         @include respond-to(xs) {
             font-size: map.get($text-sizes, 14);

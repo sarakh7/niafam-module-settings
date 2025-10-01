@@ -344,13 +344,13 @@ function refreshCaptcha(imageTarget){
 			})
 		}//if unsubscribe-form is exist
 		
-        if($('.js-rating').length > 0 ) {
-            $('.js-rating').thumbs({
-                classCss: 'es-rating',
-                likes: 1,
-                dislikes: 1
-            });
-        }
+        // if($('.js-rating').length > 0 ) {
+        //     $('.js-rating').thumbs({
+        //         classCss: 'es-rating',
+        //         likes: 1,
+        //         dislikes: 1
+        //     });
+        // }
 		
 
     })

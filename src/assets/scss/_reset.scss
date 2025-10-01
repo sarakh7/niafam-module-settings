@@ -1,5 +1,7 @@
 /* @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"); */
-
+*, ::after, ::before {
+    box-sizing: inherit;
+}
 :root {
     --maincolor-1: rgba(127, 0, 255, 1);
     --maincolor-2: rgba(96, 0, 224, 1);
