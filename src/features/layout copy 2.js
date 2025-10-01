@@ -113,7 +113,7 @@ export function moveArticleTools(
   }
 
   const selectors1 = [
-    // ".esprit-article-shortlink",
+    ".esprit-article-shortlink",
     ".esprit-article-accessibility__controls",
   ];
   let movedCount = 0;
@@ -121,38 +121,6 @@ export function moveArticleTools(
     const nodes = Array.from(root.querySelectorAll(sel));
     if (nodes.length > 0) movedCount += moveNodes(nodes, targetTools);
   });
-
-  // 🆕 ۱.۵) این قسمت جدید رو اینجا اضافه کن
-  const shortlinkActions = Array.from(
-    root.querySelectorAll(".esprit-article-shortlink__actions")
-  );
-  let toolsBtns = root.querySelector(".esprit-article-tools__btns");
-  if (!toolsBtns && shortlinkActions.length > 0) {
-    toolsBtns = document.createElement("div");
-    toolsBtns.className = "es-article-tools__btns";
-    toolsBtns.dataset.createdBy = "moveArticleTools";
-    targetTools.appendChild(toolsBtns);
-    createdContainers.add(toolsBtns);
-  }
-  if (toolsBtns && shortlinkActions.length > 0) {
-    movedCount += moveNodes(shortlinkActions, toolsBtns);
-  }
-
-
-  // 🆕 ۱.۶) انتقال دکمه copy-shorturl-btn به داخل .esprit-article-tools__shortlink
-  const copyBtn = root.querySelector("#copy-shorturl-btn");
-  if (copyBtn) {
-    let shortlinkBox = root.querySelector(".esprit-article-tools__shortlink");
-    if (!shortlinkBox) {
-      shortlinkBox = document.createElement("div");
-      shortlinkBox.className = "esprit-article-tools__shortlink";
-      shortlinkBox.dataset.createdBy = "moveArticleTools";
-      targetTools.appendChild(shortlinkBox);
-      createdContainers.add(shortlinkBox);
-    }
-    movedCount += moveNodes([copyBtn], shortlinkBox);
-  }
-
 
   // ۲) tts__container => سعی می‌کنیم اول به .esprit-article-tools داخل root صدا بزنیم، در غیر اینصورت همان targetTools
   const ttsTarget = root.querySelector(".esprit-article-tools") || targetTools;

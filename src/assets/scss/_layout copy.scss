@@ -29,20 +29,14 @@
     .esprit-article-info {
       display: flex;
       column-gap: $spacing-5;
-      row-gap: $spacing-2;
       flex-wrap: wrap;
 
       &__author-wrapper {
         width: 100%;
-        margin-bottom: 0;
       }
 
       &__divider {
         width: 100%;
-      }
-
-      &__item {
-        margin-bottom: 0;
       }
     }
 
@@ -79,47 +73,13 @@
   border-radius: $radius-default;
 
   &.show {
-    display: block;
-  }
-
-  .esprit-article-tools__wrapper {
     display: flex;
-    align-items: center;
-    gap: $spacing-1; 
-    margin-bottom: $spacing-1;
   }
 
-  .esprit-article-shortlink__text {
-    display: none;
+  .esprit-article-accessibility__button {
+    background-color: $blue-gray-100;
   }
 
-  .esprit-article-accessibility__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .esprit-article-tools__right {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-  }
-
-  .esprit-article-tools__container {
-    display: flex;
-    align-items: center;
-    background: #FFFFFF;
-    border: 1px solid $gray-200;
-    border-radius: $radius-default;
-    padding: $spacing-sm;
-    // background-color: $blue-gray-100;
-  }
-
-  .esprit-article-shortlink__link-icon {
-    i {
-      font-size: 20px;
-    }
-  }
   .tts__container {
     // background: none;
     // border: none;
@@ -142,6 +102,7 @@
   }
 
   .esprit-article-accessibility__controls {
+    margin-top: $spacing-3;
   }
 
   &__actions {
@@ -183,7 +144,8 @@
   .es-article-share {
     position: absolute;
     top: 100%;
-    inset-inline-end: 0;
+    left: 0;
+    right: 0;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-height: 0;
