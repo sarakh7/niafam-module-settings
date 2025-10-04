@@ -9,9 +9,9 @@ $btn-danger-bg: #dc3545;
 $btn-text-color: #fff;
 $spacing: $spacing-2;
 
-// 🔹 Base form styles
+//  Base form styles
 .nes-form {
-  max-width: 400px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -19,9 +19,28 @@ $spacing: $spacing-2;
   margin-bottom: 1rem;
 }
 
-// 🔹 Inputs
+//  Inputs
 .nes-input {
   width: 100%;
+  padding: $spacing;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  font-family: inherit;
+
+  @media (max-width: 767.98px) {
+    width: 100%;
+  }
+
+  &:focus {
+    border-color: $focus-color;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($focus-color, 0.2);
+  }
+}
+
+//  captcha input
+.nes-captcha-input {
   padding: $spacing;
   border: 1px solid $border-color;
   border-radius: $border-radius;
@@ -35,18 +54,39 @@ $spacing: $spacing-2;
   }
 }
 
-// 🔹 Labels
+//  textarea
+.nes-textarea {
+  width: 100%;
+  padding: $spacing;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  font-family: inherit;
+  max-width: 100%;
+
+  &:focus {
+    border-color: $focus-color;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($focus-color, 0.2);
+  }
+}
+
+//  Labels
 .nes-label {
   font-size: 0.9rem;
   margin-right: 0.5rem;
   white-space: nowrap;
 }
 
-// 🔹 Captcha group
+//  Captcha group
 .nes-captcha-group {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  @media (max-width: 767.98px) {
+    flex-wrap: wrap;
+  }
 
   .nes-captcha-img {
     width: 80px;
@@ -62,7 +102,7 @@ $spacing: $spacing-2;
   }
 }
 
-// 🔹 Buttons
+//  Buttons
 .nes-btn {
   display: inline-block;
   padding: $spacing;
@@ -104,13 +144,43 @@ $spacing: $spacing-2;
   }
 }
 
-// 🔹 Form actions
+//  Form actions
 .nes-form-actions {
   display: flex;
-  flex-direction: column;
   gap: 0.75rem;
 
   .nes-btn {
+    min-width: 100px;
+  }
+}
+
+.nes-form-row {
+  display: flex;
+  gap: $spacing;
+  align-items: center;
+
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+  }
+
+}
+
+.nes-input-wrapper {
+  width: calc(50% - $spacing/2);
+
+  @media (max-width: 767.98px) {
+    width: 100%;
+  }
+}
+
+.product-reviews {
+  form {
+    width: 600px;
+  }
+}
+
+.nes-captcha-text {
+  @media (max-width: 767.98px) {
     width: 100%;
   }
 }
