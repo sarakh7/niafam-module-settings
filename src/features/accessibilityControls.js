@@ -296,12 +296,16 @@ export function initBackgroundColorDropdown(
   // کلیک روی گزینه‌ها
   menu.querySelectorAll("li").forEach((item) => {
     const color = item.dataset.color;
+    const bgColor = item.dataset.bg;
     // رنگ رو به صورت CSS variable ذخیره کن
-    item.style.setProperty("--color-circle", color);
+    item.style.setProperty("--color-circle", bgColor);
+    item.style.setProperty("--color-circle-text", color);
 
     item.addEventListener("click", () => {
-      container.style.backgroundColor = color;
-      toggleBtn.style.backgroundColor = color;
+      container.style.backgroundColor = bgColor;
+      container.style.color = color;
+      toggleBtn.style.backgroundColor = bgColor;
+      toggleBtn.style.color = color;
       dropdown.classList.remove("accessibility-bg-dropdown-open");
     });
   });
@@ -314,9 +318,11 @@ export function initBackgroundColorDropdown(
   });
 
   return {
-    reset: (defaultColor = "#ffffffff") => {
-      container.style.backgroundColor = defaultColor;
+    reset: (defaultColor = "#1f1f1fff", defaultBgColor = "#ffffffff") => {
+      container.style.backgroundColor = defaultBgColor;
+      container.style.color = defaultColor;
       toggleBtn.style.backgroundColor = "";
+      toggleBtn.style.color = "";
     },
   };
 }

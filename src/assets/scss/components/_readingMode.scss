@@ -40,6 +40,7 @@
 
     .accessibility-bg-dropdown-toggle:hover {
         background: $blue-gray-600 !important;
+        color: #fff!important;
     }
 
     .accessibility-bg-dropdown-menu {
@@ -72,6 +73,7 @@
             inset-inline-start: 24px;
             transform: translateY(-50%);
             background-color: var(--color-circle, #ccc);
+            color: var(--color-circle-text, #000);
             border: 1px solid $blue-gray-200;
             display: flex;
             align-items: center;
