@@ -909,18 +909,16 @@
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="es-vote-container">
-                  <button class="es-vote-btn es-like-btn  {vote_like_class}" onclick="handleVote(this, 'like')">
-                    <div class="es-loader"></div> <i class="es esprit-fi-rr-thumbs-up"></i> <span class="es-count">5</span>
-                  </button>
-                  <button class="es-vote-btn es-dislike-btn {vote_dislike_class}" onclick="handleVote(this, 'dislike')">
-                    <div class="es-loader"></div> <i class="es esprit-fi-rr-thumbs-down"></i>  <span class="es-count">2</span>
-                  </button>
-                </div>
-              </div>
+            <div class="es-vote-container">
+              <button class="es-vote-btn es-like-btn  {vote_like_class}" onclick="handleVote(this, 'like')">
+                <div class="es-loader"></div> <i class="es esprit-fi-rr-thumbs-up"></i> <span class="es-count">5</span>
+              </button>
+              <button class="es-vote-btn es-dislike-btn {vote_dislike_class}" onclick="handleVote(this, 'dislike')">
+                <div class="es-loader"></div> <i class="es esprit-fi-rr-thumbs-down"></i>  <span class="es-count">2</span>
+              </button>
             </div>
+            <div id="mobile-author-wrapper"></div>
+
             <div class="product-reviews">
               <div class="product-review-title es-col-12">
                 <h3 class="inner"><i class="es esprit-chat"></i> نظرات</h3>
@@ -936,7 +934,7 @@
                       <div class="single-review" commentid="{commentid}">
                         <div class="single-review-head">
                           <div class="reviewer-img">
-                            <img src="/assets/img/Avatar.jpg" width="50" height="50" alt="{reviewername}">
+                            <img src="/assets/img/comment-person.jpg" width="50" height="50" alt="{reviewername}">
                           </div>
                           <div class="reviewer-info">
                             <div class="reviewer-head">
@@ -1019,7 +1017,7 @@
                 </div>
                 <div id="main-comment" class="nes-comment-form">
                   <div class="nes-comment-form__header">
-                    <h2 class="nes-comment-form__title">نظر دهید</h2>
+                    <h2 class="nes-comment-form__title esprit-article__section-title">نظر دهید</h2>
                   </div>
 
                   <form action="#" class="nes-form" method="POST">

@@ -172,6 +172,13 @@ export function moveArticleTools(
   if (shareTarget && shareNodes.length > 0)
     movedCount += moveNodes(shareNodes, shareTarget);
 
+  // ۴) انتقال esprit-article-info به mobile-author-wrapper
+  const authorInfo = root.querySelector(".esprit-article-info");
+  const mobileAuthorWrapper = root.querySelector("#mobile-author-wrapper");
+  if (authorInfo && mobileAuthorWrapper) {
+    movedCount += moveNodes([authorInfo], mobileAuthorWrapper);
+  }
+
   return { moved: movedCount, message: "moved" };
 }
 
