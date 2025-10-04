@@ -954,61 +954,62 @@
 
                           </div>
                         </div>
-                        <div class="reply-comment es-form-comment-replay" id="reply-comment-{commentid}">
-                          <div class="comment-form-area">
-                            <form action="#" method="POST" class="es-form-comment-replay" data-commentid="{commentid}">
-                              <div class="form-wrap">
-                                <div class="form-inner">
-                                  <div class="single-input es-form-group es-row">
-                                    <div class="es-col">
-                                      <input required="required" class="es-form-control es-col" name="name"
-                                        placeholder="نام و نام خانوادگی *" autocomplete="off"
-                                        type="text">
-                                    </div>
-                                    <div class="es-col">
-                                      <input required="required" class="es-form-control es-col" name="email"
-                                        placeholder="ایمیل *" autocomplete="off" type="text">
-                                    </div>
-                                  </div>
-
-                                  <div class="single-input es-form-group es-row">
-                                    <div class="es-col">
-                                      <textarea class="textarea" class="es-form-control" autocomplete="off"
-                                        name="comment"
-                                        placeholder="نظر خود را وارد کنید ..."></textarea>
-                                    </div>
-                                  </div>
-                                  <div class="single-input es-form-group es-row">
-                                    <div class="es-col">
-                                      <div class="es-captcha">
-                                        <div class="es-captcha-text">
-                                          <p>متن موجود در تصویر را وارد کنید : </p>
-                                        </div>
-                                        <div class="es-captcha-refresh-row es-row">
-                                          <img class="es-captcha-img" alt="captcha"
-                                            src="/inc/captcha.ashx">
-                                          <i class="es-btn es-captcha-refresh es esprit-refresh-captcha"></i>
-                                          <input name="captcha" autocomplete="off" type="text" maxlength="6" /><span
-                                            style="color: red">*</span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="single-input es-form-group es-row">
-                                    <div class="es-msg-form es-col"> </div>
-                                  </div>
-                                  <div class="single-input es-form-group es-row">
-                                    <div class="es-col">
-                                      <input type="submit" value="ارسال نظر"
-                                        class="es-send-button">
-                                      <input type="button" value="انصراف"
-                                        class="es-cancle-button">
-                                    </div>
-                                  </div>
-                                </div>
+                        <div class="reply-comment nes-form-comment-reply" id="reply-comment-{commentid}">
+                          <form action="#" method="POST" class="nes-form" data-commentid="{commentid}">
+                            <div class="nes-form-group">
+                              <div class="nes-form-row">
+                                <input required="required" 
+                                  class="nes-input" 
+                                  name="name"
+                                  placeholder="نام و نام خانوادگی *" 
+                                  autocomplete="off"
+                                  type="text">
+                                <input required="required" 
+                                  class="nes-input" 
+                                  name="email"
+                                  placeholder="ایمیل *" 
+                                  autocomplete="off" 
+                                  type="email">
                               </div>
-                            </form>
-                          </div>
+                            </div>
+
+                            <div class="nes-form-group">
+                              <textarea class="nes-input" 
+                                autocomplete="off"
+                                name="comment"
+                                rows="4"
+                                placeholder="نظر خود را وارد کنید ..."></textarea>
+                            </div>
+
+                            <div class="nes-form-group">
+                              <div class="nes-captcha-group">
+                                <div class="nes-captcha-text">
+                                  <p>متن موجود در تصویر را وارد کنید:</p>
+                                </div>
+                                <img class="nes-captcha-img" alt="کد امنیتی" src="/inc/captcha.ashx">
+                                <button type="button" class="nes-btn nes-btn-icon">
+                                  <i class="es esprit-refresh-captcha"></i>
+                                </button>
+                                <input class="nes-captcha-input" 
+                                  name="captcha" 
+                                  autocomplete="off" 
+                                  type="text" 
+                                  maxlength="6" 
+                                  required>
+                              </div>
+                            </div>
+
+                            <div class="nes-form-actions">
+                              <button type="submit" class="nes-btn nes-btn-success">
+                                ارسال نظر
+                              </button>
+                              <button type="button" class="nes-btn nes-btn-danger">
+                                انصراف
+                              </button>
+                            </div>
+
+                            <div class="nes-msg-form"></div>
+                          </form>
                         </div>
 
                         <!-- {content_detail_comments_item_a_p} -->
