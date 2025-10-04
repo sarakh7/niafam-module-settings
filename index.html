@@ -1017,54 +1017,82 @@
                     </div>
                   </div>
                 </div>
-                <div id="main-comment" class="comment-form-area ">
-                  <div class="post-title">
-                    <h2 class="h6 inline-block">نظر دهید</h2>
+                <div id="main-comment" class="nes-comment-form">
+                  <div class="nes-comment-form__header">
+                    <h2 class="nes-comment-form__title">نظر دهید</h2>
                   </div>
 
-                  <form action="#" class="{commentipcheck} es-form-horizontal es-form-simple es-commenting-form">
-                    <div class="es-d-none hidden-input">
+                  <form action="#" class="nes-form" method="POST">
+                    <!-- Hidden inputs -->
+                    <div class="es-d-none">
                       <input type="hidden" name="module" value="{commentmodule}">
                       <input type="hidden" name="contentid" value="{contentid}">
                     </div>
-                    <fieldset class="es-form-group es-position-relative es-has-icon-right es-row">
-                      <input type="text" class="es-form-control es-form-control-lg es-input-field-right-placeholder"
-                        name="name" autocomplete="off" placeholder="نام و نام خانوادگی *">
-                      <div class="es-form-control-position">
-                        <i class="es esprit-user"></i>
-                      </div>
-                    </fieldset>
 
-                    <fieldset class="es-form-group es-position-relative es-has-icon-right es-row">
-                      <input type="text" class="es-form-control es-form-control-lg es-input-field-right-placeholder"
-                        autocomplete="off" name="email" placeholder="ایمیل *">
-                      <div class="es-form-control-position">
-                        <i class="es esprit-at-sign"></i>
+                    <!-- Name and Email Row -->
+                    <div class="nes-form-group">
+                      <div class="nes-form-row">
+                        <div class="nes-input-wrapper">
+                          <i class="es esprit-user nes-input-icon"></i>
+                          <input type="text" 
+                                 class="nes-input" 
+                                 name="name" 
+                                 autocomplete="name" 
+                                 placeholder="نام و نام خانوادگی *" 
+                                 required>
+                        </div>
+                        <div class="nes-input-wrapper">
+                          <i class="es esprit-at-sign nes-input-icon"></i>
+                          <input type="email" 
+                                 class="nes-input" 
+                                 name="email" 
+                                 autocomplete="email" 
+                                 placeholder="ایمیل *" 
+                                 required>
+                        </div>
                       </div>
-                    </fieldset>
+                    </div>
 
-                    <fieldset class="es-form-group es-position-relative es-has-icon-right es-row">
-                      <textarea type="text" class="es-form-control es-form-control-lg es-input-field-right-placeholder"
-                        autocomplete="off" name="comment" placeholder="نظر خود را وارد کنید ..."></textarea>
-                    </fieldset>
+                    <!-- Comment Textarea -->
+                    <div class="nes-form-group">
+                      <textarea class="nes-textarea" 
+                                name="comment" 
+                                rows="4" 
+                                placeholder="نظر خود را وارد کنید ..." 
+                                required></textarea>
+                    </div>
 
-                    <fieldset class="es-form-group  es-row">
-                      <div class="es-col-2">
-                        <img class="es-captcha-img img-fluid" width="100%" src="/inc/captcha.ashx">
+                    <!-- Captcha Section -->
+                    <div class="nes-form-group">
+                      <div class="nes-captcha-group">
+                        <div class="nes-captcha-text">
+                          <p>متن موجود در تصویر را وارد کنید:</p>
+                        </div>
+                        <div class="nes-captcha-row">
+                          <img class="nes-captcha-img" alt="کد امنیتی" src="/inc/captcha.ashx">
+                          <button type="button" class="nes-btn nes-btn-icon">
+                            <i class="es esprit-refresh-captcha"></i>
+                          </button>
+                          <input class="nes-captcha-input" 
+                                 name="captcha" 
+                                 type="text" 
+                                 maxlength="6" 
+                                 autocomplete="off"
+                                 required>
+                        </div>
                       </div>
-                      <div class="es-col-3">
-                        <input name="captcha" autocomplete="off" type="text" maxlength="4" class="es-form-control" />
+                    </div>
 
-                      </div>
-                      <div class="es-col-2">
-                        <button class="es-btn es-captcha-refresh" type="button"><i
-                            class="es esprit-refresh-captcha"></i></button>
-                      </div>
-                    </fieldset>
-                    <button class="submit-button" type="submit">ارسال نظر</button>
+                    <!-- Form Actions -->
+                    <div class="nes-form-actions">
+                      <button type="submit" class="nes-btn nes-btn-success">
+                        ارسال نظر
+                      </button>
+                    </div>
 
+                    <!-- Message container for form status -->
+                    <div class="nes-msg-form"></div>
                   </form>
-
                 </div>
               </div>
             </div>
