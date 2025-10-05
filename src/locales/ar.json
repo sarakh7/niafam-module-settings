@@ -1,0 +1,58 @@
+{
+  "player": {
+    "play": "تشغيل",
+    "pause": "إيقاف مؤقت",
+    "restart": "إعادة التشغيل",
+    "rewind": "ترجيع",
+    "forward": "تقديم",
+    "seek": "بحث",
+    "seekLabel": "{currentTime} من {duration}",
+    "played": "تم التشغيل",
+    "buffered": "مخزن",
+    "currentTime": "الوقت الحالي",
+    "duration": "المدة",
+    "volume": "الصوت",
+    "mute": "كتم الصوت",
+    "unmute": "إلغاء كتم الصوت",
+    "enableCaptions": "تفعيل الترجمة",
+    "disableCaptions": "تعطيل الترجمة",
+    "download": "تحميل",
+    "enterFullscreen": "ملء الشاشة",
+    "exitFullscreen": "الخروج من ملء الشاشة",
+    "frameTitle": "مشغل لـ {title}",
+    "captions": "الترجمة",
+    "settings": "الإعدادات",
+    "pip": "صورة في صورة",
+    "menuBack": "العودة إلى القائمة السابقة",
+    "speed": "السرعة",
+    "normal": "عادي",
+    "quality": "الجودة",
+    "loop": "تكرار",
+    "start": "البداية",
+    "end": "النهاية",
+    "all": "الكل",
+    "reset": "إعادة تعيين",
+    "disabled": "معطل",
+    "enabled": "مفعل",
+    "advertisement": "إعلان",
+    "qualityBadge": {
+      "2160": "4K",
+      "1440": "HD",
+      "1080": "HD",
+      "720": "HD",
+      "576": "SD",
+      "480": "SD"
+    }
+  },
+  "gallery": {
+    "loading": "جاري تحميل المعرض...",
+    "error": "خطأ في تحميل المعرض",
+    "noImages": "لا توجد صور"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "retry": "إعادة المحاولة",
+    "close": "إغلاق"
+  }
+}

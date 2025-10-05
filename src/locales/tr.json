@@ -1,0 +1,58 @@
+{
+  "player": {
+    "play": "Oynat",
+    "pause": "Duraklat",
+    "restart": "Yeniden Başlat",
+    "rewind": "Geri Sar",
+    "forward": "İleri Sar",
+    "seek": "Ara",
+    "seekLabel": "{duration} içinden {currentTime}",
+    "played": "Oynatıldı",
+    "buffered": "Arabelleğe Alındı",
+    "currentTime": "Geçerli Zaman",
+    "duration": "Süre",
+    "volume": "Ses",
+    "mute": "Sessiz",
+    "unmute": "Sesi Aç",
+    "enableCaptions": "Altyazıları Etkinleştir",
+    "disableCaptions": "Altyazıları Devre Dışı Bırak",
+    "download": "İndir",
+    "enterFullscreen": "Tam Ekran",
+    "exitFullscreen": "Tam Ekrandan Çık",
+    "frameTitle": "{title} için Oynatıcı",
+    "captions": "Altyazılar",
+    "settings": "Ayarlar",
+    "pip": "Resim İçinde Resim",
+    "menuBack": "Önceki Menüye Dön",
+    "speed": "Hız",
+    "normal": "Normal",
+    "quality": "Kalite",
+    "loop": "Döngü",
+    "start": "Başlangıç",
+    "end": "Bitiş",
+    "all": "Tümü",
+    "reset": "Sıfırla",
+    "disabled": "Devre Dışı",
+    "enabled": "Etkin",
+    "advertisement": "Reklam",
+    "qualityBadge": {
+      "2160": "4K",
+      "1440": "HD",
+      "1080": "HD",
+      "720": "HD",
+      "576": "SD",
+      "480": "SD"
+    }
+  },
+  "gallery": {
+    "loading": "Galeri yükleniyor...",
+    "error": "Galeri yüklenirken hata",
+    "noImages": "Resim bulunamadı"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "retry": "Yeniden Dene",
+    "close": "Kapat"
+  }
+}

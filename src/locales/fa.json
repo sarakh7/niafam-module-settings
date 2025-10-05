@@ -1,0 +1,58 @@
+{
+  "player": {
+    "play": "پخش",
+    "pause": "توقف",
+    "restart": "شروع مجدد",
+    "rewind": "عقب",
+    "forward": "جلو",
+    "seek": "جستجو",
+    "seekLabel": "{currentTime} از {duration}",
+    "played": "پخش شده",
+    "buffered": "بافر شده",
+    "currentTime": "زمان فعلی",
+    "duration": "مدت زمان",
+    "volume": "صدا",
+    "mute": "بی‌صدا",
+    "unmute": "صدادار",
+    "enableCaptions": "فعال کردن زیرنویس",
+    "disableCaptions": "غیرفعال کردن زیرنویس",
+    "download": "دانلود",
+    "enterFullscreen": "تمام صفحه",
+    "exitFullscreen": "خروج از تمام صفحه",
+    "frameTitle": "پخش‌کننده برای {title}",
+    "captions": "زیرنویس",
+    "settings": "تنظیمات",
+    "pip": "تصویر در تصویر",
+    "menuBack": "بازگشت به منوی قبلی",
+    "speed": "سرعت",
+    "normal": "عادی",
+    "quality": "کیفیت",
+    "loop": "تکرار",
+    "start": "شروع",
+    "end": "پایان",
+    "all": "همه",
+    "reset": "بازنشانی",
+    "disabled": "غیرفعال",
+    "enabled": "فعال",
+    "advertisement": "تبلیغات",
+    "qualityBadge": {
+      "2160": "4K",
+      "1440": "HD",
+      "1080": "HD",
+      "720": "HD",
+      "576": "SD",
+      "480": "SD"
+    }
+  },
+  "gallery": {
+    "loading": "در حال بارگذاری گالری...",
+    "error": "خطا در بارگذاری گالری",
+    "noImages": "تصویری یافت نشد"
+  },
+  "common": {
+    "loading": "در حال بارگذاری...",
+    "error": "خطا",
+    "retry": "تلاش مجدد",
+    "close": "بستن"
+  }
+}
