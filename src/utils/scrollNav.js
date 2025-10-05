@@ -1,18 +1,30 @@
-export function initScrollNav(navContainer = "") {
-  const container = document.getElementById(navContainer);
-  if (!container) return null;
+/**
+ * Initialize scroll navigation with active state management
+ * @param {string} navContainerId - ID of navigation container
+ * @returns {void}
+ */
+export function initScrollNav(navContainerId = "") {
+  const container = document.getElementById(navContainerId);
+  
+  if (!container) {
+    console.warn(`Scroll nav container not found: #${navContainerId}`);
+    return;
+  }
 
   const navlinks = container.querySelectorAll(".scroll-nav-link");
 
   navlinks.forEach((link) =>
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      let elmentId = event.target
+      
+      const elementId = event.target
         .closest(".scroll-nav-link")
         .getAttribute("href")
         .replace("#", "");
-      let element = document.getElementById(elmentId);
-      let activeSection = document.querySelector(".scroll-content.active");
+      
+      const element = document.getElementById(elementId);
+      const activeSection = document.querySelector(".scroll-content.active");
+      
       activeSection?.classList.remove("active");
       element?.classList.add("active");
       element?.scrollIntoView({ behavior: "smooth" });
@@ -24,24 +36,22 @@ export function initScrollNav(navContainer = "") {
   window.addEventListener("scroll", navHighlighter);
 
   function navHighlighter() {
-    let scrollY = window.pageYOffset;
+    const scrollY = window.pageYOffset;
 
     sections.forEach((current) => {
       const sectionHeight = current.offsetHeight;
-
-      const sectionTop =
-        current.getBoundingClientRect().top + window.pageYOffset - 75;
+      const sectionTop = current.getBoundingClientRect().top + window.pageYOffset - 75;
       const sectionId = current.getAttribute("id");
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
         document
           .querySelector(".scroll-nav-link[href*=" + sectionId + "]")
-          .classList.add("active");
+          ?.classList.add("active");
         current.classList.add("active");
       } else {
         document
           .querySelector(".scroll-nav-link[href*=" + sectionId + "]")
-          .classList.remove("active");
+          ?.classList.remove("active");
         current.classList.remove("active");
       }
     });
