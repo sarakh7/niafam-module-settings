@@ -12,25 +12,41 @@ import { initCopyShortUrl } from "./features/copyShortUrl";
 import { initPdfGenerator } from "./features/pdfGenerator";
 import { initPrintNewsContent } from "./features/printNewsContent";
 import { setShareLinks } from "./features/shareLinks";
-import StickySidebar from "./utils/sticky-sidebar.esm";
 import { initStickySidebar } from "./features/stickySidebar";
 import { initModal } from "./features/modal";
 import { setLayout } from "./features/layout";
-// import { initStickySidebar } from "./features/stickySidebars";
+import { initI18n } from "./config/i18n";
 
-document.addEventListener("DOMContentLoaded", () => {
-  initGallery();
-  initVideoPlayer();
-  initAudioPlayer();
-  initAccessibilityActions();
-  initScrollNav("related-content-list");
-  initCopyShortUrl();
-  initPdfGenerator();
-  initPrintNewsContent();
-  setShareLinks("");
-  initTts();
-  initReadingModeTts();
-  initStickySidebar();
-  initModal();
-  setLayout();
-});
+/**
+ * Initialize all application features
+ */
+async function initializeApp() {
+  try {
+    // CRITICAL: Initialize i18n FIRST
+    await initI18n();
+    console.log("i18n initialized successfully");
+
+    // Then initialize all other features
+    initGallery();
+    initVideoPlayer();
+    initAudioPlayer();
+    initAccessibilityActions();
+    initScrollNav("related-content-list");
+    initCopyShortUrl();
+    initPdfGenerator();
+    initPrintNewsContent();
+    setShareLinks("");
+    initTts();
+    initReadingModeTts();
+    initStickySidebar();
+    initModal();
+    setLayout();
+
+    console.log("Application initialized successfully");
+  } catch (error) {
+    console.error("Failed to initialize application:", error);
+  }
+}
+
+// Start initialization when DOM is ready
+document.addEventListener("DOMContentLoaded", initializeApp);
