@@ -1,5 +1,6 @@
 import { jsPDF } from "jspdf";
 import "../assets/fonts/Vazirmatn-Medium-normal"; // فونت وزیر
+import i18next from "../config/i18n";
 
 export async function generatePDF() {
   const pdf = new jsPDF("p", "mm", "a4");
@@ -214,14 +215,14 @@ export async function generatePDF() {
       // Add placeholder text if image fails to load
       pdf.setFontSize(10);
       pdf.setTextColor(150, 150, 150);
-      pdf.text("[تصویر قابل نمایش نیست]", pageWidth - margin, y, {
+      pdf.text(i18next.t("pdf.imageNotAvailable"), pageWidth - margin, y, {
         align: "right",
       });
       y += 15;
     }
   }
 
-  // ---------- ✅ متن اصلی مقاله ----------
+  // Main article content
   const contentElement = document.querySelector(
     ".esprit-article__main-content, .article-content, .main-content"
   );
@@ -281,37 +282,39 @@ export async function generatePDF() {
     }
   }
 
-  // ---------- ✅ اطلاعات متا در انتها ----------
-  const metaData = {
-    نویسنده:
-      document.getElementById("author")?.innerText ||
-      document.querySelector(".author, .writer")?.innerText ||
-      "",
-    "تاریخ انتشار":
-      document.getElementById("publish-date")?.innerText ||
-      document.querySelector(".date, .publish-date")?.innerText ||
-      "",
-    عکاس:
-      document.getElementById("photographer")?.innerText ||
-      document.querySelector(".photographer")?.innerText ||
-      "",
-    فیلمبردار:
-      document.getElementById("videographer")?.innerText ||
-      document.querySelector(".videographer")?.innerText ||
-      "",
-    تدوینگر:
-      document.getElementById("editor")?.innerText ||
-      document.querySelector(".editor")?.innerText ||
-      "",
-    "کد خبر":
-      document.getElementById("news-code")?.innerText ||
-      document.querySelector(".news-code")?.innerText ||
-      "",
-    "گروه خبری":
-      document.getElementById("news-groups")?.innerText ||
-      document.querySelector(".news-groups")?.innerText ||
-      "",
-  };
+  // Metadata at the end
+  const metaDataFields = [
+    { key: "author", selector: "#author", fallback: ".author, .writer" },
+    {
+      key: "publishDate",
+      selector: "#publish-date",
+      fallback: ".date, .publish-date",
+    },
+    {
+      key: "photographer",
+      selector: "#photographer",
+      fallback: ".photographer",
+    },
+    {
+      key: "videographer",
+      selector: "#videographer",
+      fallback: ".videographer",
+    },
+    { key: "editor", selector: "#editor", fallback: ".editor" },
+    { key: "newsCode", selector: "#news-code", fallback: ".news-code" },
+    { key: "newsGroup", selector: "#news-groups", fallback: ".news-groups" },
+  ];
+
+  const metaData = {};
+  metaDataFields.forEach((field) => {
+    const value =
+      document.getElementById(field.selector.replace("#", ""))?.innerText ||
+      document.querySelector(field.fallback)?.innerText ||
+      "";
+    if (value.trim()) {
+      metaData[i18next.t(`pdf.metadata.${field.key}`)] = value;
+    }
+  });
 
   // Filter out empty values
   const validEntries = Object.entries(metaData).filter(
@@ -351,7 +354,7 @@ export async function generatePDF() {
     pdf.setFontSize(14);
     pdf.setTextColor(0, 0, 0);
     pdf.setFont("Vazirmatn-Medium", "normal"); // Remove bold as it may not be supported
-    pdf.text("اطلاعات تولید محتوا", pageWidth - margin - 5, y + 5, {
+    pdf.text(i18next.t("pdf.contentInfo"), pageWidth - margin - 5, y + 5, {
       align: "right",
     });
     y += headerHeight;
@@ -372,7 +375,7 @@ export async function generatePDF() {
     }
   }
 
-  // ---------- ✅ فوتر صفحه ----------
+  // Page footer
   const totalPages = pdf.internal.getNumberOfPages();
   for (let i = 1; i <= totalPages; i++) {
     pdf.setPage(i);
@@ -380,7 +383,9 @@ export async function generatePDF() {
     pdf.setTextColor(120, 120, 120);
     pdf.setFont("Vazirmatn-Medium", "normal");
 
-    const pageText = `صفحه ${i} از ${totalPages}`;
+    const pageText = `${i18next.t("pdf.page")} ${i} ${i18next.t(
+      "pdf.of"
+    )} ${totalPages}`;
     pdf.text(
       formatPersianTextAdvanced(pageText),
       pageWidth / 2,
@@ -391,12 +396,17 @@ export async function generatePDF() {
     // Add generation date
     const now = new Date();
     const dateStr = now.toLocaleDateString("fa-IR");
-    pdf.text(`تاریخ تولید: ${dateStr}`, margin, pageHeight - 10, {
-      align: "left",
-    });
+    pdf.text(
+      `${i18next.t("pdf.generationDate")}: ${dateStr}`,
+      margin,
+      pageHeight - 10,
+      {
+        align: "left",
+      }
+    );
   }
 
-  // ---------- ✅ ذخیره فایل ----------
+  // Save file  
   let safeTitle = title.replace(/[^آ-ی0-9a-zA-Z\s-]/g, "").trim();
   if (safeTitle.length > 150) {
     safeTitle = safeTitle.substring(0, 150);
@@ -406,7 +416,11 @@ export async function generatePDF() {
   pdf.save(filename);
 }
 
-// 🖼 تبدیل تصویر به base64 با بهبود خطاها
+/**
+ * Convert image to base64 with error handling
+ * @param {string} url - Image URL
+ * @returns {Promise<string>} Base64 data URL
+ */
 async function imageToBase64(url) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -450,27 +464,36 @@ async function imageToBase64(url) {
   });
 }
 
+/**
+ * Initialize PDF generator functionality
+ * @returns {void}
+ */
+/**
+ * Initialize PDF generator functionality
+ * @returns {void}
+ */
 export function initPdfGenerator() {
   const button = document.getElementById("create-pdf");
-  if (button) {
-    button.addEventListener("click", async () => {
-      try {
-        button.disabled = true;
-        button.classList.add("disabled");
-        // button.textContent = "در حال تولید PDF...";
 
-        await generatePDF();
-
-        // button.textContent = "ایجاد PDF";
-        button.disabled = false;
-        button.classList.remove("disabled");
-      } catch (error) {
-        console.error("PDF generation error:", error);
-        alert("خطا در تولید PDF. لطفاً دوباره تلاش کنید.");
-        //button.textContent = "ایجاد PDF";
-        button.disabled = false;
-        button.classList.remove("disabled");
-      }
-    });
+  if (!button) {
+    console.warn("PDF generator button not found: #create-pdf");
+    return;
   }
+
+  button.addEventListener("click", async () => {
+    try {
+      button.disabled = true;
+      button.classList.add("disabled");
+
+      await generatePDF();
+
+      button.disabled = false;
+      button.classList.remove("disabled");
+    } catch (error) {
+      console.error("PDF generation error:", error);
+      alert(i18next.t("pdf.generationError"));
+      button.disabled = false;
+      button.classList.remove("disabled");
+    }
+  });
 }

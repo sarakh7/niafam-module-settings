@@ -54,5 +54,36 @@
     "error": "Error",
     "retry": "Retry",
     "close": "Close"
+  },
+  "pdf": {
+    "generationError": "Error generating PDF. Please try again.",
+    "contentNotFound": "Content element not found!",
+    "imageNotAvailable": "[Image not available]",
+    "contentInfo": "Content Production Information",
+    "page": "Page",
+    "of": "of",
+    "generationDate": "Generation Date",
+    "metadata": {
+      "author": "Author",
+      "publishDate": "Publish Date",
+      "photographer": "Photographer",
+      "videographer": "Videographer",
+      "editor": "Editor",
+      "newsCode": "News Code",
+      "newsGroup": "News Group"
+    }
+  },
+  "print": {
+    "error": "Print error",
+    "contentNotFound": "Content element not found!",
+    "metadata": {
+      "author": "Author",
+      "publishDate": "Publish Date",
+      "views": "Views",
+      "readingTime": "Reading Time",
+      "photographer": "Photographer",
+      "videographer": "Videographer",
+      "editor": "Editor"
+    }
   }
 }

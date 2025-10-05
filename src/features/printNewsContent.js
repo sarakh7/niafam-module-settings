@@ -1,36 +1,47 @@
-// helper: تبدیل Blob به data URL
+import i18next from "../config/i18n";
+
+/**
+ * Convert Blob to data URL
+ * @param {Blob} blob - Blob object
+ * @returns {Promise<string>} Data URL
+ */
 function blobToDataURL(blob) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onerror = () => reject(new Error('Failed to read blob'));
+    reader.onerror = () => reject(new Error("Failed to read blob"));
     reader.onload = () => resolve(reader.result);
     reader.readAsDataURL(blob);
   });
 }
 
-// helper: رسم تصویر روی canvas
+/**
+ * Draw image on canvas and convert to data URL
+ * @param {HTMLImageElement} img - Image element
+ * @returns {Promise<string>} Data URL
+ */
 function imageToDataURL(img) {
   return new Promise((resolve, reject) => {
     try {
-      const canvas = document.createElement('canvas');
+      const canvas = document.createElement("canvas");
       const w = img.naturalWidth || img.width || 1;
       const h = img.naturalHeight || img.height || 1;
-      
-      // محدود کردن اندازه برای جلوگیری از crash
+
+      // Limit size to prevent crash
       const maxSize = 2048;
-      let finalW = w, finalH = h;
-      
+      let finalW = w,
+        finalH = h;
+
       if (w > maxSize || h > maxSize) {
         const scale = Math.min(maxSize / w, maxSize / h);
         finalW = Math.floor(w * scale);
         finalH = Math.floor(h * scale);
       }
-      
+
       canvas.width = finalW;
       canvas.height = finalH;
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext("2d");
       ctx.drawImage(img, 0, 0, finalW, finalH);
-      const dataUrl = canvas.toDataURL('image/png');
+      const dataUrl = canvas.toDataURL("image/png");
       resolve(dataUrl);
     } catch (err) {
       reject(err);
@@ -38,52 +49,63 @@ function imageToDataURL(img) {
   });
 }
 
-// helper: ایجاد المان متادیتا ایمن
+/**
+ * Create safe metadata item element
+ * @param {string} label - Label text
+ * @param {string} value - Value text
+ * @returns {HTMLElement|null} Metadata element or null
+ */
 function createSafeMetaItem(label, value) {
   if (!label || !value) return null;
-  
-  const div = document.createElement('div');
-  div.className = 'meta-item';
-  
-  const labelSpan = document.createElement('span');
-  labelSpan.className = 'meta-label';
-  labelSpan.textContent = label + ':';
-  
-  const valueSpan = document.createElement('span');
-  valueSpan.textContent = ' ' + value;
-  
+
+  const div = document.createElement("div");
+  div.className = "meta-item";
+
+  const labelSpan = document.createElement("span");
+  labelSpan.className = "meta-label";
+  labelSpan.textContent = label + ":";
+
+  const valueSpan = document.createElement("span");
+  valueSpan.textContent = " " + value;
+
   div.appendChild(labelSpan);
   div.appendChild(valueSpan);
-  
+
   return div;
 }
 
-// فانکشن اصلی پرینت - نسخه ساده‌شده
+/**
+ * Main print function - simplified version
+ * @returns {Promise<void>}
+ */
 export async function printPDFContent() {
-  console.log('Starting print process...');
-  
-  const content = document.getElementById('pdf-content');
+  console.log("Starting print process...");
+
+  const content = document.getElementById("pdf-content");
   if (!content) {
-    alert('عنصر مورد نظر پیدا نشد!');
+    alert(i18next.t("print.contentNotFound"));
     return;
   }
 
-  // 1) ساخت iframe
-  const iframe = document.createElement('iframe');
-  iframe.style.cssText = 'position:fixed; right:0; bottom:0; width:0; height:0; border:0; overflow:hidden;';
-  iframe.setAttribute('aria-hidden', 'true');
+  // 1) Create iframe
+  const iframe = document.createElement("iframe");
+  iframe.style.cssText =
+    "position:fixed; right:0; bottom:0; width:0; height:0; border:0; overflow:hidden;";
+  iframe.setAttribute("aria-hidden", "true");
   document.body.appendChild(iframe);
 
   try {
     const idoc = iframe.contentDocument;
-    
-    // 2) نوشتن HTML پایه
+
+    // 2) Write base HTML
     idoc.open();
-    idoc.write('<!doctype html><html><head><meta charset="utf-8"><title>Print</title></head><body></body></html>');
+    idoc.write(
+      '<!doctype html><html><head><meta charset="utf-8"><title>Print</title></head><body></body></html>'
+    );
     idoc.close();
 
-    // 3) اضافه کردن استایل
-    const style = idoc.createElement('style');
+    // 3) Add styles
+    const style = idoc.createElement("style");
     style.textContent = `
       @media print {
         body { 
@@ -153,34 +175,35 @@ export async function printPDFContent() {
     `;
     idoc.head.appendChild(style);
 
-    // 4) کلون محتوا
+    // 4) Clone content
     const clone = content.cloneNode(true);
 
-    // 5) پردازش تصاویر - ساده‌تر
-    const originalImgs = content.querySelectorAll('img');
-    const cloneImgs = clone.querySelectorAll('img');
+    // 5) Process images - simplified
+    const originalImgs = content.querySelectorAll("img");
+    const cloneImgs = clone.querySelectorAll("img");
 
     console.log(`Processing ${cloneImgs.length} images...`);
 
-    // پردازش تصاویر یکی یکی
+    // Process images one by one
     for (let i = 0; i < cloneImgs.length; i++) {
       const clonedImg = cloneImgs[i];
       const originalImg = originalImgs[i];
-      
+
       try {
-        const src = (originalImg && originalImg.src) ? originalImg.src : clonedImg.src;
+        const src =
+          originalImg && originalImg.src ? originalImg.src : clonedImg.src;
         if (!src) continue;
 
-        clonedImg.setAttribute('data-original-src', src);
+        clonedImg.setAttribute("data-original-src", src);
 
-        if (src.startsWith('blob:')) {
+        if (src.startsWith("blob:")) {
           try {
             const resp = await fetch(src);
             const blob = await resp.blob();
             const dataUrl = await blobToDataURL(blob);
             clonedImg.src = dataUrl;
           } catch (e) {
-            console.warn('Blob conversion failed, trying canvas method:', e);
+            console.warn("Blob conversion failed, trying canvas method:", e);
             if (originalImg) {
               const dataUrl = await imageToDataURL(originalImg);
               clonedImg.src = dataUrl;
@@ -190,8 +213,8 @@ export async function printPDFContent() {
           clonedImg.src = src;
         }
 
-        // صبر برای load شدن
-        await new Promise(resolve => {
+        // Wait for load
+        await new Promise((resolve) => {
           if (clonedImg.complete) {
             resolve();
           } else {
@@ -200,65 +223,71 @@ export async function printPDFContent() {
             setTimeout(resolve, 3000); // timeout
           }
         });
-        
       } catch (e) {
         console.warn(`Image ${i} processing failed:`, e);
       }
     }
 
-    // 6) اضافه کردن متادیتا
-    const metaContainer = document.createElement('div');
-    metaContainer.className = 'print-meta';
+    // 6) Add metadata
+    const metaContainer = document.createElement("div");
+    metaContainer.className = "print-meta";
 
-    // متادیتای نویسنده
-    const authorMeta = document.querySelector('.esprit-article-info');
+    // Author metadata
+    const authorMeta = document.querySelector(".esprit-article-info");
     if (authorMeta) {
       const fields = [
-        { label: 'نویسنده', selector: '#author' },
-        { label: 'تاریخ انتشار', selector: '#publish-date' },
-        { label: 'تعداد بازدید', selector: '#views' },
-        { label: 'زمان مطالعه', selector: '#reading-time' },
-        { label: 'عکاس', selector: '#photographer' },
-        { label: 'فیلمبردار', selector: '#videographer' },
-        { label: 'تدوین‌گر', selector: '#editor' },
+        { labelKey: "print.metadata.author", selector: "#author" },
+        { labelKey: "print.metadata.publishDate", selector: "#publish-date" },
+        { labelKey: "print.metadata.views", selector: "#views" },
+        { labelKey: "print.metadata.readingTime", selector: "#reading-time" },
+        { labelKey: "print.metadata.photographer", selector: "#photographer" },
+        { labelKey: "print.metadata.videographer", selector: "#videographer" },
+        { labelKey: "print.metadata.editor", selector: "#editor" },
       ];
-      
-      fields.forEach(field => {
+
+      fields.forEach((field) => {
         const span = authorMeta.querySelector(field.selector);
         if (span && span.textContent && span.textContent.trim()) {
-          const metaItem = createSafeMetaItem(field.label, span.textContent.trim());
+          const label = i18next.t(field.labelKey);
+          const metaItem = createSafeMetaItem(label, span.textContent.trim());
           if (metaItem) metaContainer.appendChild(metaItem);
         }
       });
     }
 
-    // متادیتای اضافی
-    const otherMeta = document.querySelector('.esprit-article__metadata');
+    // Additional metadata
+    const otherMeta = document.querySelector(".esprit-article__metadata");
     if (otherMeta) {
-      otherMeta.querySelectorAll('.esprit-article__metadata-item').forEach(item => {
-        const label = item.querySelector('.esprit-article__metadata-item-label');
-        const value = item.querySelector('.esprit-article__metadata-item-value');
-        
-        if (label && value && label.textContent && value.textContent) {
-          const metaItem = createSafeMetaItem(
-            label.textContent.trim(), 
-            value.textContent.trim()
+      otherMeta
+        .querySelectorAll(".esprit-article__metadata-item")
+        .forEach((item) => {
+          const label = item.querySelector(
+            ".esprit-article__metadata-item-label"
           );
-          if (metaItem) metaContainer.appendChild(metaItem);
-        }
-      });
+          const value = item.querySelector(
+            ".esprit-article__metadata-item-value"
+          );
+
+          if (label && value && label.textContent && value.textContent) {
+            const metaItem = createSafeMetaItem(
+              label.textContent.trim(),
+              value.textContent.trim()
+            );
+            if (metaItem) metaContainer.appendChild(metaItem);
+          }
+        });
     }
 
     clone.appendChild(metaContainer);
 
-    // 7) اضافه کردن به iframe
+    // 7) Add to iframe
     idoc.body.appendChild(clone);
-    
-    console.log('Content added to iframe, preparing to print...');
 
-    // 8) پرینت
+    console.log("Content added to iframe, preparing to print...");
+
+    // 8) Print
     const win = iframe.contentWindow;
-    
+
     // cleanup function
     const cleanup = () => {
       try {
@@ -266,52 +295,59 @@ export async function printPDFContent() {
           iframe.parentNode.removeChild(iframe);
         }
       } catch (e) {
-        console.error('Cleanup failed:', e);
+        console.error("Cleanup failed:", e);
       }
     };
 
-    // تنظیم cleanup
+    // Setup cleanup
     win.onafterprint = cleanup;
     setTimeout(cleanup, 5000);
 
-    // فوکوس و پرینت
+    // Focus and print
     win.focus();
-    
-    // کمی صبر کنیم تا محتوا کامل لود شه
+
+    // Wait for content to fully load
     setTimeout(() => {
-      console.log('Opening print dialog...');
+      console.log("Opening print dialog...");
       win.print();
     }, 500);
-    
   } catch (error) {
-    console.error('Print failed:', error);
-    alert('خطا در پرینت: ' + error.message);
-    
-    // cleanup در صورت خطا
+    console.error("Print failed:", error);
+    alert("خطا در پرینت: " + error.message);
+
+    // Cleanup on error
     try {
       if (iframe && iframe.parentNode) {
         iframe.parentNode.removeChild(iframe);
       }
     } catch (e) {
-      console.error('Error cleanup failed:', e);
+      console.error("Error cleanup failed:", e);
     }
   }
 }
 
-// init function
+/**
+ * Initialize print news content functionality
+ * @returns {void}
+ */
+/**
+ * Initialize print news content functionality
+ * @returns {void}
+ */
 export function initPrintNewsContent() {
-  const button = document.getElementById('print-content');
-  if (button) {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log('Print button clicked');
-      printPDFContent().catch(err => {
-        console.error('Print function error:', err);
-        alert('خطا در پرینت: ' + err.message);
-      });
-    });
-    console.log('Print button initialized');
-  } else {
-    console.warn('Print button not found');
+  const button = document.getElementById("print-content");
+
+  if (!button) {
+    console.warn("Print button not found: #print-content");
+    return;
   }
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    printPDFContent().catch((err) => {
+      console.error("Print function error:", err);
+      alert(i18next.t("print.error") + ": " + err.message);
+    });
+  });
 }

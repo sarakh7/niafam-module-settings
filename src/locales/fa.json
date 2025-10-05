@@ -54,5 +54,36 @@
     "error": "خطا",
     "retry": "تلاش مجدد",
     "close": "بستن"
+  },
+  "pdf": {
+    "generationError": "خطا در تولید PDF. لطفاً دوباره تلاش کنید.",
+    "contentNotFound": "عنصر مورد نظر پیدا نشد!",
+    "imageNotAvailable": "[تصویر قابل نمایش نیست]",
+    "contentInfo": "اطلاعات تولید محتوا",
+    "page": "صفحه",
+    "of": "از",
+    "generationDate": "تاریخ تولید",
+    "metadata": {
+      "author": "نویسنده",
+      "publishDate": "تاریخ انتشار",
+      "photographer": "عکاس",
+      "videographer": "فیلمبردار",
+      "editor": "تدوین‌گر",
+      "newsCode": "کد خبر",
+      "newsGroup": "گروه خبری"
+    }
+  },
+  "print": {
+    "error": "خطا در پرینت",
+    "contentNotFound": "عنصر مورد نظر پیدا نشد!",
+    "metadata": {
+      "author": "نویسنده",
+      "publishDate": "تاریخ انتشار",
+      "views": "تعداد بازدید",
+      "readingTime": "زمان مطالعه",
+      "photographer": "عکاس",
+      "videographer": "فیلمبردار",
+      "editor": "تدوین‌گر"
+    }
   }
 }
