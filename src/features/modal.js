@@ -1,5 +1,9 @@
 import MicroModal from "micromodal";
 
+/**
+ * Initialize MicroModal with custom configuration
+ * @returns {void}
+ */
 export function initModal() {
   MicroModal.init({
     onShow: (modal) => console.info(`${modal.id} is shown`),
@@ -11,9 +15,4 @@ export function initModal() {
     awaitCloseAnimation: false,
     debugMode: true,
   });
-
-  // var button = document.querySelector("#open-modal-send-to-friend");
-  // button.addEventListener("click", function () {
-  //   MicroModal.show("modal-send-to-friend");
-  // });
 }
