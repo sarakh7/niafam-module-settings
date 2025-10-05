@@ -3,9 +3,10 @@ import {
   DEFAULT_THEME,
   GALLERY_DEFAULTS,
   MEDIA_PLAYER_DEFAULTS,
-  LIGHTGALLERY_DEFAULTS
-} from './constants';
-import { languageDirections } from '../utils/languageDirections';
+  LIGHTGALLERY_DEFAULTS,
+} from "./constants";
+import { languageDirections } from "../utils/languageDirections";
+import { SOCIAL_SHARE_DEFAULTS } from "./constants";
 
 /**
  * Get language from HTML tag
@@ -20,10 +21,10 @@ function getLanguageFromHTML() {
 function getDirectionFromHTML() {
   const htmlDir = document.documentElement.dir;
   if (htmlDir) return htmlDir;
-  
+
   // Auto-detect from language
   const lang = getLanguageFromHTML();
-  return languageDirections.rtl.includes(lang) ? 'rtl' : 'ltr';
+  return languageDirections.rtl.includes(lang) ? "rtl" : "ltr";
 }
 
 /**
@@ -38,26 +39,39 @@ export const defaultSettings = {
   get direction() {
     return getDirectionFromHTML();
   },
-  
+
   // Theme (prepared for future use)
   theme: DEFAULT_THEME,
-  
+
   // Gallery settings
   gallery: {
     ...GALLERY_DEFAULTS,
     enableLightbox: true,
-    plugins: ['zoom', 'thumbnail', 'fullscreen', 'autoplay', 'video', 'rotate', 'share']
+    plugins: [
+      "zoom",
+      "thumbnail",
+      "fullscreen",
+      "autoplay",
+      "video",
+      "rotate",
+      "share",
+    ],
   },
-  
+
   // Media player settings
   mediaPlayer: {
-    ...MEDIA_PLAYER_DEFAULTS
+    ...MEDIA_PLAYER_DEFAULTS,
   },
-  
+
   // LightGallery settings
   lightGallery: {
-    ...LIGHTGALLERY_DEFAULTS
-  }
+    ...LIGHTGALLERY_DEFAULTS,
+  },
+
+  // Social share settings
+  socialShare: {
+    ...SOCIAL_SHARE_DEFAULTS,
+  },
 };
 
 /**
@@ -71,7 +85,7 @@ export function getSettings() {
     theme: defaultSettings.theme,
     gallery: { ...defaultSettings.gallery },
     mediaPlayer: { ...defaultSettings.mediaPlayer },
-    lightGallery: { ...defaultSettings.lightGallery }
+    lightGallery: { ...defaultSettings.lightGallery },
   };
 }
 
@@ -83,6 +97,6 @@ export function updateSettings(newSettings) {
   const current = getSettings();
   return {
     ...current,
-    ...newSettings
+    ...newSettings,
   };
 }

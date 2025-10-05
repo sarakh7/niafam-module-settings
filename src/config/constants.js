@@ -45,3 +45,54 @@ export const LIGHTGALLERY_DEFAULTS = {
   enableDrag: false,
   enableSwipe: false
 };
+// Social share configuration
+export const SOCIAL_SHARE_PLATFORMS = {
+  FACEBOOK: 'facebook',
+  TWITTER: 'twitter',
+  TELEGRAM: 'telegram',
+  WHATSAPP: 'whatsapp',
+  LINKEDIN: 'linkedin',
+  EMAIL: 'email'
+};
+
+export const SOCIAL_SHARE_DEFAULTS = {
+  enabled: true, // Enable/disable entire share functionality
+  platforms: {
+    [SOCIAL_SHARE_PLATFORMS.FACEBOOK]: {
+      enabled: true,
+      id: 'shareto-facebook',
+      url: 'https://www.facebook.com/sharer/sharer.php?u={url}',
+      icon: 'esprit-fi-brands-facebook' // Icon class for future use
+    },
+    [SOCIAL_SHARE_PLATFORMS.TWITTER]: {
+      enabled: true,
+      id: 'shareto-twitter',
+      url: 'https://twitter.com/intent/tweet?url={url}&text={text}',
+      icon: 'esprit-fi-brands-twitter'
+    },
+    [SOCIAL_SHARE_PLATFORMS.TELEGRAM]: {
+      enabled: true,
+      id: 'shareto-telegram',
+      url: 'https://t.me/share/url?url={url}&text={text}',
+      icon: 'esprit-fi-brands-telegram'
+    },
+    [SOCIAL_SHARE_PLATFORMS.WHATSAPP]: {
+      enabled: true,
+      id: 'shareto-whatsapp',
+      url: 'https://api.whatsapp.com/send?text={text}%20{url}',
+      icon: 'esprit-fi-brands-whatsapp'
+    },
+    [SOCIAL_SHARE_PLATFORMS.LINKEDIN]: {
+      enabled: false, // Disabled by default
+      id: 'shareto-linkedin',
+      url: 'https://www.linkedin.com/sharing/share-offsite/?url={url}',
+      icon: 'esprit-fi-brands-linkedin'
+    },
+    [SOCIAL_SHARE_PLATFORMS.EMAIL]: {
+      enabled: false, // Disabled by default
+      id: 'shareto-email',
+      url: 'mailto:?subject={text}&body={url}',
+      icon: 'esprit-fi-rr-envelope'
+    }
+  }
+};
