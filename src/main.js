@@ -16,6 +16,7 @@ import { initStickySidebar } from "./features/stickySidebar";
 import { initModal } from "./features/modal";
 import { setLayout } from "./features/layout";
 import { initI18n } from "./config/i18n";
+import { initLocalization } from "./utils/i18n-localizer";
 
 /**
  * Initialize all application features
@@ -25,6 +26,7 @@ async function initializeApp() {
     // CRITICAL: Initialize i18n FIRST
     await initI18n();
     console.log("i18n initialized successfully");
+    initLocalization();
 
     // Then initialize all other features
     initGallery();

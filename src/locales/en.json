@@ -85,5 +85,91 @@
       "videographer": "Videographer",
       "editor": "Editor"
     }
+  },
+  "nav": {
+    "contactUs": "Contact Us",
+    "organizationalPortal": "Portal",
+    "aboutUs": "About Us",
+    "login": "Login"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "content": "Content",
+    "news": "News"
+  },
+  "tools": {
+    "toolbox": "Toolbox",
+    "shortlink": {
+      "title": "Short Link"
+    },
+    "print": "Print",
+    "pdf": "PDF",
+    "sendToFriend": "Send to Friend"
+  },
+  "accessibility": {
+    "fontSize": "Font Size",
+    "wordSpacing": "Word Spacing",
+    "lineHeight": "Line Height",
+    "reset": "Reset",
+    "textOnly": "Text Only"
+  },
+  "tts": {
+    "title": "Text to Speech",
+    "play": "Play",
+    "pause": "Pause",
+    "stop": "Stop",
+    "speed": "Speed",
+    "voice": "Voice"
+  },
+  "share": {
+    "title": "Share",
+    "telegram": "Share on Telegram",
+    "whatsapp": "Share on WhatsApp",
+    "eitaa": "Share on Eitaa",
+    "bale": "Share on Bale",
+    "twitter": "Share on X (Twitter)",
+    "linkedin": "Share on LinkedIn"
+  },
+  "relatedContent": {
+    "attachments": "Attachments",
+    "images": "Images",
+    "videos": "Videos",
+    "audios": "Audios",
+    "relatedNews": "Related News"
+  },
+  "article": {
+    "attachments": "Downloadable Files",
+    "pictures": "Pictures",
+    "videos": "Videos",
+    "audios": "Audios",
+    "relatedNews": "Related News",
+    "tags": "Tags"
+  },
+  "metadata": {
+    "author": "Author",
+    "publishDate": "Publish Date",
+    "views": "Views",
+    "newsCode": "News Code",
+    "newsGroup": "News Group",
+    "photographer": "Photographer",
+    "videographer": "Videographer",
+    "editor": "Editor"
+  },
+  "modal": {
+    "sendToFriend": {
+      "title": "Send to Friend",
+      "yourEmail": "Your Email",
+      "recipientEmail": "Recipient Email",
+      "captchaLabel": "Enter the text",
+      "submit": "Send"
+    },
+    "readingMode": {
+      "title": "Reading Mode"
+    }
+  },
+  "vote": {
+    "question": "Was this news helpful?",
+    "yes": "Yes",
+    "no": "No"
   }
 }

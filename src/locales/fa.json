@@ -62,28 +62,96 @@
     "contentInfo": "اطلاعات تولید محتوا",
     "page": "صفحه",
     "of": "از",
-    "generationDate": "تاریخ تولید",
-    "metadata": {
-      "author": "نویسنده",
-      "publishDate": "تاریخ انتشار",
-      "photographer": "عکاس",
-      "videographer": "فیلمبردار",
-      "editor": "تدوین‌گر",
-      "newsCode": "کد خبر",
-      "newsGroup": "گروه خبری"
-    }
+    "generationDate": "تاریخ تولید"
   },
   "print": {
     "error": "خطا در پرینت",
-    "contentNotFound": "عنصر مورد نظر پیدا نشد!",
-    "metadata": {
-      "author": "نویسنده",
-      "publishDate": "تاریخ انتشار",
-      "views": "تعداد بازدید",
-      "readingTime": "زمان مطالعه",
-      "photographer": "عکاس",
-      "videographer": "فیلمبردار",
-      "editor": "تدوین‌گر"
+    "contentNotFound": "عنصر مورد نظر پیدا نشد!"
+  },
+  "nav": {
+    "contactUs": "تماس با ما",
+    "organizationalPortal": "پورتال سازمانی",
+    "aboutUs": "درباره نیافام",
+    "login": "ورود کاربران"
+  },
+  "breadcrumb": {
+    "home": "صفحه اصلی",
+    "content": "محتوا",
+    "news": "اخبار"
+  },
+  "tools": {
+    "toolbox": "جعبه ابزار",
+    "shortlink": {
+      "title": "لینک کوتاه"
+    },
+    "print": "چاپ",
+    "pdf": "PDF",
+    "sendToFriend": "ارسال به دوستان"
+  },
+  "accessibility": {
+    "fontSize": "اندازه فونت",
+    "wordSpacing": "فاصله کلمات",
+    "lineHeight": "فاصله خطوط",
+    "reset": "بازنشانی",
+    "textOnly": "فقط متن"
+  },
+  "tts": {
+    "title": "پخش صوتی متن",
+    "play": "پخش",
+    "pause": "توقف",
+    "stop": "پایان",
+    "speed": "سرعت",
+    "voice": "صدا"
+  },
+  "share": {
+    "title": "اشتراک‌گذاری",
+    "telegram": "اشتراک‌گذاری در تلگرام",
+    "whatsapp": "اشتراک‌گذاری در واتساپ",
+    "eitaa": "اشتراک‌گذاری در ایتا",
+    "bale": "اشتراک‌گذاری در بله",
+    "twitter": "اشتراک‌گذاری در ایکس (توییتر)",
+    "linkedin": "اشتراک‌گذاری در لینکدین"
+  },
+  "relatedContent": {
+    "attachments": "فایل های پیوست",
+    "images": "تصاویر خبر",
+    "videos": "ویدئوهای خبر",
+    "audios": "صوت‌های خبر",
+    "relatedNews": "خبرهای مرتبط"
+  },
+  "article": {
+    "attachments": "فایل‌های قابل دانلود",
+    "pictures": "تصاویر خبر",
+    "videos": "ویدئوهای خبر",
+    "audios": "صوت‌های خبر",
+    "relatedNews": "خبرهای مرتبط",
+    "tags": "برچسب‌ها"
+  },
+  "metadata": {
+    "author": "نویسنده",
+    "publishDate": "تاریخ انتشار",
+    "views": "بازدید",
+    "newsCode": "کد خبر",
+    "newsGroup": "گروه خبری",
+    "photographer": "عکاس",
+    "videographer": "فیلمبردار",
+    "editor": "ویراستار"
+  },
+  "modal": {
+    "sendToFriend": {
+      "title": "ارسال به دوستان",
+      "yourEmail": "ایمیل شما",
+      "recipientEmail": "ایمیل مقصد",
+      "captchaLabel": "متن را وارد کنید",
+      "submit": "ارسال"
+    },
+    "readingMode": {
+      "title": "حالت خواندن"
     }
+  },
+  "vote": {
+    "question": "آیا این خبر برای شما مفید بود؟",
+    "yes": "بله",
+    "no": "خیر"
   }
 }
