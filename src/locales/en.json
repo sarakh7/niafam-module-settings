@@ -70,21 +70,13 @@
       "videographer": "Videographer",
       "editor": "Editor",
       "newsCode": "News Code",
-      "newsGroup": "News Group"
+      "newsGroup": "News Group",
+      "readingTime": "Reading time"
     }
   },
   "print": {
     "error": "Print error",
-    "contentNotFound": "Content element not found!",
-    "metadata": {
-      "author": "Author",
-      "publishDate": "Publish Date",
-      "views": "Views",
-      "readingTime": "Reading Time",
-      "photographer": "Photographer",
-      "videographer": "Videographer",
-      "editor": "Editor"
-    }
+    "contentNotFound": "Content element not found!"
   },
   "nav": {
     "contactUs": "Contact Us",

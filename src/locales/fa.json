@@ -135,7 +135,8 @@
     "newsGroup": "گروه خبری",
     "photographer": "عکاس",
     "videographer": "فیلمبردار",
-    "editor": "ویراستار"
+    "editor": "ویراستار",
+    "readingTime": "زمان مطالعه"
   },
   "modal": {
     "sendToFriend": {

@@ -18,7 +18,7 @@ function getLanguageFromHTML() {
 /**
  * Get direction from HTML tag or detect from language
  */
-function getDirectionFromHTML() {
+export function getDirectionFromHTML() {
   const htmlDir = document.documentElement.dir;
   if (htmlDir) return htmlDir;
 
