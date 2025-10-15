@@ -1,7 +1,12 @@
 import { jsPDF } from "jspdf";
-import "../assets/fonts/Vazirmatn-Medium-normal"; // فونت وزیر
+import "../assets/fonts/Vazirmatn-Medium-normal"; // Vazir font
 import i18next from "../config/i18n";
+import { getDirectionFromHTML, defaultSettings } from "../config/settings";
 
+/**
+ * Generate PDF from article content
+ * @returns {Promise<void>}
+ */
 export async function generatePDF() {
   const pdf = new jsPDF("p", "mm", "a4");
   const pageWidth = pdf.internal.pageSize.getWidth();
@@ -9,22 +14,40 @@ export async function generatePDF() {
   const margin = 20;
   let y = margin;
 
-  pdf.setFont("Vazirmatn-Medium");
+  // Detect current language and direction
+  const currentLanguage = defaultSettings.language;
+  const currentDirection = getDirectionFromHTML();
+  const isRTL = currentDirection === 'rtl';
 
+  // Set font based on language (Persian/Arabic use Vazir, others use default)
+  const isPersianArabic = ['fa', 'ar'].includes(currentLanguage);
+  if (isPersianArabic) {
+    pdf.setFont("Vazirmatn-Medium");
+  } else {
+    pdf.setFont("helvetica"); // Default font for other languages
+  }
+
+  /**
+   * Format Persian text for PDF generation
+   * Converts half-spaces to regular spaces, adds spaces before punctuation,
+   * converts English numbers to Persian, and reverses bracket direction
+   * @param {string} text - Text to format
+   * @returns {string} Formatted text
+   */
   function formatPersianText(text) {
     return (
       text
-        // تبدیل نیم‌فاصله به فاصله معمولی
-        .replace(/\u200C/g, " ") // نیم‌فاصله (ZWNJ)
-        .replace(/\u00A0/g, " ") // نان‌بریکینگ اسپیس
+        // Convert half-space to regular space
+        .replace(/\u200C/g, " ") // ZWNJ (Zero Width Non-Joiner)
+        .replace(/\u00A0/g, " ") // Non-breaking space
 
-        // اضافه کردن فاصله قبل از کاما (اگر قبلش فاصله نباشد)
+        // Add space before comma (if there isn't one)
         .replace(/(\S)،/g, "$1 ،")
 
-        // اضافه کردن فاصله قبل از نقطه (اگر قبلش فاصله نباشد)
+        // Add space before period (if there isn't one)
         .replace(/(\S)\./g, "$1 .")
 
-        // تبدیل اعداد انگلیسی به فارسی
+        // Convert English numbers to Persian
         .replace(/0/g, "۰")
         .replace(/1/g, "۱")
         .replace(/2/g, "۲")
@@ -36,7 +59,7 @@ export async function generatePDF() {
         .replace(/8/g, "۸")
         .replace(/9/g, "۹")
 
-        // تبدیل جهت پرانتز، براکت و آکولاد برای فارسی (روش صحیح)
+        // Reverse direction of parentheses, brackets, and braces for Persian (correct method)
         .replace(/\(/g, "TEMP_OPEN_PAREN")
         .replace(/\)/g, "TEMP_CLOSE_PAREN")
         .replace(/TEMP_OPEN_PAREN/g, ")")
@@ -52,26 +75,31 @@ export async function generatePDF() {
         .replace(/TEMP_OPEN_BRACE/g, "}")
         .replace(/TEMP_CLOSE_BRACE/g, "{")
 
-        // حذف فاصله‌های اضافی
+        // Remove extra spaces
         .replace(/\s+/g, " ")
 
-        // تمیز کردن فاصله‌های ابتدا و انتهای رشته
+        // Trim leading and trailing spaces
         .trim()
     );
   }
 
-  // تابع بهبود یافته برای حل مشکل نقطه در ابتدای خط
+  /**
+   * Advanced Persian text formatting to fix punctuation position issues
+   * Uses ZWNJ before punctuation marks to prevent displacement
+   * @param {string} text - Text to format
+   * @returns {string} Formatted text
+   */
   function formatPersianTextAdvanced(text) {
     return (
       text
-        // تبدیل نیم‌فاصله به فاصله معمولی
+        // Convert half-space to regular space
         .replace(/\u200C/g, " ")
         .replace(/\u00A0/g, " ")
 
-        // استفاده از ZWNJ قبل از علائم نگارشی برای جلوگیری از جابجایی
+        // Use ZWNJ before punctuation marks to prevent displacement
         .replace(/(\S)\s*([،.])/g, "$1\u200C$2")
 
-        // تبدیل اعداد
+        // Convert numbers
         .replace(/[0-9]/g, function (match) {
           const persianNumbers = {
             0: "۰",
@@ -88,7 +116,7 @@ export async function generatePDF() {
           return persianNumbers[match];
         })
 
-        // تبدیل پرانتز، براکت و آکولاد
+        // Reverse parentheses, brackets, and braces
         .replace(/\(/g, "TEMP_OPEN_PAREN")
         .replace(/\)/g, "TEMP_CLOSE_PAREN")
         .replace(/TEMP_OPEN_PAREN/g, ")")
@@ -104,26 +132,32 @@ export async function generatePDF() {
         .replace(/TEMP_OPEN_BRACE/g, "}")
         .replace(/TEMP_CLOSE_BRACE/g, "{")
 
-        // حذف فاصله‌های اضافی
+        // Remove extra spaces
         .replace(/[ ]+/g, " ")
         .trim()
     );
   }
 
-  // ---------- ✅ عنوان مقاله (Title) ----------
+  // ---------- Article Title ----------
   const title =
     document.querySelector(".esprit-article__title")?.innerText.trim() || "";
   if (title) {
     // Style for title: larger font, bold, dark color
     pdf.setFontSize(18);
     pdf.setTextColor(0, 0, 0); // Black
-    pdf.setFont("Vazirmatn-Medium", "normal"); // Remove bold as it may not be supported
+    if (isPersianArabic) {
+      pdf.setFont("Vazirmatn-Medium", "normal");
+    } else {
+      pdf.setFont("helvetica", "bold");
+    }
 
-    const titleLines = pdf.splitTextToSize(
-      formatPersianTextAdvanced(title),
-      pageWidth
-    );
-    pdf.text(titleLines, pageWidth - margin, y, { align: "right" });
+    const titleText = isPersianArabic ? formatPersianTextAdvanced(title) : title;
+    const calculatedpageWidth = isRTL ? pageWidth : pageWidth - 2 * margin;
+    const titleLines = pdf.splitTextToSize(titleText, calculatedpageWidth);
+
+    const titleX = isRTL ? pageWidth - margin : margin;
+    const titleAlign = isRTL ? "right" : "left";
+    pdf.text(titleLines, titleX, y, { align: titleAlign });
     y += titleLines.length * 10 + 8;
 
     // Add separator line under title
@@ -133,7 +167,7 @@ export async function generatePDF() {
     y += 8;
   }
 
-  // ---------- ✅ لید مقاله (Lead/Subtitle) ----------
+  // ---------- Article Lead/Subtitle ----------
   const lead =
     document
       .querySelector(".esprit-article__lead, .lead, .subtitle, .article-lead")
@@ -141,27 +175,35 @@ export async function generatePDF() {
   if (lead) {
     pdf.setFontSize(13);
     pdf.setTextColor(80, 80, 80); // Medium gray
-    pdf.setFont("Vazirmatn-Medium", "normal");
+    if (isPersianArabic) {
+      pdf.setFont("Vazirmatn-Medium", "normal");
+    } else {
+      pdf.setFont("helvetica", "normal");
+    }
 
     // Add background for lead
-    const leadLines = pdf.splitTextToSize(lead, pageWidth);
+    const leadText = isPersianArabic ? formatPersianTextAdvanced(lead) : lead;
+    const leadLines = pdf.splitTextToSize(leadText, pageWidth - 2 * margin);
     const leadHeight = leadLines.length * 7 + 8;
 
     // Light background for lead
     pdf.setFillColor(250, 250, 250);
-    pdf.rect(margin, y - 4, pageWidth, leadHeight, "F");
+    pdf.rect(margin, y - 4, pageWidth - 2 * margin, leadHeight, "F");
 
-    pdf.text(leadLines, pageWidth - margin, y, { align: "right" });
+    const leadX = isRTL ? pageWidth - margin : margin;
+    const leadAlign = isRTL ? "right" : "left";
+    pdf.text(leadLines, leadX, y, { align: leadAlign });
     y += leadLines.length * 7 + 12;
   }
 
-  // ---------- ✅ عکس اصلی مقاله ----------
+  // ---------- Main Article Image ----------
   const imgEl = document.querySelector(
     ".esprit-article__image-wrapper > img, .esprit-article__image-wrapper img"
   );
   if (imgEl && imgEl.src) {
     try {
       const imgData = await imageToBase64(imgEl.src);
+      // const maxImgWidth = pageWidth - 2 * margin;
       const maxImgWidth = pageWidth - 2 * margin;
       const maxImgHeight = 80; // Maximum height in mm
 
@@ -202,12 +244,19 @@ export async function generatePDF() {
       if (caption) {
         pdf.setFontSize(10);
         pdf.setTextColor(100, 100, 100);
-        pdf.setFont("Vazirmatn-Medium", "italic");
+        if (isPersianArabic) {
+          pdf.setFont("Vazirmatn-Medium", "normal");
+        } else {
+          pdf.setFont("helvetica", "italic");
+        }
+        const captionText = isPersianArabic ? formatPersianTextAdvanced(caption) : caption;
         const captionLines = pdf.splitTextToSize(
-          caption,
+          captionText,
           pageWidth - 2 * margin
         );
-        pdf.text(captionLines, pageWidth - margin, y, { align: "right" });
+        const captionX = isRTL ? pageWidth - margin : margin;
+        const captionAlign = isRTL ? "right" : "left";
+        pdf.text(captionLines, captionX, y, { align: captionAlign });
         y += captionLines.length * 6 + 10;
       }
     } catch (error) {
@@ -215,8 +264,10 @@ export async function generatePDF() {
       // Add placeholder text if image fails to load
       pdf.setFontSize(10);
       pdf.setTextColor(150, 150, 150);
-      pdf.text(i18next.t("pdf.imageNotAvailable"), pageWidth - margin, y, {
-        align: "right",
+      const errorX = isRTL ? pageWidth - margin : margin;
+      const errorAlign = isRTL ? "right" : "left";
+      pdf.text(i18next.t("pdf.imageNotAvailable"), errorX, y, {
+        align: errorAlign,
       });
       y += 15;
     }
@@ -232,30 +283,32 @@ export async function generatePDF() {
 
     pdf.setFontSize(12);
     pdf.setTextColor(40, 40, 40);
-    pdf.setFont("Vazirmatn-Medium", "normal");
+    if (isPersianArabic) {
+      pdf.setFont("Vazirmatn-Medium", "normal");
+    } else {
+      pdf.setFont("helvetica", "normal");
+    }
 
     // Use full width minus smaller margins for content
     const contentMargin = 15; // Smaller margin for content
-    const contentWidth = pageWidth;
+    const contentWidth = isRTL ? pageWidth : pageWidth - 2 * contentMargin;
+
+    const contentX = isRTL ? pageWidth - contentMargin : contentMargin;
+    const contentAlign = isRTL ? "right" : "left";
 
     if (paragraphs.length > 0) {
       paragraphs.forEach((paragraph) => {
         const paragraphText = paragraph.innerText.trim();
         if (paragraphText) {
-          const textLines = pdf.splitTextToSize(paragraphText, contentWidth);
+          const formattedText = isPersianArabic ? formatPersianTextAdvanced(paragraphText) : paragraphText;
+          const textLines = pdf.splitTextToSize(formattedText, contentWidth);
 
           for (const line of textLines) {
             if (y + 10 > pageHeight - margin) {
               pdf.addPage();
               y = margin;
             }
-            pdf.text(
-              formatPersianTextAdvanced(line),
-              pageWidth - contentMargin,
-              y,
-              { align: "right", direction: "rtl" }
-            );
-            // pdf.text(line, pageWidth - contentMargin, y, { align: "right" });
+            pdf.text(line, contentX, y, { align: contentAlign });
             y += 7;
           }
           y += 5; // Extra space between paragraphs
@@ -264,19 +317,15 @@ export async function generatePDF() {
     } else {
       // Fallback to full content text
       const content = contentElement.innerText.trim();
-      const textLines = pdf.splitTextToSize(content, contentWidth);
+      const formattedContent = isPersianArabic ? formatPersianTextAdvanced(content) : content;
+      const textLines = pdf.splitTextToSize(formattedContent, contentWidth);
 
       for (const line of textLines) {
         if (y + 10 > pageHeight - margin) {
           pdf.addPage();
           y = margin;
         }
-        pdf.text(
-          formatPersianTextAdvanced(line),
-          pageWidth - contentMargin,
-          y,
-          { align: "right" }
-        );
+        pdf.text(line, contentX, y, { align: contentAlign });
         y += 7;
       }
     }
@@ -312,7 +361,7 @@ export async function generatePDF() {
       document.querySelector(field.fallback)?.innerText ||
       "";
     if (value.trim()) {
-      metaData[i18next.t(`pdf.metadata.${field.key}`)] = value;
+      metaData[i18next.t(`metadata.${field.key}`)] = value;
     }
   });
 
@@ -353,22 +402,36 @@ export async function generatePDF() {
     // Header for metadata
     pdf.setFontSize(14);
     pdf.setTextColor(0, 0, 0);
-    pdf.setFont("Vazirmatn-Medium", "normal"); // Remove bold as it may not be supported
-    pdf.text(i18next.t("pdf.contentInfo"), pageWidth - margin - 5, y + 5, {
-      align: "right",
+    if (isPersianArabic) {
+      pdf.setFont("Vazirmatn-Medium", "normal");
+    } else {
+      pdf.setFont("helvetica", "bold");
+    }
+    const metaHeaderX = isRTL ? pageWidth - margin - 5 : margin + 5;
+    const metaHeaderAlign = isRTL ? "right" : "left";
+    pdf.text(i18next.t("pdf.contentInfo"), metaHeaderX, y + 5, {
+      align: metaHeaderAlign,
     });
     y += headerHeight;
 
     // Metadata entries
     pdf.setFontSize(11);
     pdf.setTextColor(60, 60, 60);
-    pdf.setFont("Vazirmatn-Medium", "normal");
+    if (isPersianArabic) {
+      pdf.setFont("Vazirmatn-Medium", "normal");
+    } else {
+      pdf.setFont("helvetica", "normal");
+    }
+
+    const metaX = isRTL ? pageWidth - margin - 5 : margin + 5;
+    const metaAlign = isRTL ? "right" : "left";
 
     for (const [label, value] of validEntries) {
       if (value.trim()) {
         const line = `${label}: ${value}`;
-        pdf.text(formatPersianTextAdvanced(line), pageWidth - margin - 5, y, {
-          align: "right",
+        const formattedLine = isPersianArabic ? formatPersianTextAdvanced(line) : line;
+        pdf.text(formattedLine, metaX, y, {
+          align: metaAlign,
         });
         y += lineHeight;
       }
@@ -381,13 +444,18 @@ export async function generatePDF() {
     pdf.setPage(i);
     pdf.setFontSize(9);
     pdf.setTextColor(120, 120, 120);
-    pdf.setFont("Vazirmatn-Medium", "normal");
+    if (isPersianArabic) {
+      pdf.setFont("Vazirmatn-Medium", "normal");
+    } else {
+      pdf.setFont("helvetica", "normal");
+    }
 
     const pageText = `${i18next.t("pdf.page")} ${i} ${i18next.t(
       "pdf.of"
     )} ${totalPages}`;
+    const formattedPageText = isPersianArabic ? formatPersianTextAdvanced(pageText) : pageText;
     pdf.text(
-      formatPersianTextAdvanced(pageText),
+      formattedPageText,
       pageWidth / 2,
       pageHeight - 10,
       { align: "center" }
@@ -395,13 +463,17 @@ export async function generatePDF() {
 
     // Add generation date
     const now = new Date();
-    const dateStr = now.toLocaleDateString("fa-IR");
+    const dateStr = isPersianArabic ? now.toLocaleDateString("fa-IR") : now.toLocaleDateString("en-US");
+    const dateText = `${i18next.t("pdf.generationDate")}: ${dateStr}`;
+    const formattedDateText = isPersianArabic ? formatPersianTextAdvanced(dateText) : dateText;
+    const dateX = isRTL ? pageWidth - margin : margin;
+    const dateAlign = isRTL ? "right" : "left";
     pdf.text(
-      `${i18next.t("pdf.generationDate")}: ${dateStr}`,
-      margin,
+      formattedDateText,
+      dateX,
       pageHeight - 10,
       {
-        align: "left",
+        align: dateAlign,
       }
     );
   }
@@ -464,10 +536,6 @@ async function imageToBase64(url) {
   });
 }
 
-/**
- * Initialize PDF generator functionality
- * @returns {void}
- */
 /**
  * Initialize PDF generator functionality
  * @returns {void}
