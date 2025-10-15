@@ -24,6 +24,11 @@ export const THEMES = {
 
 export const DEFAULT_THEME = THEMES.LIGHT;
 
+export const LAYOUT_BREAKPOINTS = {
+  MOBILE_CONTENT_MAX: 955,  // Maximum content width before switching to mobile layout
+  DESKTOP_VIEWPORT_MIN: 992, // Minimum viewport width for desktop features
+};
+
 export const GALLERY_DEFAULTS = {
   targetRowHeight: 200,
   boxSpacing: 5,

@@ -4,17 +4,12 @@
  * @module features/layout
  */
 
-import { LAYOUT_BREAKPOINTS } from '../config/constants.js';
-
 // ============================================================================
 // CONSTANTS & SELECTORS
 // ============================================================================
 
-/**
- * Responsive breakpoints imported from config
- */
-const MIN_WIDTH = LAYOUT_BREAKPOINTS.MOBILE_CONTENT_MAX;
-const MIN_DESKTOP_WIDTH = LAYOUT_BREAKPOINTS.DESKTOP_VIEWPORT_MIN;
+const MIN_WIDTH = 959;
+const MIN_DESKTOP_WIDTH = 992;
 
 /**
  * DOM Selectors Configuration
@@ -85,7 +80,7 @@ const createdContainers = new Set();
  * @returns {void}
  */
 function rememberOriginal(node) {
-  if (!node || originalPlace.has(node) || !node.parentNode) return;
+  if (!node || originalPlace.has(node)) return;
   originalPlace.set(node, { parent: node.parentNode, next: node.nextSibling });
 }
 
@@ -114,13 +109,12 @@ function moveNodes(nodes, target) {
  */
 function resetMovedNodes() {
   let resetCount = 0;
-
+  
   Array.from(movedNodes).forEach((node) => {
     const orig = originalPlace.get(node);
-    if (orig?.parent) {
+    if (orig && orig.parent) {
       try {
-        // Check if the next sibling still exists in the original parent
-        if (orig.next?.parentNode === orig.parent) {
+        if (orig.next && orig.next.parentNode === orig.parent) {
           orig.parent.insertBefore(node, orig.next);
         } else {
           orig.parent.appendChild(node);
@@ -129,8 +123,7 @@ function resetMovedNodes() {
         movedNodes.delete(node);
         resetCount++;
       } catch (e) {
-        console.warn("resetMovedNodes: Could not reset node", e);
-        movedNodes.delete(node); // Clean up even if reset failed
+        console.warn("Could not reset node:", e);
       }
     } else {
       movedNodes.delete(node);
@@ -140,149 +133,20 @@ function resetMovedNodes() {
   // Remove empty created containers
   createdContainers.forEach((container) => {
     try {
-      if (container?.parentNode && container.childNodes.length === 0) {
+      if (
+        container &&
+        container.parentNode &&
+        container.childNodes.length === 0
+      ) {
         container.parentNode.removeChild(container);
       }
     } catch (e) {
-      console.warn("resetMovedNodes: Could not remove empty container", e);
+      /* Ignore removal errors */
     }
   });
   createdContainers.clear();
 
   return resetCount;
-}
-
-// ============================================================================
-// MAIN FUNCTIONS - HELPER FUNCTIONS
-// ============================================================================
-
-/**
- * Get or create a container element
- * @param {HTMLElement} root - Root element to search in
- * @param {string} selector - Selector for existing container
- * @param {string} id - ID for new container
- * @param {string} className - Class name for new container
- * @returns {HTMLElement|null} The container element or null
- */
-function getOrCreateContainer(root, selector, id, className) {
-  let container = root?.querySelector(selector);
-  if (!container) {
-    container = document.createElement("div");
-    container.id = id;
-    container.className = className;
-    container.dataset.createdBy = "moveArticleTools";
-    root?.appendChild(container);
-    createdContainers.add(container);
-  }
-  return container;
-}
-
-/**
- * Move accessibility controls to tools container
- * @param {HTMLElement} root - Root element
- * @param {HTMLElement} targetTools - Target tools container
- * @returns {number} Count of moved elements
- */
-function moveAccessibilityControls(root, targetTools) {
-  const nodes = Array.from(
-    root.querySelectorAll(SELECTORS.ESPRIT_ARTICLE_ACCESSIBILITY_CONTROLS)
-  );
-  return nodes.length > 0 ? moveNodes(nodes, targetTools) : 0;
-}
-
-/**
- * Move shortlink actions to tools buttons container
- * @param {HTMLElement} root - Root element
- * @param {HTMLElement} targetTools - Target tools container
- * @returns {number} Count of moved elements
- */
-function moveShortlinkActions(root, targetTools) {
-  const shortlinkActions = Array.from(
-    root.querySelectorAll(SELECTORS.ESPRIT_ARTICLE_SHORTLINK_ACTIONS)
-  );
-
-  if (shortlinkActions.length === 0) return 0;
-
-  // Find or create toolsBtns container in root (not targetTools!)
-  let toolsBtns = root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS_BTNS);
-  if (!toolsBtns && shortlinkActions.length > 0) {
-    toolsBtns = document.createElement("div");
-    toolsBtns.id = "esprit-article-tools-btns";
-    toolsBtns.className = CSS_CLASSES.ES_ARTICLE_TOOLS_BTNS;
-    toolsBtns.dataset.createdBy = "moveArticleTools";
-    targetTools.appendChild(toolsBtns);
-    createdContainers.add(toolsBtns);
-  }
-
-  return toolsBtns ? moveNodes(shortlinkActions, toolsBtns) : 0;
-}
-
-/**
- * Move copy shorturl button to shortlink container
- * @param {HTMLElement} root - Root element
- * @param {HTMLElement} targetTools - Target tools container
- * @returns {number} Count of moved elements
- */
-function moveCopyShortUrlButton(root, targetTools) {
-  const copyBtn = root.querySelector(SELECTORS.COPY_SHORTURL_BTN);
-  if (!copyBtn) return 0;
-
-  // Find or create shortlinkBox container in root (not targetTools!)
-  let shortlinkBox = root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS_SHORTLINK);
-  if (!shortlinkBox) {
-    shortlinkBox = document.createElement("div");
-    shortlinkBox.id = "esprit-article-tools-shortlink";
-    shortlinkBox.className = CSS_CLASSES.ES_ARTICLE_TOOLS_SHORTLINK;
-    shortlinkBox.dataset.createdBy = "moveArticleTools";
-    targetTools.appendChild(shortlinkBox);
-    createdContainers.add(shortlinkBox);
-  }
-
-  return moveNodes([copyBtn], shortlinkBox);
-}
-
-/**
- * Move TTS container to tools
- * @param {HTMLElement} root - Root element
- * @param {HTMLElement} targetTools - Target tools container
- * @returns {number} Count of moved elements
- */
-function moveTTSContainer(root, targetTools) {
-  const ttsTarget = root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS) || targetTools;
-  const ttsNodes = Array.from(root.querySelectorAll(SELECTORS.TTS_CONTAINER));
-  return ttsNodes.length > 0 ? moveNodes(ttsNodes, ttsTarget) : 0;
-}
-
-/**
- * Move share elements to share container
- * @param {HTMLElement} root - Root element
- * @returns {number} Count of moved elements
- */
-function moveShareElements(root) {
-  const shareNodes = Array.from(root.querySelectorAll(SELECTORS.ESPRIT_ARTICLE_SHARE));
-  if (shareNodes.length === 0) return 0;
-
-  const shareTarget = getOrCreateContainer(
-    root,
-    SELECTORS.ES_ARTICLE_SHARE,
-    "es-article-share",
-    CSS_CLASSES.ES_ARTICLE_SHARE
-  );
-
-  return shareTarget ? moveNodes(shareNodes, shareTarget) : 0;
-}
-
-/**
- * Move author info to mobile wrapper
- * @param {HTMLElement} root - Root element
- * @returns {number} Count of moved elements
- */
-function moveAuthorInfo(root) {
-  const authorInfo = root.querySelector(SELECTORS.ESPRIT_ARTICLE_INFO);
-  const mobileAuthorWrapper = root.querySelector(SELECTORS.MOBILE_AUTHOR_WRAPPER);
-
-  if (!authorInfo || !mobileAuthorWrapper) return 0;
-  return moveNodes([authorInfo], mobileAuthorWrapper);
 }
 
 // ============================================================================
@@ -303,57 +167,93 @@ export function moveArticleTools(
     typeof rootSelector === "string"
       ? document.querySelector(rootSelector)
       : rootSelector;
+  if (!root) return { moved: 0, message: "no-root" };
 
-  if (!root) {
-    console.warn("moveArticleTools: Root element not found");
-    return { moved: 0, message: "no-root" };
-  }
-
-  // Reset mode: restore all elements to original positions
   if (reset) {
     const restored = resetMovedNodes();
     return { movedBack: restored, message: "reset" };
   }
 
-  // Move mode: relocate elements for mobile layout
-  try {
-    // Create or get main tools container
-    const targetTools = getOrCreateContainer(
-      root,
-      SELECTORS.ES_ARTICLE_TOOLS,
-      "es-article-tools",
-      CSS_CLASSES.ES_ARTICLE_TOOLS
-    );
-
-    let movedCount = 0;
-
-    // Execute all move operations
-    movedCount += moveAccessibilityControls(root, targetTools);
-    movedCount += moveShortlinkActions(root, targetTools);
-    movedCount += moveCopyShortUrlButton(root, targetTools);
-    movedCount += moveTTSContainer(root, targetTools);
-    movedCount += moveShareElements(root);
-    movedCount += moveAuthorInfo(root);
-
-    return { moved: movedCount, message: "moved" };
-  } catch (error) {
-    console.error("moveArticleTools: Error during move operation", error);
-    return { moved: 0, message: "error", error };
+  // === Move Section ===
+  // 1) Move tools: accessibility controls
+  let targetTools = root.querySelector(SELECTORS.ES_ARTICLE_TOOLS);
+  if (!targetTools) {
+    targetTools = document.createElement("div");
+    targetTools.id = "es-article-tools";
+    targetTools.className = CSS_CLASSES.ES_ARTICLE_TOOLS;
+    targetTools.dataset.createdBy = "moveArticleTools";
+    root.appendChild(targetTools);
+    createdContainers.add(targetTools);
   }
-}
 
-/**
- * Close a toggle element and reset its state
- * @param {string} selector - Selector for the toggle element
- * @returns {boolean} Success status
- */
-function closeToggle(selector) {
-  const element = document.querySelector(selector);
-  if (!element) return false;
+  const selectors1 = [
+    SELECTORS.ESPRIT_ARTICLE_ACCESSIBILITY_CONTROLS,
+  ];
+  let movedCount = 0;
+  selectors1.forEach((sel) => {
+    const nodes = Array.from(root.querySelectorAll(sel));
+    if (nodes.length > 0) movedCount += moveNodes(nodes, targetTools);
+  });
 
-  element.classList.remove(CSS_CLASSES.ACTIVE);
-  element.style.overflow = "hidden";
-  return true;
+  // 1.5) Move shortlink actions to tools buttons container
+  const shortlinkActions = Array.from(
+    root.querySelectorAll(SELECTORS.ESPRIT_ARTICLE_SHORTLINK_ACTIONS)
+  );
+  let toolsBtns = root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS_BTNS);
+  if (!toolsBtns && shortlinkActions.length > 0) {
+    toolsBtns = document.createElement("div");
+    toolsBtns.id = "esprit-article-tools-btns";
+    toolsBtns.className = CSS_CLASSES.ES_ARTICLE_TOOLS_BTNS;
+    toolsBtns.dataset.createdBy = "moveArticleTools";
+    targetTools.appendChild(toolsBtns);
+    createdContainers.add(toolsBtns);
+  }
+  if (toolsBtns && shortlinkActions.length > 0) {
+    movedCount += moveNodes(shortlinkActions, toolsBtns);
+  }
+
+  // 1.6) Move copy shorturl button to shortlink container
+  const copyBtn = root.querySelector(SELECTORS.COPY_SHORTURL_BTN);
+  if (copyBtn) {
+    let shortlinkBox = root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS_SHORTLINK);
+    if (!shortlinkBox) {
+      shortlinkBox = document.createElement("div");
+      shortlinkBox.id = "esprit-article-tools-shortlink";
+      shortlinkBox.className = CSS_CLASSES.ES_ARTICLE_TOOLS_SHORTLINK;
+      shortlinkBox.dataset.createdBy = "moveArticleTools";
+      targetTools.appendChild(shortlinkBox);
+      createdContainers.add(shortlinkBox);
+    }
+    movedCount += moveNodes([copyBtn], shortlinkBox);
+  }
+
+  // 2) Move TTS container
+  const ttsTarget = root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS) || targetTools;
+  const ttsNodes = Array.from(root.querySelectorAll(SELECTORS.TTS_CONTAINER));
+  if (ttsNodes.length > 0) movedCount += moveNodes(ttsNodes, ttsTarget);
+
+  // 3) Move share elements to share container
+  const shareNodes = Array.from(root.querySelectorAll(SELECTORS.ESPRIT_ARTICLE_SHARE));
+  let shareTarget = root.querySelector(SELECTORS.ES_ARTICLE_SHARE);
+  if (!shareTarget && shareNodes.length > 0) {
+    shareTarget = document.createElement("div");
+    shareTarget.id = "es-article-share";
+    shareTarget.className = CSS_CLASSES.ES_ARTICLE_SHARE;
+    shareTarget.dataset.createdBy = "moveArticleTools";
+    root.appendChild(shareTarget);
+    createdContainers.add(shareTarget);
+  }
+  if (shareTarget && shareNodes.length > 0)
+    movedCount += moveNodes(shareNodes, shareTarget);
+
+  // 4) Move author info to mobile wrapper
+  const authorInfo = root.querySelector(SELECTORS.ESPRIT_ARTICLE_INFO);
+  const mobileAuthorWrapper = root.querySelector(SELECTORS.MOBILE_AUTHOR_WRAPPER);
+  if (authorInfo && mobileAuthorWrapper) {
+    movedCount += moveNodes([authorInfo], mobileAuthorWrapper);
+  }
+
+  return { moved: movedCount, message: "moved" };
 }
 
 /**
@@ -367,29 +267,14 @@ function closeToggle(selector) {
  */
 function setupToggle(opts = {}) {
   const { btnSelector, listSelector, wrapperSelector, bodyFlagName } = opts;
-
-  if (!btnSelector || !listSelector || !wrapperSelector) {
-    console.warn("setupToggle: Missing required selectors");
-    return false;
-  }
-
   const btn = document.querySelector(btnSelector);
   const list = document.querySelector(listSelector);
   const wrapper = document.querySelector(wrapperSelector);
 
-  if (!btn || !list || !wrapper) {
-    console.warn("setupToggle: Required elements not found", {
-      btn: !!btn,
-      list: !!list,
-      wrapper: !!wrapper,
-    });
-    return false;
-  }
+  if (!btn || !list || !wrapper) return false;
 
   // Ensure wrapper has relative positioning for absolute children
-  if (!wrapper.style.position) {
-    wrapper.style.position = "relative";
-  }
+  if (!wrapper.style.position) wrapper.style.position = "relative";
 
   /**
    * Open the toggle list
@@ -453,18 +338,19 @@ export function setLayout() {
    */
   function checkWidth() {
     const article = document.querySelector(articleSelector);
-    if (!article) {
-      console.warn("setLayout: Article element not found");
-      return;
-    }
+    if (!article) return;
 
+    const isExactly992 = window.innerWidth === MIN_DESKTOP_WIDTH;
     const contentWidth = Math.round(article.getBoundingClientRect().width);
-    const isSmall = window.innerWidth < MIN_DESKTOP_WIDTH || contentWidth < MIN_WIDTH;
+    const isSmall = !isExactly992 && contentWidth < MIN_WIDTH;
 
-    // Toggle visibility class on article tools
     const myElement = document.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS);
     if (myElement) {
-      myElement.classList.toggle(CSS_CLASSES.SHOW, isSmall);
+      if (isSmall) {
+        myElement.classList.add(CSS_CLASSES.SHOW);
+      } else {
+        myElement.classList.remove(CSS_CLASSES.SHOW);
+      }
     }
 
     if (isSmall) {
@@ -503,10 +389,17 @@ export function setLayout() {
         // Reset element movements
         moveArticleTools(article, true);
 
-        // Close any open toggles and reset their state
-        closeToggle(SELECTORS.ES_ARTICLE_TOOLS);
-        closeToggle(SELECTORS.ES_ARTICLE_SHARE);
-
+        // Close any open toggles
+        const tools = document.querySelector(SELECTORS.ES_ARTICLE_TOOLS);
+        if (tools) {
+          tools.classList.remove(CSS_CLASSES.ACTIVE);
+          tools.style.overflow = "hidden";
+        }
+        const share = document.querySelector(SELECTORS.ES_ARTICLE_SHARE);
+        if (share) {
+          share.classList.remove(CSS_CLASSES.ACTIVE);
+          share.style.overflow = "hidden";
+        }
         // Note: Event listeners are not removed as elements return to original positions
         // and will continue to work naturally. For complete cleanup, listeners could be
         // removed, but for simplicity, we only close the toggle state here.

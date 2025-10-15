@@ -4,17 +4,23 @@
  * @module features/layout
  */
 
-import { LAYOUT_BREAKPOINTS } from '../config/constants.js';
-
 // ============================================================================
 // CONSTANTS & SELECTORS
 // ============================================================================
 
 /**
- * Responsive breakpoints imported from config
+ * Responsive breakpoints for layout management
+ * MOBILE_CONTENT_MAX: Maximum article width for triggering mobile layout (959px)
+ * DESKTOP_VIEWPORT_MIN: Minimum viewport width for desktop layout (992px)
  */
-const MIN_WIDTH = LAYOUT_BREAKPOINTS.MOBILE_CONTENT_MAX;
-const MIN_DESKTOP_WIDTH = LAYOUT_BREAKPOINTS.DESKTOP_VIEWPORT_MIN;
+const BREAKPOINTS = {
+  MOBILE_CONTENT_MAX: 959,  // Maximum article width before switching to mobile layout
+  DESKTOP_VIEWPORT_MIN: 992, // Minimum viewport width for desktop features
+};
+
+// Legacy constants for backward compatibility (can be removed after full migration)
+const MIN_WIDTH = BREAKPOINTS.MOBILE_CONTENT_MAX;
+const MIN_DESKTOP_WIDTH = BREAKPOINTS.DESKTOP_VIEWPORT_MIN;
 
 /**
  * DOM Selectors Configuration
@@ -441,7 +447,8 @@ function setupToggle(opts = {}) {
 
 /**
  * Initialize responsive layout system
- * Handles element repositioning based on viewport width
+ * Handles element repositioning based on viewport AND article width
+ * Mobile layout triggers when viewport < 992px OR article width < 959px
  * @returns {void}
  */
 export function setLayout() {
@@ -449,7 +456,10 @@ export function setLayout() {
   let lastWasSmall = null;
 
   /**
-   * Check viewport width and adjust layout accordingly
+   * Check viewport and article width, adjust layout accordingly
+   * Mobile layout triggers when:
+   * 1. Viewport width < 992px (window.innerWidth)
+   * 2. OR article width < 959px (article content width)
    */
   function checkWidth() {
     const article = document.querySelector(articleSelector);
@@ -458,8 +468,13 @@ export function setLayout() {
       return;
     }
 
-    const contentWidth = Math.round(article.getBoundingClientRect().width);
-    const isSmall = window.innerWidth < MIN_DESKTOP_WIDTH || contentWidth < MIN_WIDTH;
+    const viewportWidth = window.innerWidth;
+    const articleWidth = Math.round(article.getBoundingClientRect().width);
+
+    // Switch to mobile layout if either condition is met:
+    // 1. Viewport is narrower than 992px
+    // 2. Article content is narrower than 959px
+    const isSmall = viewportWidth < MIN_DESKTOP_WIDTH || articleWidth < MIN_WIDTH;
 
     // Toggle visibility class on article tools
     const myElement = document.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS);
