@@ -85,7 +85,7 @@
   .esprit-article-tools__wrapper {
     display: flex;
     align-items: center;
-    gap: $spacing-1; 
+    gap: $spacing-1;
     margin-bottom: $spacing-1;
   }
 
@@ -120,6 +120,7 @@
       font-size: 20px;
     }
   }
+
   .tts__container {
     // background: none;
     // border: none;
@@ -141,8 +142,7 @@
     margin-top: 0;
   }
 
-  .esprit-article-accessibility__controls {
-  }
+  .esprit-article-accessibility__controls {}
 
   &__actions {
     position: relative;

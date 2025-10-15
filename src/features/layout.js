@@ -4,7 +4,7 @@
  * @module features/layout
  */
 
-import { LAYOUT_BREAKPOINTS } from '../config/constants.js';
+import { LAYOUT_BREAKPOINTS } from "../config/constants.js";
 
 // ============================================================================
 // CONSTANTS & SELECTORS
@@ -23,24 +23,27 @@ const MIN_DESKTOP_WIDTH = LAYOUT_BREAKPOINTS.DESKTOP_VIEWPORT_MIN;
 const SELECTORS = {
   // Main containers
   ARTICLE_MAIN: "#page-content-main-article",
-  
+  SIDEBAR: "#es-page-sidebar",
+  SHORTLINK_WRAPPER: "#esprit-article-shortlink-wrapper",
+
   // Tools related
   ES_ARTICLE_TOOLS: "#es-article-tools",
   ESPRIT_ARTICLE_TOOLS: "#esprit-article-tools",
   ESPRIT_ARTICLE_TOOLS_ACTIONS: "#esprit-article-tools-actions",
-  
+
   // Buttons
   TOGGLE_TOOLS_BOX: "#toggle-tools-box",
   TOGGLE_SHARE_BOX: "#toggle-share-box",
   COPY_SHORTURL_BTN: "#copy-shorturl-btn",
-  
+
   // Share related
   ES_ARTICLE_SHARE: "#es-article-share",
   ESPRIT_ARTICLE_SHARE: "#esprit-article-share",
   ESPRIT_ARTICLE_TOOLS_SHARE: "#esprit-article-tools-share",
-  
+
   // Other elements
-  ESPRIT_ARTICLE_ACCESSIBILITY_CONTROLS: "#esprit-article-accessibility-controls",
+  ESPRIT_ARTICLE_ACCESSIBILITY_CONTROLS:
+    "#esprit-article-accessibility-controls",
   ESPRIT_ARTICLE_SHORTLINK_ACTIONS: "#esprit-article-shortlink-actions",
   ESPRIT_ARTICLE_TOOLS_BTNS: "#esprit-article-tools-btns",
   ESPRIT_ARTICLE_TOOLS_SHORTLINK: "#esprit-article-tools-shortlink",
@@ -228,7 +231,9 @@ function moveCopyShortUrlButton(root, targetTools) {
   if (!copyBtn) return 0;
 
   // Find or create shortlinkBox container in root (not targetTools!)
-  let shortlinkBox = root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS_SHORTLINK);
+  let shortlinkBox = root.querySelector(
+    SELECTORS.ESPRIT_ARTICLE_TOOLS_SHORTLINK
+  );
   if (!shortlinkBox) {
     shortlinkBox = document.createElement("div");
     shortlinkBox.id = "esprit-article-tools-shortlink";
@@ -248,7 +253,8 @@ function moveCopyShortUrlButton(root, targetTools) {
  * @returns {number} Count of moved elements
  */
 function moveTTSContainer(root, targetTools) {
-  const ttsTarget = root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS) || targetTools;
+  const ttsTarget =
+    root.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS) || targetTools;
   const ttsNodes = Array.from(root.querySelectorAll(SELECTORS.TTS_CONTAINER));
   return ttsNodes.length > 0 ? moveNodes(ttsNodes, ttsTarget) : 0;
 }
@@ -259,7 +265,9 @@ function moveTTSContainer(root, targetTools) {
  * @returns {number} Count of moved elements
  */
 function moveShareElements(root) {
-  const shareNodes = Array.from(root.querySelectorAll(SELECTORS.ESPRIT_ARTICLE_SHARE));
+  const shareNodes = Array.from(
+    root.querySelectorAll(SELECTORS.ESPRIT_ARTICLE_SHARE)
+  );
   if (shareNodes.length === 0) return 0;
 
   const shareTarget = getOrCreateContainer(
@@ -279,7 +287,9 @@ function moveShareElements(root) {
  */
 function moveAuthorInfo(root) {
   const authorInfo = root.querySelector(SELECTORS.ESPRIT_ARTICLE_INFO);
-  const mobileAuthorWrapper = root.querySelector(SELECTORS.MOBILE_AUTHOR_WRAPPER);
+  const mobileAuthorWrapper = root.querySelector(
+    SELECTORS.MOBILE_AUTHOR_WRAPPER
+  );
 
   if (!authorInfo || !mobileAuthorWrapper) return 0;
   return moveNodes([authorInfo], mobileAuthorWrapper);
@@ -402,7 +412,8 @@ function setupToggle(opts = {}) {
     list.addEventListener(
       "transitionend",
       () => {
-        if (list.classList.contains(CSS_CLASSES.ACTIVE)) list.style.overflow = "visible";
+        if (list.classList.contains(CSS_CLASSES.ACTIVE))
+          list.style.overflow = "visible";
       },
       { once: true }
     );
@@ -446,6 +457,7 @@ function setupToggle(opts = {}) {
  */
 export function setLayout() {
   const articleSelector = SELECTORS.ARTICLE_MAIN;
+
   let lastWasSmall = null;
 
   /**
@@ -453,13 +465,15 @@ export function setLayout() {
    */
   function checkWidth() {
     const article = document.querySelector(articleSelector);
+
     if (!article) {
       console.warn("setLayout: Article element not found");
       return;
     }
 
     const contentWidth = Math.round(article.getBoundingClientRect().width);
-    const isSmall = window.innerWidth < MIN_DESKTOP_WIDTH || contentWidth < MIN_WIDTH;
+    const isSmall =
+      window.innerWidth < MIN_DESKTOP_WIDTH || contentWidth < MIN_WIDTH;
 
     // Toggle visibility class on article tools
     const myElement = document.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS);
@@ -471,6 +485,20 @@ export function setLayout() {
       // Apply mobile layout: move elements and initialize toggles
       if (!article.classList.contains(CSS_CLASSES.HIDE_SIDEBAR)) {
         article.classList.add(CSS_CLASSES.HIDE_SIDEBAR);
+      }
+
+      const sidebar = document.querySelector(SELECTORS.SIDEBAR);
+      const shortLinksWrapper = document.querySelector(
+        SELECTORS.SHORTLINK_WRAPPER
+      );
+      // Apply mobile styles
+      article.style.gridTemplateColumns = "1fr";
+
+      if (sidebar) {
+        sidebar.style.width = "100%";
+      }
+      if (shortLinksWrapper) {
+        shortLinksWrapper.style.display = "none";
       }
 
       if (lastWasSmall !== true) {
@@ -497,6 +525,16 @@ export function setLayout() {
       // Apply desktop layout: reset elements
       if (article.classList.contains(CSS_CLASSES.HIDE_SIDEBAR)) {
         article.classList.remove(CSS_CLASSES.HIDE_SIDEBAR);
+      }
+
+      // Remove mobile styles
+      article.style.gridTemplateColumns = "";
+
+      const shortlinkElement = document.querySelector(
+        SELECTORS.ESPRIT_ARTICLE_TOOLS_SHORTLINK
+      );
+      if (shortlinkElement) {
+        shortlinkElement.style.display = "";
       }
 
       if (lastWasSmall === true) {
