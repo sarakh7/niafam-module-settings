@@ -32,7 +32,7 @@ function localizeElement(element) {
     // Format: [attribute]key - translate attribute value
     const [, attr, key] = matches;
     const translation = i18next.t(key);
-    
+
     if (attr === 'html') {
       element.innerHTML = translation;
     } else {

@@ -82,7 +82,9 @@
   "tools": {
     "toolbox": "جعبه ابزار",
     "shortlink": {
-      "title": "لینک کوتاه"
+      "title": "لینک کوتاه",
+      "copy": "کپی لینک کوتاه",
+      "copied": "کپی شد!"
     },
     "print": "چاپ",
     "pdf": "PDF",
@@ -92,8 +94,13 @@
     "fontSize": "اندازه فونت",
     "wordSpacing": "فاصله کلمات",
     "lineHeight": "فاصله خطوط",
+    "lineHeightAdjust": "تنظیم فاصله خطوط",
+    "wordSpacingAdjust": "تنظیم فاصله کلمات",
+    "backgroundColor": "تغییر پس‌زمینه",
     "reset": "بازنشانی",
-    "textOnly": "فقط متن"
+    "reloadPage": "بارگذاری مجدد صفحه",
+    "textOnly": "فقط متن",
+    "textOnlyMode": "حالت فقط متن"
   },
   "tts": {
     "title": "پخش صوتی متن",
@@ -105,6 +112,8 @@
   },
   "share": {
     "title": "اشتراک‌گذاری",
+    "shareButton": "اشتراک گذاری",
+    "facebook": "اشتراک‌گذاری در فیسبوک",
     "telegram": "اشتراک‌گذاری در تلگرام",
     "whatsapp": "اشتراک‌گذاری در واتساپ",
     "eitaa": "اشتراک‌گذاری در ایتا",
@@ -113,6 +122,8 @@
     "linkedin": "اشتراک‌گذاری در لینکدین"
   },
   "relatedContent": {
+    "title": "محتوای مرتبط با این خبر",
+    "description": "برای دسترسی سریع به هر بخش، روی عنوان مورد نظر کلیک کنید.",
     "attachments": "فایل های پیوست",
     "images": "تصاویر خبر",
     "videos": "ویدئوهای خبر",
@@ -125,34 +136,83 @@
     "videos": "ویدئوهای خبر",
     "audios": "صوت‌های خبر",
     "relatedNews": "خبرهای مرتبط",
-    "tags": "برچسب‌ها"
+    "tags": "برچسب‌ها",
+    "textNews": "خبرهای متنی",
+    "pictureNews": "خبرهای تصویری",
+    "videoNews": "خبرهای ویدئویی",
+    "audioNews": "خبرهای صوتی",
+    "video": "ویدئو",
+    "audio": "صوت",
+    "picture": "تصویر"
   },
   "metadata": {
     "author": "نویسنده",
-    "publishDate": "تاریخ انتشار",
-    "views": "بازدید",
+    "publishDate": "تاریخ انتشار:",
+    "views": "تعداد بازدید:",
     "newsCode": "کد خبر",
     "newsGroup": "گروه خبری",
-    "photographer": "عکاس",
-    "videographer": "فیلمبردار",
-    "editor": "ویراستار",
-    "readingTime": "زمان مطالعه"
+    "photographer": "عکاس:",
+    "videographer": "فیلمبردار:",
+    "editor": "تدوین‌گر:",
+    "readingTime": "زمان مطالعه:"
   },
   "modal": {
     "sendToFriend": {
       "title": "ارسال به دوستان",
       "yourEmail": "ایمیل شما",
       "recipientEmail": "ایمیل مقصد",
-      "captchaLabel": "متن را وارد کنید",
-      "submit": "ارسال"
+      "captchaLabel": "متن موجود در تصویر را وارد کنید:",
+      "submit": "ارسال",
+      "cancel": "لغو"
     },
     "readingMode": {
-      "title": "حالت خواندن"
+      "title": "حالت خواندن",
+      "themes": {
+        "light": "روشن",
+        "dark": "تیره",
+        "yellow": "زرد",
+        "blue": "آبی"
+      }
     }
   },
   "vote": {
     "question": "آیا این خبر برای شما مفید بود؟",
     "yes": "بله",
     "no": "خیر"
+  },
+  "comments": {
+    "title": "نظرات",
+    "count": "نظر برای این خبر وجود دارد",
+    "reply": "پاسخ",
+    "submitComment": "ارسال نظر",
+    "cancel": "انصراف",
+    "leaveComment": "نظر دهید"
+  },
+  "form": {
+    "fullName": "نام و نام خانوادگی",
+    "fullNameRequired": "نام و نام خانوادگی *",
+    "email": "ایمیل",
+    "emailRequired": "ایمیل *",
+    "comment": "نظر خود را وارد کنید ...",
+    "captcha": "کد امنیتی",
+    "captchaInstruction": "متن موجود در تصویر را وارد کنید:",
+    "captchaRefresh": "تازه‌سازی کد امنیتی",
+    "yourComment": "نظر شما"
+  },
+  "vote": {
+    "question": "آیا این خبر برای شما مفید بود؟",
+    "yes": "بله",
+    "no": "خیر",
+    "useful": "مفید بود",
+    "notUseful": "مفید نبود",
+    "voteGroup": "رای به خبر"
+  },
+  "audio": {
+    "player": "پخش‌کننده صوتی متن",
+    "unsupported": "مرورگر شما از پخش صوت پشتیبانی نمی‌کند."
+  },
+  "images": {
+    "author": "تصویر نویسنده",
+    "commenter": "تصویر نظر دهنده"
   }
 }

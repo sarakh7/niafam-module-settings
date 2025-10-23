@@ -92,7 +92,9 @@
   "tools": {
     "toolbox": "Toolbox",
     "shortlink": {
-      "title": "Short Link"
+      "title": "Short Link",
+      "copy": "Copy Short Link",
+      "copied": "Copied!"
     },
     "print": "Print",
     "pdf": "PDF",
@@ -102,8 +104,13 @@
     "fontSize": "Font Size",
     "wordSpacing": "Word Spacing",
     "lineHeight": "Line Height",
+    "lineHeightAdjust": "Adjust Line Height",
+    "wordSpacingAdjust": "Adjust Word Spacing",
+    "backgroundColor": "Change Background",
     "reset": "Reset",
-    "textOnly": "Text Only"
+    "reloadPage": "Reload Page",
+    "textOnly": "Text Only",
+    "textOnlyMode": "Text Only Mode"
   },
   "tts": {
     "title": "Text to Speech",
@@ -115,6 +122,8 @@
   },
   "share": {
     "title": "Share",
+    "shareButton": "Share",
+    "facebook": "Share on Facebook",
     "telegram": "Share on Telegram",
     "whatsapp": "Share on WhatsApp",
     "eitaa": "Share on Eitaa",
@@ -123,6 +132,8 @@
     "linkedin": "Share on LinkedIn"
   },
   "relatedContent": {
+    "title": "Content Related to This News",
+    "description": "Click on the desired title for quick access to each section.",
     "attachments": "Attachments",
     "images": "Images",
     "videos": "Videos",
@@ -135,33 +146,83 @@
     "videos": "Videos",
     "audios": "Audios",
     "relatedNews": "Related News",
-    "tags": "Tags"
+    "tags": "Tags",
+    "textNews": "Text News",
+    "pictureNews": "Picture News",
+    "videoNews": "Video News",
+    "audioNews": "Audio News",
+    "video": "Video",
+    "audio": "Audio",
+    "picture": "Picture"
   },
   "metadata": {
     "author": "Author",
-    "publishDate": "Publish Date",
-    "views": "Views",
+    "publishDate": "Publish Date:",
+    "views": "Views:",
     "newsCode": "News Code",
     "newsGroup": "News Group",
-    "photographer": "Photographer",
-    "videographer": "Videographer",
-    "editor": "Editor"
+    "photographer": "Photographer:",
+    "videographer": "Videographer:",
+    "editor": "Editor:",
+    "readingTime": "Reading Time:"
   },
   "modal": {
     "sendToFriend": {
       "title": "Send to Friend",
       "yourEmail": "Your Email",
       "recipientEmail": "Recipient Email",
-      "captchaLabel": "Enter the text",
-      "submit": "Send"
+      "captchaLabel": "Enter the text in the image:",
+      "submit": "Send",
+      "cancel": "Cancel"
     },
     "readingMode": {
-      "title": "Reading Mode"
+      "title": "Reading Mode",
+      "themes": {
+        "light": "Light",
+        "dark": "Dark",
+        "yellow": "Yellow",
+        "blue": "Blue"
+      }
     }
   },
   "vote": {
     "question": "Was this news helpful?",
     "yes": "Yes",
     "no": "No"
+  },
+  "comments": {
+    "title": "Comments",
+    "count": "comment(s) for this news",
+    "reply": "Reply",
+    "submitComment": "Submit Comment",
+    "cancel": "Cancel",
+    "leaveComment": "Leave a Comment"
+  },
+  "form": {
+    "fullName": "Full Name",
+    "fullNameRequired": "Full Name *",
+    "email": "Email",
+    "emailRequired": "Email *",
+    "comment": "Enter your comment ...",
+    "captcha": "Security Code",
+    "captchaInstruction": "Enter the text in the image:",
+    "captchaRefresh": "Refresh Security Code",
+    "yourComment": "Your Comment"
+  },
+  "vote": {
+    "question": "Was this news helpful?",
+    "yes": "Yes",
+    "no": "No",
+    "useful": "Useful",
+    "notUseful": "Not Useful",
+    "voteGroup": "Vote for News"
+  },
+  "audio": {
+    "player": "Text-to-Speech Player",
+    "unsupported": "Your browser does not support audio playback."
+  },
+  "images": {
+    "author": "Author Image",
+    "commenter": "Commenter Image"
   }
 }

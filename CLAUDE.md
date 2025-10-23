@@ -8,10 +8,10 @@ This is a Vite-based JavaScript module for the Niafam news platform that provide
 
 ## Development Commands
 
-- `npm run dev` - Start Vite development server
-- `npm run build` - Build for production
+- `npm run dev` - Start Vite development server (default port 5173)
+- `npm run build` - Build for production (outputs to dist/)
 - `npm run preview` - Preview production build
-- `npm run sass` - Watch and compile SCSS files (separate from Vite)
+- `npm run sass` - Watch and compile SCSS files (runs independently from Vite, outputs to public/assets/css/)
 
 ## Architecture
 
@@ -45,14 +45,14 @@ The application uses i18next with a custom DOM localization system:
 
 When working with translations:
 - Add keys to all language JSON files in [src/locales/](src/locales/)
-- Use `data-i18n="key"` for text content or `data-i18n="[attribute]key"` for attributes
-- The localizer runs automatically on language change
+- Use `data-i18n="key"` for text content, `data-i18n="[placeholder]key"` for attributes, or `data-i18n="[html]key"` for HTML content
+- The localizer runs automatically on language change via the i18next `languageChanged` event
 
 ### Feature Modules
 
 All features are in [src/features/](src/features/) and follow an initialization pattern:
 
-- **gallery.js** - Justified layout gallery with lightGallery lightbox (supports zoom, thumbnails, fullscreen, video, rotation, sharing)
+- **gallery.js** - Justified layout gallery using flickr/justified-layout algorithm with lightGallery lightbox (supports zoom, thumbnails, fullscreen, video, rotation, sharing)
 - **mediaPlayer.js** - Plyr-based audio/video players + TTS (text-to-speech) functionality
 - **accessibilityControls.js** - NoUiSlider-based accessibility controls for font size, word spacing, line height, background color
 - **pdfGenerator.js** - PDF generation from article content using jsPDF with Persian text formatting
@@ -100,7 +100,8 @@ The application expects HTML structure with specific class names and IDs. See [i
 
 ## Important Notes
 
-- Language and direction are determined by `<html lang="..." dir="...">` attributes, not stored settings
+- Language and direction are determined by `<html lang="..." dir="...">` attributes at runtime, not stored in localStorage
 - The project uses ES modules (`"type": "module"` in package.json)
 - jQuery is included but prefer vanilla JS for new code
-- Persian text requires special formatting for PDF generation (see formatPersianText in pdfGenerator.js)
+- Persian/Arabic text requires special formatting for PDF generation (see formatPersianText in [src/features/pdfGenerator.js](src/features/pdfGenerator.js) - handles ZWNJ, punctuation spacing, number conversion, and bracket reversal)
+- SCSS compilation via `npm run sass` is separate from Vite's build process and must be run independently during development if styles are modified

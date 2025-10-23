@@ -3,10 +3,30 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Niafam Modules</title>
-  <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+
+  <!-- SEO Meta Tags -->
+  <title>برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد دانشگاه علوم پزشکی تهران | نیافام</title>
+  <meta name="description" content="نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران - بررسی برنامه‌های سالگرد 173 سال تجربه و 90 سال افتخارآفرینی دانشگاه" />
+  <meta name="keywords" content="دانشگاه علوم پزشکی تهران, سالگرد دانشگاه, نیافام, اخبار پزشکی" />
+  <meta name="author" content="نیافام" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد دانشگاه علوم پزشکی تهران" />
+  <meta property="og:description" content="نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران - بررسی برنامه‌های سالگرد" />
+  <meta property="og:image" content="/assets/img/article-content-img.jpg" />
+  <meta property="og:locale" content="fa_IR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد دانشگاه علوم پزشکی تهران" />
+  <meta name="twitter:description" content="نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران" />
+  <meta name="twitter:image" content="/assets/img/article-content-img.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/img/niafam-favicon.png" />
   <!-- <link rel="stylesheet" href="/assets/css/espritstyle.css" /> -->
   <!-- <link rel="stylesheet" href="/assets/css/article.css" /> -->
   <!-- <link rel="stylesheet" href="/assets/css/index-styles.css" /> -->
@@ -99,9 +119,14 @@
 </head>
 
 <body>
-  <header class="header">
-    <img class="vector" src="/assets/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
-    <nav class="auto-layout">
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="skip-to-main" style="position:absolute;left:-9999px;z-index:999">پرش به محتوای اصلی</a>
+
+  <header class="header" role="banner">
+    <a href="/" aria-label="صفحه اصلی نیافام">
+      <img class="vector" src="/assets/img/niafam-logo.png" alt="لوگوی نیافام" width="148" height="60" />
+    </a>
+    <nav class="auto-layout" role="navigation" aria-label="منوی اصلی">
       <a href="#" class="text-wrapper" data-i18n="nav.contactUs">تماس با ما</a>
       <a href="#" class="text-wrapper" data-i18n="nav.organizationalPortal">پورتال سازمانی</a>
       <a href="#" class="text-wrapper" data-i18n="nav.aboutUs">درباره نیافام</a>
@@ -109,7 +134,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" role="main">
     <div class="page-content-wrapper">
       <div class="page-content-breadcrumb">
         <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
@@ -143,7 +168,7 @@
       </div>
       <div class="page-content-main">
         <div id="page-content-main-article" class="page-content-main__article es-page-content-container">
-          <article class="esprit-article es-page-content">
+          <article class="esprit-article es-page-content" itemscope itemtype="http://schema.org/NewsArticle">
             <div id="esprit-article-tools" class="esprit-article-tools">
               <div class="esprit-article-tools__wrapper">
                 <div class="esprit-article-tools__right">
@@ -173,32 +198,48 @@
             <div id="pdf-content" class="esprit-article__main-content">
               <!-- عنوان های اصلی مقاله -->
               <header class="esprit-article__header">
-                <p class="esprit-article__subtitle" aria-label="article__subtitle">
+                <p class="esprit-article__subtitle">
                   نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران
                 </p>
-                <h1 class="esprit-article__title">
+                <h1 class="esprit-article__title" itemprop="headline">
                   برنامه‌ریزی دقیق، کلید برگزاری موفق سالگرد 173 سال تجربه و
                   90 سال افتخارآفرینی دانشگاه علوم پزشکی تهران
                 </h1>
-                <p class="esprit-article__summary" aria-label="article__summary">
+                <p class="esprit-article__summary" itemprop="description">
                   در نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران که روز یکشنبه 27
                   آبان 1403 برگزار شد، گزارش پیشرفت برنامه‌های ویژه سالگرد 173
                   سال تجربه و 90 سال افتخارآفرینی این دانشگاه و همچنین
                   راهکارهای بهبود دسترسی معاونت‌های بهداشت و درمان به پردیس
                   دانشگاه مورد بررسی قرار گرفت.
                 </p>
+                <!-- Schema.org metadata -->
+                <meta itemprop="datePublished" content="2025-01-20T13:42:00+03:30" />
+                <meta itemprop="dateModified" content="2025-01-20T13:42:00+03:30" />
+                <div itemprop="author" itemscope itemtype="http://schema.org/Person" style="display:none;">
+                  <meta itemprop="name" content="خاطره فهیمی" />
+                </div>
+                <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization" style="display:none;">
+                  <meta itemprop="name" content="نیافام" />
+                  <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="/assets/img/niafam-logo.png" />
+                  </div>
+                </div>
               </header>
 
               <!-- بخش محتوای اصلی -->
               <div class="esprit-article__content">
-                <div class="esprit-article__image-wrapper">
+                <figure class="esprit-article__image-wrapper" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
                   <!-- تصویر شاخص خبر -->
-                  <img src="/assets/img/article-content-img.jpg" alt="نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران"
+                  <img src="/assets/img/article-content-img.jpg"
+                    alt="نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران - برنامه‌ریزی برای سالگرد دانشگاه"
+                    itemprop="url"
                     face="دکتر جواد قاسمی,29,121,48,48,dr.Javad Ghasemi,5|دکتر محسن امینی,240,79,65,65,dr. Mohsen Amini,4|دکتر داود زارعیان,128,94,65,65,dr. davood zareian,3|انوش اوحدی,339,27,81,81,Anoush Ohadi,2"
                     width="396" height="264" loading="lazy" />
-                </div>
+                  <meta itemprop="width" content="396" />
+                  <meta itemprop="height" content="264" />
+                </figure>
                 <!-- پاراگراف ها -->
-                <div class="esprit-article__paragraph">
+                <div class="esprit-article__paragraph" itemprop="articleBody">
                   <p>
                     به گزارش سینا رسانه دانشگاه علوم پزشکی تهران، دکتر سید رضا
                     رئیس کرمی، سرپرست دانشگاه علوم پزشکی تهران، در این نشست
@@ -258,8 +299,8 @@
             </div>
 
             <!-- downloadable-files -->
-            <div id="article-files" class="esprit-article__section esprit-article__downloadable-files">
-              <h2 class="esprit-article__section-title" data-i18n="article.attachments">
+            <section id="article-files" class="esprit-article__section esprit-article__downloadable-files" aria-labelledby="files-heading">
+              <h2 id="files-heading" class="esprit-article__section-title" data-i18n="article.attachments">
                 فایل‌های قابل دانلود
               </h2>
               <ul class="esprit-article__file-list">
@@ -305,11 +346,11 @@
                   <a href="#" class="esprit-article__file-link">راهنمای سامانه مدیریت پایان‌نامه</a>
                 </li>
               </ul>
-            </div>
+            </section>
 
             <!-- pictures -->
-            <div id="article-pictures" class="esprit-article__section esprit-article__pictures">
-              <h2 class="esprit-article__section-title" data-i18n="article.pictures">تصاویر خبر</h2>
+            <section id="article-pictures" class="esprit-article__section esprit-article__pictures" aria-labelledby="pictures-heading">
+              <h2 id="pictures-heading" class="esprit-article__section-title" data-i18n="article.pictures">تصاویر خبر</h2>
               <div id="gallery-loader" class="gallery-loader">
                 <div class="spinner"></div>
               </div>
@@ -373,10 +414,10 @@
                     alt="Conference overview showing multiple participants" loading="lazy" />
                 </a>
               </div>
-            </div>
+            </section>
 
-            <div id="article-videos" class="esprit-article__section esprit-article__videos">
-              <h2 class="esprit-article__section-title" data-i18n="article.videos">ویدئوهای خبر</h2>
+            <section id="article-videos" class="esprit-article__section esprit-article__videos" aria-labelledby="videos-heading">
+              <h2 id="videos-heading" class="esprit-article__section-title" data-i18n="article.videos">ویدئوهای خبر</h2>
               <!-- پلیر ویدئو اصلی -->
               <div class="esprit-article__video-player accessible-keep">
                 <div class="video-player__container">
@@ -394,7 +435,7 @@
                     <div class="video-list__item" data-video-src="/assets/video/1 Minute Sample Video 2.mp4">
                       <div class="video-list__img">
                         <i class="es esprit-fi-rr-play"></i>
-                        <img src="/assets/img/video-thumb-1.jpg" alt="ویدئو ارتقای زیرساخت‌های بهداشت و درمان" class="video-list__thumbnail" width="110"
+                        <img src="/assets/img/video-thumb-1.jpg" alt="Video 1" class="video-list__thumbnail" width="110"
                           height="73" />
                       </div>
                       <div class="video-list__caption">
@@ -411,7 +452,7 @@
                     <div class="video-list__item" data-video-src="/assets/video/6 AM.mp4">
                       <div class="video-list__img">
                         <i class="es esprit-fi-rr-play"></i>
-                        <img src="/assets/img/video-thumb-2.jpg" alt="ویدئو گفت‌وگو با دکتر رئیس کرمی" class="video-list__thumbnail" width="110"
+                        <img src="/assets/img/video-thumb-2.jpg" alt="Video 2" class="video-list__thumbnail" width="110"
                           height="73" />
                       </div>
                       <div class="video-list__caption">
@@ -428,7 +469,7 @@
                     <div class="video-list__item" data-video-src="/assets/video/1 Minute Sample Video 2.mp4">
                       <div class="video-list__img">
                         <i class="es esprit-fi-rr-play"></i>
-                        <img src="/assets/img/video-thumb-1.jpg" alt="ویدئو ارتقای زیرساخت‌های بهداشت و درمان" class="video-list__thumbnail" width="110"
+                        <img src="/assets/img/video-thumb-1.jpg" alt="Video 1" class="video-list__thumbnail" width="110"
                           height="73" />
                       </div>
                       <div class="video-list__caption">
@@ -445,7 +486,7 @@
                     <div class="video-list__item" data-video-src="/assets/video/6 AM.mp4">
                       <div class="video-list__img">
                         <i class="es esprit-fi-rr-play"></i>
-                        <img src="/assets/img/video-thumb-2.jpg" alt="ویدئو گفت‌وگو با دکتر رئیس کرمی" class="video-list__thumbnail" width="110"
+                        <img src="/assets/img/video-thumb-2.jpg" alt="Video 2" class="video-list__thumbnail" width="110"
                           height="73" />
                       </div>
                       <div class="video-list__caption">
@@ -463,10 +504,10 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div id="article-sounds" class="esprit-article__section esprit-article__sounds">
-              <h2 class="esprit-article__section-title" data-i18n="article.audios">صوت های خبر</h2>
+            <section id="article-sounds" class="esprit-article__section esprit-article__sounds" aria-labelledby="sounds-heading">
+              <h2 id="sounds-heading" class="esprit-article__section-title" data-i18n="article.audios">صوت های خبر</h2>
               <div class="esprit-article__sounds-container">
                 <!-- پلیر صوت اصلی -->
                 <div class="esprit-article__sound-player">
@@ -522,11 +563,11 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
             <!-- خبرهای مرتبط -->
-            <div id="article-related-news" class="esprit-article__section esprit-article__related-news">
-              <h2 class="esprit-article__section-title" data-i18n="article.relatedNews">خبرهای مرتبط</h2>
+            <section id="article-related-news" class="esprit-article__section esprit-article__related-news" aria-labelledby="related-news-heading">
+              <h2 id="related-news-heading" class="esprit-article__section-title" data-i18n="article.relatedNews">خبرهای مرتبط</h2>
               <!-- بخش خبرهای متنی -->
               <div class="esprit-article__news-section">
                 <h3 class="esprit-article__section-subtitle esprit-article__news-title" data-i18n="article.textNews">
@@ -909,11 +950,11 @@
               </div>
             </div>
 
-            <div class="es-vote-container" role="group" data-i18n="[aria-label]vote.voteGroup">
-              <button class="es-vote-btn es-like-btn  {vote_like_class}" onclick="handleVote(this, 'like')" data-i18n="[aria-label]vote.useful">
+            <div class="es-vote-container">
+              <button class="es-vote-btn es-like-btn  {vote_like_class}" onclick="handleVote(this, 'like')">
                 <div class="es-loader"></div> <i class="es esprit-fi-rr-thumbs-up"></i> <span class="es-count">5</span>
               </button>
-              <button class="es-vote-btn es-dislike-btn {vote_dislike_class}" onclick="handleVote(this, 'dislike')" data-i18n="[aria-label]vote.notUseful">
+              <button class="es-vote-btn es-dislike-btn {vote_dislike_class}" onclick="handleVote(this, 'dislike')">
                 <div class="es-loader"></div> <i class="es esprit-fi-rr-thumbs-down"></i>  <span class="es-count">2</span>
               </button>
             </div>
@@ -934,7 +975,7 @@
                       <div class="single-review" commentid="{commentid}">
                         <div class="single-review-head">
                           <div class="reviewer-img">
-                            <img src="/assets/img/comment-person.jpg" width="50" height="50" alt="تصویر نظر دهنده">
+                            <img src="/assets/img/comment-person.jpg" width="50" height="50" alt="{reviewername}">
                           </div>
                           <div class="reviewer-info">
                             <div class="reviewer-head">
@@ -961,16 +1002,14 @@
                                   name="name"
                                   placeholder="نام و نام خانوادگی *"
                                   data-i18n="[placeholder]form.fullNameRequired"
-                                  data-i18n-aria="[aria-label]form.fullName"
-                                  autocomplete="name"
+                                  autocomplete="off"
                                   type="text">
                                 <input required="required"
                                   class="nes-input"
                                   name="email"
                                   placeholder="ایمیل *"
                                   data-i18n="[placeholder]form.emailRequired"
-                                  data-i18n-aria="[aria-label]form.email"
-                                  autocomplete="email"
+                                  autocomplete="off"
                                   type="email">
                               </div>
                             </div>
@@ -981,8 +1020,7 @@
                                 name="comment"
                                 rows="4"
                                 placeholder="نظر خود را وارد کنید ..."
-                                data-i18n="[placeholder]form.comment"
-                                data-i18n-aria="[aria-label]form.yourComment"></textarea>
+                                data-i18n="[placeholder]form.comment"></textarea>
                             </div>
 
                             <div class="nes-form-group">
@@ -991,7 +1029,7 @@
                                   <p data-i18n="form.captchaInstruction">متن موجود در تصویر را وارد کنید:</p>
                                 </div>
                                 <img class="nes-captcha-img" alt="کد امنیتی" src="/inc/captcha.ashx" data-i18n="[alt]form.captcha">
-                                <button type="button" class="nes-btn nes-btn-icon" data-i18n="[aria-label]form.captchaRefresh">
+                                <button type="button" class="nes-btn nes-btn-icon">
                                   <i class="es esprit-fi-rr-refresh"></i>
                                 </button>
                                 <input class="nes-captcha-input"
@@ -1043,8 +1081,7 @@
                                  name="name"
                                  autocomplete="name"
                                  placeholder="نام و نام خانوادگی *"
-                                  data-i18n="[placeholder]form.fullNameRequired"
-                                  data-i18n-aria="[aria-label]form.fullName"
+                                 data-i18n="[placeholder]form.fullNameRequired"
                                  required>
                         </div>
                         <div class="nes-input-wrapper">
@@ -1055,7 +1092,6 @@
                                  autocomplete="email"
                                  placeholder="ایمیل *"
                                  data-i18n="[placeholder]form.emailRequired"
-                                  data-i18n-aria="[aria-label]form.email"
                                  required>
                         </div>
                       </div>
@@ -1068,7 +1104,6 @@
                                 rows="4"
                                 placeholder="نظر خود را وارد کنید ..."
                                 data-i18n="[placeholder]form.comment"
-                                data-i18n-aria="[aria-label]form.yourComment"
                                 required></textarea>
                     </div>
 
@@ -1080,7 +1115,7 @@
                         </div>
                         <div class="nes-captcha-row">
                           <img class="nes-captcha-img" alt="کد امنیتی" src="/inc/captcha.ashx" data-i18n="[alt]form.captcha">
-                          <button type="button" class="nes-btn nes-btn-icon" data-i18n="[aria-label]form.captchaRefresh">
+                          <button type="button" class="nes-btn nes-btn-icon">
                             <i class="es esprit-fi-rr-refresh"></i>
                           </button>
                           <input class="nes-captcha-input"
@@ -1112,9 +1147,9 @@
             <div class="sidebar__inner">
               <!-- بخش TTS (Text-to-Speech) -->
               <div id="tts-container" class="tts__container sound-player__container accessible-keep">
-                <audio id="tts-audio" class="sound-player__audio" controls data-i18n="[aria-label]audio.player">
+                <audio id="tts-audio" class="sound-player__audio" controls>
                   <source src="/assets/sounds/11 Midnight Thoughts.mp3" type="audio/mp3" />
-                  <span data-i18n="audio.unsupported">مرورگر شما از پخش صوت پشتیبانی نمی‌کند.</span>
+                  Your browser does not support the audio element.
                 </audio>
               </div>
 
@@ -1122,7 +1157,7 @@
               <div id="esprit-article-shortlink-wrapper" class="esprit-article-shortlink">
                 <!-- Right side - Short link -->
                 <input id="shorturlitem" type="hidden" value="https://niafam.com/ZJMDo" class="" />
-                <div id="copy-shorturl-btn" class="esprit-article-shortlink__link-container" role="button" tabindex="0" data-i18n="[aria-label]tools.shortlink.copy">
+                <div id="copy-shorturl-btn" class="esprit-article-shortlink__link-container">
                   <span id="shortur-alert" class="esprit-article-shortlink__alert accessible-hidden" data-i18n="tools.shortlink.copied">کپی شد!</span>
                   <span class="esprit-article-shortlink__link-icon">
                     <i class="es esprit-fi-rr-copy"></i>
@@ -1138,8 +1173,7 @@
                 <!-- Left side - Action buttons -->
                 <div id="esprit-article-shortlink-actions" class="esprit-article-shortlink__actions accessible-hidden">
                   <button id="print-content"
-                    class="esprit-article-shortlink__action esprit-article-shortlink__action--print"
-                    data-i18n="[aria-label]tools.print">
+                    class="esprit-article-shortlink__action esprit-article-shortlink__action--print">
                     <i class="es esprit-fi-rr-print"></i>
                     <!-- <img
                       class="esprit-article-shortlink__action-icon"
@@ -1148,8 +1182,7 @@
                     /> -->
                   </button>
                   <button id="create-pdf"
-                    class="esprit-article-shortlink__action esprit-article-shortlink__action--pdf"
-                    data-i18n="[aria-label]tools.pdf">
+                    class="esprit-article-shortlink__action esprit-article-shortlink__action--pdf">
                     <i class="es esprit-fi-rr-document-pdf"></i>
                     <!-- <img
                       class="esprit-article-shortlink__action-icon"
@@ -1158,8 +1191,7 @@
                     /> -->
                   </button>
                   <button id="open-modal-send-to-friend" data-custom-open="modal-send-to-friend"
-                    class="esprit-article-shortlink__action esprit-article-shortlink__action--eamil"
-                    data-i18n="[aria-label]tools.sendToFriend">
+                    class="esprit-article-shortlink__action esprit-article-shortlink__action--eamil">
                     <i class="es esprit-fi-rr-envelope"></i>
                     <!-- <img
                       class="esprit-article-shortlink__action-icon"
@@ -1234,8 +1266,8 @@
               <!-- بخش اطلاعات خبر -->
               <div id="esprit-article-info" class="esprit-article-info">
                 <div class="esprit-article-info__author-wrapper">
-                  <img class="esprit-article-info__author-img" src="/assets/img/Avatar.jpg" alt="تصویر نویسنده"
-                    width="40" height="40" />
+                  <img class="esprit-article-info__author-img" src="/assets/img/Avatar.jpg" alt="autor name"
+                    aria-label="autor image" width="40" height="40" />
                   <div class="esprit-article-info__author-info">
                     <span class="esprit-article-info__author-label" data-i18n="metadata.author">نویسنده</span>
                     <span id="author" class="esprit-article-info__author-value">خاطره فهیمی</span>
@@ -1281,35 +1313,23 @@
                 </h2>
                 <div class="esprit-article-share__buttons">
                   <a id="shareto-facebook" href="#" target="_blank"
-                    class="esprit-article-share__button esprit-article-share__button--facebook"
-                    data-i18n="[aria-label]share.facebook">
-                    <i class="es esprit-Facebook"></i>
-                  </a>
+                    class="esprit-article-share__button esprit-article-share__button--facebook"><i
+                      class="es esprit-Facebook"></i></a>
                   <a id="shareto-twitter" href="#" target="_blank"
-                    class="esprit-article-share__button esprit-article-share__button--twitter"
-                    data-i18n="[aria-label]share.twitter">
-                    <i class="es esprit-X-Twitter"></i>
-                  </a>
+                    class="esprit-article-share__button esprit-article-share__button--twitter"><i
+                      class="es esprit-X-Twitter"></i></a>
                   <a id="shareto-telegram" href="#" target="_blank"
-                    class="esprit-article-share__button esprit-article-share__button--telegram"
-                    data-i18n="[aria-label]share.telegram">
-                    <i class="es esprit-Telegram"></i>
-                  </a>
+                    class="esprit-article-share__button esprit-article-share__button--telegram"><i
+                      class="es esprit-Telegram"></i></a>
                   <a id="shareto-whatsapp" href="#" target="_blank"
-                    class="esprit-article-share__button esprit-article-share__button--whatsapp"
-                    data-i18n="[aria-label]share.whatsapp">
-                    <i class="es esprit-whatsapp"></i>
-                  </a>
+                    class="esprit-article-share__button esprit-article-share__button--whatsapp"><i
+                      class="es esprit-whatsapp"></i></a>
                   <a id="shareto-linkedin" href="#" target="_blank"
-                    class="esprit-article-share__button esprit-article-share__button--linkedin"
-                    data-i18n="[aria-label]share.linkedin">
-                    <i class="es esprit-linkedin"></i>
-                  </a>
+                    class="esprit-article-share__button esprit-article-share__button--whatsapp"><i
+                      class="es esprit-linkedin"></i></a>
                   <a id="shareto-email" href="#" target="_blank"
-                    class="esprit-article-share__button esprit-article-share__button--email"
-                    data-i18n="[aria-label]tools.sendToFriend">
-                    <i class="es esprit-fi-rr-envelope"></i>
-                  </a>
+                    class="esprit-article-share__button esprit-article-share__button--whatsapp"><i
+                      class="es esprit-fi-rr-envelope"></i></a>
                 </div>
               </div>
 
@@ -1382,27 +1402,21 @@
         <main class="modal__content" id="modal-send-to-friend-content">
           <form id="sendToFriends" class="nes-form">
             <div class="nes-form-group">
-              <input id="emailfrom" name="emailfrom" dir="ltr" placeholder="ایمیل شما *" 
-              data-i18n="[placeholder]modal.sendToFriend.yourEmail"
-              data-i18n-aria="[aria-label]modal.sendToFriend.yourEmail"
-               type="email"
-                class="nes-input" autocomplete="email" />
+              <input id="emailfrom" name="emailfrom" dir="ltr" placeholder="ایمیل شما *" data-i18n="[placeholder]modal.sendToFriend.yourEmail" type="text"
+                class="nes-input" />
             </div>
 
             <div class="nes-form-group">
-              <input id="emailto" name="emailto" dir="ltr" placeholder="ایمیل مقصد *" 
-              data-i18n="[placeholder]modal.sendToFriend.recipientEmail"
-              data-i18n-aria="[aria-label]modal.sendToFriend.recipientEmail"
-               type="email" class="nes-input" autocomplete="email" />
+              <input id="emailto" name="emailto" dir="ltr" placeholder="ایمیل مقصد *" data-i18n="[placeholder]modal.sendToFriend.recipientEmail" type="text" class="nes-input" />
             </div>
 
             <div class="nes-form-group nes-captcha-group">
               <label for="captchaSendto" class="nes-label" data-i18n="modal.sendToFriend.captchaLabel">متن موجود در تصویر را وارد کنید:</label>
-              <img id="es-captcha-img-cm" alt="کد امنیتی" class="nes-captcha-img" src="/inc/captcha.ashx" data-i18n="[alt]form.captcha" />
-              <button type="button" class="nes-btn nes-btn-icon nes-refresh-btn" data-i18n="[aria-label]form.captchaRefresh">
+              <img id="es-captcha-img-cm" alt="captcha" class="nes-captcha-img" src="/inc/captcha.ashx" />
+              <button type="button" class="nes-btn nes-btn-icon nes-refresh-btn">
                 <i class="es esprit-fi-rr-refresh"></i>
               </button>
-              <input name="captcha" id="captchaSendto" type="text" maxlength="6" class="nes-input nes-captcha-input" data-i18n="[aria-label]form.captcha" autocomplete="off" />
+              <input name="captcha" id="captchaSendto" type="text" maxlength="6" class="nes-input nes-captcha-input" />
             </div>
 
             <div class="nes-form-actions">
@@ -1427,34 +1441,34 @@
         <header class="modal__header">
           <div class="modal-reading-mode-accessibility">
             <div class="esprit-article-accessibility__controls">
-              <!-- Font size button -->
+              <!-- Text-only mode button -->
               <div class="esprit-article-accessibility__container">
                 <div class="esprit-article-accessibility__slider" id="reading-mode-fontSizeSlider"></div>
                 <button
                   class="es-article-accessibility-control-btn esprit-article-accessibility__button esprit-article-accessibility__button--readonly active"
-                  data-i18n="[aria-label]accessibility.fontSize">
+                  aria-label=" اندازه فونت">
                   <span class="esprit-article-accessibility__icon esprit-article-accessibility__icon--readonly"><i
                       class="es esprit-fi-rr-text-size"></i></span>
                 </button>
               </div>
 
-              <!-- Word spacing adjustment button -->
+              <!-- Line height adjustment button -->
               <div class="esprit-article-accessibility__container">
                 <div class="esprit-article-accessibility__slider" id="reading-mode-wordSpacingSlider"></div>
                 <button
                   class="es-article-accessibility-control-btn esprit-article-accessibility__button es-article-accessibility-control-btn esprit-article-accessibility__button--line-height"
-                  data-i18n="[aria-label]accessibility.wordSpacingAdjust">
+                  aria-label="تنظیم فاصله خطوط">
                   <span class="esprit-article-accessibility__icon esprit-article-accessibility__icon--line-height"><i
                       class="es esprit-fi-rr-text-width"></i></span>
                 </button>
               </div>
 
-              <!-- Line height adjustment button -->
+              <!-- Word spacing adjustment button -->
               <div class="esprit-article-accessibility__container">
                 <div class="esprit-article-accessibility__slider" id="reading-mode-lineHeightSlider"></div>
                 <button
                   class="es-article-accessibility-control-btn esprit-article-accessibility__button es-article-accessibility-control-btn esprit-article-accessibility__button--word-spacing"
-                  data-i18n="[aria-label]accessibility.lineHeightAdjust">
+                  aria-label="تنظیم فاصله کلمات">
                   <span class="esprit-article-accessibility__icon esprit-article-accessibility__icon--word-spacing"><i
                       class="es esprit-fi-rr-text-height"></i></span>
                 </button>
@@ -1464,7 +1478,7 @@
               <div class="esprit-article-accessibility__container">
                 <button
                   class="accessibility-bg-dropdown-toggle es-article-accessibility-control-btn esprit-article-accessibility__button"
-                  data-i18n="[aria-label]accessibility.backgroundColor">
+                  aria-label=" اندازه فونت">
                   <span class="esprit-article-accessibility__icon esprit-article-accessibility__icon--readonly"><i
                       class="es esprit-fi-rr-palette"></i></span>
                 </button>
