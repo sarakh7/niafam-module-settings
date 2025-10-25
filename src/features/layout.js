@@ -530,6 +530,19 @@ export function setLayout() {
       // Remove mobile styles
       article.style.gridTemplateColumns = "";
 
+      const sidebar = document.querySelector(SELECTORS.SIDEBAR);
+      const shortLinksWrapper = document.querySelector(
+        SELECTORS.SHORTLINK_WRAPPER
+      );
+
+      // Reset sidebar and shortlink wrapper styles
+      if (sidebar) {
+        sidebar.style.width = "";
+      }
+      if (shortLinksWrapper) {
+        shortLinksWrapper.style.display = "";
+      }
+
       const shortlinkElement = document.querySelector(
         SELECTORS.ESPRIT_ARTICLE_TOOLS_SHORTLINK
       );
