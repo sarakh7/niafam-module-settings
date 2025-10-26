@@ -25,12 +25,16 @@
     .modal__container {
         background-color: $blue-gray-100;
         padding: $spacing-3;
+        height: 95vh;
+        overflow: hidden;
     }
 
     .modal__content {
         padding: $spacing-3;
         margin-top: $spacing-3;
         border-radius: $radius-default;
+        height: calc(100% - 100px);
+        overflow: auto;
     }
 
     .accessibility-bg-dropdown {

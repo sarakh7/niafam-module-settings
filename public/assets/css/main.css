@@ -3228,11 +3228,15 @@ span.es {
 #modal-reading-mode .modal__container {
   background-color: hsl(231, 36%, 94%);
   padding: 16px;
+  height: 95vh;
+  overflow: hidden;
 }
 #modal-reading-mode .modal__content {
   padding: 16px;
   margin-top: 16px;
   border-radius: 8px;
+  height: calc(100% - 100px);
+  overflow: auto;
 }
 #modal-reading-mode .accessibility-bg-dropdown {
   position: relative;
