@@ -3310,6 +3310,10 @@ span.es {
   top: 10px;
   inset-inline-end: 10px;
 }
+#modal-reading-mode .plyr__menu__container {
+  bottom: auto;
+  top: 100%;
+}
 
 .es-vote-container {
   display: flex;
