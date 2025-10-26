@@ -152,7 +152,6 @@ function showGallery(galleryElem, loaderElem) {
   if (loaderElem) {
     loaderElem.style.display = "none";
   }
-  galleryElem.style.visibility = "visible";
   galleryElem.classList.add("is-visible");
 }
 
@@ -193,9 +192,8 @@ export function initGallery(selector = ".esprit-article__gallery") {
   if (!galleryElem) return;
 
   const loaderElem = document.getElementById("gallery-loader");
-  
+
   // Initially hide gallery and show loader
-  galleryElem.style.visibility = "hidden";
   galleryElem.classList.remove("is-visible");
   if (loaderElem) {
     loaderElem.style.display = "block";
@@ -203,6 +201,17 @@ export function initGallery(selector = ".esprit-article__gallery") {
 
   const items = Array.from(galleryElem.querySelectorAll("a"));
   const images = items.map((el) => el.querySelector("img"));
+
+  // Calculate estimated initial height to prevent layout shift
+  const settings = defaultSettings.gallery;
+  const containerWidth = galleryElem.clientWidth || galleryElem.parentElement.clientWidth;
+  const estimatedItemsPerRow = Math.floor(containerWidth / (settings.targetRowHeight * 1.5));
+  const estimatedRows = Math.ceil(items.length / Math.max(estimatedItemsPerRow, 1));
+  const estimatedHeight = (estimatedRows * settings.targetRowHeight) + ((estimatedRows - 1) * settings.boxSpacing);
+
+  // Set estimated height to reserve space and prevent scrollbar flash
+  galleryElem.style.height = `${estimatedHeight}px`;
+  galleryElem.style.position = "relative";
 
   const layoutGallery = () => createJustifiedLayout(galleryElem, items, images);
 
