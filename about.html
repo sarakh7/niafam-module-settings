@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نیافام - درباره ما</title>
+  <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+
+  <!-- Import SCSS - Vite will process it -->
+  <link rel="stylesheet" href="/src/assets/scss/main.scss" />
+
+  <!-- Custom styles for About page -->
+  <style>
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      font-family: Dana, Tahoma, sans-serif;
+    }
+
+    .about-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .about-header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .about-header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .about-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .about-card h3 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .about-card p {
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .language-switcher button {
+      margin: 0 5px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #667eea;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .language-switcher button:hover {
+      background: #764ba2;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background: #764ba2;
+      transform: scale(1.05);
+    }
+
+    .text-center {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <button onclick="changeLanguage('fa')">فارسی</button>
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('ar')">العربية</button>
+  </div>
+
+  <div class="about-container">
+    <!-- Header -->
+    <div class="about-header">
+      <h1 data-i18n="about.title">درباره نیافام</h1>
+      <p data-i18n="about.subtitle">پلتفرم خبری پیشرو با پشتیبانی از چند زبان</p>
+    </div>
+
+    <!-- Content Cards -->
+    <div class="about-content">
+      <div class="about-card">
+        <h3 data-i18n="about.mission.title">ماموریت ما</h3>
+        <p data-i18n="about.mission.text">
+          ارائه اخبار دقیق، به‌موقع و بی‌طرفانه به کاربران در سراسر جهان با پشتیبانی از زبان‌های مختلف.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3 data-i18n="about.vision.title">چشم‌انداز ما</h3>
+        <p data-i18n="about.vision.text">
+          تبدیل شدن به معتبرترین منبع خبری منطقه با تکیه بر فناوری و نوآوری.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3 data-i18n="about.values.title">ارزش‌های ما</h3>
+        <p data-i18n="about.values.text">
+          صداقت، شفافیت، نوآوری و تعهد به کیفیت در هر آنچه انجام می‌دهیم.
+        </p>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="about-content">
+      <div class="about-card">
+        <h3 data-i18n="about.features.multilingual.title">🌍 چندزبانه</h3>
+        <p data-i18n="about.features.multilingual.text">
+          پشتیبانی از 5 زبان: فارسی، انگلیسی، عربی، ترکی و روسی
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3 data-i18n="about.features.responsive.title">📱 واکنش‌گرا</h3>
+        <p data-i18n="about.features.responsive.text">
+          طراحی بهینه برای تمام دستگاه‌ها از موبایل تا دسکتاپ
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3 data-i18n="about.features.accessible.title">♿ دسترسی‌پذیر</h3>
+        <p data-i18n="about.features.accessible.text">
+          ویژگی‌های دسترسی‌پذیری برای همه کاربران
+        </p>
+      </div>
+    </div>
+
+    <!-- Gallery Demo -->
+    <div style="margin-top: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px; color: #667eea;">نمونه گالری تصاویر</h2>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">روی هر تصویر کلیک کنید تا گالری باز شود</p>
+
+      <!-- Gallery Loader -->
+      <div id="gallery-loader" style="text-align: center; padding: 40px;">
+        <div class="spinner" style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #667eea; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        <p data-i18n="gallery.loading" style="margin-top: 10px; color: #667eea;">در حال بارگذاری گالری...</p>
+      </div>
+
+      <!-- Gallery Container -->
+      <div class="esprit-article__gallery"
+           data-gallery-id="demo-gallery"
+           data-row-height="250"
+           data-max-rows="2"
+           data-container-padding="10"
+           data-box-spacing="10">
+
+        <!-- Gallery Item 1 -->
+        <a href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200"
+           class="esprit-article__gallery-item"
+           data-width="1200"
+           data-height="800"
+           data-sub-html="<h4>منظره زیبای طبیعت</h4><p>عکس از Unsplash</p>">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400"
+               alt="منظره طبیعت"
+               loading="lazy" />
+        </a>
+
+        <!-- Gallery Item 2 -->
+        <a href="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200"
+           class="esprit-article__gallery-item"
+           data-width="1200"
+           data-height="800"
+           data-sub-html="<h4>دریاچه در جنگل</h4><p>عکس از Unsplash</p>">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400"
+               alt="دریاچه"
+               loading="lazy" />
+        </a>
+
+        <!-- Gallery Item 3 -->
+        <a href="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200"
+           class="esprit-article__gallery-item"
+           data-width="1200"
+           data-height="800"
+           data-sub-html="<h4>کوهستان در غروب</h4><p>عکس از Unsplash</p>">
+          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400"
+               alt="کوهستان"
+               loading="lazy" />
+        </a>
+
+        <!-- Gallery Item 4 -->
+        <a href="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200"
+           class="esprit-article__gallery-item"
+           data-width="1200"
+           data-height="675"
+           data-sub-html="<h4>جنگل سبز</h4><p>عکس از Unsplash</p>">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400"
+               alt="جنگل"
+               loading="lazy" />
+        </a>
+
+        <!-- Gallery Item 5 -->
+        <a href="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200"
+           class="esprit-article__gallery-item"
+           data-width="1200"
+           data-height="800"
+           data-sub-html="<h4>آسمان و ابرها</h4><p>عکس از Unsplash</p>">
+          <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400"
+               alt="آسمان"
+               loading="lazy" />
+        </a>
+
+        <!-- Gallery Item 6 -->
+        <a href="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1200"
+           class="esprit-article__gallery-item"
+           data-width="1200"
+           data-height="800"
+           data-sub-html="<h4>مسیر در میان درختان</h4><p>عکس از Unsplash</p>">
+          <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=400"
+               alt="مسیر جنگلی"
+               loading="lazy" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Video Player Demo -->
+    <div style="margin-top: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px; color: #667eea;">نمونه پخش‌کننده ویدیو</h2>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <video id="demo-video" playsinline controls>
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
+        </video>
+      </div>
+    </div>
+
+    <!-- Audio Player Demo -->
+    <div style="margin-top: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px; color: #667eea;">نمونه پخش‌کننده صوتی</h2>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <audio id="demo-audio" controls>
+          <source src="https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.mp3" type="audio/mp3">
+        </audio>
+      </div>
+    </div>
+
+    <!-- Short URL Demo -->
+    <div style="margin-top: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px; color: #667eea;">نمونه لینک کوتاه</h2>
+      <div style="display: flex; justify-content: center;">
+        <div class="esprit-article-shortlink">
+          <div class="esprit-article-shortlink__link-container" id="copy-shorturl-btn">
+            <span class="esprit-article-shortlink__link-icon">
+              <i class="es esprit-fi-rr-link-alt"></i>
+            </span>
+            <span data-i18n="tools.shortlink.copy">کپی لینک کوتاه</span>
+            <div class="esprit-article-shortlink__alert" id="shortur-alert"></div>
+          </div>
+          <input type="hidden" id="shorturlitem" value="https://niafam.ir/abc123" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Icons Demo -->
+    <div style="margin-top: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px; color: #667eea;">نمونه آیکن‌های موجود</h2>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">برای استفاده از آیکن‌ها، از کلاس <code>es esprit-fi-rr-[نام-آیکن]</code> استفاده کنید</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+        <!-- Icon: Link -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-link-alt" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">link-alt</p>
+        </div>
+
+        <!-- Icon: Share -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-share" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">share</p>
+        </div>
+
+        <!-- Icon: Document -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-document" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">document</p>
+        </div>
+
+        <!-- Icon: Zoom In -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-zoom-in" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">zoom-in</p>
+        </div>
+
+        <!-- Icon: Play -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-play" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">play</p>
+        </div>
+
+        <!-- Icon: Video Camera -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-video-camera" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">video-camera</p>
+        </div>
+
+        <!-- Icon: Text -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-text" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">text</p>
+        </div>
+
+        <!-- Icon: Print -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-print" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">print</p>
+        </div>
+
+        <!-- Icon: Download -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-download" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">download</p>
+        </div>
+
+        <!-- Icon: Search -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-search" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">search</p>
+        </div>
+
+        <!-- Icon: User -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-user" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">user</p>
+        </div>
+
+        <!-- Icon: Settings -->
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <i class="es esprit-fi-rr-settings" style="font-size: 2.5rem; color: #667eea;"></i>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">settings</p>
+        </div>
+      </div>
+
+      <!-- Usage Example -->
+      <div style="max-width: 800px; margin: 40px auto; padding: 30px; background: #f8f9fa; border-radius: 15px; border-left: 5px solid #667eea;">
+        <h3 style="color: #667eea; margin-bottom: 15px;">نحوه استفاده:</h3>
+        <pre style="background: white; padding: 20px; border-radius: 10px; overflow-x: auto; direction: ltr; text-align: left;"><code>&lt;i class="es esprit-fi-rr-link-alt"&gt;&lt;/i&gt;
+&lt;i class="es esprit-fi-rr-share"&gt;&lt;/i&gt;
+&lt;i class="es esprit-fi-rr-document"&gt;&lt;/i&gt;</code></pre>
+
+        <h3 style="color: #667eea; margin: 25px 0 15px;">تغییر اندازه:</h3>
+        <div style="display: flex; gap: 20px; align-items: center; background: white; padding: 20px; border-radius: 10px;">
+          <i class="es esprit-fi-rr-play" style="font-size: 1rem; color: #667eea;"></i>
+          <i class="es esprit-fi-rr-play" style="font-size: 1.5rem; color: #667eea;"></i>
+          <i class="es esprit-fi-rr-play" style="font-size: 2rem; color: #667eea;"></i>
+          <i class="es esprit-fi-rr-play" style="font-size: 3rem; color: #667eea;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center">
+      <button class="cta-button" data-micromodal-trigger="test-modal" data-i18n="about.cta">
+        بیشتر بدانید
+      </button>
+    </div>
+  </div>
+
+  <!-- Test Modal -->
+  <div class="modal micromodal-slide" id="test-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="test-modal-title">
+        <header class="modal__header">
+          <h2 class="modal__title" id="test-modal-title" data-i18n="about.modal.title">
+            اطلاعات بیشتر
+          </h2>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+        </header>
+        <main class="modal__content" id="test-modal-content">
+          <p data-i18n="about.modal.content">
+            این یک ماژول تست است که نشان می‌دهد چگونه می‌توانید ماژول‌های جدید به پروژه اضافه کنید.
+            این ماژول از i18n، modal و استایل‌های سفارشی استفاده می‌کند.
+          </p>
+          <ul style="text-align: right; padding-right: 20px; line-height: 2;">
+            <li data-i18n="about.modal.feature1">پشتیبانی کامل از i18n</li>
+            <li data-i18n="about.modal.feature2">Modal با MicroModal</li>
+            <li data-i18n="about.modal.feature3">استایل‌های سفارشی</li>
+            <li data-i18n="about.modal.feature4">انیمیشن‌های روان</li>
+          </ul>
+        </main>
+        <footer class="modal__footer">
+          <button class="modal__btn" data-micromodal-close data-i18n="about.modal.close">بستن</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import JavaScript - Vite will process it -->
+  <script type="module" src="/src/about.js"></script>
+</body>
+</html>

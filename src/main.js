@@ -7,7 +7,7 @@ import {
 } from "./features/mediaPlayer";
 import { initAccessibilityActions } from "./features/accessibilityControls";
 import { initScrollNav } from "./utils/scrollNav";
-import "./assets/scss/main.scss";
+// import "./assets/scss/main.scss";
 import { initCopyShortUrl } from "./features/copyShortUrl";
 import { initPdfGenerator } from "./features/pdfGenerator";
 import { initPrintNewsContent } from "./features/printNewsContent";

@@ -98,24 +98,24 @@ $handle-border: $blue-gray-400; // border color
 $handle-bg: white;
 
 .noUi-target {
-    background: $track-bg;
-    border-radius: 10px;
-    border: none;
-    box-shadow: none;
-    height: 5px;
+    background: $track-bg !important;
+    border-radius: 10px !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 5px !important;
 }
 
 // filled part
 .noUi-connect {
-    background: $connect-bg;
+    background: $connect-bg !important;
 }
 
 // handle
 .noUi-horizontal {
 
     .noUi-handle {
-        width: 15px;
-        height: 15px;
+        width: 15px !important;
+        height: 15px !important;
         border-radius: 50%;
         border: 1px solid $handle-border;
         background: $handle-bg;
@@ -131,7 +131,7 @@ $handle-bg: white;
     }
 
     .noUi-tooltip {
-        bottom: auto;
+        bottom: auto !important;
         top: 20px;
         display: flex;
         align-items: center;
@@ -146,6 +146,7 @@ $handle-bg: white;
         opacity: 0;
         pointer-events: none;
         transition: $transition;
+        border: none;
 
         &::after {
             content: "";
@@ -158,30 +159,29 @@ $handle-bg: white;
             left: 50%;
             top: -5px;
             transform: translateX(-50%);
-
         }
     }
 }
 
 // pips
 .noUi-pips {
-    height: 5px;
+    height: 5px !important;
 
     .noUi-marker {
         background: $connect-bg;
 
         &.noUi-marker-large {
-            height: 5px;
-            width: 1px;
+            height: 5px !important;
+            width: 1px !important;
         }
 
         &.noUi-marker-normal {
-            display: none;
+            display: none !important;
         }
 
         &.noUi-marker-sub {
-            height: 6px;
-            width: 2px;
+            height: 6px !important;
+            width: 2px !important;
         }
     }
 
@@ -191,14 +191,14 @@ $handle-bg: white;
 }
 
 .noUi-pips-horizontal {
-    padding: 0;
-    margin-bottom: 7px;
-    bottom: 100%;
-    top: auto;
+    padding: 0 !important;
+    margin-bottom: 7px !important;
+    bottom: 100% !important;
+    top: auto !important;
 }
 
 .noUi-txt-dir-rtl.noUi-horizontal {
     .noUi-handle {
-        left: -7.5px;
+        left: -7.5px !important;
     }
 }

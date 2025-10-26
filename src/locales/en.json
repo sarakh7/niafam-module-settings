@@ -94,7 +94,8 @@
     "shortlink": {
       "title": "Short Link",
       "copy": "Copy Short Link",
-      "copied": "Copied!"
+      "copied": "Copied!",
+      "failed": "Failed to copy!"
     },
     "print": "Print",
     "pdf": "PDF",
@@ -185,11 +186,6 @@
       }
     }
   },
-  "vote": {
-    "question": "Was this news helpful?",
-    "yes": "Yes",
-    "no": "No"
-  },
   "comments": {
     "title": "Comments",
     "count": "comment(s) for this news",
@@ -224,5 +220,45 @@
   "images": {
     "author": "Author Image",
     "commenter": "Commenter Image"
+  },
+  "about": {
+    "title": "About Niafam",
+    "subtitle": "Leading news platform with multi-language support",
+    "cta": "Learn More",
+    "mission": {
+      "title": "Our Mission",
+      "text": "Delivering accurate, timely and unbiased news to users worldwide with support for multiple languages."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "Becoming the most trusted news source in the region through technology and innovation."
+    },
+    "values": {
+      "title": "Our Values",
+      "text": "Honesty, transparency, innovation and commitment to quality in everything we do."
+    },
+    "features": {
+      "multilingual": {
+        "title": "🌍 Multilingual",
+        "text": "Support for 5 languages: Persian, English, Arabic, Turkish and Russian"
+      },
+      "responsive": {
+        "title": "📱 Responsive",
+        "text": "Optimized design for all devices from mobile to desktop"
+      },
+      "accessible": {
+        "title": "♿ Accessible",
+        "text": "Accessibility features for all users"
+      }
+    },
+    "modal": {
+      "title": "More Information",
+      "content": "This is a test module that demonstrates how you can add new modules to the project. This module uses i18n, modal and custom styles.",
+      "feature1": "Full i18n support",
+      "feature2": "Modal with MicroModal",
+      "feature3": "Custom styles",
+      "feature4": "Smooth animations",
+      "close": "Close"
+    }
   }
 }

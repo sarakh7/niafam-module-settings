@@ -10,10 +10,12 @@
 <!-- <link rel="stylesheet" href="/assets/css/espritstyle.css" /> -->
 <!-- <link rel="stylesheet" href="/assets/css/article.css" /> -->
 <!-- <link rel="stylesheet" href="/assets/css/index-styles.css" /> -->
-<link rel="stylesheet" href="/assets/css/main.css" />
-<!-- <link rel="stylesheet" href="/src/assets/scss/main.scss" /> -->
+<!-- <link rel="stylesheet" href="/assets/css/main.css" /> -->
 
 <script src="/assets/js/jquery.js"></script>
+
+<!-- Import main SCSS - Vite will process it -->
+<link rel="stylesheet" href="/src/assets/scss/main.scss" />
 
 <style>
   @font-face {
@@ -120,6 +122,13 @@ ul.breadcrumb li a:hover {
   text-decoration: underline;
 }
 </style>
+
+<!-- Import CSS from built packages -->
+<!-- <link rel="stylesheet" href="./packages/shared-styles/dist/style.css">
+<link rel="stylesheet" href="./packages/features/gallery/dist/style.css">
+<link rel="stylesheet" href="./packages/features/media-player/dist/style.css">
+<link rel="stylesheet" href="./packages/modules/news/dist/index.css"> -->
+
 </head>
 
 <body>
@@ -1517,6 +1526,7 @@ ul.breadcrumb li a:hover {
   </div>
 </div>
 
+<!-- Import main.js as module - Vite will process it -->
 <script type="module" src="/src/main.js"></script>
 </body>
 
