@@ -18,6 +18,7 @@ import { setLayout } from "./features/layout";
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
 import { initTtsVisibility, initReadingModeTtsVisibility, syncTtsSource } from "./features/ttsManager";
+import { initRelatedContent } from "./features/relatedContent";
 
 /**
  * Initialize all application features
@@ -34,6 +35,7 @@ async function initializeApp() {
     initVideoPlayer();
     initAudioPlayer();
     initAccessibilityActions();
+    initRelatedContent();
     initScrollNav("related-content-list");
     initCopyShortUrl();
     initPdfGenerator();
