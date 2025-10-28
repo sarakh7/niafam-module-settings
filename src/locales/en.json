@@ -93,7 +93,7 @@
     "toolbox": "Toolbox",
     "shortlink": {
       "title": "Short Link",
-      "copy": "Copy Short Link",
+      "copy": "Copy Link",
       "copied": "Copied!",
       "failed": "Failed to copy!"
     },

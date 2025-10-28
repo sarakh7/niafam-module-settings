@@ -67,6 +67,24 @@ function showAlert(options = {}) {
 }
 
 /**
+ * Validate if a string is a valid URL
+ * @param {string} string - String to validate
+ * @returns {boolean} True if valid URL
+ */
+function isValidUrl(string) {
+  if (!string || string.trim() === "") {
+    return false;
+  }
+
+  try {
+    new URL(string);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+/**
  * Initialize short URL copy functionality
  * @param {Object} options - Configuration options
  * @param {string} [options.btnId='copy-shorturl-btn'] - Copy button ID
@@ -89,7 +107,7 @@ export function initCopyShortUrl(options = {}) {
 
   copyLinkButton.addEventListener("click", (e) => {
     e.preventDefault();
-    
+
     const shortUrlItem = document.getElementById(inputId);
     const shortUrlTooltip = document.getElementById(alertId);
 
@@ -98,9 +116,14 @@ export function initCopyShortUrl(options = {}) {
       return;
     }
 
-    const text = shortUrlItem.getAttribute("value");
-    
-    copyToClipboard(text || "").then((success) => {
+    let text = shortUrlItem.getAttribute("value");
+
+    // If value is empty or not a valid URL, use current page URL
+    if (!isValidUrl(text)) {
+      text = window.location.href;
+    }
+
+    copyToClipboard(text).then((success) => {
       if (!shortUrlTooltip) return;
 
       if (success) {
