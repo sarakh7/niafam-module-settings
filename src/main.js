@@ -5,7 +5,7 @@ import {
   initTts,
   initVideoPlayer,
 } from "./features/mediaPlayer";
-import { initAccessibilityActions } from "./features/accessibilityControls";
+import { initAccessibilityActions } from "./features/accessibility";
 import { initScrollNav } from "./utils/scrollNav";
 // import "./assets/scss/main.scss";
 import { initCopyShortUrl } from "./features/copyShortUrl";
