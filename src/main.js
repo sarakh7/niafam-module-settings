@@ -17,6 +17,7 @@ import { initModal } from "./features/modal";
 import { setLayout } from "./features/layout";
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
+import { initTtsVisibility, initReadingModeTtsVisibility, syncTtsSource } from "./features/ttsManager";
 
 /**
  * Initialize all application features
@@ -38,8 +39,19 @@ async function initializeApp() {
     initPdfGenerator();
     initPrintNewsContent();
     setShareLinks("");
-    initTts();
-    initReadingModeTts();
+
+    // Check TTS visibility before initializing player
+    if (initTtsVisibility()) {
+      initTts();
+    }
+
+    // Sync TTS source from main to reading mode
+    syncTtsSource();
+
+    // Check Reading Mode TTS visibility before initializing player
+    if (initReadingModeTtsVisibility()) {
+      initReadingModeTts();
+    }
     initStickySidebar();
     initModal();
     setLayout();

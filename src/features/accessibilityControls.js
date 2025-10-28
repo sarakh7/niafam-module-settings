@@ -1,5 +1,6 @@
 import noUiSlider from "nouislider";
 import "nouislider/dist/nouislider.css";
+import { DEFAULT_READING_MODE_BG_THEME } from "../config/constants";
 
 function createSlider(id, start, callback) {
   const slider = document.getElementById(id);
@@ -281,6 +282,30 @@ export function initBackgroundColorDropdown(
   const toggleBtn = dropdown.querySelector(".accessibility-bg-dropdown-toggle");
   const menu = dropdown.querySelector(".accessibility-bg-dropdown-menu");
 
+  if (!toggleBtn || !menu) {
+    console.warn('Toggle button or menu not found');
+    return;
+  }
+
+  // Get default theme from constants
+  const defaultColor = DEFAULT_READING_MODE_BG_THEME.color;
+  const defaultBgColor = DEFAULT_READING_MODE_BG_THEME.backgroundColor;
+
+  // Set initial colors on load
+  container.style.backgroundColor = defaultBgColor;
+  container.style.color = defaultColor;
+  toggleBtn.style.backgroundColor = defaultBgColor;
+  toggleBtn.style.color = defaultColor;
+
+  console.log('Reading mode initial colors set:', {
+    defaultColor,
+    defaultBgColor,
+    containerBg: container.style.backgroundColor,
+    toggleBtnBg: toggleBtn.style.backgroundColor,
+    toggleBtn,
+    container
+  });
+
   // باز و بسته کردن منو
   toggleBtn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -318,7 +343,7 @@ export function initBackgroundColorDropdown(
   });
 
   return {
-    reset: (defaultColor = "#1f1f1fff", defaultBgColor = "#ffffffff") => {
+    reset: () => {
       container.style.backgroundColor = defaultBgColor;
       container.style.color = defaultColor;
       toggleBtn.style.backgroundColor = "";

@@ -101,3 +101,26 @@ export const SOCIAL_SHARE_DEFAULTS = {
     }
   }
 };
+
+// Reading mode background color themes
+export const READING_MODE_BG_THEMES = {
+  LIGHT: {
+    color: '#1f1f1fff',
+    backgroundColor: '#ffffffff'
+  },
+  DARK: {
+    color: '#e3e3e3ff',
+    backgroundColor: '#202124ff'
+  },
+  YELLOW: {
+    color: '#1f1f1fff',
+    backgroundColor: '#feefc3ff'
+  },
+  BLUE: {
+    color: '#1f1f1fff',
+    backgroundColor: '#d2e3fcff'
+  }
+};
+
+// Default reading mode background theme
+export const DEFAULT_READING_MODE_BG_THEME = READING_MODE_BG_THEMES.YELLOW;
