@@ -102,6 +102,7 @@
             background: $gray-100;
             color: $gray-500;
             font-size: map.get($text-sizes, 12);
+
         }
 
         &-icon {
@@ -141,4 +142,12 @@
         }
     }
 
+}
+
+[dir=ltr] {
+    .esprit-article-related-content {
+        &__item-arrow {
+            transform: scale(-1);
+        }
+    }
 }
