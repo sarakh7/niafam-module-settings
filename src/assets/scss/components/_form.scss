@@ -19,6 +19,12 @@ $spacing: $spacing-2;
   margin-bottom: 1rem;
 }
 
+.nes-captcha-row {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  flex-wrap: wrap;
+}
 //  Inputs
 .nes-input {
   width: 100%;
@@ -89,15 +95,15 @@ $spacing: $spacing-2;
   }
 
   .nes-captcha-img {
-    width: 80px;
-    height: 35px;
+    width: 90px;
+    height: 39px;
     object-fit: cover;
     border: 1px solid $border-color;
     border-radius: $border-radius;
   }
 
   .nes-captcha-input {
-    width: 80px;
+    width: 90px;
     text-align: center;
   }
 }

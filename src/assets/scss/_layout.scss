@@ -55,6 +55,12 @@
       padding-top: 0;
     }
   }
+
+  .plyr__volume {
+    @include respond-to(xs) {
+      display: none;
+    }
+  }
 }
 
 .es-article-tools {
