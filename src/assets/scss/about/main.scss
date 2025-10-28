@@ -1,0 +1,12 @@
+// About Module Main SCSS
+// Import common base styles
+@use '../common/base/variables' as *;
+@use '../common/base/mixins';
+@use '../common/base/reset';
+@use '../common/base/colors' as *;
+@use '../common/esfonticon/style';
+
+// Import common components
+@use '../common/components/gallery';
+@use '../common/components/modal';
+@use '../common/components/form';

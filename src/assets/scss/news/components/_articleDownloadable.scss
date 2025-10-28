@@ -1,0 +1,58 @@
+@use "sass:map";
+@use '../../common/base/globals' as *;
+
+.esprit-article {
+    &__downloadable-files {}
+
+    &__file-list {
+        display: flex;
+        row-gap: $spacing-3;
+        column-gap: 60px;
+        flex-wrap: wrap;
+        align-items: start;
+        list-style: none;
+        padding-inline-start: 24px;
+
+        @include respond-to(sm) {
+            column-gap: $spacing-3;
+        }
+    }
+
+    &__file-link {
+        color: $blue-gray-800;
+        font-size: map.get($text-sizes, 16);
+        font-weight: $text-regular;
+        transition: $transition;
+
+        @include respond-to(sm) {
+            font-size: map.get($text-sizes, 14);
+        }
+    }
+
+    &__file-item {
+        width: calc(50% - 30px);
+        display: flex;
+        align-items: center;
+        gap: $spacing-1;
+
+        i {
+            font-size: map.get($text-sizes, 20);
+            color: #374957;
+            transition: $transition;
+        }
+
+        &:hover {
+            .esprit-article__file-link {
+                color: $link-hover-color;
+            }
+
+            i {
+                color: $link-hover-color;
+            }
+        }
+
+        @include respond-to(xs) {
+            width: 100%;
+        }
+    }
+}

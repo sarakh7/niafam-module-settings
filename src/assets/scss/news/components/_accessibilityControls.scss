@@ -1,0 +1,205 @@
+@use "sass:map";
+@use '../../common/base/globals' as *;
+
+.esprit-article-accessibility {
+    @include sideBox;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-inline-start: 4px;
+    padding-inline-end: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+
+    &__size-indicator {
+        flex-grow: 1;
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: 1px;
+        width: 100%;
+    }
+
+    &__button {
+        @include iconButton;
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        flex-shrink: 0;
+        transition: $transition;
+    }
+
+
+    &__container {
+        display: flex;
+        align-items: center;
+        border-start-start-radius: 6px;
+        border-end-start-radius: 6px;
+        transition: $transition;
+
+        .esprit-article-accessibility__slider {
+            flex-grow: 1;
+            width: 0;
+            margin-top: 9px;
+
+            * {
+                // display: none;
+                visibility: hidden;
+            }
+        }
+    }
+
+    &__container:has(.active) {
+        flex-grow: 1;
+        gap: 12px;
+        padding-inline-start: 12px;
+        background: $blue-gray-50;
+
+        .esprit-article-accessibility__slider {
+            width: 100%;
+
+            * {
+                // display: block;
+                visibility: visible;
+            }
+        }
+
+        &:hover {
+            .noUi-horizontal {
+                .noUi-tooltip {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+        }
+    }
+
+    &__reloadPageBtn {
+        position: fixed;
+        inset-inline-start: $spacing-3;
+        bottom: $spacing-3;
+        display: none;
+
+        &.active {
+            display: flex !important;
+        }
+
+    }
+}
+
+
+// color and sizes
+$track-bg: $blue-gray-200; //Light color of the tape
+$connect-bg: $blue-gray-200; // filled part
+$handle-border: $blue-gray-400; // border color
+$handle-bg: white;
+
+.noUi-target {
+    background: $track-bg !important;
+    border-radius: 10px !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 5px !important;
+}
+
+// filled part
+.noUi-connect {
+    background: $connect-bg !important;
+}
+
+// handle
+.noUi-horizontal {
+
+    .noUi-handle {
+        width: 15px !important;
+        height: 15px !important;
+        border-radius: 50%;
+        border: 1px solid $handle-border;
+        background: $handle-bg;
+        top: -5px;
+        right: 7.5px;
+        box-shadow: none;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+
+    .noUi-tooltip {
+        bottom: auto !important;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        background: $blue-gray-700;
+        color: #ffffff;
+        border-radius: $spacing-1;
+        min-width: 48px;
+        font-size: map.get($text-sizes, 12);
+        font-weight: $text-regular;
+        opacity: 0;
+        pointer-events: none;
+        transition: $transition;
+        border: none;
+
+        &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 6px solid $blue-gray-600;
+            position: absolute;
+            left: 50%;
+            top: -5px;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+// pips
+.noUi-pips {
+    height: 5px !important;
+
+    .noUi-marker {
+        background: $connect-bg;
+
+        &.noUi-marker-large {
+            height: 5px !important;
+            width: 1px !important;
+        }
+
+        &.noUi-marker-normal {
+            display: none !important;
+        }
+
+        &.noUi-marker-sub {
+            height: 6px !important;
+            width: 2px !important;
+        }
+    }
+
+    .noUi-value {
+        display: none !important;
+    }
+}
+
+.noUi-pips-horizontal {
+    padding: 0 !important;
+    margin-bottom: 7px !important;
+    bottom: 100% !important;
+    top: auto !important;
+}
+
+.noUi-txt-dir-rtl.noUi-horizontal {
+    .noUi-handle {
+        left: -7.5px !important;
+    }
+}
+

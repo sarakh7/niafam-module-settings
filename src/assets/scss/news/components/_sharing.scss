@@ -1,0 +1,46 @@
+@use "sass:map";
+@use '../../common/base/globals' as *;
+
+.esprit-article-share {
+    @include sideBox;
+    padding: 12px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: $spacing-1;
+        color: $gray-700;
+        font-size: map.get($text-sizes, 14);
+        font-weight: $text-medium;
+
+        i {
+            color: $gray-500;
+            font-size: 20px;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: $spacing-3;
+    }
+
+    &__button {
+        font-size: 20px;
+        color: $gray-400;
+        transition: $transition;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            color: $blue-gray-600;
+        }
+    }
+}

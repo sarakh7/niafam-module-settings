@@ -1,24 +1,24 @@
-import { initGallery } from "./features/gallery";
+import { initGallery } from "./features/common/gallery";
 import {
   initAudioPlayer,
   initReadingModeTts,
   initTts,
   initVideoPlayer,
-} from "./features/mediaPlayer";
-import { initAccessibilityActions } from "./features/accessibility";
+} from "./features/common/mediaPlayer";
+import { initAccessibilityActions } from "./features/news/accessibility";
 import { initScrollNav } from "./utils/scrollNav";
-// import "./assets/scss/main.scss";
-import { initCopyShortUrl } from "./features/copyShortUrl";
-import { initPdfGenerator } from "./features/pdfGenerator";
-import { initPrintNewsContent } from "./features/printNewsContent";
-import { setShareLinks } from "./features/shareLinks";
-import { initStickySidebar } from "./features/stickySidebar";
-import { initModal } from "./features/modal";
-import { setLayout } from "./features/layout";
+import { initCopyShortUrl } from "./features/common/copyShortUrl";
+import { initPdfGenerator } from "./features/news/pdfGenerator";
+import { initPrintNewsContent } from "./features/news/printNewsContent";
+import { setShareLinks } from "./features/news/shareLinks";
+import { initStickySidebar } from "./features/news/stickySidebar";
+import { initModal } from "./features/common/modal";
+import { setLayout } from "./features/news/layout";
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
-import { initTtsVisibility, initReadingModeTtsVisibility, syncTtsSource } from "./features/ttsManager";
-import { initRelatedContent } from "./features/relatedContent";
+import { initTtsVisibility, initReadingModeTtsVisibility, syncTtsSource } from "./features/news/ttsManager";
+import { initRelatedContent } from "./features/news/relatedContent";
+import "./assets/scss/news.scss";
 
 /**
  * Initialize all application features

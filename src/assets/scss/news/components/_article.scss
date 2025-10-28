@@ -1,0 +1,35 @@
+  @use '../../common/components/common';
+  @use 'shortLink';
+  @use 'accessibilityControls';
+  @use 'articleInfo';
+  @use 'sharing';
+  @use 'relatedContent';
+  @use 'articleHeader';
+  @use 'articleContent';
+  @use 'articleDownloadable';
+  @use 'videoList';
+  @use 'soundList';
+  @use 'relatedNews';
+  @use 'articleTags';
+  @use 'articleMetadata';
+  @use 'tts';
+  @use 'readingMode';
+  @use 'voteReviews';
+
+  .esprit-article {
+    max-width: 100%;
+    overflow-x: hidden;
+
+    &__header {}
+
+    &__content {}
+
+    //downloadable-files style
+    &__downloadable-files {}
+
+    &__file-list {}
+
+    &__file-item {}
+
+    &__file-link {}
+  }

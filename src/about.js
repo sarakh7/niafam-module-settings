@@ -8,16 +8,16 @@ import { initI18n, changeLanguage as changeLang } from './config/i18n.js';
 import { localizeDOM } from './utils/i18n-localizer.js';
 
 // Import features
-import { initModal } from './features/modal.js';
-import { initCopyShortUrl } from './features/copyShortUrl.js';
-import { initGallery } from './features/gallery.js';
+import { initModal } from './features/common/modal.js';
+import { initCopyShortUrl } from './features/common/copyShortUrl.js';
+import { initGallery } from './features/common/gallery.js';
 
 // Import Plyr for simple media players
 import Plyr from 'plyr';
 import 'plyr/dist/plyr.css';
 import i18next from './config/i18n.js';
 
-// import "./assets/scss/main.scss";
+import "./assets/scss/about.scss";
 
 /**
  * Initialize About page
