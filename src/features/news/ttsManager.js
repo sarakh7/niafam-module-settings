@@ -71,7 +71,7 @@ export function syncTtsSource(options = {}) {
   // Load the new source
   readingModeAudio.load();
 
-  console.info("TTS source synced from main to reading mode:", src);
+  // console.info("TTS source synced from main to reading mode:", src);
   return true;
 }
 
@@ -143,7 +143,7 @@ export function initReadingModeTtsVisibility(options = {}) {
   // Check if audio has a valid source
   if (!hasValidAudioSource(audioElement)) {
     container.style.display = "none";
-    console.info("Reading mode TTS container hidden: no valid audio source");
+    // console.info("Reading mode TTS container hidden: no valid audio source");
     return false;
   }
 

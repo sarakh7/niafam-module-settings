@@ -57,7 +57,7 @@ export function setShareLinks(text = "", customSettings = null) {
     // Hide or show button based on enabled state
     if (!config.enabled) {
       button.style.display = "none";
-      console.info(`${platformName} share button hidden`);
+      // console.info(`${platformName} share button hidden`);
       return;
     }
 
@@ -78,7 +78,7 @@ export function setShareLinks(text = "", customSettings = null) {
 export function enableSharePlatform(platformName) {
   if (defaultSettings.socialShare.platforms[platformName]) {
     defaultSettings.socialShare.platforms[platformName].enabled = true;
-    console.info(`${platformName} share enabled`);
+    // console.info(`${platformName} share enabled`);
   }
 }
 
@@ -90,7 +90,7 @@ export function enableSharePlatform(platformName) {
 export function disableSharePlatform(platformName) {
   if (defaultSettings.socialShare.platforms[platformName]) {
     defaultSettings.socialShare.platforms[platformName].enabled = false;
-    console.info(`${platformName} share disabled`);
+    // console.info(`${platformName} share disabled`);
   }
 }
 
@@ -102,7 +102,7 @@ export function enableAllSharePlatforms() {
   Object.keys(defaultSettings.socialShare.platforms).forEach(platform => {
     defaultSettings.socialShare.platforms[platform].enabled = true;
   });
-  console.info("All share platforms enabled");
+  // console.info("All share platforms enabled");
 }
 
 /**
@@ -113,5 +113,5 @@ export function disableAllSharePlatforms() {
   Object.keys(defaultSettings.socialShare.platforms).forEach(platform => {
     defaultSettings.socialShare.platforms[platform].enabled = false;
   });
-  console.info("All share platforms disabled");
+  // console.info("All share platforms disabled");
 }

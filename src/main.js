@@ -27,7 +27,7 @@ async function initializeApp() {
   try {
     // CRITICAL: Initialize i18n FIRST
     await initI18n();
-    console.log("i18n initialized successfully");
+    // console.log("i18n initialized successfully");
     initLocalization();
 
     // Then initialize all other features
@@ -58,7 +58,7 @@ async function initializeApp() {
     initModal();
     setLayout();
 
-    console.log("Application initialized successfully");
+    // console.log("Application initialized successfully");
   } catch (error) {
     console.error("Failed to initialize application:", error);
   }

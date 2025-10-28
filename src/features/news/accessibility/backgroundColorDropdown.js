@@ -33,15 +33,6 @@ export function initBackgroundColorDropdown(
   toggleBtn.style.backgroundColor = defaultBgColor;
   toggleBtn.style.color = defaultColor;
 
-  console.log('Reading mode initial colors set:', {
-    defaultColor,
-    defaultBgColor,
-    containerBg: container.style.backgroundColor,
-    toggleBtnBg: toggleBtn.style.backgroundColor,
-    toggleBtn,
-    container
-  });
-
   // Toggle menu open/close
   toggleBtn.addEventListener("click", (e) => {
     e.stopPropagation();
