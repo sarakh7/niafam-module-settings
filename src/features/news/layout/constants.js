@@ -1,10 +1,32 @@
-import { LAYOUT_BREAKPOINTS } from "../../../config/constants.js";
+import { getSettings } from "../../../config/settings.js";
 
 /**
- * Responsive breakpoints imported from config
+ * Get responsive breakpoints from settings
  */
-export const MIN_WIDTH = LAYOUT_BREAKPOINTS.MOBILE_CONTENT_MAX;
-export const MIN_DESKTOP_WIDTH = LAYOUT_BREAKPOINTS.DESKTOP_VIEWPORT_MIN;
+function getBreakpoints() {
+  const settings = getSettings();
+  return {
+    MIN_WIDTH: settings.layout.mobileContentMax,
+    MIN_DESKTOP_WIDTH: settings.layout.desktopViewportMin
+  };
+}
+
+/**
+ * Responsive breakpoints from settings
+ * Note: These are getter functions to always get the latest settings
+ */
+export function getMinWidth() {
+  return getBreakpoints().MIN_WIDTH;
+}
+
+export function getMinDesktopWidth() {
+  return getBreakpoints().MIN_DESKTOP_WIDTH;
+}
+
+// For backward compatibility (deprecated, use getter functions instead)
+const breakpoints = getBreakpoints();
+export const MIN_WIDTH = breakpoints.MIN_WIDTH;
+export const MIN_DESKTOP_WIDTH = breakpoints.MIN_DESKTOP_WIDTH;
 
 /**
  * DOM Selectors Configuration

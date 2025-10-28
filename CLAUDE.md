@@ -18,21 +18,37 @@ This is a Vite-based JavaScript module for the Niafam news platform that provide
 ### Initialization Flow
 
 **CRITICAL**: The application has a strict initialization order defined in [src/main.js](src/main.js):
-1. **i18n MUST be initialized first** via `await initI18n()` before any other features
-2. Then `initLocalization()` must run to set up DOM localization
-3. All other features initialize after i18n is ready
+1. **Settings MUST be loaded first** via `await loadSettingsFromFile()` to fetch configuration from JSON files
+2. **Then i18n MUST be initialized** via `await initI18n()` before any other features
+3. Then `initLocalization()` must run to set up DOM localization
+4. All other features initialize after settings and i18n are ready
 
-Violating this order will cause translation failures across the application.
+Violating this order will cause configuration and translation failures across the application.
 
 ### Configuration System
 
-The application uses a centralized configuration pattern:
+The application uses a multi-layered configuration system:
 
-- **[src/config/constants.js](src/config/constants.js)** - All application constants including supported languages, themes, gallery defaults, media player settings, and social share platform configurations
-- **[src/config/settings.js](src/config/settings.js)** - Runtime settings that read from HTML attributes (`<html lang="..." dir="...">`) and merge with constants
+- **[src/config/constants.js](src/config/constants.js)** - Core application constants that never change (supported languages, language names, themes, layout breakpoints)
+- **[src/config/settings.js](src/config/settings.js)** - Settings management with external JSON file loading capability
+  - Loads settings from `/config/settings.json` (custom server config, not in git)
+  - Falls back to `/config/settings.default.json` (default config, shipped with build)
+  - Provides validation and sanitization for security
+  - Runtime settings also read from HTML attributes (`<html lang="..." dir="...">`)
 - **[src/config/i18n.js](src/config/i18n.js)** - i18next configuration and initialization
+- **[public/config/settings.default.json](public/config/settings.default.json)** - Default settings shipped with the application
+- **config/settings.json** (optional, not in git) - Server-specific custom settings that override defaults
 
-Settings are read-only by design and determined by HTML attributes at runtime, not persisted to localStorage.
+#### Server Configuration
+
+Admins can customize settings per server without rebuilding:
+1. Copy `public/config/settings.default.json` to `config/settings.json` (outside dist/)
+2. Edit `config/settings.json` with server-specific values
+3. Changes persist through rebuilds (config/ is in .gitignore)
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed configuration instructions.
+
+Settings are validated for security (type checking, URL validation, range limits, whitelisting).
 
 ### Internationalization (i18n)
 
@@ -60,7 +76,7 @@ All features are in [src/features/](src/features/) and follow an initialization 
 - **modal.js** - Modal dialogs (reading mode, etc.)
 - **stickySidebar.js** - Sticky sidebar implementation
 - **layout.js** - Layout initialization and management
-- **shareLinks.js** - Social media sharing links (configured via SOCIAL_SHARE_DEFAULTS in constants)
+- **shareLinks.js** - Social media sharing links (configured via settings.json)
 - **copyShortUrl.js** - Short URL copy functionality
 
 ### Accessibility System
@@ -100,8 +116,14 @@ The application expects HTML structure with specific class names and IDs. See [i
 
 ## Important Notes
 
+- **Configuration**: Settings are loaded from external JSON files at runtime. Always use `getSettings()` to access current settings, never hardcode configuration values.
+- **Settings Location**:
+  - Default settings: `public/config/settings.default.json` (in git, shipped with build)
+  - Custom settings: `config/settings.json` (not in git, server-specific)
+  - Settings in `config/` persist through rebuilds
 - Language and direction are determined by `<html lang="..." dir="...">` attributes at runtime, not stored in localStorage
 - The project uses ES modules (`"type": "module"` in package.json)
 - jQuery is included but prefer vanilla JS for new code
 - Persian/Arabic text requires special formatting for PDF generation (see formatPersianText in [src/features/pdfGenerator.js](src/features/pdfGenerator.js) - handles ZWNJ, punctuation spacing, number conversion, and bracket reversal)
 - SCSS compilation via `npm run sass` is separate from Vite's build process and must be run independently during development if styles are modified
+- For deployment instructions and server configuration, see [DEPLOYMENT.md](DEPLOYMENT.md)

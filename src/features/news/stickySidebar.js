@@ -1,5 +1,5 @@
 import StickySidebar from "../../utils/sticky-sidebar.esm";
-import { LAYOUT_BREAKPOINTS } from '../../config/constants.js';
+import { getSettings } from '../../config/settings.js';
 
 /**
  * Initialize sticky sidebar
@@ -14,13 +14,14 @@ import { LAYOUT_BREAKPOINTS } from '../../config/constants.js';
  * @returns {StickySidebar|null} Sticky sidebar instance or null
  */
 export function initStickySidebar(options = {}) {
+  const settings = getSettings();
   const {
     sidebarSelector = '.es-page-sidebar',
     topSpacing = 20,
     bottomSpacing = 20,
     containerSelector = '.es-page-content-container',
     innerWrapperSelector = '.sidebar__inner',
-    minWidth = LAYOUT_BREAKPOINTS.DESKTOP_VIEWPORT_MIN - 1,
+    minWidth = settings.layout.desktopViewportMin - 1,
     articleSelector = '#page-content-main-article'
   } = options;
 
@@ -35,7 +36,7 @@ export function initStickySidebar(options = {}) {
   const articleElement = document.querySelector(articleSelector);
   if (articleElement) {
     const contentWidth = Math.round(articleElement.getBoundingClientRect().width);
-    if (contentWidth < LAYOUT_BREAKPOINTS.MOBILE_CONTENT_MAX) {
+    if (contentWidth < settings.layout.mobileContentMax) {
       console.info('Sticky sidebar disabled: article width is below MOBILE_CONTENT_MAX threshold');
       return null;
     }
@@ -60,7 +61,7 @@ export function initStickySidebar(options = {}) {
 
     // Track previous window width to detect significant layout changes
     let previousWidth = window.innerWidth;
-    const breakpoint = LAYOUT_BREAKPOINTS.DESKTOP_VIEWPORT_MIN;
+    const breakpoint = settings.layout.desktopViewportMin;
 
     // Handle resize events and force recalculation when crossing breakpoint or large width changes
     let resizeTimeout;

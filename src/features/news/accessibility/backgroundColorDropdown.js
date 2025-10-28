@@ -1,4 +1,4 @@
-import { DEFAULT_READING_MODE_BG_THEME } from "../../../config/constants";
+import { getSettings } from "../../../config/settings";
 
 /**
  * Initializes the background color dropdown for accessibility
@@ -23,9 +23,11 @@ export function initBackgroundColorDropdown(
     return;
   }
 
-  // Get default theme from constants
-  const defaultColor = DEFAULT_READING_MODE_BG_THEME.color;
-  const defaultBgColor = DEFAULT_READING_MODE_BG_THEME.backgroundColor;
+  // Get default theme from settings
+  const settings = getSettings();
+  const defaultTheme = settings.readingMode.backgroundThemes[settings.readingMode.defaultTheme];
+  const defaultColor = defaultTheme.color;
+  const defaultBgColor = defaultTheme.backgroundColor;
 
   // Set initial colors on load
   container.style.backgroundColor = defaultBgColor;

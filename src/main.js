@@ -18,6 +18,7 @@ import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
 import { initTtsVisibility, initReadingModeTtsVisibility, syncTtsSource } from "./features/news/ttsManager";
 import { initRelatedContent } from "./features/news/relatedContent";
+import { loadSettingsFromFile } from "./config/settings";
 import "./assets/scss/news.scss";
 
 /**
@@ -25,7 +26,10 @@ import "./assets/scss/news.scss";
  */
 async function initializeApp() {
   try {
-    // CRITICAL: Initialize i18n FIRST
+    // CRITICAL: Load settings from file FIRST (before i18n)
+    await loadSettingsFromFile();
+
+    // CRITICAL: Initialize i18n SECOND
     await initI18n();
     // console.log("i18n initialized successfully");
     initLocalization();

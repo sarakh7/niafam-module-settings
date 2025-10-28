@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "description": "Default settings for Niafam Module Settings. Copy this file to ../../config/settings.json to customize settings for your server.",
+
+  "layout": {
+    "mobileContentMax": 955,
+    "desktopViewportMin": 992
+  },
+
+  "gallery": {
+    "targetRowHeight": 200,
+    "boxSpacing": 5,
+    "containerPadding": 0,
+    "debounceDelay": 200,
+    "enableLightbox": true,
+    "plugins": [
+      "zoom",
+      "thumbnail",
+      "fullscreen",
+      "autoplay",
+      "video",
+      "rotate",
+      "share"
+    ]
+  },
+
+  "mediaPlayer": {
+    "controls": [
+      "play-large",
+      "play",
+      "progress",
+      "current-time",
+      "mute",
+      "volume",
+      "settings",
+      "fullscreen"
+    ],
+    "autoplay": false,
+    "volume": 0.8,
+    "settings": ["speed", "quality"],
+    "speed": {
+      "selected": 1,
+      "options": [0.5, 0.75, 1, 1.25, 1.5, 2]
+    }
+  },
+
+  "lightGallery": {
+    "download": false,
+    "counter": false,
+    "enableDrag": false,
+    "enableSwipe": false
+  },
+
+  "socialShare": {
+    "enabled": true,
+    "platforms": {
+      "facebook": {
+        "enabled": true,
+        "id": "shareto-facebook",
+        "url": "https://www.facebook.com/sharer/sharer.php?u={url}",
+        "icon": "esprit-fi-brands-facebook"
+      },
+      "twitter": {
+        "enabled": true,
+        "id": "shareto-twitter",
+        "url": "https://twitter.com/intent/tweet?url={url}&text={text}",
+        "icon": "esprit-fi-brands-twitter"
+      },
+      "telegram": {
+        "enabled": true,
+        "id": "shareto-telegram",
+        "url": "https://t.me/share/url?url={url}&text={text}",
+        "icon": "esprit-fi-brands-telegram"
+      },
+      "whatsapp": {
+        "enabled": true,
+        "id": "shareto-whatsapp",
+        "url": "https://api.whatsapp.com/send?text={text}%20{url}",
+        "icon": "esprit-fi-brands-whatsapp"
+      },
+      "linkedin": {
+        "enabled": false,
+        "id": "shareto-linkedin",
+        "url": "https://www.linkedin.com/sharing/share-offsite/?url={url}",
+        "icon": "esprit-fi-brands-linkedin"
+      },
+      "email": {
+        "enabled": false,
+        "id": "shareto-email",
+        "url": "mailto:?subject={text}&body={url}",
+        "icon": "esprit-fi-rr-envelope"
+      }
+    }
+  },
+
+  "readingMode": {
+    "backgroundThemes": {
+      "light": {
+        "color": "#1f1f1fff",
+        "backgroundColor": "#ffffffff"
+      },
+      "dark": {
+        "color": "#e3e3e3ff",
+        "backgroundColor": "#202124ff"
+      },
+      "yellow": {
+        "color": "#1f1f1fff",
+        "backgroundColor": "#feefc3ff"
+      },
+      "blue": {
+        "color": "#1f1f1fff",
+        "backgroundColor": "#d2e3fcff"
+      }
+    },
+    "defaultTheme": "yellow"
+  }
+}
