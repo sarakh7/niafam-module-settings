@@ -79,6 +79,10 @@
         opacity: 0;
         transition: opacity 0.3s ease, visibility 0.3s ease;
 
+        span {
+            white-space: nowrap;
+        }
+
         &::after {
             content: "";
             width: 0;

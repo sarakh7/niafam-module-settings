@@ -71,7 +71,8 @@
       "editor": "Editor",
       "newsCode": "News Code",
       "newsGroup": "News Group",
-      "readingTime": "Reading time"
+      "readingTime": "Reading time",
+      "minutes": "Minutes"
     }
   },
   "print": {
@@ -165,7 +166,8 @@
     "photographer": "Photographer:",
     "videographer": "Videographer:",
     "editor": "Editor:",
-    "readingTime": "Reading Time:"
+    "readingTime": "Reading Time:",
+    "minutes": "minutes"
   },
   "modal": {
     "sendToFriend": {

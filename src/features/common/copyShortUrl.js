@@ -1,3 +1,5 @@
+import i18next from "i18next";
+
 /**
  * Copy text to clipboard with fallback for older browsers
  * @param {string} text - Text to copy
@@ -127,10 +129,10 @@ export function initCopyShortUrl(options = {}) {
       if (!shortUrlTooltip) return;
 
       if (success) {
-        const alertContent = `<i class="es esprit-fi-rr-check"></i><span>کپی شد</span>`;
+        const alertContent = `<i class="es esprit-fi-rr-check"></i><span>${i18next.t("tools.shortlink.copied")}</span>`;
         showAlert({ el: shortUrlTooltip, content: alertContent });
       } else {
-        const alertContent = `<i class="es esprit-fi-rr-cross"></i><span>کپی نشد!</span>`;
+        const alertContent = `<i class="es esprit-fi-rr-cross"></i><span>${i18next.t("tools.shortlink.failed")}</span>`;
         showAlert({
           el: shortUrlTooltip,
           alertClass: "error",
