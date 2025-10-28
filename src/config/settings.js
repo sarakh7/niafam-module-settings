@@ -271,7 +271,7 @@ export async function loadSettingsFromFile() {
 
       if (response.ok) {
         isCustom = true;
-        console.info('[Settings] Loading custom settings from config/settings.json');
+        // console.info('[Settings] Loading custom settings from config/settings.json');
       }
     } catch (err) {
       // Custom settings not found, will try default
@@ -288,7 +288,7 @@ export async function loadSettingsFromFile() {
       });
 
       if (response.ok) {
-        console.info('[Settings] Loading default settings from config/settings.default.json');
+        // console.info('[Settings] Loading default settings from config/settings.default.json');
       }
     }
 
@@ -320,13 +320,14 @@ export async function loadSettingsFromFile() {
     fileSettings = validatedSettings;
     settingsLoadError = null;
 
-    console.info('[Settings] Settings loaded successfully', isCustom ? '(custom)' : '(default)');
+    // console.info('[Settings] Settings loaded successfully', isCustom ? '(custom)' : '(default)');
     return validatedSettings;
 
   } catch (error) {
     settingsLoadError = error.message;
-    console.warn('[Settings] Failed to load settings from file:', error.message);
-    console.info('[Settings] Using built-in default settings');
+    // console.warn('[Settings] Failed to load settings from file:', error.message);
+    console.warn('[Settings] Failed to load settings');
+    // console.info('[Settings] Using built-in default settings');
     return null;
   }
 }
