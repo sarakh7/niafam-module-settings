@@ -28,15 +28,6 @@ export function setLayout() {
     const DESKTOP_VIEWPORT_MIN = 992; // Fixed breakpoint
     const mobileContentMax = getMinWidth(); // e.g., 1200
 
-    // Debug logging
-    console.log('Layout Debug:', {
-      viewportWidth,
-      contentWidth,
-      DESKTOP_VIEWPORT_MIN,
-      mobileContentMax,
-      'viewportWidth < 992': viewportWidth < DESKTOP_VIEWPORT_MIN,
-      'contentWidth < mobileContentMax': contentWidth < mobileContentMax
-    });
 
     // Apply mobile layout if:
     // 1. Viewport width <= 991 → mobile
@@ -48,8 +39,6 @@ export function setLayout() {
     } else {
       isSmall = contentWidth < mobileContentMax; // Check container width if viewport >= 992
     }
-
-    console.log('isSmall:', isSmall);
 
     // Toggle visibility class on article tools
     const myElement = document.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS);
