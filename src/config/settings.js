@@ -212,6 +212,27 @@ function deepMerge(target, source) {
 }
 
 /**
+ * Deep freeze an object to prevent modifications (security measure)
+ * @param {Object} obj - Object to freeze
+ * @returns {Object} - Frozen object
+ */
+function deepFreeze(obj) {
+  // Retrieve the property names defined on obj
+  const propNames = Object.getOwnPropertyNames(obj);
+
+  // Freeze properties before freezing self
+  for (const name of propNames) {
+    const value = obj[name];
+
+    if (value && typeof value === "object") {
+      deepFreeze(value);
+    }
+  }
+
+  return Object.freeze(obj);
+}
+
+/**
  * Load settings from window.NIAFAM_MODULE_SETTINGS variable
  * This variable should be defined in the HTML file before loading the module
  * @returns {Promise<Object|null>} - Loaded settings or null if failed
@@ -234,6 +255,10 @@ export async function loadSettingsFromFile() {
 
     fileSettings = validatedSettings;
     settingsLoadError = null;
+
+    // Security: Freeze the settings object to prevent tampering
+    // This creates a deep freeze to protect nested objects
+    deepFreeze(window.NIAFAM_MODULE_SETTINGS);
 
     // console.info('[Settings] Settings loaded successfully from window.NIAFAM_MODULE_SETTINGS');
     return validatedSettings;

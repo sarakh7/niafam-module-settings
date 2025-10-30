@@ -7,6 +7,7 @@
 import i18next from '../config/i18n';
 import { SUPPORTED_LANGUAGES, LANGUAGE_NAMES } from '../config/constants';
 import { languageDirections } from './languageDirections';
+import DOMPurify from 'dompurify';
 
 /**
  * Check if a language is RTL
@@ -34,7 +35,16 @@ function localizeElement(element) {
     const translation = i18next.t(key);
 
     if (attr === 'html') {
-      element.innerHTML = translation;
+      // Security: Sanitize HTML content to prevent XSS attacks
+      // Only allow safe formatting tags commonly used in translations
+      const sanitizedHTML = DOMPurify.sanitize(translation, {
+        ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'br', 'span', 'p', 'ul', 'ol', 'li'],
+        ALLOWED_ATTR: ['href', 'class', 'target', 'rel'],
+        ALLOW_DATA_ATTR: false,
+        FORBID_TAGS: ['script', 'style', 'iframe', 'object', 'embed', 'form', 'input'],
+        FORBID_ATTR: ['onerror', 'onload', 'onclick', 'onmouseover', 'onfocus', 'onblur']
+      });
+      element.innerHTML = sanitizedHTML;
     } else {
       element.setAttribute(attr, translation);
     }

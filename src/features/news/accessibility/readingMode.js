@@ -1,4 +1,34 @@
 /**
+ * Secures cloned content by removing potentially dangerous elements and attributes
+ * @param {HTMLElement} element - The element to secure
+ */
+function secureClonedContent(element) {
+  const allElements = element.querySelectorAll('*');
+
+  allElements.forEach(el => {
+    // Security: Remove all event handler attributes (onclick, onerror, onload, etc.)
+    Array.from(el.attributes).forEach(attr => {
+      if (attr.name.startsWith('on')) {
+        el.removeAttribute(attr.name);
+      }
+    });
+
+    // Security: Remove javascript: protocol from links
+    if (el.tagName === 'A' && el.hasAttribute('href')) {
+      const href = el.getAttribute('href');
+      if (href.trim().toLowerCase().startsWith('javascript:')) {
+        el.removeAttribute('href');
+      }
+    }
+  });
+
+  // Security: Remove potentially dangerous tags
+  element.querySelectorAll('script, iframe, object, embed, form, input, textarea, select').forEach(el => {
+    el.remove();
+  });
+}
+
+/**
  * Initializes the reading mode functionality
  * This creates a text-only view of the article by cloning content and removing images
  * @param {Function} resetSettings - Callback function to reset reading mode settings
@@ -24,6 +54,9 @@ export function showTextOnly(resetSettings) {
 
     // Remove all images
     clone.querySelectorAll("img").forEach((img) => img.remove());
+
+    // Security: Remove dangerous elements and attributes
+    secureClonedContent(clone);
 
     target.appendChild(clone);
 

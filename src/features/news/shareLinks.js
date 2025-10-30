@@ -73,54 +73,102 @@ export function setShareLinks(text = "", customSettings = null) {
 
 /**
  * Enable a specific social share platform
- * Note: This function modifies window.NIAFAM_MODULE_SETTINGS directly
+ *
+ * Security: Settings object is frozen to prevent tampering. Direct modification is not allowed.
+ * Instead, create custom settings and pass them to setShareLinks():
+ *
+ * Example:
+ *   const customSettings = {
+ *     enabled: true,
+ *     platforms: {
+ *       ...getSettings().socialShare.platforms,
+ *       telegram: { ...getSettings().socialShare.platforms.telegram, enabled: true }
+ *     }
+ *   };
+ *   setShareLinks('text', customSettings);
+ *
+ * @deprecated This function cannot modify frozen settings. Use setShareLinks() with custom settings.
  * @param {string} platformName - Platform name from SOCIAL_SHARE_PLATFORMS
  * @returns {void}
  */
 export function enableSharePlatform(platformName) {
-  if (window.NIAFAM_MODULE_SETTINGS?.socialShare?.platforms?.[platformName]) {
-    window.NIAFAM_MODULE_SETTINGS.socialShare.platforms[platformName].enabled = true;
-    // console.info(`${platformName} share enabled`);
-  }
+  console.warn(
+    `enableSharePlatform('${platformName}') cannot modify frozen settings. ` +
+    `Use setShareLinks() with custom settings instead. See function documentation for example.`
+  );
 }
 
 /**
  * Disable a specific social share platform
- * Note: This function modifies window.NIAFAM_MODULE_SETTINGS directly
+ *
+ * Security: Settings object is frozen to prevent tampering. Direct modification is not allowed.
+ * Instead, create custom settings and pass them to setShareLinks():
+ *
+ * Example:
+ *   const customSettings = {
+ *     enabled: true,
+ *     platforms: {
+ *       ...getSettings().socialShare.platforms,
+ *       telegram: { ...getSettings().socialShare.platforms.telegram, enabled: false }
+ *     }
+ *   };
+ *   setShareLinks('text', customSettings);
+ *
+ * @deprecated This function cannot modify frozen settings. Use setShareLinks() with custom settings.
  * @param {string} platformName - Platform name from SOCIAL_SHARE_PLATFORMS
  * @returns {void}
  */
 export function disableSharePlatform(platformName) {
-  if (window.NIAFAM_MODULE_SETTINGS?.socialShare?.platforms?.[platformName]) {
-    window.NIAFAM_MODULE_SETTINGS.socialShare.platforms[platformName].enabled = false;
-    // console.info(`${platformName} share disabled`);
-  }
+  console.warn(
+    `disableSharePlatform('${platformName}') cannot modify frozen settings. ` +
+    `Use setShareLinks() with custom settings instead. See function documentation for example.`
+  );
 }
 
 /**
  * Enable all social share platforms
- * Note: This function modifies window.NIAFAM_MODULE_SETTINGS directly
+ *
+ * Security: Settings object is frozen to prevent tampering. Direct modification is not allowed.
+ * Instead, create custom settings and pass them to setShareLinks():
+ *
+ * Example:
+ *   const platforms = {};
+ *   Object.keys(getSettings().socialShare.platforms).forEach(key => {
+ *     platforms[key] = { ...getSettings().socialShare.platforms[key], enabled: true };
+ *   });
+ *   const customSettings = { enabled: true, platforms };
+ *   setShareLinks('text', customSettings);
+ *
+ * @deprecated This function cannot modify frozen settings. Use setShareLinks() with custom settings.
  * @returns {void}
  */
 export function enableAllSharePlatforms() {
-  if (window.NIAFAM_MODULE_SETTINGS?.socialShare?.platforms) {
-    Object.keys(window.NIAFAM_MODULE_SETTINGS.socialShare.platforms).forEach(platform => {
-      window.NIAFAM_MODULE_SETTINGS.socialShare.platforms[platform].enabled = true;
-    });
-    // console.info("All share platforms enabled");
-  }
+  console.warn(
+    `enableAllSharePlatforms() cannot modify frozen settings. ` +
+    `Use setShareLinks() with custom settings instead. See function documentation for example.`
+  );
 }
 
 /**
  * Disable all social share platforms
- * Note: This function modifies window.NIAFAM_MODULE_SETTINGS directly
+ *
+ * Security: Settings object is frozen to prevent tampering. Direct modification is not allowed.
+ * Instead, create custom settings and pass them to setShareLinks():
+ *
+ * Example:
+ *   const platforms = {};
+ *   Object.keys(getSettings().socialShare.platforms).forEach(key => {
+ *     platforms[key] = { ...getSettings().socialShare.platforms[key], enabled: false };
+ *   });
+ *   const customSettings = { enabled: true, platforms };
+ *   setShareLinks('text', customSettings);
+ *
+ * @deprecated This function cannot modify frozen settings. Use setShareLinks() with custom settings.
  * @returns {void}
  */
 export function disableAllSharePlatforms() {
-  if (window.NIAFAM_MODULE_SETTINGS?.socialShare?.platforms) {
-    Object.keys(window.NIAFAM_MODULE_SETTINGS.socialShare.platforms).forEach(platform => {
-      window.NIAFAM_MODULE_SETTINGS.socialShare.platforms[platform].enabled = false;
-    });
-    // console.info("All share platforms disabled");
-  }
+  console.warn(
+    `disableAllSharePlatforms() cannot modify frozen settings. ` +
+    `Use setShareLinks() with custom settings instead. See function documentation for example.`
+  );
 }

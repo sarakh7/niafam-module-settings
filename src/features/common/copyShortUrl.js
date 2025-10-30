@@ -50,17 +50,34 @@ async function copyToClipboard(text) {
  * @param {HTMLElement} options.el - Alert element
  * @param {number} [options.duration=2000] - Display duration in ms
  * @param {string} [options.alertClass='default'] - Alert CSS class
- * @param {string} [options.content=''] - Alert HTML content
+ * @param {string} [options.iconClass=''] - Icon CSS class
+ * @param {string} [options.message=''] - Alert text message
  */
 function showAlert(options = {}) {
-  const { el, duration = 2000, alertClass = "default", content = "" } = options;
+  const { el, duration = 2000, alertClass = "default", iconClass = "", message = "" } = options;
 
   if (!el) {
     console.warn("Alert element not provided");
     return;
   }
 
-  el.innerHTML = content;
+  // Security: Use DOM methods instead of innerHTML to prevent XSS
+  el.textContent = ""; // Clear existing content
+
+  // Add icon if provided
+  if (iconClass) {
+    const icon = document.createElement('i');
+    icon.className = iconClass;
+    el.appendChild(icon);
+  }
+
+  // Add message as text (safe - no HTML injection)
+  if (message) {
+    const span = document.createElement('span');
+    span.textContent = message;
+    el.appendChild(span);
+  }
+
   el.classList.add("show", alertClass);
 
   setTimeout(() => {
@@ -129,14 +146,17 @@ export function initCopyShortUrl(options = {}) {
       if (!shortUrlTooltip) return;
 
       if (success) {
-        const alertContent = `<i class="es esprit-fi-rr-check"></i><span>${i18next.t("tools.shortlink.copied")}</span>`;
-        showAlert({ el: shortUrlTooltip, content: alertContent });
+        showAlert({
+          el: shortUrlTooltip,
+          iconClass: "es esprit-fi-rr-check",
+          message: i18next.t("tools.shortlink.copied")
+        });
       } else {
-        const alertContent = `<i class="es esprit-fi-rr-cross"></i><span>${i18next.t("tools.shortlink.failed")}</span>`;
         showAlert({
           el: shortUrlTooltip,
           alertClass: "error",
-          content: alertContent,
+          iconClass: "es esprit-fi-rr-cross",
+          message: i18next.t("tools.shortlink.failed")
         });
       }
     });
