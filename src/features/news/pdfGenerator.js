@@ -537,7 +537,10 @@ async function imageToBase64(url) {
 }
 
 /**
- * Initialize PDF generator functionality
+ * Initialize PDF generator functionality (DEPRECATED - Use lazy loading in main.js instead)
+ * This function is kept for backward compatibility but is no longer used.
+ * The PDF generator is now loaded dynamically via import() when user clicks the button.
+ * @deprecated Use initPdfGeneratorLazy() in main.js instead
  * @returns {void}
  */
 export function initPdfGenerator() {
