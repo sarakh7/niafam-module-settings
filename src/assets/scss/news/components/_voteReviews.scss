@@ -142,105 +142,107 @@ $text-xs: 0.75em;
   }
 }
 
-.single-review {
-  padding: $spacing-4;
-  border-radius: $radius-md;
-  background: $white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  border: 1px solid $gray-100;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-
-  .single-review-head {
-    display: flex;
-    gap: $spacing-3;
-    margin-bottom: $spacing-3;
-  }
-
-  .reviewer-img {
-    flex-shrink: 0;
-
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
+.review-inner {
+  .single-review {
+    padding: $spacing-4;
+    border-radius: $radius-md;
+    background: $white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid $gray-100;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
-  }
-
-  .reviewer-info {
-    flex: 1;
-
-    .reviewer-head {
+  
+    .single-review-head {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: $spacing-1;
+      gap: $spacing-3;
+      margin-bottom: $spacing-3;
     }
-
-    .reviewer-name {
-      font-size: $text-base;
-      font-weight: 600;
-      color: $gray-700;
-      margin: 0;
+  
+    .reviewer-img {
+      flex-shrink: 0;
+  
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
     }
-
-    .review-date {
-      font-size: $text-xs;
-      color: $gray-500;
-    }
-
-    .es-rating {
-      display: flex;
-      gap: $spacing-1;
-      margin-top: $spacing-1;
-
-      i {
-        color: $gray-300;
-        font-size: $text-sm;
-
-        &.active {
-          color: $blue-gray-400;
+  
+    .reviewer-info {
+      flex: 1;
+  
+      .reviewer-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: $spacing-1;
+      }
+  
+      .reviewer-name {
+        font-size: $text-base;
+        font-weight: 600;
+        color: $gray-700;
+        margin: 0;
+      }
+  
+      .review-date {
+        font-size: $text-xs;
+        color: $gray-500;
+      }
+  
+      .es-rating {
+        display: flex;
+        gap: $spacing-1;
+        margin-top: $spacing-1;
+  
+        i {
+          color: $gray-300;
+          font-size: $text-sm;
+  
+          &.active {
+            color: $blue-gray-400;
+          }
         }
       }
     }
-  }
-
-  .review-content {
-    color: $gray-700;
-    line-height: 1.6;
-    font-size: $text-sm;
-    margin: 0;
-  }
-
-  .review-actions {
-    display: flex;
-    gap: $spacing-3;
-    margin-top: $spacing-3;
-    padding-top: $spacing-3;
-    border-top: 1px solid $gray-100;
-
-    button {
-      display: inline-flex;
-      align-items: center;
-      gap: $spacing-1;
-      background: none;
-      border: none;
-      color: $gray-600;
-      font-size: $text-xs;
-      cursor: pointer;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: $blue-gray-600;
-      }
-
-      i {
-        font-size: $text-sm;
+  
+    .review-content {
+      color: $gray-700;
+      line-height: 1.6;
+      font-size: $text-sm;
+      margin: 0;
+    }
+  
+    .review-actions {
+      display: flex;
+      gap: $spacing-3;
+      margin-top: $spacing-3;
+      padding-top: $spacing-3;
+      border-top: 1px solid $gray-100;
+  
+      button {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-1;
+        background: none;
+        border: none;
+        color: $gray-600;
+        font-size: $text-xs;
+        cursor: pointer;
+        transition: color 0.2s ease;
+  
+        &:hover {
+          color: $blue-gray-600;
+        }
+  
+        i {
+          font-size: $text-sm;
+        }
       }
     }
   }
@@ -301,4 +303,17 @@ $text-xs: 0.75em;
 
 .nes-comment-form {
   margin-top: $spacing-5;
+}
+
+.reply-btn {
+  padding: $spacing-1 $spacing-3;
+  background: $blue-gray-200;
+  color: $blue-gray-800;
+  border-radius: $radius-default;
+  transition: $transition;
+
+  &:hover {
+    background: $blue-gray-600;
+    color: #ffffff;
+  }
 }

@@ -1,3 +1,5 @@
+// Override sprit-styles
+@use '../common/base/customOverrides';
 // News Module Main SCSS
 // Import common base styles
 @use '../common/base/variables' as *;

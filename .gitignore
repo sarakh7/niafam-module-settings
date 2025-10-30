@@ -25,3 +25,7 @@ dist-ssr
 
 # Server-specific configuration files
 config/settings.json
+analyze-bundle.cjs
+check-bundle.cjs
+check-bundle.js
+final-check.cjs
