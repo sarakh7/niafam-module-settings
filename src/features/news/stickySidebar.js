@@ -21,7 +21,7 @@ export function initStickySidebar(options = {}) {
     bottomSpacing = 20,
     containerSelector = '.es-page-content-container',
     innerWrapperSelector = '.sidebar__inner',
-    minWidth = settings.layout.desktopViewportMin - 1,
+    minWidth = 991, // Fixed breakpoint: 992 - 1
     articleSelector = '#page-content-main-article'
   } = options;
 
@@ -61,7 +61,7 @@ export function initStickySidebar(options = {}) {
 
     // Track previous window width to detect significant layout changes
     let previousWidth = window.innerWidth;
-    const breakpoint = settings.layout.desktopViewportMin;
+    const breakpoint = 992; // Fixed breakpoint
 
     // Handle resize events and force recalculation when crossing breakpoint or large width changes
     let resizeTimeout;

@@ -1,4 +1,4 @@
-import { defaultSettings } from "../../config/settings";
+import { getSettings } from "../../config/settings";
 
 /**
  * Replace placeholders in URL template
@@ -20,7 +20,8 @@ function buildShareUrl(template, url, text) {
  * @returns {void}
  */
 export function setShareLinks(text = "", customSettings = null) {
-  const settings = customSettings || defaultSettings.socialShare;
+  const currentSettings = getSettings();
+  const settings = customSettings || currentSettings.socialShare;
 
   // Get share container
   const shareContainer = document.getElementById("esprit-article-share");
@@ -72,46 +73,54 @@ export function setShareLinks(text = "", customSettings = null) {
 
 /**
  * Enable a specific social share platform
+ * Note: This function modifies window.NIAFAM_MODULE_SETTINGS directly
  * @param {string} platformName - Platform name from SOCIAL_SHARE_PLATFORMS
  * @returns {void}
  */
 export function enableSharePlatform(platformName) {
-  if (defaultSettings.socialShare.platforms[platformName]) {
-    defaultSettings.socialShare.platforms[platformName].enabled = true;
+  if (window.NIAFAM_MODULE_SETTINGS?.socialShare?.platforms?.[platformName]) {
+    window.NIAFAM_MODULE_SETTINGS.socialShare.platforms[platformName].enabled = true;
     // console.info(`${platformName} share enabled`);
   }
 }
 
 /**
  * Disable a specific social share platform
+ * Note: This function modifies window.NIAFAM_MODULE_SETTINGS directly
  * @param {string} platformName - Platform name from SOCIAL_SHARE_PLATFORMS
  * @returns {void}
  */
 export function disableSharePlatform(platformName) {
-  if (defaultSettings.socialShare.platforms[platformName]) {
-    defaultSettings.socialShare.platforms[platformName].enabled = false;
+  if (window.NIAFAM_MODULE_SETTINGS?.socialShare?.platforms?.[platformName]) {
+    window.NIAFAM_MODULE_SETTINGS.socialShare.platforms[platformName].enabled = false;
     // console.info(`${platformName} share disabled`);
   }
 }
 
 /**
  * Enable all social share platforms
+ * Note: This function modifies window.NIAFAM_MODULE_SETTINGS directly
  * @returns {void}
  */
 export function enableAllSharePlatforms() {
-  Object.keys(defaultSettings.socialShare.platforms).forEach(platform => {
-    defaultSettings.socialShare.platforms[platform].enabled = true;
-  });
-  // console.info("All share platforms enabled");
+  if (window.NIAFAM_MODULE_SETTINGS?.socialShare?.platforms) {
+    Object.keys(window.NIAFAM_MODULE_SETTINGS.socialShare.platforms).forEach(platform => {
+      window.NIAFAM_MODULE_SETTINGS.socialShare.platforms[platform].enabled = true;
+    });
+    // console.info("All share platforms enabled");
+  }
 }
 
 /**
  * Disable all social share platforms
+ * Note: This function modifies window.NIAFAM_MODULE_SETTINGS directly
  * @returns {void}
  */
 export function disableAllSharePlatforms() {
-  Object.keys(defaultSettings.socialShare.platforms).forEach(platform => {
-    defaultSettings.socialShare.platforms[platform].enabled = false;
-  });
-  // console.info("All share platforms disabled");
+  if (window.NIAFAM_MODULE_SETTINGS?.socialShare?.platforms) {
+    Object.keys(window.NIAFAM_MODULE_SETTINGS.socialShare.platforms).forEach(platform => {
+      window.NIAFAM_MODULE_SETTINGS.socialShare.platforms[platform].enabled = false;
+    });
+    // console.info("All share platforms disabled");
+  }
 }

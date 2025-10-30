@@ -1,6 +1,11 @@
 import {
   DEFAULT_LANGUAGE,
   DEFAULT_THEME,
+  GALLERY_CONFIG,
+  MEDIA_PLAYER_CONFIG,
+  LIGHTGALLERY_CONFIG,
+  SOCIAL_SHARE_PLATFORMS,
+  READING_MODE_THEMES,
 } from "./constants";
 import { languageDirections } from "../utils/languageDirections";
 
@@ -47,10 +52,6 @@ function validateSettings(settings) {
 
     if (typeof settings.layout.mobileContentMax === 'number' && settings.layout.mobileContentMax > 0) {
       validated.layout.mobileContentMax = Math.min(Math.max(settings.layout.mobileContentMax, 320), 2000);
-    }
-
-    if (typeof settings.layout.desktopViewportMin === 'number' && settings.layout.desktopViewportMin > 0) {
-      validated.layout.desktopViewportMin = Math.min(Math.max(settings.layout.desktopViewportMin, 320), 2000);
     }
   }
 
@@ -147,7 +148,7 @@ function validateSettings(settings) {
     }
   }
 
-  // Validate social share settings
+  // Validate social share settings (only enabled flags)
   if (settings.socialShare && typeof settings.socialShare === 'object') {
     validated.socialShare = {};
 
@@ -164,61 +165,26 @@ function validateSettings(settings) {
         if (allowedPlatforms.includes(key) && value && typeof value === 'object') {
           validated.socialShare.platforms[key] = {};
 
+          // Only validate enabled flag - other properties come from constants
           if (typeof value.enabled === 'boolean') {
             validated.socialShare.platforms[key].enabled = value.enabled;
-          }
-
-          if (typeof value.id === 'string' && value.id.length > 0 && value.id.length < 100) {
-            validated.socialShare.platforms[key].id = value.id;
-          }
-
-          // Security: Validate URL patterns to prevent XSS
-          if (typeof value.url === 'string' && value.url.length > 0 && value.url.length < 500) {
-            const urlPattern = /^(https?:\/\/|mailto:)/i;
-            if (urlPattern.test(value.url)) {
-              validated.socialShare.platforms[key].url = value.url;
-            }
-          }
-
-          if (typeof value.icon === 'string' && value.icon.length > 0 && value.icon.length < 100) {
-            validated.socialShare.platforms[key].icon = value.icon;
           }
         }
       }
     }
   }
 
-  // Validate reading mode settings
+  // Validate reading mode settings (only defaultTheme)
   if (settings.readingMode && typeof settings.readingMode === 'object') {
     validated.readingMode = {};
 
-    if (settings.readingMode.backgroundThemes && typeof settings.readingMode.backgroundThemes === 'object') {
-      validated.readingMode.backgroundThemes = {};
-
-      const colorPattern = /^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$/;
-
-      for (const [key, value] of Object.entries(settings.readingMode.backgroundThemes)) {
-        if (value && typeof value === 'object') {
-          const theme = {};
-
-          if (typeof value.color === 'string' && colorPattern.test(value.color)) {
-            theme.color = value.color;
-          }
-
-          if (typeof value.backgroundColor === 'string' && colorPattern.test(value.backgroundColor)) {
-            theme.backgroundColor = value.backgroundColor;
-          }
-
-          // Only add theme if both colors are valid
-          if (theme.color && theme.backgroundColor) {
-            validated.readingMode.backgroundThemes[key] = theme;
-          }
-        }
+    // Only validate defaultTheme - theme definitions come from constants
+    if (typeof settings.readingMode.defaultTheme === 'string' && settings.readingMode.defaultTheme.length > 0 && settings.readingMode.defaultTheme.length < 50) {
+      // Validate that the theme exists in READING_MODE_THEMES
+      const allowedThemes = ['light', 'dark', 'yellow', 'blue'];
+      if (allowedThemes.includes(settings.readingMode.defaultTheme)) {
+        validated.readingMode.defaultTheme = settings.readingMode.defaultTheme;
       }
-    }
-
-    if (typeof settings.readingMode.defaultTheme === 'string') {
-      validated.readingMode.defaultTheme = settings.readingMode.defaultTheme;
     }
   }
 
@@ -246,69 +212,18 @@ function deepMerge(target, source) {
 }
 
 /**
- * Load settings from external JSON file
- * First tries to load custom settings from config/settings.json
- * Falls back to default settings from public/config/settings.default.json
+ * Load settings from window.NIAFAM_MODULE_SETTINGS variable
+ * This variable should be defined in the HTML file before loading the module
  * @returns {Promise<Object|null>} - Loaded settings or null if failed
  */
 export async function loadSettingsFromFile() {
-  const customSettingsPath = '/config/settings.json';
-  const defaultSettingsPath = '/config/settings.default.json';
-
   try {
-    // Try to load custom settings first
-    let response;
-    let isCustom = false;
-
-    try {
-      response = await fetch(customSettingsPath, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        cache: 'no-cache', // Always fetch fresh settings
-      });
-
-      if (response.ok) {
-        isCustom = true;
-        // console.info('[Settings] Loading custom settings from config/settings.json');
-      }
-    } catch (err) {
-      // Custom settings not found, will try default
+    // Check if settings are defined in window object
+    if (!window.NIAFAM_MODULE_SETTINGS) {
+      throw new Error('window.NIAFAM_MODULE_SETTINGS is not defined');
     }
 
-    // If custom settings not found, try default settings
-    if (!isCustom) {
-      response = await fetch(defaultSettingsPath, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        cache: 'default',
-      });
-
-      if (response.ok) {
-        // console.info('[Settings] Loading default settings from config/settings.default.json');
-      }
-    }
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    // Security: Check content type
-    const contentType = response.headers.get('content-type');
-    if (!contentType || !contentType.includes('application/json')) {
-      throw new Error('Invalid content type: expected application/json');
-    }
-
-    // Security: Limit response size (5MB max)
-    const contentLength = response.headers.get('content-length');
-    if (contentLength && parseInt(contentLength) > 5 * 1024 * 1024) {
-      throw new Error('Settings file too large');
-    }
-
-    const data = await response.json();
+    const data = window.NIAFAM_MODULE_SETTINGS;
 
     // Validate and sanitize settings
     const validatedSettings = validateSettings(data);
@@ -320,13 +235,13 @@ export async function loadSettingsFromFile() {
     fileSettings = validatedSettings;
     settingsLoadError = null;
 
-    // console.info('[Settings] Settings loaded successfully', isCustom ? '(custom)' : '(default)');
+    // console.info('[Settings] Settings loaded successfully from window.NIAFAM_MODULE_SETTINGS');
     return validatedSettings;
 
   } catch (error) {
     settingsLoadError = error.message;
-    // console.warn('[Settings] Failed to load settings from file:', error.message);
-    console.warn('[Settings] Failed to load settings');
+    // console.warn('[Settings] Failed to load settings:', error.message);
+    console.warn('[Settings] Failed to load settings from window.NIAFAM_MODULE_SETTINGS');
     // console.info('[Settings] Using built-in default settings');
     return null;
   }
@@ -341,8 +256,28 @@ export function getSettingsLoadError() {
 }
 
 /**
- * Default application settings (hardcoded fallbacks)
- * These are used only if settings files cannot be loaded
+ * Build social share platform config by merging constants with dynamic enabled flags
+ */
+function buildSocialShareConfig(dynamicConfig = {}) {
+  const platforms = {};
+
+  // Merge constants with dynamic enabled flags
+  for (const [key, staticConfig] of Object.entries(SOCIAL_SHARE_PLATFORMS)) {
+    platforms[key] = {
+      ...staticConfig,
+      enabled: dynamicConfig.platforms?.[key]?.enabled ?? true // Default to true if not specified
+    };
+  }
+
+  return {
+    enabled: dynamicConfig.enabled ?? true,
+    platforms
+  };
+}
+
+/**
+ * Default application settings (combines constants with dynamic settings)
+ * These are used only if window.NIAFAM_MODULE_SETTINGS cannot be loaded
  */
 export const defaultSettings = {
   // Language and direction (read from HTML)
@@ -356,117 +291,33 @@ export const defaultSettings = {
   // Theme (prepared for future use)
   theme: DEFAULT_THEME,
 
-  // Layout settings
+  // Layout settings (fallback defaults)
   layout: {
-    mobileContentMax: 955,
-    desktopViewportMin: 992
+    mobileContentMax: 955
   },
 
-  // Gallery settings
-  gallery: {
-    targetRowHeight: 200,
-    boxSpacing: 5,
-    containerPadding: 0,
-    debounceDelay: 200,
-    enableLightbox: true,
-    plugins: [
-      "zoom",
-      "thumbnail",
-      "fullscreen",
-      "autoplay",
-      "video",
-      "rotate",
-      "share",
-    ],
-  },
+  // Gallery settings (from constants)
+  gallery: { ...GALLERY_CONFIG },
 
-  // Media player settings
-  mediaPlayer: {
-    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
-    autoplay: false,
-    volume: 0.8,
-    settings: ['speed', 'quality'],
-    speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] }
-  },
+  // Media player settings (from constants)
+  mediaPlayer: { ...MEDIA_PLAYER_CONFIG },
 
-  // LightGallery settings
-  lightGallery: {
-    download: false,
-    counter: false,
-    enableDrag: false,
-    enableSwipe: false
-  },
+  // LightGallery settings (from constants)
+  lightGallery: { ...LIGHTGALLERY_CONFIG },
 
-  // Social share settings
-  socialShare: {
-    enabled: true,
-    platforms: {
-      facebook: {
-        enabled: true,
-        id: 'shareto-facebook',
-        url: 'https://www.facebook.com/sharer/sharer.php?u={url}',
-        icon: 'esprit-fi-brands-facebook'
-      },
-      twitter: {
-        enabled: true,
-        id: 'shareto-twitter',
-        url: 'https://twitter.com/intent/tweet?url={url}&text={text}',
-        icon: 'esprit-fi-brands-twitter'
-      },
-      telegram: {
-        enabled: true,
-        id: 'shareto-telegram',
-        url: 'https://t.me/share/url?url={url}&text={text}',
-        icon: 'esprit-fi-brands-telegram'
-      },
-      whatsapp: {
-        enabled: true,
-        id: 'shareto-whatsapp',
-        url: 'https://api.whatsapp.com/send?text={text}%20{url}',
-        icon: 'esprit-fi-brands-whatsapp'
-      },
-      linkedin: {
-        enabled: false,
-        id: 'shareto-linkedin',
-        url: 'https://www.linkedin.com/sharing/share-offsite/?url={url}',
-        icon: 'esprit-fi-brands-linkedin'
-      },
-      email: {
-        enabled: false,
-        id: 'shareto-email',
-        url: 'mailto:?subject={text}&body={url}',
-        icon: 'esprit-fi-rr-envelope'
-      }
-    }
-  },
+  // Social share settings (from constants with default enabled flags)
+  socialShare: buildSocialShareConfig(),
 
-  // Reading mode settings
+  // Reading mode settings (from constants with default theme)
   readingMode: {
-    backgroundThemes: {
-      light: {
-        color: '#1f1f1fff',
-        backgroundColor: '#ffffffff'
-      },
-      dark: {
-        color: '#e3e3e3ff',
-        backgroundColor: '#202124ff'
-      },
-      yellow: {
-        color: '#1f1f1fff',
-        backgroundColor: '#feefc3ff'
-      },
-      blue: {
-        color: '#1f1f1fff',
-        backgroundColor: '#d2e3fcff'
-      }
-    },
+    backgroundThemes: { ...READING_MODE_THEMES },
     defaultTheme: 'yellow'
   },
 };
 
 /**
  * Get current settings
- * Returns merged settings from file and defaults
+ * Returns merged settings from constants and dynamic settings
  */
 export function getSettings() {
   const base = {
@@ -474,16 +325,32 @@ export function getSettings() {
     direction: defaultSettings.direction,
     theme: defaultSettings.theme,
     layout: { ...defaultSettings.layout },
-    gallery: { ...defaultSettings.gallery },
-    mediaPlayer: { ...defaultSettings.mediaPlayer },
-    lightGallery: { ...defaultSettings.lightGallery },
-    socialShare: { ...defaultSettings.socialShare },
-    readingMode: { ...defaultSettings.readingMode },
+    gallery: { ...GALLERY_CONFIG },
+    mediaPlayer: { ...MEDIA_PLAYER_CONFIG },
+    lightGallery: { ...LIGHTGALLERY_CONFIG },
+    socialShare: buildSocialShareConfig(),
+    readingMode: {
+      backgroundThemes: { ...READING_MODE_THEMES },
+      defaultTheme: 'yellow'
+    },
   };
 
-  // If file settings loaded, merge them with defaults
+  // If dynamic settings loaded from window, merge them
   if (fileSettings) {
-    return deepMerge(base, fileSettings);
+    // Merge layout
+    if (fileSettings.layout) {
+      base.layout = { ...base.layout, ...fileSettings.layout };
+    }
+
+    // Merge social share (only enabled flags)
+    if (fileSettings.socialShare) {
+      base.socialShare = buildSocialShareConfig(fileSettings.socialShare);
+    }
+
+    // Merge reading mode (only defaultTheme)
+    if (fileSettings.readingMode?.defaultTheme) {
+      base.readingMode.defaultTheme = fileSettings.readingMode.defaultTheme;
+    }
   }
 
   return base;

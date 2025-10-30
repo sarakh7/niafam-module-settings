@@ -1,4 +1,4 @@
-import { SELECTORS, CSS_CLASSES, MIN_WIDTH, MIN_DESKTOP_WIDTH } from "./constants.js";
+import { SELECTORS, CSS_CLASSES, getMinWidth } from "./constants.js";
 import { moveArticleTools } from "./elementMover.js";
 import { setupToggle, closeToggle } from "./toggle.js";
 
@@ -24,8 +24,32 @@ export function setLayout() {
     }
 
     const contentWidth = Math.round(article.getBoundingClientRect().width);
-    const isSmall =
-      window.innerWidth < MIN_DESKTOP_WIDTH || contentWidth < MIN_WIDTH;
+    const viewportWidth = window.innerWidth;
+    const DESKTOP_VIEWPORT_MIN = 992; // Fixed breakpoint
+    const mobileContentMax = getMinWidth(); // e.g., 1200
+
+    // Debug logging
+    console.log('Layout Debug:', {
+      viewportWidth,
+      contentWidth,
+      DESKTOP_VIEWPORT_MIN,
+      mobileContentMax,
+      'viewportWidth < 992': viewportWidth < DESKTOP_VIEWPORT_MIN,
+      'contentWidth < mobileContentMax': contentWidth < mobileContentMax
+    });
+
+    // Apply mobile layout if:
+    // 1. Viewport width <= 991 → mobile
+    // 2. Viewport width >= 992 AND container width < mobileContentMax → mobile
+    // 3. Otherwise → desktop
+    let isSmall;
+    if (viewportWidth <= DESKTOP_VIEWPORT_MIN - 1) {
+      isSmall = true; // Always mobile if viewport <= 991
+    } else {
+      isSmall = contentWidth < mobileContentMax; // Check container width if viewport >= 992
+    }
+
+    console.log('isSmall:', isSmall);
 
     // Toggle visibility class on article tools
     const myElement = document.querySelector(SELECTORS.ESPRIT_ARTICLE_TOOLS);

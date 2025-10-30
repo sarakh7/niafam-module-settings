@@ -117,6 +117,34 @@ ul.breadcrumb li a:hover {
   text-decoration: underline;
 }
 </style>
+
+<!-- Settings Configuration (Dynamic Settings Only) -->
+<script>
+  window.NIAFAM_MODULE_SETTINGS = {
+    // Layout breakpoints (dynamic - can be customized per deployment)
+    "layout": {
+      "mobileContentMax": 955
+    },
+
+    // Social share enable/disable flags (dynamic)
+    "socialShare": {
+      "enabled": true,
+      "platforms": {
+        "facebook": { "enabled": true },
+        "twitter": { "enabled": true },
+        "telegram": { "enabled": true },
+        "whatsapp": { "enabled": true },
+        "linkedin": { "enabled": false },
+        "email": { "enabled": false }
+      }
+    },
+
+    // Reading mode default theme (dynamic)
+    "readingMode": {
+      "defaultTheme": "yellow"
+    }
+  };
+</script>
 </head>
 
 <body>

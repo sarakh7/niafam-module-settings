@@ -54,7 +54,7 @@ async function copyToClipboard(text) {
  */
 function showAlert(options = {}) {
   const { el, duration = 2000, alertClass = "default", content = "" } = options;
-  
+
   if (!el) {
     console.warn("Alert element not provided");
     return;
@@ -62,7 +62,7 @@ function showAlert(options = {}) {
 
   el.innerHTML = content;
   el.classList.add("show", alertClass);
-  
+
   setTimeout(() => {
     el.classList.remove("show", alertClass);
   }, duration);
