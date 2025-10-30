@@ -24,19 +24,5 @@ dist-ssr
 *.sw?
 
 # Server-specific configuration files
-config/settings.json
-analyze-bundle.cjs
-check-bundle.cjs
-check-bundle.js
-final-check.cjs
-ALERT_FIX_PREVIEW.md
-ALERT_MESSAGES_FIX.md
-ALERT_MESSAGES_SECURITY_ANALYSIS.md
-CLAUDE.md
-DEPLOYMENT.md
-MODULARIZATION.md
-OBJECT_FREEZE_FIX.md
-READING_MODE_FIX.md
-READING_MODE_SECURITY_ANALYSIS.md
-SECURITY_FIX.md
+
 
