@@ -8,8 +8,22 @@
     display: unset;
 }
 
+.review-wrap .review-inner .single-review .single-review-reply-comments {
+    background: unset;
+    padding: unset;
+    margin-inline-start: unset;
+}
+
+.review-inner .single-review {
+    padding: unset;
+    border-radius: unset;
+    background: unset;
+    box-shadow: unset;
+    border: unset;
+    transition: unset;
+}
+
 .review-wrap .review-inner .single-review {
-    display: unset;
     flex-direction: unset;
 }
 
@@ -38,6 +52,10 @@
     display: unset;
     justify-content: unset;
     align-items: unset;
+}
+
+.reviewer-img img {
+    box-shadow: unset;
 }
 
 .reviewer-name {
