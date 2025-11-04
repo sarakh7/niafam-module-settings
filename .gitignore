@@ -23,6 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
+# Prettier configuration file
+.prettierrc.json
+
 # Server-specific configuration files
 
 
