@@ -233,11 +233,40 @@ export function initAudioPlayer(
     const player = createPlayer(audioElement, customOptions);
 
     const audioItems = document.querySelectorAll(listSelector);
+
+    // Load first non-TTS audio on initial load
+    const firstNonTtsItem = Array.from(audioItems).find((item) => {
+      const audioSrc = item.getAttribute("data-audio-src");
+      if (!audioSrc) return false;
+
+      // Extract filename from path
+      const filename = audioSrc.split('/').pop();
+      // Check if filename doesn't start with "generated_tts"
+      return !filename.startsWith('generated_tts');
+    });
+
+    if (firstNonTtsItem) {
+      const audioSrc = firstNonTtsItem.getAttribute("data-audio-src");
+      if (audioSrc) {
+        player.source = {
+          type: "audio",
+          sources: [
+            {
+              src: audioSrc,
+              type: "audio/mp3",
+            },
+          ],
+        };
+        // Mark as active
+        firstNonTtsItem.classList.add("active");
+      }
+    }
+
     audioItems.forEach((item) => {
       item.addEventListener("click", () => {
         audioItems.forEach((v) => v.classList.remove("active"));
         item.classList.add("active");
-        
+
         const audioSrc = item.getAttribute("data-audio-src");
         if (audioSrc) {
           player.source = {
