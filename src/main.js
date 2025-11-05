@@ -18,6 +18,7 @@ import { initLocalization } from "./utils/i18n-localizer";
 import { initTtsVisibility, initReadingModeTtsVisibility, syncTtsSource } from "./features/news/ttsManager";
 import { initRelatedContent } from "./features/news/relatedContent";
 import { loadSettingsFromFile } from "./config/settings";
+import { initCommentReplyToggle } from "./features/news/commentReplyToggle";
 import "./assets/scss/news.scss";
 
 /**
@@ -98,6 +99,7 @@ async function initializeApp() {
     initStickySidebar();
     initModal();
     setLayout();
+    initCommentReplyToggle();
 
     // console.log("Application initialized successfully");
   } catch (error) {

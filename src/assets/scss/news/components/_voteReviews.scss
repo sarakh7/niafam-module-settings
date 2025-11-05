@@ -334,3 +334,58 @@ $text-xs: 0.75em;
     color: #ffffff;
   }
 }
+
+// Comment Reply Form Animations
+.nes-form-comment-reply {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              transform 0.3s ease,
+              margin 0.3s ease;
+  margin-top: 0;
+
+  &.es-reply-form-open {
+    max-height: 2000px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: $spacing-4;
+  }
+
+  &.es-reply-form-closing {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    margin-top: 0;
+  }
+}
+
+// Slide down animation keyframes
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    max-height: 2000px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Slide up animation keyframes
+@keyframes slideUp {
+  from {
+    max-height: 2000px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
