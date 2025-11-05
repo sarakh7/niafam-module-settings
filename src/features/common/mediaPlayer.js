@@ -4,6 +4,49 @@ import { defaultSettings } from "../../config/settings";
 import i18next from "../../config/i18n";
 
 /**
+ * Generate thumbnail from video at specified time
+ * @param {string} videoSrc - Video source URL
+ * @param {number} seekTo - Time in seconds to capture thumbnail
+ * @returns {Promise<string>} Data URL of the generated thumbnail
+ */
+function generateVideoThumbnail(videoSrc, seekTo = 2.0) {
+  return new Promise((resolve, reject) => {
+    const video = document.createElement('video');
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    video.crossOrigin = 'anonymous';
+    video.preload = 'metadata';
+    video.muted = true;
+
+    video.addEventListener('loadeddata', () => {
+      video.currentTime = seekTo;
+    });
+
+    video.addEventListener('seeked', () => {
+      try {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        resolve(dataUrl);
+      } catch (error) {
+        reject(error);
+      } finally {
+        video.remove();
+      }
+    });
+
+    video.addEventListener('error', (e) => {
+      reject(new Error(`Failed to load video: ${e.message}`));
+      video.remove();
+    });
+
+    video.src = videoSrc;
+  });
+}
+
+/**
  * Get Plyr i18n configuration based on current language
  * @returns {Object} Plyr i18n object
  */
@@ -89,6 +132,32 @@ export function initVideoPlayer(
     const player = createPlayer(videoElement, customOptions);
 
     const videoItems = document.querySelectorAll(listSelector);
+
+    // Generate thumbnails for videos with placeholder images
+    videoItems.forEach((item) => {
+      const videoSrc = item.getAttribute("data-video-src");
+      const imgElement = item.querySelector(".video-list__thumbnail");
+
+      if (videoSrc && imgElement) {
+        const imgSrc = imgElement.src;
+        // Check if image is placeholder, empty, or invalid
+        const needsThumbnail = !imgSrc ||
+                               imgSrc === '' ||
+                               imgSrc.endsWith('/') ||
+                               imgSrc.includes('video-placeholder');
+
+        if (needsThumbnail) {
+          generateVideoThumbnail(videoSrc, 2.0)
+            .then((thumbnailUrl) => {
+              imgElement.src = thumbnailUrl;
+            })
+            .catch((error) => {
+              console.warn(`Failed to generate thumbnail for ${videoSrc}:`, error);
+              // Keep placeholder on error
+            });
+        }
+      }
+    });
 
     // Load first video on initial load
     const firstVideoItem = videoItems[0];
