@@ -15,10 +15,11 @@ import { initModal } from "./features/common/modal";
 import { setLayout } from "./features/news/layout";
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
-import { initTtsVisibility, initReadingModeTtsVisibility, syncTtsSource } from "./features/news/ttsManager";
+import { initTtsVisibility, initReadingModeTtsVisibility } from "./features/news/ttsManager";
 import { initRelatedContent } from "./features/news/relatedContent";
 import { loadSettingsFromFile } from "./config/settings";
 import { initCommentReplyToggle } from "./features/news/commentReplyToggle";
+import { initTtsAutoLoader } from "./features/news/ttsAutoLoader";
 import "./assets/scss/news.scss";
 
 /**
@@ -84,15 +85,14 @@ async function initializeApp() {
     initPrintNewsContent();
     setShareLinks("");
 
-    // Check TTS visibility before initializing player
+    // Auto-load generated TTS files into both players BEFORE initializing
+    initTtsAutoLoader();
+
+    // Check TTS visibility and initialize players
     if (initTtsVisibility()) {
       initTts();
     }
 
-    // Sync TTS source from main to reading mode
-    syncTtsSource();
-
-    // Check Reading Mode TTS visibility before initializing player
     if (initReadingModeTtsVisibility()) {
       initReadingModeTts();
     }

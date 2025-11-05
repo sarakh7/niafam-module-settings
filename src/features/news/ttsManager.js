@@ -1,4 +1,9 @@
 /**
+ * TTS Manager
+ * Manages visibility of TTS containers based on audio source availability
+ */
+
+/**
  * Check if audio element has a valid source
  * @param {HTMLElement} audioElement - Audio element to check
  * @returns {boolean} True if has valid source
@@ -11,68 +16,6 @@ function hasValidAudioSource(audioElement) {
 
   const src = sourceElement.getAttribute("src");
   return src && src.trim() !== "";
-}
-
-/**
- * Sync TTS audio source from main TTS to Reading Mode TTS
- * Copies the audio source element from the main TTS player to the reading mode TTS player
- * @param {Object} options - Configuration options
- * @param {string} [options.mainAudioSelector='#tts-audio'] - Main TTS audio element selector
- * @param {string} [options.readingModeAudioSelector='#reading-mode-tts-audio'] - Reading mode TTS audio element selector
- * @returns {boolean} True if sync was successful, false otherwise
- */
-export function syncTtsSource(options = {}) {
-  const {
-    mainAudioSelector = "#tts-audio",
-    readingModeAudioSelector = "#reading-mode-tts-audio",
-  } = options;
-
-  const mainAudio = document.querySelector(mainAudioSelector);
-  const readingModeAudio = document.querySelector(readingModeAudioSelector);
-
-  if (!mainAudio) {
-    console.warn(`Main TTS audio element not found: ${mainAudioSelector}`);
-    return false;
-  }
-
-  if (!readingModeAudio) {
-    console.warn(`Reading mode TTS audio element not found: ${readingModeAudioSelector}`);
-    return false;
-  }
-
-  // Get the source element from main audio
-  const mainSource = mainAudio.querySelector("source");
-  if (!mainSource) {
-    console.warn("No source element found in main TTS audio");
-    return false;
-  }
-
-  // Get or create source element in reading mode audio
-  let readingModeSource = readingModeAudio.querySelector("source");
-
-  if (!readingModeSource) {
-    // Create a new source element if it doesn't exist
-    readingModeSource = document.createElement("source");
-    readingModeAudio.appendChild(readingModeSource);
-  }
-
-  // Copy the src and type attributes
-  const src = mainSource.getAttribute("src");
-  const type = mainSource.getAttribute("type");
-
-  if (src) {
-    readingModeSource.setAttribute("src", src);
-  }
-
-  if (type) {
-    readingModeSource.setAttribute("type", type);
-  }
-
-  // Load the new source
-  readingModeAudio.load();
-
-  // console.info("TTS source synced from main to reading mode:", src);
-  return true;
 }
 
 /**

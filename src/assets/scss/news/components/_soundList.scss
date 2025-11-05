@@ -57,6 +57,11 @@
             color: $link-hover-color;
         }
 
+        // Hide TTS-generated audio files from the sound list
+        &--tts-generated {
+            display: none;
+        }
+
     }
 
     &__title {
