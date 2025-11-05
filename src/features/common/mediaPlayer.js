@@ -89,6 +89,26 @@ export function initVideoPlayer(
     const player = createPlayer(videoElement, customOptions);
 
     const videoItems = document.querySelectorAll(listSelector);
+
+    // Load first video on initial load
+    const firstVideoItem = videoItems[0];
+    if (firstVideoItem) {
+      const videoSrc = firstVideoItem.getAttribute("data-video-src");
+      if (videoSrc) {
+        player.source = {
+          type: "video",
+          sources: [
+            {
+              src: videoSrc,
+              type: "video/mp4",
+            },
+          ],
+        };
+        // Mark as active
+        firstVideoItem.classList.add("active");
+      }
+    }
+
     videoItems.forEach((item) => {
       item.addEventListener("click", () => {
         videoItems.forEach((v) => v.classList.remove("active"));

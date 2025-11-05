@@ -8,6 +8,10 @@
         margin-top: $spacing-4;
         max-width: 100%;
 
+        .plyr__video-wrapper {
+            aspect-ratio: 871 / 490;
+        }
+
         .video-player__container {
             border-radius: $radius-default;
             overflow: hidden;
