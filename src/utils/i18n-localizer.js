@@ -53,15 +53,33 @@ function localizeElement(element) {
     const translation = i18next.t(i18nAttr);
     element.textContent = translation;
   }
+
+  // Handle data-label-i18n attribute for dynamic label updates
+  const labelI18nAttr = element.getAttribute('data-label-i18n');
+  if (labelI18nAttr) {
+    const labelTranslation = i18next.t(labelI18nAttr);
+    element.setAttribute('data-label', labelTranslation);
+  }
 }
 
 /**
- * Localize all elements with data-i18n attribute in a container
+ * Localize all elements with data-i18n or data-label-i18n attributes in a container
  * @param {HTMLElement} [container=document.body] - Container to search in
  */
 export function localizeDOM(container = document.body) {
-  const elements = container.querySelectorAll('[data-i18n]');
-  elements.forEach(localizeElement);
+  // Localize elements with data-i18n
+  const i18nElements = container.querySelectorAll('[data-i18n]');
+  i18nElements.forEach(localizeElement);
+
+  // Localize elements with data-label-i18n
+  const labelElements = container.querySelectorAll('[data-label-i18n]');
+  labelElements.forEach(element => {
+    const labelI18nAttr = element.getAttribute('data-label-i18n');
+    if (labelI18nAttr) {
+      const labelTranslation = i18next.t(labelI18nAttr);
+      element.setAttribute('data-label', labelTranslation);
+    }
+  });
 }
 
 /**

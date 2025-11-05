@@ -185,7 +185,8 @@
         "dark": "Dark",
         "yellow": "Yellow",
         "blue": "Blue"
-      }
+      },
+      "sampleCharacter": "A"
     }
   },
   "comments": {
