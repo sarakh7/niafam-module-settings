@@ -107,7 +107,7 @@ $text-xs: 0.75em;
     padding-bottom: $spacing-3;
     border-bottom: 1px solid $gray-200;
 
-    h3 {
+    &__inner {
       display: flex;
       align-items: center;
       gap: $spacing-2;
@@ -115,9 +115,16 @@ $text-xs: 0.75em;
       font-weight: 600;
       color: $gray-700;
       margin: 0;
+      display: flex;
+      align-items: center;
+      gap: $spacing-1;
+      font-weight: 700;
+      color: $blue-gray-600;
+      margin: 0;
+      font-size: $text-xl;
 
-      i {
-        color: $blue-gray-600;
+      * {
+        font-size: $text-base;
       }
     }
   }
@@ -151,21 +158,26 @@ $text-xs: 0.75em;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       border: 1px solid $gray-100;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
+
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       }
-  
+
       .single-review-head {
         display: flex;
         gap: $spacing-3;
         margin-bottom: $spacing-3;
+
+        @include respond-to(xs) {
+          flex-direction: column;
+          gap: $spacing-1;
+        }
       }
-  
+
       .reviewer-img {
         flex-shrink: 0;
-  
+
         img {
           width: 40px;
           height: 40px;
@@ -173,59 +185,126 @@ $text-xs: 0.75em;
           object-fit: cover;
         }
       }
-  
+
       .reviewer-info {
         flex: 1;
-  
+
         .reviewer-head {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
           margin-bottom: $spacing-1;
+          gap: $spacing-2;
+
         }
-  
+
         .reviewer-name {
           font-size: $text-base;
           font-weight: 600;
           color: $gray-700;
           margin: 0;
         }
-  
+
         .review-date {
           font-size: $text-xs;
           color: $gray-500;
         }
-  
+
         .es-rating {
           display: flex;
-          gap: $spacing-1;
-          margin-top: $spacing-1;
-  
+          justify-content: end;
+          background-color: transparent;
+          border-radius: $radius-sm;
+          color: $gray-900;
+          margin-top: $spacing-4;
+
+          @include respond-to(xs) {
+            margin-bottom: $spacing-4;
+          }
+
+
           i {
-            color: $gray-300;
             font-size: $text-sm;
-  
+
             &.active {
               color: $blue-gray-400;
             }
           }
+
+          div {
+            min-width: 20px;
+            height: 20px;
+            text-align: center;
+            width: auto;
+            padding: 0 5px;
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: $radius-sm;
+            background: $gray-50;
+            border-inline-start: none;
+
+            &:nth-child(2) {
+              margin-inline-end: $spacing-1;
+              border-end-start-radius: 0;
+              border-start-start-radius: 0;
+              border: 1px solid $gray-200;
+            }
+
+            &:nth-child(4) {
+              border-end-start-radius: 0;
+              border-start-start-radius: 0;
+              border: 1px solid $gray-200;
+            }
+          }
+
+          .sprite-fa-thumbs-up-grey {
+            background: $success;
+            color: #fff;
+            border-end-end-radius: 0;
+            border-start-end-radius: 0;
+            cursor: pointer;
+
+            &:hover {
+              background: #238d52;
+            }
+          }
+
+          .sprite-fa-thumbs-down-grey {
+            background: $error-700;
+            color: #fff;
+            border-end-end-radius: 0;
+            border-start-end-radius: 0;
+
+            cursor: pointer;
+
+            &:hover {
+              background: hsl(4deg 69.1% 44.51%);
+            }
+          }
         }
       }
-  
+
       .review-content {
         color: $gray-700;
         line-height: 1.6;
         font-size: $text-sm;
         margin: 0;
       }
-  
+
       .review-actions {
         display: flex;
         gap: $spacing-3;
         margin-top: $spacing-3;
         padding-top: $spacing-3;
         border-top: 1px solid $gray-100;
-  
+
         button {
           display: inline-flex;
           align-items: center;
@@ -236,18 +315,18 @@ $text-xs: 0.75em;
           font-size: $text-xs;
           cursor: pointer;
           transition: color 0.2s ease;
-  
+
           &:hover {
             color: $blue-gray-600;
           }
-  
+
           i {
             font-size: $text-sm;
           }
         }
       }
     }
-  
+
     .second-comment {
       padding: $spacing-4;
       border-radius: $radius-md;
@@ -256,11 +335,26 @@ $text-xs: 0.75em;
       border: none;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       margin-top: $spacing-4;
+      border: 1px solid $blue-gray-100;
 
-      &__inner{
+      &__inner {
         display: flex;
         gap: $spacing-3;
+
+        @include respond-to(xs) {
+          flex-direction: column;
+          gap: $spacing-1;
+        }
+
+        .reviewer-info {
+          .es-rating {
+            @include respond-to(xs) {
+              margin-bottom: 0;
+            }
+          }
+        }
       }
+
     }
   }
 }
@@ -320,18 +414,32 @@ $text-xs: 0.75em;
 
 .nes-comment-form {
   margin-top: $spacing-5;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-1;
+    color: $blue-gray-600;
+    font-size: $text-xl;
+
+    * {
+      font-size: $text-base;
+    }
+  }
 }
 
 .reply-btn {
   padding: $spacing-1 $spacing-3;
-  background: $blue-gray-200;
-  color: $blue-gray-800;
+  background: $blue-gray-600;
+  color: #fff;
   border-radius: $radius-default;
   transition: $transition;
+  font-weight: $text-medium;
 
   &:hover {
-    background: $blue-gray-600;
-    color: #ffffff;
+    background: $blue-gray-200;
+    color:$blue-gray-800;
+    
   }
 }
 
@@ -342,9 +450,9 @@ $text-xs: 0.75em;
   opacity: 0;
   transform: translateY(-10px);
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.3s ease,
-              transform 0.3s ease,
-              margin 0.3s ease;
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    margin 0.3s ease;
   margin-top: 0;
 
   &.es-reply-form-open {
@@ -369,6 +477,7 @@ $text-xs: 0.75em;
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     max-height: 2000px;
     opacity: 1;
@@ -383,6 +492,7 @@ $text-xs: 0.75em;
     opacity: 1;
     transform: translateY(0);
   }
+
   to {
     max-height: 0;
     opacity: 0;
