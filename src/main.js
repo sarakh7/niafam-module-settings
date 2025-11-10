@@ -20,6 +20,7 @@ import { initRelatedContent } from "./features/news/relatedContent";
 import { loadSettingsFromFile } from "./config/settings";
 import { initCommentReplyToggle } from "./features/news/commentReplyToggle";
 import { initTtsAutoLoader } from "./features/news/ttsAutoLoader";
+import { initArticleMetadata } from "./features/news/articleMetadata";
 import "./assets/scss/news.scss";
 
 /**
@@ -72,6 +73,9 @@ async function initializeApp() {
     await initI18n();
     // console.log("i18n initialized successfully");
     initLocalization();
+
+    // Initialize article metadata (icons and labels for cast roles)
+    initArticleMetadata();
 
     // Then initialize all other features
     initGallery();

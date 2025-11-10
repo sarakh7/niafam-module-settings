@@ -166,6 +166,9 @@
     "photographer": "Photographer:",
     "videographer": "Videographer:",
     "editor": "Editor:",
+    "photographers": "Photographers:",
+    "videographers": "Videographers:",
+    "editors": "Editors:",
     "readingTime": "Reading Time:",
     "minutes": "minutes"
   },
