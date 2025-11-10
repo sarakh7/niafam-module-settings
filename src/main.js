@@ -75,35 +75,90 @@ async function initializeApp() {
     initLocalization();
 
     // Initialize article metadata (icons and labels for cast roles)
-    initArticleMetadata();
+    // Only if metadata container exists
+    if (document.querySelector(".esprit-article__metadata") || document.getElementById("esprit-article-info")) {
+      initArticleMetadata();
+    }
 
-    // Then initialize all other features
-    initGallery();
-    initVideoPlayer();
-    initAudioPlayer();
-    initAccessibilityActions();
-    initRelatedContent();
-    initScrollNav("related-content-list");
-    initCopyShortUrl();
-    initPdfGeneratorLazy();
-    initPrintNewsContent();
-    setShareLinks("");
+    // Initialize gallery - only if pictures section exists
+    if (document.getElementById("article-pictures") || document.querySelector(".esprit-article__gallery")) {
+      initGallery();
+    }
+
+    // Initialize video player - only if videos section exists
+    if (document.getElementById("article-videos") || document.getElementById("main-video")) {
+      initVideoPlayer();
+    }
+
+    // Initialize audio player - only if sounds section exists
+    if (document.getElementById("article-sounds") || document.getElementById("main-audio")) {
+      initAudioPlayer();
+    }
+
+    // Initialize accessibility controls - only if controls container exists
+    if (document.getElementById("esprit-article-accessibility-controls")) {
+      initAccessibilityActions();
+    }
+
+    // Initialize related content - only if related news section exists
+    if (document.getElementById("article-related-news") || document.querySelector(".esprit-article__related-news")) {
+      initRelatedContent();
+      initScrollNav("related-content-list");
+    }
+
+    // Initialize copy short URL - only if button exists
+    if (document.getElementById("copy-shorturl-btn")) {
+      initCopyShortUrl();
+    }
+
+    // Initialize PDF generator - only if button exists
+    if (document.getElementById("create-pdf")) {
+      initPdfGeneratorLazy();
+    }
+
+    // Initialize print - only if button exists
+    if (document.getElementById("print-content")) {
+      initPrintNewsContent();
+    }
+
+    // Initialize share links - only if share container exists
+    if (document.getElementById("es-article-share") || document.getElementById("esprit-article-tools-share")) {
+      setShareLinks("");
+    }
 
     // Auto-load generated TTS files into both players BEFORE initializing
-    initTtsAutoLoader();
+    // Only if TTS container exists
+    if (document.getElementById("tts-container")) {
+      initTtsAutoLoader();
+    }
 
     // Check TTS visibility and initialize players
-    if (initTtsVisibility()) {
+    if (document.getElementById("tts-container") && initTtsVisibility()) {
       initTts();
     }
 
-    if (initReadingModeTtsVisibility()) {
+    // Initialize reading mode TTS - only if modal exists
+    if (document.getElementById("modal-reading-mode") && initReadingModeTtsVisibility()) {
       initReadingModeTts();
     }
-    initStickySidebar();
-    initModal();
+
+    // Initialize sticky sidebar - only if sidebar exists
+    if (document.getElementById("es-page-sidebar") || document.querySelector(".esprit-aside.es-page-sidebar")) {
+      initStickySidebar();
+    }
+
+    // Initialize modals - only if any modal exists
+    if (document.querySelector(".modal.micromodal-slide")) {
+      initModal();
+    }
+
+    // Initialize layout (always runs as it manages global layout)
     setLayout();
-    initCommentReplyToggle();
+
+    // Initialize comment reply toggle - only if product reviews section exists
+    if (document.querySelector(".product-reviews")) {
+      initCommentReplyToggle();
+    }
 
     // console.log("Application initialized successfully");
   } catch (error) {
