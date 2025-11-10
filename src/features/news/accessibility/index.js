@@ -14,16 +14,6 @@ export function initAccessibilityActions() {
     resetAllSliders: articleResetAllSlider,
   } = initAccessibilitySliders(".esprit-article__main-content");
 
-  // Create reading mode modal sliders
-  const {
-    resetSlider: readingModeResetSlider,
-    resetAllSliders: readingModeResetAllSlider,
-  } = initAccessibilitySliders("#modal-reading-mode-content", {
-    fontSizeSlider: "reading-mode-fontSizeSlider",
-    wordSpacingSlider: "reading-mode-wordSpacingSlider",
-    lineHeightSlider: "reading-mode-lineHeightSlider",
-  });
-
   // Handle button toggling for all accessibility control buttons
   const buttons = document.querySelectorAll(
     ".es-article-accessibility-control-btn"
@@ -42,15 +32,31 @@ export function initAccessibilityActions() {
     });
   });
 
-  // Initialize reading mode background color dropdown
-  const { reset: readingModeBackgroundReset } = initBackgroundColorDropdown(
-    "#modal-reading-mode-content",
-    ".accessibility-bg-dropdown"
-  );
+  // Only initialize reading mode features if modal exists
+  const readingModeModal = document.getElementById("modal-reading-mode");
+  if (readingModeModal) {
+    // Create reading mode modal sliders
+    const {
+      resetSlider: readingModeResetSlider,
+      resetAllSliders: readingModeResetAllSlider,
+    } = initAccessibilitySliders("#modal-reading-mode-content", {
+      fontSizeSlider: "reading-mode-fontSizeSlider",
+      wordSpacingSlider: "reading-mode-wordSpacingSlider",
+      lineHeightSlider: "reading-mode-lineHeightSlider",
+    });
 
-  // Initialize reading mode with reset callbacks
-  showTextOnly(() => {
-    readingModeResetAllSlider();
-    readingModeBackgroundReset();
-  });
+    // Initialize reading mode background color dropdown
+    const backgroundDropdownResult = initBackgroundColorDropdown(
+      "#modal-reading-mode-content",
+      ".accessibility-bg-dropdown"
+    );
+
+    // Initialize reading mode with reset callbacks
+    showTextOnly(() => {
+      readingModeResetAllSlider();
+      if (backgroundDropdownResult?.reset) {
+        backgroundDropdownResult.reset();
+      }
+    });
+  }
 }
