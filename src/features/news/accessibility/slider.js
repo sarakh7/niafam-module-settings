@@ -185,6 +185,48 @@ export function initAccessibilitySliders(
     ((computedLineHeight - minLineHeight) / (maxLineHeight - minLineHeight)) *
     100;
 
+  /**
+   * Applies font size to container and all child elements with inline styles
+   * @param {number} em - Font size in em units
+   */
+  function applyFontSizeToAll(em) {
+    const emValue = Math.ceil(em * 1000) / 1000 + "em";
+    newsContainer.style.setProperty("font-size", emValue, "important");
+
+    // Apply to all child elements that have inline font-size
+    const elementsWithInlineStyle = newsContainer.querySelectorAll("[style*='font-size']");
+    elementsWithInlineStyle.forEach((el) => {
+      el.style.setProperty("font-size", emValue, "important");
+    });
+  }
+
+  /**
+   * Applies word spacing to container and all child elements with inline styles
+   * @param {number} px - Word spacing in pixels
+   */
+  function applyWordSpacingToAll(px) {
+    const pxValue = px + "px";
+    newsContainer.style.setProperty("word-spacing", pxValue, "important");
+
+    const elementsWithInlineStyle = newsContainer.querySelectorAll("[style*='word-spacing']");
+    elementsWithInlineStyle.forEach((el) => {
+      el.style.setProperty("word-spacing", pxValue, "important");
+    });
+  }
+
+  /**
+   * Applies line height to container and all child elements with inline styles
+   * @param {number} lh - Line height value
+   */
+  function applyLineHeightToAll(lh) {
+    newsContainer.style.setProperty("line-height", lh, "important");
+
+    const elementsWithInlineStyle = newsContainer.querySelectorAll("[style*='line-height']");
+    elementsWithInlineStyle.forEach((el) => {
+      el.style.setProperty("line-height", lh, "important");
+    });
+  }
+
   // Create sliders with property names
   createLocalSlider(
     "fontSizeSlider",
@@ -192,7 +234,7 @@ export function initAccessibilitySliders(
     initialFontPercent,
     (value) => {
       const em = minFontEm + ((maxFontEm - minFontEm) * value) / 100;
-      newsContainer.style.fontSize = Math.ceil(em * 1000) / 1000 + "em";
+      applyFontSizeToAll(em);
     }
   );
 
@@ -203,7 +245,7 @@ export function initAccessibilitySliders(
     (value) => {
       const px =
         minWordSpacing + ((maxWordSpacing - minWordSpacing) * value) / 100;
-      newsContainer.style.wordSpacing = px + "px";
+      applyWordSpacingToAll(px);
     }
   );
 
@@ -214,7 +256,7 @@ export function initAccessibilitySliders(
     (value) => {
       const lh =
         minLineHeight + ((maxLineHeight - minLineHeight) * value) / 100;
-      newsContainer.style.lineHeight = lh;
+      applyLineHeightToAll(lh);
     }
   );
 
