@@ -26,6 +26,16 @@ span.es {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.esprit-fi-sr-thumbs-down {
+  &:before {
+    content: $esprit-fi-sr-thumbs-down;     
+  }
+}
+.esprit-fi-sr-thumbs-up {
+  &:before {
+    content: $esprit-fi-sr-thumbs-up;     
+  }
+}
 .esprit-AngelList {
   &:before {
     content: $esprit-AngelList;

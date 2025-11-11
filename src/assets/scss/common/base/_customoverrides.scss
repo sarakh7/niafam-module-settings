@@ -19,14 +19,58 @@
     transition: unset;
 }
 
+.es-dislike-btn.dislike-active {
+    background-color: unset;
+    color: unset;
+}
+
+.es-dislike-btn.like-active {
+    background-color: unset;
+    color: unset;
+}
+
 .review-wrap .review-inner .single-review {
     flex-direction: unset;
+    display: block;
 }
 
 .review-inner>.single-review {
     border: unset;
     padding: unset;
     margin-bottom: unset;
+}
+
+.sprite-fa-thumbs-up-grey,
+.es-rating-like,
+.sprite-fa-thumbs-down-grey,
+.es-rating-dislike {
+    background: unset;
+}
+
+.es-rating div {
+    min-width: unset;
+    height: unset;
+    text-align: unset;
+    width: unset;
+    padding: unset;
+    color: unset;
+    position: unset;
+    display: unset;
+    justify-content: unset;
+    align-items: unset;
+}
+
+.es-rating-like {
+    margin: unset;
+}
+
+.sprite-fa-thumbs-up-grey:hover,
+.sprite-fa-thumbs-down-grey:hover {
+    background: unset;
+}
+
+.sprite-fa-thumbs-down-grey::before {
+    display: none;
 }
 
 .review-wrap .review-inner .single-review .single-review-head {
@@ -52,6 +96,7 @@
 
 .reviewer-img img {
     box-shadow: unset;
+    margin-inline-end: unset;
 }
 
 .reviewer-name {
@@ -71,6 +116,18 @@
     margin-top: unset;
     text-transform: unset;
     padding: unset;
+}
+
+.reply-comment {
+    display: block;
+}
+
+.es-rating div {
+    color: unset;
+}
+
+.sprite-fa-thumbs-up-grey::before {
+    display: none;
 }
 
 .single-review.second-comment {

@@ -219,6 +219,9 @@
     "notUseful": "Not Useful",
     "voteGroup": "Vote for News"
   },
+  "rating": {
+    "alreadyVoted": "You have already voted for this comment"
+  },
   "audio": {
     "player": "Text-to-Speech Player",
     "unsupported": "Your browser does not support audio playback."

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Niafam Modules</title>
     <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/espritstyle.css" />
+    <!-- <link rel="stylesheet" href="/assets/css/espritstyle.css" /> -->
     <!-- <link rel="stylesheet" href="/assets/css/news.css" /> -->
 
     <script src="/assets/js/jquery.js"></script>
@@ -786,7 +786,7 @@
               </div>
 
               <div class="es-vote-container" role="group" data-i18n="[aria-label]vote.voteGroup">
-                <button class="es-vote-btn es-like-btn {vote_like_class}" onclick="handleVote(this, 'like')" data-i18n="[aria-label]vote.useful">
+                <button class="es-vote-btn es-like-btn like-active {vote_like_class}" onclick="handleVote(this, 'like')" data-i18n="[aria-label]vote.useful">
                   <div class="es-loader"></div>
                   <i class="es esprit-fi-rr-thumbs-up"></i>
                   <span class="es-count">5</span>
@@ -832,11 +832,15 @@
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
                                 شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
                               </p>
-                              <div class="js-rating es-rating" id="js-rating-265" data-commentid="265" data-like="2" data-dislike="0" data-id-review="1762500774087">
-                                <div class="sprite sprite-fa-thumbs-up-grey"><i class="es esprit-fi-rr-thumbs-up"></i></div>
-                                <div class="es-rating-like">2</div>
-                                <div class="sprite sprite-fa-thumbs-down-grey"><i class="es esprit-fi-rr-thumbs-down"></i></div>
-                                <div class="es-rating-dislike">0</div>
+                              <div class="js-rating es-rating like-active" id="js-rating-265" data-commentid="265" data-like="2" data-dislike="0" data-id-review="1762500774087">
+                                <div class="es-rating__container">
+                                  <div class="sprite sprite-fa-thumbs-up-grey"><i class="es esprit-fi-rr-thumbs-up"></i></div>
+                                  <div class="es-rating-like">2</div>
+                                </div>
+                                <div class="es-rating__container">
+                                  <div class="sprite sprite-fa-thumbs-down-grey"><i class="es esprit-fi-rr-thumbs-down"></i></div>
+                                  <div class="es-rating-dislike">1</div>
+                                </div>
                               </div>
                               <a href="#" class="reply-btn es-replay-btn" id="reply-btn-{commentid}" data-i18n="comments.reply">پاسخ</a>
                             </div>
@@ -917,11 +921,15 @@
                                   </div>
                                   <span class="date-time">04/08/13 - 14:32</span>
                                   <p class="reviewer-comment">با نظرت موافقم. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-                                  <div class="js-rating es-rating" id="js-rating-265" data-commentid="265" data-like="2" data-dislike="0" data-id-review="1762500774087">
-                                    <div class="sprite sprite-fa-thumbs-up-grey"><i class="es esprit-fi-rr-thumbs-up"></i></div>
-                                    <div class="es-rating-like">2</div>
-                                    <div class="sprite sprite-fa-thumbs-down-grey"><i class="es esprit-fi-rr-thumbs-down"></i></div>
-                                    <div class="es-rating-dislike">0</div>
+                                  <div class="js-rating es-rating dislike-active" id="js-rating-265" data-commentid="265" data-like="2" data-dislike="0" data-id-review="1762500774087">
+                                    <div class="es-rating__container">
+                                      <div class="sprite sprite-fa-thumbs-up-grey"><i class="es esprit-fi-rr-thumbs-up"></i></div>
+                                      <div class="es-rating-like">2</div>
+                                    </div>
+                                    <div class="es-rating__container">
+                                      <div class="sprite sprite-fa-thumbs-down-grey"><i class="es esprit-fi-rr-thumbs-down"></i></div>
+                                      <div class="es-rating-dislike">1</div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -939,11 +947,15 @@
                                   </div>
                                   <span class="date-time">04/08/13 - 14:32</span>
                                   <p class="reviewer-comment">بسیار عالی. ممنون از مطلب خوبتون</p>
-                                  <div class="js-rating es-rating" id="js-rating-265" data-commentid="265" data-like="2" data-dislike="0" data-id-review="1762500774087">
-                                    <div class="sprite sprite-fa-thumbs-up-grey"><i class="es esprit-fi-rr-thumbs-up"></i></div>
-                                    <div class="es-rating-like">2</div>
-                                    <div class="sprite sprite-fa-thumbs-down-grey"><i class="es esprit-fi-rr-thumbs-down"></i></div>
-                                    <div class="es-rating-dislike">0</div>
+                                  <div class="js-rating es-rating like-active" id="js-rating-265" data-commentid="265" data-like="2" data-dislike="0" data-id-review="1762500774087">
+                                    <div class="es-rating__container">
+                                      <div class="sprite sprite-fa-thumbs-up-grey"><i class="es esprit-fi-rr-thumbs-up"></i></div>
+                                      <div class="es-rating-like">2</div>
+                                    </div>
+                                    <div class="es-rating__container">
+                                      <div class="sprite sprite-fa-thumbs-down-grey"><i class="es esprit-fi-rr-thumbs-down"></i></div>
+                                      <div class="es-rating-dislike">1</div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1434,5 +1446,15 @@
     </div>
 
     <script type="module" src="/src/main.js"></script>
+
+    <script>
+      const ratingElementss = document.querySelectorAll(".es-rating__container");
+      ratingElementss.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const ratingElement = btn.closest('.es-rating');
+          ratingElement.classList.add("show-voted-tooltip");
+        });
+      });
+    </script>
   </body>
 </html>

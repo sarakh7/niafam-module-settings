@@ -21,6 +21,7 @@ import { loadSettingsFromFile } from "./config/settings";
 import { initCommentReplyToggle } from "./features/news/commentReplyToggle";
 import { initTtsAutoLoader } from "./features/news/ttsAutoLoader";
 import { initArticleMetadata } from "./features/news/articleMetadata";
+import { initRatingTooltips, observeRatingElements } from "./features/news/ratingTooltip";
 import "./assets/scss/news.scss";
 
 /**
@@ -158,6 +159,12 @@ async function initializeApp() {
     // Initialize comment reply toggle - only if product reviews section exists
     if (document.querySelector(".product-reviews")) {
       initCommentReplyToggle();
+    }
+
+    // Initialize rating tooltips - only if rating elements exist
+    if (document.querySelector(".es-rating")) {
+      initRatingTooltips();
+      observeRatingElements();
     }
 
     // console.log("Application initialized successfully");
