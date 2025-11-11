@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast Demo - نمایش Toast ها</title>
+  <link rel="stylesheet" href="public/assets/css/espritstyle.css">
+  <style>
+    body {
+      font-family: 'Dana', Arial, sans-serif;
+      padding: 40px;
+      background: #f5f5f5;
+    }
+    .demo-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .demo-btn {
+      padding: 15px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-weight: 500;
+    }
+    .demo-btn:hover {
+      transform: translateY(-2px);
+    }
+    .demo-btn:active {
+      transform: translateY(0);
+    }
+    .demo-btn.info {
+      background: #4f5b93;
+      color: white;
+    }
+    .demo-btn.success {
+      background: #179c52;
+      color: white;
+    }
+    .demo-btn.warning {
+      background: #f59e0b;
+      color: #1f2937;
+    }
+    .demo-btn.error {
+      background: #ff3e30;
+      color: white;
+    }
+    .position-group {
+      margin-top: 30px;
+    }
+    .position-group h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #666;
+    }
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .rating-demo {
+      margin-top: 40px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    .rating-demo h2 {
+      margin-bottom: 15px;
+    }
+    .es-rating {
+      display: flex;
+      justify-content: end;
+      background-color: transparent;
+      color: #1f2937;
+      margin-top: 16px;
+      overflow: visible;
+      gap: 8px;
+      position: relative;
+    }
+    .es-rating__container {
+      display: flex;
+      border-radius: 4px;
+      background: #fff;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      height: 34px;
+      width: 60px;
+      cursor: pointer;
+      color: #4f5b93;
+      transition: all 0.2s;
+      border: 1px solid #d1d5db;
+    }
+    .es-rating__container:hover {
+      background: #f3f4f6;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <h1>🎉 Toast Notification System - دمو</h1>
+
+    <div class="button-group">
+      <button class="demo-btn info" onclick="showInfo()">
+        📘 اطلاعات (Info)
+      </button>
+      <button class="demo-btn success" onclick="showSuccess()">
+        ✅ موفقیت (Success)
+      </button>
+      <button class="demo-btn warning" onclick="showWarning()">
+        ⚠️ هشدار (Warning)
+      </button>
+      <button class="demo-btn error" onclick="showError()">
+        ❌ خطا (Error)
+      </button>
+    </div>
+
+    <div class="position-group">
+      <h2>انتخاب موقعیت:</h2>
+      <select id="position-select">
+        <option value="top-right">بالا راست (Top Right)</option>
+        <option value="top-left">بالا چپ (Top Left)</option>
+        <option value="top-center" selected>بالا وسط (Top Center)</option>
+        <option value="bottom-right">پایین راست (Bottom Right)</option>
+        <option value="bottom-left">پایین چپ (Bottom Left)</option>
+        <option value="bottom-center">پایین وسط (Bottom Center)</option>
+      </select>
+    </div>
+
+    <div class="rating-demo">
+      <h2>تست Rating Toast:</h2>
+      <p>روی آیکون‌های زیر کلیک کنید تا Toast نمایش داده شود:</p>
+      <div class="es-rating" id="demo-rating">
+        <div class="es-rating__container" onclick="testRatingToast()">
+          <div>👍</div>
+          <div>5</div>
+        </div>
+        <div class="es-rating__container" onclick="testRatingToast()">
+          <div>👎</div>
+          <div>2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import {
+      showInfoToast,
+      showSuccessToast,
+      showWarningToast,
+      showErrorToast,
+      removeAllToasts
+    } from './src/features/common/toast.js';
+
+    import { showRatingVotedToast } from './src/features/news/ratingTooltip.js';
+    import { initI18n } from './src/config/i18n.js';
+
+    // Initialize i18n
+    await initI18n();
+
+    // Make functions global for onclick handlers
+    window.showInfo = function() {
+      const position = document.getElementById('position-select').value;
+      showInfoToast('این یک پیام اطلاعاتی است', { position });
+    };
+
+    window.showSuccess = function() {
+      const position = document.getElementById('position-select').value;
+      showSuccessToast('عملیات با موفقیت انجام شد! ✨', { position });
+    };
+
+    window.showWarning = function() {
+      const position = document.getElementById('position-select').value;
+      showWarningToast('توجه: این یک هشدار است!', { position });
+    };
+
+    window.showError = function() {
+      const position = document.getElementById('position-select').value;
+      showErrorToast('خطا: عملیات انجام نشد!', { position });
+    };
+
+    window.testRatingToast = function() {
+      showRatingVotedToast();
+    };
+
+    // Add keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        switch(e.key) {
+          case 'i':
+            e.preventDefault();
+            showInfo();
+            break;
+          case 's':
+            e.preventDefault();
+            showSuccess();
+            break;
+          case 'w':
+            e.preventDefault();
+            showWarning();
+            break;
+          case 'e':
+            e.preventDefault();
+            showError();
+            break;
+          case 'c':
+            e.preventDefault();
+            removeAllToasts();
+            break;
+        }
+      }
+    });
+
+    console.log('Toast Demo Ready! 🎉');
+    console.log('Keyboard shortcuts:');
+    console.log('  Ctrl/Cmd + I: Info Toast');
+    console.log('  Ctrl/Cmd + S: Success Toast');
+    console.log('  Ctrl/Cmd + W: Warning Toast');
+    console.log('  Ctrl/Cmd + E: Error Toast');
+    console.log('  Ctrl/Cmd + C: Clear All Toasts');
+  </script>
+</body>
+</html>

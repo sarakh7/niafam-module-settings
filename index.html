@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Niafam Modules</title>
     <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
-    <!-- <link rel="stylesheet" href="/assets/css/espritstyle.css" /> -->
+    <link rel="stylesheet" href="/assets/css/espritstyle.css" />
     <!-- <link rel="stylesheet" href="/assets/css/news.css" /> -->
 
     <script src="/assets/js/jquery.js"></script>
@@ -1447,12 +1447,18 @@
 
     <script type="module" src="/src/main.js"></script>
 
-    <script>
-      const ratingElementss = document.querySelectorAll(".es-rating__container");
-      ratingElementss.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const ratingElement = btn.closest('.es-rating');
-          ratingElement.classList.add("show-voted-tooltip");
+    <script type="module">
+      import { showRatingTooltip } from './src/features/news/ratingTooltip.js';
+
+      const ratingButtons = document.querySelectorAll(".es-rating__container");
+
+      ratingButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const rating = btn.closest('.es-rating');
+          if (rating) {
+            showRatingTooltip(rating);
+          }
         });
       });
     </script>

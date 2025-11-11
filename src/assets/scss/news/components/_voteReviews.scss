@@ -260,10 +260,10 @@ $text-xs: 0.75em;
             }
           }
 
-          // Tooltip styles
+          // Rating tooltip
           &__tooltip {
             position: absolute;
-            top: -45px;
+            top: -50px;
             left: 50%;
             transform: translateX(-50%) translateY(10px);
             background: rgba($gray-900, 0.95);
@@ -283,7 +283,7 @@ $text-xs: 0.75em;
             // &::after {
             //   content: '';
             //   position: absolute;
-            //   bottom: -6px;
+            //   top: 100%;
             //   left: 50%;
             //   transform: translateX(-50%);
             //   width: 0;
@@ -294,13 +294,11 @@ $text-xs: 0.75em;
             // }
           }
 
-          // Show tooltip when has class
-          &.show-voted-tooltip {
-            .es-rating__tooltip {
-              opacity: 1;
-              visibility: visible;
-              transform: translateX(-50%) translateY(0);
-            }
+          // Show tooltip when parent has class
+          &.show-voted-tooltip .es-rating__tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
           }
         }
       }
