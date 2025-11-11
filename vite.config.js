@@ -17,7 +17,9 @@ export default defineConfig({
       output: {
         // فایل‌های build را در پوشه‌های جداگانه قرار بده
         entryFileNames: 'assets/[name]/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]/[name]-[hash].js',
+        // چانک‌های lazy load در پوشه اصلی assets قرار می‌گیرند (نه زیرپوشه)
+        // این کار مسیر نسبی را برای production درست می‌کند
+        chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]/[name]-[hash][extname]',
       }
     },
