@@ -26,7 +26,8 @@ export function showRatingTooltip(ratingElement, options = {}) {
     tooltip.setAttribute("aria-live", "polite");
 
     // Insert at beginning of rating element
-    ratingElement.insertBefore(tooltip, ratingElement.firstChild);
+    // ratingElement.insertBefore(tooltip, ratingElement.firstChild);
+    ratingElement.appendChild(tooltip);
     isNewTooltip = true;
   }
 

@@ -3,6 +3,12 @@ import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Base path for production deployment
+  // IMPORTANT: Set this to match your server deployment path
+  // For example: '/uploads/starling/' if deployed at https://example.com/uploads/starling/
+  // Default is '/' for root deployment
+  base: process.env.VITE_BASE_PATH || '/',
+
   // Multi-page configuration
   build: {
     rollupOptions: {

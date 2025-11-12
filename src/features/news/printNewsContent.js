@@ -197,41 +197,65 @@ export async function printPDFContent() {
       try {
         const src =
           originalImg && originalImg.src ? originalImg.src : clonedImg.src;
-        if (!src) continue;
+        if (!src) {
+          console.warn(`Image ${i}: No src found`);
+          continue;
+        }
 
+        console.log(`Image ${i}: Processing src=${src.substring(0, 50)}...`);
         clonedImg.setAttribute("data-original-src", src);
 
         if (src.startsWith("blob:")) {
+          console.log(`Image ${i}: Converting blob to data URL`);
           try {
             const resp = await fetch(src);
             const blob = await resp.blob();
             const dataUrl = await blobToDataURL(blob);
             clonedImg.src = dataUrl;
+            console.log(`Image ${i}: Blob converted successfully`);
           } catch (e) {
             console.warn("Blob conversion failed, trying canvas method:", e);
-            if (originalImg) {
+            if (originalImg && originalImg.complete) {
               const dataUrl = await imageToDataURL(originalImg);
               clonedImg.src = dataUrl;
+              console.log(`Image ${i}: Canvas method succeeded`);
             }
           }
         } else {
+          // For non-blob URLs, ensure crossOrigin is set if needed
+          if (src.startsWith('http') && !src.startsWith(window.location.origin)) {
+            clonedImg.crossOrigin = 'anonymous';
+          }
           clonedImg.src = src;
+          console.log(`Image ${i}: Direct src set`);
         }
 
         // Wait for load
         await new Promise((resolve) => {
-          if (clonedImg.complete) {
+          if (clonedImg.complete && clonedImg.naturalWidth > 0) {
+            console.log(`Image ${i}: Already loaded (${clonedImg.naturalWidth}x${clonedImg.naturalHeight})`);
             resolve();
           } else {
-            clonedImg.onload = resolve;
-            clonedImg.onerror = resolve;
-            setTimeout(resolve, 3000); // timeout
+            clonedImg.onload = () => {
+              console.log(`Image ${i}: Loaded (${clonedImg.naturalWidth}x${clonedImg.naturalHeight})`);
+              resolve();
+            };
+            clonedImg.onerror = (e) => {
+              console.error(`Image ${i}: Load error`, e);
+              resolve();
+            };
+            setTimeout(() => {
+              console.warn(`Image ${i}: Timeout reached`);
+              resolve();
+            }, 5000); // Increased timeout to 5 seconds
           }
         });
       } catch (e) {
         console.warn(`Image ${i} processing failed:`, e);
       }
     }
+
+    console.log(`All ${cloneImgs.length} images processed`);
 
     // 6) Add metadata
     const metaContainer = document.createElement("div");
@@ -241,13 +265,13 @@ export async function printPDFContent() {
     const authorMeta = document.querySelector(".esprit-article-info");
     if (authorMeta) {
       const fields = [
-        { labelKey: i18next.t('metadata.author'), selector: "#author" },
-        { labelKey: i18next.t("metadata.publishDate"), selector: "#publish-date" },
-        { labelKey: i18next.t("metadata.views"), selector: "#views" },
-        { labelKey: i18next.t("metadata.readingTime"), selector: "#reading-time" },
-        { labelKey: i18next.t("metadata.photographer"), selector: "#photographer" },
-        { labelKey: i18next.t("metadata.videographer"), selector: "#videographer" },
-        { labelKey: i18next.t("metadata.editor"), selector: "#editor" },
+        { labelKey: 'metadata.author', selector: "#author" },
+        { labelKey: "metadata.publishDate", selector: "#publish-date" },
+        { labelKey: "metadata.views", selector: "#views" },
+        { labelKey: "metadata.readingTime", selector: "#reading-time" },
+        { labelKey: "metadata.photographer", selector: "#photographer" },
+        { labelKey: "metadata.videographer", selector: "#videographer" },
+        { labelKey: "metadata.editor", selector: "#editor" },
       ];
 
       fields.forEach((field) => {
@@ -311,11 +335,19 @@ export async function printPDFContent() {
     // Focus and print
     win.focus();
 
-    // Wait for content to fully load
+    // Wait for content and images to fully render
     setTimeout(() => {
       console.log("Opening print dialog...");
+
+      // Verify images are in DOM before printing
+      const iframeImgs = idoc.querySelectorAll('img');
+      console.log(`Print preview: ${iframeImgs.length} images in iframe`);
+      iframeImgs.forEach((img, idx) => {
+        console.log(`  Image ${idx}: ${img.complete ? 'loaded' : 'loading'}, src=${img.src.substring(0, 50)}...`);
+      });
+
       win.print();
-    }, 500);
+    }, 1500); // Increased from 500ms to 1500ms
   } catch (error) {
     console.error("Print failed:", error);
     alert("خطا در پرینت: " + error.message);

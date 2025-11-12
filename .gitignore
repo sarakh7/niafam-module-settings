@@ -27,5 +27,11 @@ dist-ssr
 .prettierrc.json
 
 # Server-specific configuration files
+config/settings.json
+
+# Environment files (keep .env.example in git)
+.env
+.env.local
+.env.production.local
 
 

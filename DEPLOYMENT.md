@@ -24,12 +24,87 @@
 3. تنظیمات خوانده شده با validation و sanitization امنیتی بررسی می‌شوند
 4. تنظیمات معتبر با تنظیمات داخلی برنامه merge می‌شوند
 
+## پیکربندی مسیر استقرار (Base Path)
+
+**مهم:** اگر برنامه در یک زیرشاخه از دامنه اصلی قرار می‌گیرد (مثلاً `/uploads/starling/`), باید قبل از build مسیر base را تنظیم کنید.
+
+### چرا این تنظیم مهم است؟
+
+بدون تنظیم صحیح base path:
+- فایل‌های lazy-loaded (مثل PDF generator) در بار اول با خطا مواجه می‌شوند
+- مسیرهای asset ها اشتباه تولید می‌شوند
+- chunk های dynamic import یافت نمی‌شوند
+
+### روش تنظیم Base Path:
+
+#### روش 1: استفاده از فایل `.env.production` (توصیه می‌شود)
+
+1. فایل `.env.production` را ویرایش کنید:
+
+```bash
+# .env.production
+VITE_BASE_PATH=/uploads/starling/
+```
+
+2. سپس build کنید:
+
+```bash
+npm run build
+```
+
+#### روش 2: استفاده از اسکریپت‌های npm (توصیه می‌شود برای ویندوز)
+
+اسکریپت‌های آماده‌ای در `package.json` تعریف شده که در همه سیستم‌عامل‌ها کار می‌کنند:
+
+```bash
+# برای استقرار در ریشه دامنه
+npm run build:root
+
+# برای استقرار در زیرشاخه /uploads/starling/
+npm run build:starling
+```
+
+**نکته:** این اسکریپت‌ها از پکیج `cross-env` استفاده می‌کنند که سازگاری بین ویندوز، لینوکس و macOS را تضمین می‌کند.
+
+#### روش 3: تنظیم inline در زمان build (فقط Linux/Mac)
+
+```bash
+# برای استقرار در ریشه دامنه (Linux/Mac)
+VITE_BASE_PATH=/ npm run build
+
+# برای استقرار در زیرشاخه (Linux/Mac)
+VITE_BASE_PATH=/uploads/starling/ npm run build
+```
+
+**هشدار:** این روش در ویندوز کار نمی‌کند. در ویندوز از روش 1 یا 2 استفاده کنید.
+
+### مثال‌های رایج:
+
+```bash
+# استقرار در https://example.com/
+VITE_BASE_PATH=/
+
+# استقرار در https://example.com/uploads/starling/
+VITE_BASE_PATH=/uploads/starling/
+
+# استقرار در https://modules.spritportal.com/uploads/starling/
+VITE_BASE_PATH=/uploads/starling/
+```
+
+**نکته:** مسیر همیشه باید با `/` شروع و پایان یابد (به جز ریشه که فقط `/` است).
+
 ## مراحل استقرار
 
 ### گام 1: Build کردن برنامه
 
 ```bash
+# نصب وابستگی‌ها
 npm install
+
+# تنظیم base path (در صورت نیاز)
+# فایل .env.production را ویرایش کنید
+
+# ساخت برنامه
 npm run build
 ```
 
@@ -275,6 +350,35 @@ location /config/ {
 - بررسی کنید که مقادیر در محدوده مجاز هستند
 - تایپ‌های داده (string, number, boolean) را بررسی کنید
 - plugin ها و controlها باید از لیست مجاز باشند
+
+#### 4. خطای 404 در بارگذاری PDF generator (بار اول)
+
+**علامت:**
+- در بار اول کلیک روی دکمه PDF، خطای 404 در مسیر اشتباه (مثل `/assets/pdfGenerator-xxx.js`)
+- در بار دوم کلیک، PDF به درستی تولید می‌شود
+
+**علت:** مسیر `base` در Vite تنظیم نشده است و فایل‌های lazy-loaded در مسیر اشتباه جستجو می‌شوند.
+
+**راه‌حل:**
+
+1. فایل `.env.production` را بررسی کنید:
+```bash
+# مسیر استقرار واقعی خود را وارد کنید
+VITE_BASE_PATH=/uploads/starling/
+```
+
+2. دوباره build کنید:
+```bash
+npm run build
+```
+
+3. فایل‌های جدید را به سرور منتقل کنید
+
+**تست صحت راه‌حل:**
+- Console مرورگر را باز کنید
+- روی دکمه "تولید PDF" کلیک کنید
+- باید درخواست به مسیر صحیح باشد: `/uploads/starling/assets/pdfGenerator-xxx.js`
+- PDF باید از بار اول کار کند
 
 ## به‌روزرسانی برنامه
 

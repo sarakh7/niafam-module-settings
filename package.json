@@ -6,11 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:root": "cross-env VITE_BASE_PATH=/ vite build",
+    "build:starling": "cross-env VITE_BASE_PATH=/uploads/starling/ vite build",
     "preview": "vite preview",
     "sass": "sass src/assets/scss/news.scss public/assets/css/espritstyle.css --watch",
     "sass:about": "sass src/assets/scss/about.scss public/assets/css/about.css --watch"
   },
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "sass": "^1.89.0",
     "vite": "^6.3.5"
   },
