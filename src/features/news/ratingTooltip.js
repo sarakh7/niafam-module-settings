@@ -52,3 +52,8 @@ export function showRatingTooltip(ratingElement, options = {}) {
     ratingElement.classList.remove("show-voted-tooltip");
   }, duration);
 }
+
+// Make function globally accessible for AJAX/dynamic content
+if (typeof window !== "undefined") {
+  window.showRatingTooltip = showRatingTooltip;
+}

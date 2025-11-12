@@ -21,6 +21,7 @@ import { loadSettingsFromFile } from "./config/settings";
 import { initCommentReplyToggle } from "./features/news/commentReplyToggle";
 import { initTtsAutoLoader } from "./features/news/ttsAutoLoader";
 import { initArticleMetadata } from "./features/news/articleMetadata";
+import "./features/news/ratingTooltip"; // Make showRatingTooltip globally accessible
 import "./assets/scss/news.scss";
 
 /**

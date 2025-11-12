@@ -1439,18 +1439,20 @@
 
     <script type="module" src="/src/main.js"></script>
 
-    <!-- <script type="module">
-      import { showRatingTooltip } from "./src/features/news/ratingTooltip.js";
+    <!-- <script>
+      // Use globally available showRatingTooltip function
+      // This function is made available via window object in ratingTooltip.js
+      document.addEventListener("DOMContentLoaded", () => {
+        const ratingButtons = document.querySelectorAll(".sprite");
 
-      const ratingButtons = document.querySelectorAll(".sprite");
-
-      ratingButtons.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          const rating = btn.closest(".es-rating");
-          if (rating) {
-            showRatingTooltip(rating);
-          }
+        ratingButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const rating = btn.closest(".es-rating");
+            if (rating && window.showRatingTooltip) {
+              window.showRatingTooltip(rating);
+            }
+          });
         });
       });
     </script> -->
