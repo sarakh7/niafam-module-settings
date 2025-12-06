@@ -5,24 +5,24 @@ import {
   initTts,
   initVideoPlayer,
 } from "./features/common/mediaPlayer";
-import { initAccessibilityActions } from "./features/news/accessibility";
+import { initAccessibilityActions } from "./features/contents/accessibility";
 import { initScrollNav } from "./utils/scrollNav";
 import { initCopyShortUrl } from "./features/common/copyShortUrl";
-import { initPrintNewsContent } from "./features/news/printNewsContent";
-import { setShareLinks } from "./features/news/shareLinks";
-import { initStickySidebar } from "./features/news/stickySidebar";
+import { initPrintNewsContent } from "./features/contents/printNewsContent";
+import { setShareLinks } from "./features/contents/shareLinks";
+import { initStickySidebar } from "./features/contents/stickySidebar";
 import { initModal } from "./features/common/modal";
-import { setLayout } from "./features/news/layout";
+import { setLayout } from "./features/contents/layout";
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
-import { initTtsVisibility, initReadingModeTtsVisibility } from "./features/news/ttsManager";
-import { initRelatedContent } from "./features/news/relatedContent";
+import { initTtsVisibility, initReadingModeTtsVisibility } from "./features/contents/ttsManager";
+import { initRelatedContent } from "./features/contents/relatedContent";
 import { loadSettingsFromFile } from "./config/settings";
-import { initCommentReplyToggle } from "./features/news/commentReplyToggle";
-import { initTtsAutoLoader } from "./features/news/ttsAutoLoader";
-import { initArticleMetadata } from "./features/news/articleMetadata";
-import "./features/news/ratingTooltip"; // Make showRatingTooltip globally accessible
-import "./assets/scss/news.scss";
+import { initCommentReplyToggle } from "./features/contents/commentReplyToggle";
+import { initTtsAutoLoader } from "./features/contents/ttsAutoLoader";
+import { initArticleMetadata } from "./features/contents/articleMetadata";
+import "./features/contents/ratingTooltip"; // Make showRatingTooltip globally accessible
+import "./assets/scss/contents.scss";
 
 /**
  * Initialize PDF generator with lazy loading
@@ -44,7 +44,7 @@ function initPdfGeneratorLazy() {
       button.classList.add("disabled");
 
       // Dynamically import the PDF generator module (includes jsPDF ~150KB)
-      const { generatePDF } = await import("./features/news/pdfGenerator");
+      const { generatePDF } = await import("./features/contents/pdfGenerator");
 
       // Generate the PDF
       await generatePDF();

@@ -9,7 +9,7 @@
     "build:root": "cross-env VITE_BASE_PATH=/ vite build",
     "build:starling": "cross-env VITE_BASE_PATH=/uploads/starling/ vite build",
     "preview": "vite preview",
-    "sass": "sass src/assets/scss/news.scss public/assets/css/espritstyle.css --watch",
+    "sass": "sass src/assets/scss/contents.scss public/assets/css/espritstyle.css --watch",
     "sass:about": "sass src/assets/scss/about.scss public/assets/css/about.css --watch"
   },
   "devDependencies": {

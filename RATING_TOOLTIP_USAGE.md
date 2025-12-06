@@ -23,7 +23,7 @@ ratingElement.classList.add('show-voted-tooltip');
 اگر می‌خواهید کنترل بیشتری داشته باشید:
 
 ```javascript
-import { showRatingTooltip } from './features/news/ratingTooltip';
+import { showRatingTooltip } from './features/contents/ratingTooltip';
 
 // نمایش tooltip با مدت زمان پیش‌فرض (3 ثانیه)
 const ratingElement = document.querySelector('.es-rating');
@@ -114,4 +114,4 @@ document.querySelector('.es-rating__container').addEventListener('click', async 
 
 ## استایل سفارشی
 
-اگر می‌خواهید ظاهر tooltip را تغییر دهید، در فایل `src/assets/scss/news/components/_voteReviews.scss` کلاس `.es-rating__tooltip` را ویرایش کنید.
+اگر می‌خواهید ظاهر tooltip را تغییر دهید، در فایل `src/assets/scss/contents/components/_voteReviews.scss` کلاس `.es-rating__tooltip` را ویرایش کنید.

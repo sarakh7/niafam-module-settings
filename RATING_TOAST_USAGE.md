@@ -55,7 +55,7 @@ setTimeout(() => {
 ### روش 2: استفاده از تابع کمکی (پیشنهادی) ⭐⭐
 
 ```javascript
-import { showRatingVotedToast } from './features/news/ratingTooltip';
+import { showRatingVotedToast } from './features/contents/ratingTooltip';
 
 const ratingElement = document.querySelector('.es-rating');
 

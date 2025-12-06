@@ -14,7 +14,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // هر صفحه HTML یک entry point است
-        news: resolve(__dirname, 'index.html'),
+        contents: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),

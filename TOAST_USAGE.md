@@ -156,7 +156,7 @@ const ratingElement = document.querySelector('.es-rating');
 ratingElement.classList.add('show-voted-tooltip');
 
 // روش دوم: فراخوانی مستقیم
-import { showRatingVotedToast } from './features/news/ratingTooltip';
+import { showRatingVotedToast } from './features/contents/ratingTooltip';
 showRatingVotedToast();
 ```
 
