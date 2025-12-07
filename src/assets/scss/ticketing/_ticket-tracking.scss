@@ -4,5 +4,415 @@
  */
 
 .ticket-tracking-container {
-  // Styles will be added here after HTML structure is completed
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem 0;
+
+  // Tracking Request Form Section
+  .es-tracking-request {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    .es-form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .es-form-control {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid #e0e6ed;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #3498db;
+          box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        &::placeholder {
+          color: #95a5a6;
+        }
+      }
+    }
+
+    // Captcha Section
+    .es-form-captcha-row {
+      .captcha-image {
+        border-radius: 8px;
+        border: 2px solid #e0e6ed;
+        width: 100%;
+        height: auto;
+      }
+
+      .es-input-group {
+        display: flex;
+
+        .es-input-group-append {
+          .refreshCaptcha {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding: 0.75rem 1.25rem;
+
+            [dir="rtl"] & {
+              border-top-left-radius: 8px;
+              border-bottom-left-radius: 8px;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+          }
+        }
+
+        .es-form-captcha {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+
+          [dir="rtl"] & {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+
+    // Submit Button
+    .submit-button-unique {
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+
+      i {
+        margin-left: 0.5rem;
+
+        [dir="rtl"] & {
+          margin-left: 0;
+          margin-right: 0.5rem;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+      }
+    }
+  }
+
+  // Ticket Details Section
+  #es-msg-form-success {
+    display: block;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .es-ticketing-body {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+
+  // Submitted Data Display
+  #es-content-submits {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+
+    .es-submits-parent {
+      margin-bottom: 1.5rem;
+
+      .es-submits-label {
+        font-size: 0.85rem;
+        color: #7f8c8d;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .es-submits-value {
+        font-size: 1rem;
+        color: #2c3e50;
+        font-weight: 600;
+        padding: 0.5rem 0;
+        border-bottom: 2px solid #e0e6ed;
+      }
+    }
+  }
+
+  // Ticket Reply Cards
+  .es-ticketing-replay-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .es-card-header {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .es-card-body {
+      padding: 1.5rem;
+
+      blockquote {
+        border-right: 4px solid #3498db;
+        padding-right: 1rem;
+        margin: 0 0 1rem 0;
+        color: #34495e;
+        line-height: 1.6;
+
+        [dir="rtl"] & {
+          border-right: none;
+          border-left: 4px solid #3498db;
+          padding-right: 0;
+          padding-left: 1rem;
+        }
+      }
+
+      audio {
+        width: 100%;
+        margin: 1rem 0;
+        border-radius: 8px;
+      }
+
+      a.small {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: #ecf0f1;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #2c3e50;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #3498db;
+          color: #ffffff;
+        }
+      }
+
+      .blockquote-footer {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: #95a5a6;
+      }
+    }
+
+    // Reply Type Colors
+    &.es-ticketing-replay-user {
+      .es-card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #ffffff;
+      }
+    }
+
+    &.es-ticketing-replay-admin {
+      .es-card-header {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: #ffffff;
+      }
+    }
+
+    &.es-ticketing-replay-support {
+      .es-card-header {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: #ffffff;
+      }
+    }
+  }
+
+  // Reply Form Section
+  .es-send-request {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e0e6ed;
+
+    form {
+      .es-form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+          font-weight: 600;
+          color: #2c3e50;
+          font-size: 0.95rem;
+        }
+
+        textarea.form-control {
+          width: 100%;
+          padding: 1rem;
+          border: 2px solid #e0e6ed;
+          border-radius: 8px;
+          resize: vertical;
+          font-family: inherit;
+          transition: all 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+          }
+        }
+
+        // File Upload Section
+        .send-file {
+          width: 100%;
+          padding: 0.9rem;
+          font-weight: 500;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+
+          i {
+            margin-left: 0.5rem;
+
+            [dir="rtl"] & {
+              margin-left: 0;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+
+        .progress {
+          height: 8px;
+          border-radius: 4px;
+          background: #ecf0f1;
+          margin-top: 1rem;
+          overflow: hidden;
+
+          .progress-bar {
+            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+            transition: width 0.3s ease;
+          }
+        }
+
+        .form-message {
+          margin-top: 0.5rem;
+          font-size: 0.9rem;
+          color: #27ae60;
+        }
+      }
+
+      // Captcha for Reply
+      .captcha-image-reply {
+        border-radius: 8px;
+        border: 2px solid #e0e6ed;
+        width: 100%;
+        height: auto;
+      }
+
+      .refreshCaptcha-replay {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        padding: 0.75rem 1.25rem;
+
+        [dir="rtl"] & {
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      button[type="submit"] {
+        font-weight: 600;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+      }
+    }
+  }
+
+  // Utility Classes
+  .d-none {
+    display: none;
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid #e0e6ed;
+    margin: 2rem 0;
+  }
+
+  // Animation
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+
+    .es-tracking-request,
+    .es-ticketing-body {
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    #es-content-submits {
+      padding: 1rem;
+
+      .es-submits-parent {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .es-ticketing-replay-card {
+      margin-bottom: 1rem;
+
+      .es-card-header {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .es-card-body {
+        padding: 1rem;
+      }
+    }
+
+    .es-send-request {
+      form {
+        .es-form-group {
+          label {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+  }
 }

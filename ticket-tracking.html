@@ -7,6 +7,7 @@
     <title>پیگیری تیکت - Niafam</title>
     <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
     <!-- <link rel="stylesheet" href="/assets/css/espritstyle.css" /> -->
+    <link rel="stylesheet" href="/assets/css/reset.css" />
 
     <script src="/assets/js/jquery.js"></script>
 
@@ -91,9 +92,41 @@
       body[dir="ltr"] {
         font-family: Roboto;
       }
+      ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        margin: 0;
+      }
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+      }
+      ul.breadcrumb li a {
+        color: #000;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      ul.breadcrumb li + li:before {
+        padding: 0;
+        color: #000;
+        content: "/ ";
+      }
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
+    <header class="header">
+      <img class="vector" src="/assets/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
+      <nav class="auto-layout">
+        <a href="#" class="text-wrapper" data-i18n="nav.contactUs">تماس با ما</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.organizationalPortal">پورتال سازمانی</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.aboutUs">درباره نیافام</a>
+        <a href="#" class="style-filled"><span class="do-something" data-i18n="nav.login">ورود کاربران</span></a>
+      </nav>
+    </header>
     <!-- محتوای اصلی صفحه پیگیری تیکت -->
     <div class="ticket-tracking-container">
       <div class="es-row p-1">

@@ -2,5 +2,10 @@
  * Ticketing Module Styles
  * Main SCSS file for ticketing module
  */
+// Import common base styles
+@use './common/base/variables' as *;
+@use './common/base/mixins';
+@use './common/base/colors' as *;
+@use './common/esfonticon/style';
 
 @import "./ticketing/ticket-tracking";
