@@ -1,0 +1,172 @@
+/**
+ * Profile Edit Styles
+ * Styles for profile edit page
+ */
+@use '../common/base/globals' as *;
+
+$white: #fff;
+$text-xl: 1.25em;
+$text-lg: 1.125em;
+$text-base: 1em;
+$text-sm: 0.875em;
+
+.d-none {
+  display: none !important;
+}
+
+// Main Container
+.profile-edit-container {
+  min-height: 100vh;
+  padding: $spacing-5 0;
+}
+
+// Profile Edit
+.profile-edit {
+  // Tabs Navigation
+  &__tabs {
+    display: flex;
+    gap: $spacing-2;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $spacing-5 0;
+    border-bottom: 2px solid $gray-200;
+  }
+
+  &__tab-item {
+    margin: 0;
+  }
+
+  &__tab-link {
+    display: block;
+    padding: $spacing-3 $spacing-4;
+    color: $gray-600;
+    text-decoration: none;
+    border-radius: $radius-lg $radius-lg 0 0;
+    transition: $transition;
+    font-weight: $text-medium;
+    border: 2px solid transparent;
+    border-bottom: none;
+    position: relative;
+    bottom: -2px;
+
+    &:hover {
+      color: $blue-gray-600;
+      background: $gray-50;
+    }
+
+    &--active {
+      color: $blue-gray-600;
+      background: $white;
+      border-color: $gray-200;
+      border-bottom-color: $white;
+      font-weight: $text-semi-bold;
+    }
+  }
+
+  // Tab Content
+  &__tab-content {
+    background: $white;
+    border-radius: $radius-xl;
+    padding: $spacing-5;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  &__tab-pane {
+    display: none;
+
+    &--active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+  }
+
+  // Avatar Upload
+  &__avatar-upload {
+    .progress {
+      height: 8px;
+      background: $gray-200;
+      border-radius: $radius-full;
+      overflow: hidden;
+      margin-top: $spacing-3;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, $blue-gray-600 0%, $blue-gray-400 100%);
+      border-radius: $radius-full;
+      transition: width 0.3s ease;
+    }
+  }
+}
+
+// Form Message
+.form-message {
+  padding: $spacing-3;
+  border-radius: $radius-lg;
+  margin-bottom: $spacing-3;
+  display: none;
+
+  &.success {
+    display: block;
+    background: rgba($success, 0.1);
+    border: 1px solid $success;
+    color: darken($success, 10%);
+  }
+
+  &.error {
+    display: block;
+    background: rgba($error, 0.1);
+    border: 1px solid $error;
+    color: darken($error, 10%);
+  }
+}
+
+// Animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .profile-edit-container {
+    padding: $spacing-3 0;
+  }
+
+  .profile-edit {
+    &__tabs {
+      flex-direction: column;
+      border-bottom: none;
+      gap: $spacing-1;
+    }
+
+    &__tab-link {
+      border-radius: $radius-lg;
+      border: 2px solid $gray-200;
+      bottom: 0;
+
+      &--active {
+        border-color: $blue-gray-600;
+        background: $blue-gray-600;
+        color: $white;
+      }
+    }
+
+    &__tab-content {
+      padding: $spacing-4 $spacing-3;
+      border-radius: $radius-lg;
+    }
+  }
+}

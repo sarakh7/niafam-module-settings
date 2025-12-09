@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ویرایش پروفایل - Niafam</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/persian-datepicker.min.css" />
+
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/persian-date.min.js"></script>
+    <script src="/assets/js/persian-datepicker.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Black.woff");
+        font-weight: 900;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-ExtraBold.woff");
+        font-weight: 800;
+        font-display: swap;
+      }
+
+      /* en font */
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+      }
+
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+      ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        margin: 0;
+      }
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+      }
+      ul.breadcrumb li a {
+        color: #000;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      ul.breadcrumb li + li:before {
+        padding: 0;
+        color: #000;
+        content: "/ ";
+      }
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img class="vector" src="/assets/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
+      <nav class="auto-layout">
+        <a href="#" class="text-wrapper" data-i18n="nav.contactUs">تماس با ما</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.organizationalPortal">پورتال سازمانی</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.aboutUs">درباره نیافام</a>
+        <a href="#" class="style-filled"><span class="do-something" data-i18n="nav.login">ورود کاربران</span></a>
+      </nav>
+    </header>
+    <div class="page-content-wrapper">
+      <div class="page-content-breadcrumb">
+        <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name" data-i18n="breadcrumb.home">صفحه اصلی</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="/profile-edit.html">
+              <span itemprop="name" data-i18n="breadcrumb.editProfile">ویرایش پروفایل</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ul>
+      </div>
+
+      <!-- محتوای اصلی ویرایش پروفایل -->
+      <div class="profile-edit-container">
+        <div class="profile-edit">
+          <div class="es-container">
+            <h2 class="es-section-title" data-i18n="profile.editProfile">ویرایش پروفایل</h2>
+
+            <!-- تب‌های ویرایش -->
+            <ul class="profile-edit__tabs" id="profiles-info" role="tablist">
+              <li class="profile-edit__tab-item">
+                <a
+                  class="profile-edit__tab-link profile-edit__tab-link--active"
+                  data-toggle="tab"
+                  href="#profile-tab"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="true"
+                  data-i18n="profile.tabs.basicInfo"
+                >
+                  اطلاعات اصلی
+                </a>
+              </li>
+              <li class="profile-edit__tab-item">
+                <a
+                  class="profile-edit__tab-link"
+                  data-toggle="tab"
+                  href="#password-tab"
+                  role="tab"
+                  aria-controls="password"
+                  aria-selected="false"
+                  data-i18n="profile.tabs.changePassword"
+                >
+                  تغییر رمز
+                </a>
+              </li>
+              <li class="profile-edit__tab-item">
+                <a
+                  class="profile-edit__tab-link"
+                  data-toggle="tab"
+                  href="#avatar-tab"
+                  role="tab"
+                  aria-controls="avatar"
+                  aria-selected="false"
+                  data-i18n="profile.tabs.uploadAvatar"
+                >
+                  آپلود تصویر
+                </a>
+              </li>
+            </ul>
+
+            <!-- محتوای تب‌ها -->
+            <div class="profile-edit__tab-content" id="profile-content">
+              <!-- تب اطلاعات اصلی -->
+              <div
+                class="profile-edit__tab-pane profile-edit__tab-pane--active"
+                id="profile-tab"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >
+                <form id="profileForm" method="post" class="es-form" novalidate="novalidate">
+                  <input type="hidden" id="action" name="action" value="save_profile_user" />
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="name" data-i18n="profile.form.firstName">نام</label>
+                    <input
+                      type="text"
+                      class="es-form-control"
+                      name="name"
+                      id="name"
+                      value="{name}"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.firstNamePlaceholder"
+                      maxlength="512"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="lastname" data-i18n="profile.form.lastName">نام خانوادگی</label>
+                    <input
+                      type="text"
+                      class="es-form-control"
+                      name="lastname"
+                      id="lastname"
+                      value="{lastname}"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.lastNamePlaceholder"
+                      maxlength="512"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="emailaddress" data-i18n="profile.form.email">ایمیل</label>
+                    <input
+                      type="email"
+                      class="es-form-control"
+                      name="emailaddress"
+                      id="emailaddress"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.emailPlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      value="{email}"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="mobile" data-i18n="profile.form.mobile">شماره تلفن همراه</label>
+                    <input
+                      type="text"
+                      class="es-form-control"
+                      name="mobile"
+                      id="mobile"
+                      value="{mobile}"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.mobilePlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="birthdate" data-i18n="profile.form.birthdate">تاریخ تولد</label>
+                    <input
+                      type="text"
+                      class="es-form-control"
+                      name="birthdate"
+                      id="birthdate"
+                      value="{birthdate}"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.birthdatePlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="gender" data-i18n="profile.form.gender">جنسیت</label>
+                    <select class="es-form-control" name="gender" id="gender">
+                      <option value="" data-i18n="profile.form.genderNone">بدون انتخاب</option>
+                      <option value="1" {gen_male} data-i18n="profile.form.genderMale">مذکر</option>
+                      <option value="0" {gen_female} data-i18n="profile.form.genderFemale">مونث</option>
+                    </select>
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="website" data-i18n="profile.form.website">وب سایت</label>
+                    <input
+                      type="url"
+                      class="es-form-control"
+                      name="website"
+                      id="website"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.websitePlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      value="{website}"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="linkedin" data-i18n="profile.form.linkedin">لینکدین</label>
+                    <input
+                      type="url"
+                      class="es-form-control"
+                      name="linkedin"
+                      id="linkedin"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.linkedinPlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      value="{linkedin}"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="instagram" data-i18n="profile.form.instagram">اینستاگرام</label>
+                    <input
+                      type="url"
+                      class="es-form-control"
+                      name="instagram"
+                      id="instagram"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.instagramPlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      value="{instagram}"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="telegram" data-i18n="profile.form.telegram">تلگرام</label>
+                    <input
+                      type="url"
+                      class="es-form-control"
+                      name="telegram"
+                      id="telegram"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.telegramPlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      value="{telegram}"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="description" data-i18n="profile.form.description">توضیحات</label>
+                    <textarea
+                      class="es-form-control"
+                      name="description"
+                      id="description"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.descriptionPlaceholder"
+                      maxlength="512"
+                      rows="4"
+                    >{description}</textarea>
+                  </div>
+
+                  <div class="form-message"></div>
+
+                  <div class="es-form-group">
+                    <button type="submit" class="es-btn es-btn-primary">
+                      <i class="es esprit-check"></i>
+                      <span data-i18n="profile.form.submit">ثبت فرم</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- تب تغییر رمز -->
+              <div class="profile-edit__tab-pane" id="password-tab" role="tabpanel" aria-labelledby="password-tab">
+                <form id="changePassForm" method="post" class="es-form" novalidate="novalidate">
+                  <input type="hidden" id="action" name="action" value="change_pass" />
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="oldpass" data-i18n="profile.form.oldPassword">رمز ورود قبلی</label>
+                    <input
+                      type="password"
+                      class="es-form-control"
+                      name="oldpass"
+                      id="oldpass"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.oldPasswordPlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="newpass" data-i18n="profile.form.newPassword">رمز ورود جدید</label>
+                    <input
+                      type="password"
+                      class="es-form-control"
+                      name="newpass"
+                      id="newpass"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.newPasswordPlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <div class="es-form-group">
+                    <label class="es-form-label" for="newpassrepeat" data-i18n="profile.form.repeatPassword"
+                      >تکرار رمز ورود</label
+                    >
+                    <input
+                      type="password"
+                      class="es-form-control"
+                      name="newpassrepeat"
+                      id="newpassrepeat"
+                      placeholder=""
+                      data-i18n="[placeholder]profile.form.repeatPasswordPlaceholder"
+                      maxlength="512"
+                      dir="ltr"
+                      autocomplete="off"
+                    />
+                  </div>
+
+                  <div class="form-message"></div>
+
+                  <div class="es-form-group">
+                    <button type="submit" class="es-btn es-btn-primary">
+                      <i class="es esprit-check"></i>
+                      <span data-i18n="profile.form.submit">ثبت فرم</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- تب آپلود تصویر -->
+              <div class="profile-edit__tab-pane" id="avatar-tab" role="tabpanel" aria-labelledby="avatar-tab">
+                <form id="avatarForm" method="post" class="es-form" novalidate="novalidate">
+                  <input type="hidden" id="action" name="action" value="save_profile_avatar" />
+
+                  <div class="es-form-group">
+                    <div class="profile-edit__avatar-upload">
+                      <input class="d-none" type="file" name="addpicurl-name" id="addpicurl-name" accept="image/*" />
+                      <div class="form-message"></div>
+                      <button class="es-btn es-btn-warning es-btn-block" id="addpicurl" type="button">
+                        <i class="es esprit-camera"></i>
+                        <span data-i18n="profile.form.addFile">افزودن فایل</span>
+                      </button>
+                      <div class="progress">
+                        <div class="progress-bar" style="width: 0%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/profile-main.js"></script>
+  </body>
+</html>

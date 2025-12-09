@@ -16,6 +16,10 @@ export default defineConfig({
         // هر صفحه HTML یک entry point است
         contents: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about.html'),
+        ticketTracking: resolve(__dirname, 'ticket-tracking.html'),
+        profileDashboard: resolve(__dirname, 'profile-dashboard.html'),
+        profileView: resolve(__dirname, 'profile-view.html'),
+        profileEdit: resolve(__dirname, 'profile-edit.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
         // auth: resolve(__dirname, 'auth.html'),

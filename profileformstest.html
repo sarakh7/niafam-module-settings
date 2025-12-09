@@ -1,0 +1,524 @@
+<!-- داشبورد -->
+ <!--<div class="commerce-account">
+    <div class="site-content-inner container" role="main">
+        <article id="post-21" class="post-21 page type-page status-publish hentry">
+            <div class="entry-content">
+                <div class="commerce">
+                    <nav class="commerce-MyAccount-navigation">
+                        <div class="user-info-MyAccount"><img class="avatar avatar-80 photo"
+                                src="/uploads/sys/profiles/128/{userunicid}.jpg"
+                                alt="" width="128" height="128" />
+                            <div class="user-info-name">سلام <strong>{fullname}</strong> عزیز!</div>
+                        </div>
+                      [esprit:menu:mydash]
+                    </nav>
+                    <div class="commerce-MyAccount-content">
+                        <div class="commerce-notices-wrapper">&nbsp;</div>
+                        <div class="notifications-box">
+                            [esprit:page-content]  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>-->
+<link rel="stylesheet" href="/uploads/31/assets/styles/dashboard-style.css"/>
+<div class="row">
+  	<div class="col">
+ 
+        <div class="commerce-account">
+            <div class="site-content-inner container" role="main">
+                <article id="post-21" class="post-21 page type-page status-publish hentry">
+                    <div class="entry-content">
+                        <div class="commerce">
+                            <nav class="commerce-MyAccount-navigation">
+                                <div class="user-info-MyAccount"><img class="avatar avatar-80 photo"
+                                        src="/uploads/sys/profiles/128/{userunicid}.jpg"
+                                        alt="" width="128" height="128" />
+                                    <div class="user-info-name">سلام <strong>{fullname}</strong> عزیز!</div>
+                                   <form class="es-form-horizontal es-form-simple" action="" method="post">
+                                        <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout">
+                                        <button type="submit" class="es-btn es-btn-warning"style="margin-top: 5px;"><span>خروج</span></button>
+                                    </form>
+                                </div>
+                              [esprit:menu:mydash]
+                            </nav>
+                            <div class="commerce-MyAccount-content">
+                                <div class="commerce-notices-wrapper">&nbsp;</div>
+                                <div class="notifications-box">
+                                    [esprit:page-content]  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+  </div>
+</div>
+
+
+<!-- کدهای قالب صفحۀ پروفایل کاربر -->
+ <section class="section-about" id="about">
+      <div class="es-container">
+        <div class="es-row es-justify-content-center es-align-items-center">
+          <div class="es-col-md-3">
+            <div class="section-about--img">
+              <img class="img-fluid es-mx-auto es-d-block" src="/uploads/sys/profiles/128/{userunicid}.jpg" alt="{firstname} {lastname}" />
+            </div>
+          </div>
+
+          <div class="es-col-md-9">
+            <div class="about-desc">
+              <div class="about-desc-content text-left">
+                <h2>{firstname} {lastname}</h2>
+                <p class="es-mt-4">
+ 				{description}
+                </p>
+              </div>
+
+              <ul class="about-desc-social text-left es-my-4 es-p-0">
+                <li>
+                  <a class="hover-state" href="{linkedin}" rel="nofollow"><i class="es esprit-linkedin"></i></a>
+                </li>
+                <li>
+                  <a class="hover-state" href="{instagram}"  rel="nofollow"><i class="es esprit-instagram"></i></a>
+                </li>
+                <li>
+                  <a class="hover-state" href="{telegram}"  rel="nofollow"><i class="es esprit-telegram"></i></a>
+                </li>
+              </ul>
+
+              <div class="about-desc-more text-left">
+                <div class="es-row">
+                  <div class="es-col-lg-6">
+                    <div class="about-desc-info">
+                      <b>ایمیل : </b>
+                      <span> {emailaddress}</span>
+                    </div>
+                  </div>
+                  <div class="es-col-lg-6">
+                    <div class="about-desc-info">
+                      <b>شماره تلفن همراه : </b>
+                      <span> {mobile}</span>
+                    </div>
+                  </div>
+                  <div class="es-col-lg-6">
+                    <div class="about-desc-info">
+                      <b>تاریخ تولد : </b>
+                      <span>{birthdate}</span>
+                    </div>
+                  </div>
+                  <div class="es-col-lg-6">
+                    <div class="about-desc-info">
+                      <b>وب سایت : </b>
+                      <a href="{website}"  rel="nofollow">{website}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- کدهای قالب صفحۀ ویرایش مشخصات پروفایل کاربر -->
+<script src="/assets/js/persian-date.min.js"></script>
+<script src="/assets/js/persian-datepicker.js"></script>
+<link rel="stylesheet" href="/assets/css/persian-datepicker.min.css" />
+<ul class="nav nav-tabs" id="profiles-info" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#profile-tab" role="tab" aria-controls="profile"  
+            aria-selected="true">اطلاعات اصلی</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#password-tab" role="tab" aria-controls="password"    
+            aria-selected="false">تغییر رمز</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#avatar-tab" role="tab" aria-controls="avatar"
+            aria-selected="false">آپلود تصویر</a>
+    </li>
+</ul>
+<div class="tab-content" id="profile-content">
+    <div class="tab-pane  show fade active in" id="profile-tab" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="es-row es-justify-content-md-center  es-mt-4">
+            <div class="es-col-md-12 es-col-xs-12 es-col-sm-12">
+                <form id="profileForm" method="post" class="form es-container form-horizontal form-container"
+                    novalidate="novalidate">
+                    <div class="es-hidden-body">
+                        <input class="d-none" type="hidden" id="action" name="action" value="save_profile_user">
+                    </div>
+                    <fieldset>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                نام
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control " name="name" id="name" value="{name}"
+                                    placeholder="نام" maxlength="512">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                نام خانوادگی
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control" name="lastname" id="lastname"
+                                    value="{lastname}" placeholder="نام خانوادگی" maxlength="512"  autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                ایمیل
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control" name="emailaddress" id="emailaddress"
+                                    placeholder="ایمیل" maxlength="512" dir="ltr" value="{email}">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                شماره تلفن همراه
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control" name="mobile" id="mobile" value="{mobile}"
+                                    placeholder="شماره تلفن همراه" maxlength="512" dir="ltr"  autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                تاریخ تولد
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control" name="birthdate" id="birthdate"
+                                    value="{birthdate}" placeholder="تاریخ تولد" maxlength="512" dir="ltr"
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                      <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                               جنسیت
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <select  class="es-form-control" name="gender" id="gender" > 
+                                    <option value="" > بدون انتخاب </option>
+                                    <option value="1" {gen_male}> مذکر</option>
+                                    <option value="0" {gen_female}>مونث</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                وب سایت
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control" name="website" id="website"
+                                    placeholder="وب سایت" maxlength="512" dir="ltr" value="{website}">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                لینکدین
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control" name="linkedin" id="linkedin"
+                                    placeholder="لینکدین" maxlength="512" dir="ltr" value="{linkedin}">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                اینستاگرام
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control" name="instagram" id="instagram"
+                                    placeholder="اینستاگرام" maxlength="512" dir="ltr" value="{instagram}">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                تلگرام
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="textbox" class="es-form-control" name="telegram" id="telegram"
+                                    placeholder="تلگرام" maxlength="512" dir="ltr" value="{telegram}">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                توضیحات
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <textarea class="es-form-control" name="description" id="description"
+                                    placeholder="توضیحات" maxlength="512">{description}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-message">
+                        </div>
+
+                        <div class="es-row es-form-group">
+                            <div class="form-control-row es-col-md-12  es-col-xs-12 es-col-sm-12 ">
+                                <button type="submit" class="es-btn es-btn-primary "><i class="fa fa-check"> </i> ثبت
+                                    فرم</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="tab-pane fade" id="password-tab" role="tabpanel" aria-labelledby="password-tab">
+
+        <div class="es-row es-justify-content-md-center  es-mt-4">
+            <div class="es-col-md-12 es-col-xs-12 es-col-sm-12">
+                <form id="changePassForm" method="post" class="form es-container form-horizontal form-container"
+                    novalidate="novalidate">
+                    <div class="es-hidden-body">
+                        <input class="d-none" type="hidden" id="action" name="action" value="change_pass">
+                    </div>
+                    <fieldset>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                رمز ورود قبلی
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="password" class="es-form-control" name="oldpass" id="oldpass"
+                                    placeholder="رمز ورود" maxlength="512" dir="ltr" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                رمز ورود جدید
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="password" class="es-form-control " name="newpass" id="newpass"
+                                    placeholder="رمز ورود" maxlength="512" dir="ltr" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="es-row es-form-group">
+                            <label class="es-col-md-3 es-col-xs-12 es-col-sm-12  es-form-label">
+                                تکرار رمز ورود
+                            </label>
+                            <div class="form-control-row es-col-md-9  es-col-xs-12 es-col-sm-12 ">
+                                <input type="password" class="es-form-control " name="newpassrepeat" id="newpassrepeat"
+                                    placeholder="رمز ورود" maxlength="512" dir="ltr" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-message">
+                        </div>
+
+                        <div class="es-row es-form-group">
+                            <div class="form-control-row es-col-md-12  es-col-xs-12 es-col-sm-12 ">
+                                <button type="submit" class="es-btn es-btn-primary "><i class="fa fa-check"> </i> ثبت
+                                    فرم</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="tab-pane fade " id="avatar-tab" role="tabpanel" aria-labelledby="avatar-tab">
+
+        <div class="es-row es-justify-content-md-center  es-mt-4">
+            <div class="es-col-md-12 es-col-xs-12 es-col-sm-12">
+                <form id="avatarForm" method="post" class="form es-container form-horizontal form-container"
+                    novalidate="novalidate">
+                    <div class="es-hidden-body">
+                        <input class="d-none" type="hidden" id="action" name="action" value="save_profile_avatar">
+                    </div>
+                    <fieldset>
+                        <div class="es-row es-form-group">
+
+                            <div class="es-col-md-8 es-mx-auto">
+                                <input class="ax-browse d-none" type="file" name="addpicurl-name" id="addpicurl-name">
+                                <div class="form-message">
+                                </div>
+                                <div>
+                                    <button class="es-btn es-btn-warning es-btn-block  send-file" id="addpicurl"
+                                        type="button"> <i class="fas fa-camera"></i> افزودن فایل</button>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%"></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#profiles-info a').on('click', function (e) {
+        e.preventDefault();
+        $("#profiles-info > .fade").removeClass("in")
+        $($(this).attr("href")).addClass("in")
+    })
+    $("#profileForm").validate({
+        rules: {
+            name: {
+                required: true
+            },
+            emailaddress: {
+                email: true,
+
+            },
+            website: {
+                url: true
+            },
+            lastname: {
+                required: true
+            }
+        },
+        messages: {
+
+        }
+    })
+    $("#changePassForm").validate({
+        rules: {
+            oldpass: {
+                required: true
+            },
+            newpass: {
+                required: true,
+                pwcheck: true
+            },
+            newpassrepeat: {
+                required: true,
+                equalTo: "#newpass"
+            }
+        },
+        messages: {
+            newpass: {
+                pwcheck: "پسورد صحیح نیست."
+            },
+            newpassrepeat: {
+                equalTo: "پسورد ها مشابه نیستند."
+            }
+        }
+    })
+    $("#birthdate")
+        .persianDatepicker({
+            format: "YYYY/MM/DD",
+            toolbox: {
+                calendarSwitch: {
+                    enabled: false
+                }
+            },
+            timePicker: {
+                enabled: false
+            },
+            initialValueType: "persian",
+            initialValue: true,
+            calendarType: "persian",
+            persianDigit: false,
+            autoClose: true,
+        })
+    //$("#birthdate"  ) .val("{birthdate}")
+    $(".form-container").on("submit", function (e) {
+        e.preventDefault();
+        if (!$(this).valid()) return
+        var dataToSend = {
+            action: "save_profile_user",
+
+        }, _this = this;
+        $(_this).find("input,textarea,select").each(function () {
+            dataToSend[$(this).attr("name")] = $(this).val()
+        })
+        $.ajax({
+            url: "/inc/ajax.ashx",
+            type: "POST",
+            data: dataToSend,
+            dataType: "json",
+            beforeSend: function () {
+                $(_this).block(defaultBlockOption);
+                $(_this).find("input,select,textarea").attr("disabled", true);
+
+            },
+            success: function (res) {
+                $(_this).find("input,select,textarea").attr("disabled", false);
+                $(_this).unblock(defaultBlockOption);
+                if (res.status == "success") {
+                    $(_this).find(".form-message").html('<div class="alert alert-success"> اطلاعات با موفقیت ذخیره شد. </div>')
+                } else {
+                    $(_this).find(".form-message").html('<div class="alert alert-danger"> ' + (res.msg || 'خطای ناشناخته') + ' </div>')
+
+                }
+            },
+            error: function () {
+                $(_this).find("input,select,textarea").attr("disabled", false);
+                $(_this).find(".form-message").html('<div class="alert alert-danger">  خطای ناشناخته </div>')
+
+                $(_this).unblock(defaultBlockOption)
+            }
+        })
+    })
+
+
+    $(".send-file").on("click", function (e) {
+        $(e.currentTarget)
+            .closest(".es-form-group.es-row")
+            .find(".ax-browse")
+            .trigger("click");
+    })
+        ;
+    $('input[type=file]').change(function () {
+        let $parent = $(this).closest(".es-form-group.es-row");
+        $(this).simpleUpload("/inc/ajax.ashx?action=change_avatar", {
+            start: function (file) {
+                //upload started
+                $parent.find('.progress').show();
+                $parent.find('.progress-bar')
+                    .html("")
+                    .width(0);
+            },
+            progress: function (progress) {
+                //received progress
+                $parent.find('.progress-bar')
+                    .html(" (" + Math.round(progress) + "%) ")
+                    .css( "width", Math.round(progress)+"%");
+            },
+            success: function (data) {
+                try {
+                    var parsed_data = JSON.parse(data);
+
+                    $parent.find('input.form-control').val(parsed_data.fileurl);
+
+                    if (parsed_data.status == "success") {
+                        $parent.find('.form-message').html('<div class="alert alert-success"> تصویر پروفایل با موفقیت تغییر کرد </div>')
+
+                    } else {
+                        $parent.find('.form-message').html('<div class="alert alert-danger"> ' + (parsed_data.msg || 'خطای ناشناخته') + ' </div>')
+
+                    }
+                }
+                catch (e) {
+                    $parent.find('.form-message').html('<div class="alert alert-danger"> ' + (data || 'خطای ناشناخته') + ' </div>')
+                }
+                setTimeout(function () {
+                    $parent.find('.progress').fadeOut();
+                }, 1000);
+                // $('.progress-bar').width(0);
+            },
+            error: function (error) {
+                //upload failed
+                $parent.find('.form-message').html('<div class="alert alert-danger"> ' + (error || 'خطای ناشناخته') + ' </div>')
+
+
+            }
+        });
+    });
+    $.validator.addMethod("pwcheck", function (value) {
+        return /^(?=.*[A-z])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/.test(value) // consists of only these
+        //  && /[a-z]/.test(value) // has a lowercase letter
+        // && /\d/.test(value) // has a digit
+    });
+</script>

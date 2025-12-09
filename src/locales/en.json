@@ -90,7 +90,10 @@
     "content": "Content",
     "news": "News",
     "ticketing": "Ticketing",
-    "ticketTracking": "Ticket Tracking"
+    "ticketTracking": "Ticket Tracking",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "editProfile": "Edit Profile"
   },
   "tools": {
     "toolbox": "Toolbox",
@@ -302,6 +305,55 @@
       "feature3": "Custom styles",
       "feature4": "Smooth animations",
       "close": "Close"
+    }
+  },
+  "profile": {
+    "greeting": "Hello",
+    "dear": "!",
+    "logout": "Logout",
+    "editProfile": "Edit Profile",
+    "email": "Email:",
+    "mobile": "Mobile Number:",
+    "birthdate": "Birth Date:",
+    "website": "Website:",
+    "tabs": {
+      "basicInfo": "Basic Information",
+      "changePassword": "Change Password",
+      "uploadAvatar": "Upload Avatar"
+    },
+    "form": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "mobile": "Mobile Number",
+      "mobilePlaceholder": "Enter your mobile number",
+      "birthdate": "Birth Date",
+      "birthdatePlaceholder": "Select your birth date",
+      "gender": "Gender",
+      "genderNone": "Not Selected",
+      "genderMale": "Male",
+      "genderFemale": "Female",
+      "website": "Website",
+      "websitePlaceholder": "Enter your website URL",
+      "linkedin": "LinkedIn",
+      "linkedinPlaceholder": "Enter your LinkedIn URL",
+      "instagram": "Instagram",
+      "instagramPlaceholder": "Enter your Instagram URL",
+      "telegram": "Telegram",
+      "telegramPlaceholder": "Enter your Telegram URL",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter your description",
+      "oldPassword": "Old Password",
+      "oldPasswordPlaceholder": "Enter your old password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter your new password",
+      "repeatPassword": "Repeat Password",
+      "repeatPasswordPlaceholder": "Re-enter your new password",
+      "addFile": "Add File",
+      "submit": "Submit"
     }
   }
 }

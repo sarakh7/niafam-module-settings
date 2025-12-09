@@ -1,6 +1,6 @@
 /**
- * Ticketing Module Styles
- * Main SCSS file for ticketing module
+ * Profile Module Styles
+ * Main SCSS file for profile module
  */
 // Import common base styles
 @use './common/base/variables' as *;
@@ -10,4 +10,7 @@
 @use './common/components/form';
 @use './common/components/section-title';
 
-@use "./ticketing/ticket-tracking";
+// Import profile-specific styles
+@use './profile/dashboard';
+@use './profile/view';
+@use './profile/edit';

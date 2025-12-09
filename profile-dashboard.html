@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>داشبورد - Niafam</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Black.woff");
+        font-weight: 900;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-ExtraBold.woff");
+        font-weight: 800;
+        font-display: swap;
+      }
+
+      /* en font */
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+      }
+
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+      ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        margin: 0;
+      }
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+      }
+      ul.breadcrumb li a {
+        color: #000;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      ul.breadcrumb li + li:before {
+        padding: 0;
+        color: #000;
+        content: "/ ";
+      }
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img class="vector" src="/assets/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
+      <nav class="auto-layout">
+        <a href="#" class="text-wrapper" data-i18n="nav.contactUs">تماس با ما</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.organizationalPortal">پورتال سازمانی</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.aboutUs">درباره نیافام</a>
+        <a href="#" class="style-filled"><span class="do-something" data-i18n="nav.login">ورود کاربران</span></a>
+      </nav>
+    </header>
+    <div class="page-content-wrapper">
+      <div class="page-content-breadcrumb">
+        <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name" data-i18n="breadcrumb.home">صفحه اصلی</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="/profile-dashboard.html">
+              <span itemprop="name" data-i18n="breadcrumb.dashboard">داشبورد</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ul>
+      </div>
+
+      <!-- محتوای اصلی داشبورد -->
+      <div class="profile-dashboard-container">
+        <div class="profile-dashboard">
+          <div class="profile-dashboard__sidebar">
+            <!-- اطلاعات کاربر -->
+            <div class="profile-dashboard__user-info">
+              <div class="profile-dashboard__avatar-wrapper">
+                <img class="profile-dashboard__avatar" src="/assets/img/Avatar.jpg" alt="{fullname}" width="128" height="128" />
+              </div>
+              <div class="profile-dashboard__user-name">
+                <!-- <span data-i18n="profile.greeting">سلام</span> -->
+                <strong>سارا خشتی</strong>
+                <!-- <span data-i18n="profile.dear">عزیز!</span> -->
+              </div>
+            </div>
+
+            <!-- منوی ناوبری -->
+            <nav class="profile-dashboard__navigation">
+              <ul>
+                <li>
+                  <a href="/profile-dashboard.html" class="active">
+                    <i class="es esprit-home"></i>
+                    <span>داشبورد</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/profile-view.html">
+                    <i class="es esprit-user"></i>
+                    <span>مشاهده پروفایل</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/profile-edit.html">
+                    <i class="es esprit-edit"></i>
+                    <span>ویرایش پروفایل</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="has-submenu">
+                    <i class="es esprit-cog"></i>
+                    <span>تنظیمات</span>
+                  </a>
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i class="es esprit-lock"></i>
+                        <span>حریم خصوصی</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="es esprit-bell"></i>
+                        <span>اعلان‌ها</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="es esprit-shield"></i>
+                        <span>امنیت</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="es esprit-envelope"></i>
+                    <span>پیام‌ها</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="has-submenu">
+                    <i class="es esprit-file-alt"></i>
+                    <span>محتوای من</span>
+                  </a>
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i class="es esprit-newspaper"></i>
+                        <span>مقالات من</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="es esprit-bookmark"></i>
+                        <span>نشانک‌ها</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+
+            <form class="profile-dashboard__logout-form" action="" method="post">
+              <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout" />
+              <button type="submit" class="profile-dashboard__logout-btn es-btn es-btn-danger">
+                <i class="es esprit-fi-rr-sign-out-alt"></i>
+                <span data-i18n="profile.logout">خروج</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- محتوای اصلی -->
+          <div class="profile-dashboard__content">
+            <div class="profile-dashboard__content-wrapper">
+              <h2 class="es-section-title">خوش آمدید به داشبورد</h2>
+
+              <p style="line-height: 1.8; margin-bottom: 20px;">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
+                مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+              </p>
+
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">آمار و ارقام</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px;">
+                کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا
+                با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در
+                زبان فارسی ایجاد کرد.
+              </p>
+
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">فعالیت‌های اخیر</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px;">
+                در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
+                پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
+                موجود طراحی اساسا مورد استفاده قرار گیرد.
+              </p>
+
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">پروژه‌های جاری</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px;">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+              </p>
+
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">اعلان‌ها</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px;">
+                کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا
+                با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در
+                زبان فارسی ایجاد کرد.
+              </p>
+
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">تنظیمات سریع</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px;">
+                در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
+                پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
+                موجود طراحی اساسا مورد استفاده قرار گیرد.
+              </p>
+
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">گزارش‌های ماهانه</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px;">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
+                مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/profile-main.js"></script>
+  </body>
+</html>

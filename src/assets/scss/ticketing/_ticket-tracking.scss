@@ -63,32 +63,7 @@ $text-xs: 0.75em;
     margin-top: $spacing-5;
   }
 
-  // Section Titles
-  .es-section-title {
-    font-size: $text-xl;
-    font-weight: $text-semi-bold;
-    color: $blue-gray-600;
-    margin-bottom: $spacing-4;
-    padding-bottom: $spacing-3;
-    border-bottom: 1px solid $blue-gray-600;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      right: 0;
-      width: 60px;
-      height: 3px;
-      background: $blue-gray-600;
-    }
-
-    [dir="ltr"] &::after {
-      right: auto;
-      left: 0;
-      background: linear-gradient(90deg, $blue-gray-600 0%, transparent 100%);
-    }
-  }
+  // Section Titles - now using common component from _section-title.scss
 
   // Submitted Data Display
   #es-content-submits {
@@ -244,12 +219,6 @@ $text-xs: 0.75em;
   // Responsive Design
   @media (max-width: 768px) {
     padding: $spacing-3 0;
-
-    .es-section-title {
-      font-size: $text-lg;
-      margin-bottom: $spacing-3;
-      padding-bottom: $spacing-2;
-    }
 
     .es-tracking-request,
     .es-ticketing-body {

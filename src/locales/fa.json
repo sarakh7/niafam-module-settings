@@ -79,7 +79,10 @@
     "content": "محتوا",
     "news": "اخبار",
     "ticketing": "تیکتینگ",
-    "ticketTracking": "پیگیری تیکت"
+    "ticketTracking": "پیگیری تیکت",
+    "dashboard": "داشبورد",
+    "profile": "پروفایل",
+    "editProfile": "ویرایش پروفایل"
   },
   "tools": {
     "toolbox": "جعبه ابزار",
@@ -291,6 +294,55 @@
       "feature3": "استایل‌های سفارشی",
       "feature4": "انیمیشن‌های روان",
       "close": "بستن"
+    }
+  },
+  "profile": {
+    "greeting": "سلام",
+    "dear": "عزیز!",
+    "logout": "خروج",
+    "editProfile": "ویرایش پروفایل",
+    "email": "ایمیل :",
+    "mobile": "شماره تلفن همراه :",
+    "birthdate": "تاریخ تولد :",
+    "website": "وب سایت :",
+    "tabs": {
+      "basicInfo": "اطلاعات اصلی",
+      "changePassword": "تغییر رمز",
+      "uploadAvatar": "آپلود تصویر"
+    },
+    "form": {
+      "firstName": "نام",
+      "firstNamePlaceholder": "نام خود را وارد کنید",
+      "lastName": "نام خانوادگی",
+      "lastNamePlaceholder": "نام خانوادگی خود را وارد کنید",
+      "email": "ایمیل",
+      "emailPlaceholder": "ایمیل خود را وارد کنید",
+      "mobile": "شماره تلفن همراه",
+      "mobilePlaceholder": "شماره تلفن همراه خود را وارد کنید",
+      "birthdate": "تاریخ تولد",
+      "birthdatePlaceholder": "تاریخ تولد خود را انتخاب کنید",
+      "gender": "جنسیت",
+      "genderNone": "بدون انتخاب",
+      "genderMale": "مذکر",
+      "genderFemale": "مونث",
+      "website": "وب سایت",
+      "websitePlaceholder": "آدرس وب سایت خود را وارد کنید",
+      "linkedin": "لینکدین",
+      "linkedinPlaceholder": "آدرس لینکدین خود را وارد کنید",
+      "instagram": "اینستاگرام",
+      "instagramPlaceholder": "آدرس اینستاگرام خود را وارد کنید",
+      "telegram": "تلگرام",
+      "telegramPlaceholder": "آدرس تلگرام خود را وارد کنید",
+      "description": "توضیحات",
+      "descriptionPlaceholder": "توضیحات خود را وارد کنید",
+      "oldPassword": "رمز ورود قبلی",
+      "oldPasswordPlaceholder": "رمز ورود قبلی خود را وارد کنید",
+      "newPassword": "رمز ورود جدید",
+      "newPasswordPlaceholder": "رمز ورود جدید خود را وارد کنید",
+      "repeatPassword": "تکرار رمز ورود",
+      "repeatPasswordPlaceholder": "رمز ورود جدید را دوباره وارد کنید",
+      "addFile": "افزودن فایل",
+      "submit": "ثبت فرم"
     }
   }
 }
