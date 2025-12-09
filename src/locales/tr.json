@@ -54,5 +54,36 @@
     "error": "Hata",
     "retry": "Yeniden Dene",
     "close": "Kapat"
+  },
+  "ticketing": {
+    "form": {
+      "trackingCodeLabel": "Takip kodunuzu girin:",
+      "trackingCodePlaceholder": "Takip Kodu",
+      "trackButton": "Takip Et",
+      "replyMessage": "Mesaj Gönder:",
+      "attachFileLabel": "Dosya Ekle:",
+      "addFile": "Dosya Ekle",
+      "sendReply": "Yanıt Gönder"
+    },
+    "result": {
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "subject": "Konu",
+      "account": "Bilet Sistemi Hesabı",
+      "education": "Eğitim",
+      "interests": "İlgi Alanları",
+      "books": "Kitaplar",
+      "uploadFile": "Dosya Yükle",
+      "trackingCode": "Takip Kodu"
+    },
+    "reply": {
+      "sentByUser": "Kullanıcı Tarafından Gönderildi",
+      "attachedFile": "Ekli Dosya"
+    },
+    "sections": {
+      "submittedInfo": "Gönderilen Bilgiler",
+      "conversations": "Konuşmalar",
+      "sendReply": "Yanıt Gönder"
+    }
   }
 }

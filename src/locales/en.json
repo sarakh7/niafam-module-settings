@@ -88,7 +88,9 @@
   "breadcrumb": {
     "home": "Home",
     "content": "Content",
-    "news": "News"
+    "news": "News",
+    "ticketing": "Ticketing",
+    "ticketTracking": "Ticket Tracking"
   },
   "tools": {
     "toolbox": "Toolbox",
@@ -210,6 +212,38 @@
     "captchaInstruction": "Enter the text in the image:",
     "captchaRefresh": "Refresh Security Code",
     "yourComment": "Your Comment"
+  },
+  "ticketing": {
+    "form": {
+      "trackingCodeLabel": "Enter your tracking code:",
+      "trackingCodePlaceholder": "Tracking Code",
+      "trackButton": "Track",
+      "replyMessage": "Send Message:",
+      "replyMessagePlaceholder": "Write your message here...",
+      "attachFileLabel": "Attach File:",
+      "addFile": "Add File",
+      "sendReply": "Send Reply"
+    },
+    "result": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "subject": "Subject",
+      "account": "Ticketing System Account",
+      "education": "Education",
+      "interests": "Interests",
+      "books": "Books",
+      "uploadFile": "Upload File",
+      "trackingCode": "Tracking Code"
+    },
+    "reply": {
+      "sentByUser": "Sent by User",
+      "attachedFile": "Attached File"
+    },
+    "sections": {
+      "submittedInfo": "Submitted Information",
+      "conversations": "Conversations",
+      "sendReply": "Send Reply"
+    }
   },
   "vote": {
     "question": "Was this news helpful?",

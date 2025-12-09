@@ -20,30 +20,6 @@ $text-xs: 0.75em;
   min-height: 100vh;
   padding: $spacing-5 0;
 
-  // Extend form styles from _form.scss for consistency
-  .nes-input,
-  .nes-captcha-input,
-  .nes-textarea,
-  .es-form-control {
-    width: 100%;
-    padding: $spacing-2;
-    border: 1px solid $blue-gray-300;
-    border-radius: $radius-default;
-    font-size: $text-base;
-    font-family: inherit;
-    transition: $transition;
-
-    &:focus {
-      border-color: $blue-gray-400;
-      outline: none;
-      box-shadow: 0 0 0 2px rgba($blue-gray-400, 0.2);
-    }
-
-    &::placeholder {
-      color: $gray-400;
-    }
-  }
-
   .nes-label {
     font-size: $text-sm;
     font-weight: $text-semi-bold;
@@ -54,10 +30,7 @@ $text-xs: 0.75em;
 
   // Tracking Request Form Section
   .es-tracking-request {
-    background: $white;
     border-radius: $radius-xl;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    padding: $spacing-5;
     margin-bottom: $spacing-5;
 
     .es-form-group,
@@ -74,140 +47,8 @@ $text-xs: 0.75em;
     }
 
     // Captcha Section
-    .es-form-captcha-row,
-    .nes-captcha-row,
-    .nes-captcha-group {
-      display: flex;
-      align-items: center;
-      gap: $spacing-2;
-      flex-wrap: wrap;
-      margin-bottom: $spacing-3;
-
-      .captcha-image,
-      .nes-captcha-img {
-        border-radius: $radius-default;
-        border: 1px solid $blue-gray-300;
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        background: $white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        transition: $transition;
-
-        &:hover {
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        }
-      }
-
-      .nes-captcha-text {
-        font-size: $text-sm;
-        color: $gray-600;
-        font-weight: $text-medium;
-        white-space: nowrap;
-
-        @media (max-width: 767.98px) {
-          width: 100%;
-          margin-bottom: $spacing-1;
-        }
-      }
-
-      .es-input-group {
-        display: flex;
-        flex: 1;
-        min-width: 200px;
-
-        .es-input-group-append {
-          .refreshCaptcha,
-          .nes-btn-icon {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            padding: $spacing-2 $spacing-3;
-            background: $blue-gray-50;
-            border: 1px solid $blue-gray-300;
-            color: $blue-gray-600;
-            cursor: pointer;
-            transition: $transition;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            &:hover {
-              background: $blue-gray-100;
-              border-color: $blue-gray-400;
-            }
-
-            &:active {
-              transform: scale(0.95);
-            }
-
-            i {
-              font-size: $text-base;
-            }
-
-            [dir="rtl"] & {
-              border-top-left-radius: $radius-default;
-              border-bottom-left-radius: $radius-default;
-              border-top-right-radius: 0;
-              border-bottom-right-radius: 0;
-            }
-          }
-        }
-
-        .es-form-captcha,
-        .nes-captcha-input {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-          flex: 1;
-          text-align: center;
-          font-weight: $text-medium;
-          letter-spacing: 2px;
-          font-size: $text-base;
-
-          [dir="rtl"] & {
-            border-top-right-radius: $radius-default;
-            border-bottom-right-radius: $radius-default;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-          }
-        }
-      }
-    }
 
     // Submit Button
-    .submit-button-unique,
-    .nes-btn {
-      font-weight: $text-semi-bold;
-      padding: $spacing-2 $spacing-5;
-      font-size: $text-base;
-      border-radius: $radius-default;
-      transition: $transition;
-      border: none;
-      cursor: pointer;
-
-      i {
-        margin-left: $spacing-sm;
-
-        [dir="rtl"] & {
-          margin-left: 0;
-          margin-right: $spacing-sm;
-        }
-      }
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba($blue-gray-400, 0.3);
-      }
-
-      &.nes-btn-success {
-        background-color: $success;
-        color: $white;
-      }
-
-      &.nes-btn-danger {
-        background-color: $error;
-        color: $white;
-      }
-    }
   }
 
   // Ticket Details Section
@@ -222,31 +63,57 @@ $text-xs: 0.75em;
     margin-top: $spacing-5;
   }
 
+  // Section Titles
+  .es-section-title {
+    font-size: $text-xl;
+    font-weight: $text-semi-bold;
+    color: $blue-gray-600;
+    margin-bottom: $spacing-4;
+    padding-bottom: $spacing-3;
+    border-bottom: 1px solid $blue-gray-600;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      right: 0;
+      width: 60px;
+      height: 3px;
+      background: $blue-gray-600;
+    }
+
+    [dir="ltr"] &::after {
+      right: auto;
+      left: 0;
+      background: linear-gradient(90deg, $blue-gray-600 0%, transparent 100%);
+    }
+  }
+
   // Submitted Data Display
   #es-content-submits {
     margin-bottom: $spacing-5;
     padding: $spacing-4;
-    background: $gray-50;
+    background: $gray-100;
     border-radius: $radius-lg;
 
     .es-submits-parent {
-      margin-bottom: $spacing-4;
+      padding: $spacing-2 0;
+      display: flex;
+      align-items: center;
+      gap: $spacing-3;
+      border-bottom: 2px solid $gray-200;
 
-      .es-submits-label {
-        font-size: $text-sm;
-        color: $gray-500;
-        font-weight: $text-medium;
-        margin-bottom: $spacing-sm;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+      &:last-child {
+        border-bottom: none;
       }
+
 
       .es-submits-value {
         font-size: $text-base;
         color: $gray-700;
         font-weight: $text-semi-bold;
         padding: $spacing-sm 0;
-        border-bottom: 2px solid $gray-200;
       }
     }
   }
@@ -350,181 +217,8 @@ $text-xs: 0.75em;
     padding-top: $spacing-5;
     border-top: 2px solid $gray-200;
 
-    form,
-    .nes-form {
-      .es-form-group,
-      .nes-form-group {
-        margin-bottom: $spacing-4;
-
-        label,
-        .nes-label {
-          font-weight: $text-semi-bold;
-          color: $gray-700;
-          font-size: $text-sm;
-          margin-bottom: $spacing-sm;
-          display: block;
-        }
-
-        textarea.form-control,
-        .nes-textarea {
-          width: 100%;
-          padding: $spacing-2;
-          border: 1px solid $blue-gray-300;
-          border-radius: $radius-default;
-          resize: vertical;
-          font-family: inherit;
-          transition: $transition;
-          min-height: 120px;
-
-          &:focus {
-            outline: none;
-            border-color: $blue-gray-400;
-            box-shadow: 0 0 0 2px rgba($blue-gray-400, 0.2);
-          }
-        }
-
-        // File Upload Section
-        .send-file {
-          width: 100%;
-          padding: $spacing-2;
-          font-weight: $text-medium;
-          border-radius: $radius-default;
-          transition: $transition;
-
-          i {
-            margin-left: $spacing-sm;
-
-            [dir="rtl"] & {
-              margin-left: 0;
-              margin-right: $spacing-sm;
-            }
-          }
-        }
-
-        .progress {
-          height: 8px;
-          border-radius: $radius-sm;
-          background: $gray-100;
-          margin-top: $spacing-3;
-          overflow: hidden;
-
-          .progress-bar {
-            background: linear-gradient(90deg, $blue-gray-400 0%, $success 100%);
-            transition: width 0.3s ease;
-          }
-        }
-
-        .form-message {
-          margin-top: $spacing-sm;
-          font-size: $text-sm;
-          color: $success;
-        }
-      }
-
-      // Captcha for Reply
-      .nes-captcha-row,
-      .nes-captcha-group {
-        display: flex;
-        align-items: center;
-        gap: $spacing-2;
-        flex-wrap: wrap;
-        margin-bottom: $spacing-3;
-
-        .captcha-image-reply,
-        .nes-captcha-img {
-          border-radius: $radius-default;
-          border: 1px solid $blue-gray-300;
-          width: 100%;
-          max-width: 200px;
-          height: auto;
-          background: $white;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-          transition: $transition;
-
-          &:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-          }
-        }
-
-        .nes-captcha-text {
-          font-size: $text-sm;
-          color: $gray-600;
-          font-weight: $text-medium;
-
-          @media (max-width: 767.98px) {
-            width: 100%;
-            margin-bottom: $spacing-1;
-          }
-        }
-
-        .es-input-group {
-          display: flex;
-          flex: 1;
-          min-width: 200px;
-
-          .refreshCaptcha-replay,
-          .nes-btn-icon {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            padding: $spacing-2 $spacing-3;
-            background: $blue-gray-50;
-            border: 1px solid $blue-gray-300;
-            color: $blue-gray-600;
-            cursor: pointer;
-            transition: $transition;
-
-            &:hover {
-              background: $blue-gray-100;
-              border-color: $blue-gray-400;
-            }
-
-            &:active {
-              transform: scale(0.95);
-            }
-
-            [dir="rtl"] & {
-              border-top-left-radius: $radius-default;
-              border-bottom-left-radius: $radius-default;
-              border-top-right-radius: 0;
-              border-bottom-right-radius: 0;
-            }
-          }
-
-          .nes-captcha-input {
-            text-align: center;
-            font-weight: $text-medium;
-            letter-spacing: 2px;
-          }
-        }
-      }
-
-      button[type="submit"],
-      .nes-btn-success {
-        font-weight: $text-semi-bold;
-        padding: $spacing-2 $spacing-5;
-        font-size: $text-base;
-        border-radius: $radius-default;
-        transition: $transition;
-        border: none;
-        cursor: pointer;
-        background-color: $success;
-        color: $white;
-
-        &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba($success, 0.3);
-        }
-      }
-
-      .nes-form-actions {
-        display: flex;
-        gap: $spacing-2;
-        margin-top: $spacing-4;
-
-        .nes-btn {
-          min-width: 100px;
-        }
-      }
+    .es-section-title {
+      margin-top: 0;
     }
   }
 
@@ -551,9 +245,14 @@ $text-xs: 0.75em;
   @media (max-width: 768px) {
     padding: $spacing-3 0;
 
+    .es-section-title {
+      font-size: $text-lg;
+      margin-bottom: $spacing-3;
+      padding-bottom: $spacing-2;
+    }
+
     .es-tracking-request,
     .es-ticketing-body {
-      padding: $spacing-4;
       border-radius: $radius-lg;
     }
 
@@ -579,10 +278,13 @@ $text-xs: 0.75em;
     }
 
     .es-send-request {
+
       form,
       .nes-form {
+
         .es-form-group,
         .nes-form-group {
+
           label,
           .nes-label {
             margin-bottom: $spacing-sm;
@@ -593,8 +295,17 @@ $text-xs: 0.75em;
 
     .nes-captcha-row,
     .es-form-captcha-row {
-      flex-direction: column;
-      align-items: flex-start;
+      .es-captcha-wrapper {
+        flex-wrap: wrap;
+        gap: $spacing-2;
+      }
+
+      .captcha-image,
+      .captcha-image-reply {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+      }
 
       .es-input-group {
         width: 100%;
@@ -602,8 +313,12 @@ $text-xs: 0.75em;
     }
   }
 }
+
 #trackingForm {
   .uniqueid-input {
     width: auto;
   }
+}
+#replayForm {
+  max-width: 600px;
 }

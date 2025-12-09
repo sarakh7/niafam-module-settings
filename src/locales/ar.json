@@ -106,5 +106,36 @@
       "feature4": "رسوم متحركة سلسة",
       "close": "إغلاق"
     }
+  },
+  "ticketing": {
+    "form": {
+      "trackingCodeLabel": "أدخل رمز التتبع الخاص بك:",
+      "trackingCodePlaceholder": "رمز التتبع",
+      "trackButton": "تتبع",
+      "replyMessage": "إرسال رسالة:",
+      "attachFileLabel": "إرفاق ملف:",
+      "addFile": "إضافة ملف",
+      "sendReply": "إرسال الرد"
+    },
+    "result": {
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "subject": "الموضوع",
+      "account": "حساب نظام التذاكر",
+      "education": "التعليم",
+      "interests": "الاهتمامات",
+      "books": "الكتب",
+      "uploadFile": "تحميل الملف",
+      "trackingCode": "رمز التتبع"
+    },
+    "reply": {
+      "sentByUser": "أرسل بواسطة المستخدم",
+      "attachedFile": "الملف المرفق"
+    },
+    "sections": {
+      "submittedInfo": "المعلومات المقدمة",
+      "conversations": "المحادثات",
+      "sendReply": "إرسال الرد"
+    }
   }
 }

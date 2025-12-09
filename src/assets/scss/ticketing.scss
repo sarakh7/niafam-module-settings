@@ -7,5 +7,6 @@
 @use './common/base/mixins';
 @use './common/base/colors' as *;
 @use './common/esfonticon/style';
+@use './common/components/form';
 
-@import "./ticketing/ticket-tracking";
+@use "./ticketing/ticket-tracking";

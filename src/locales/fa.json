@@ -77,7 +77,9 @@
   "breadcrumb": {
     "home": "صفحه اصلی",
     "content": "محتوا",
-    "news": "اخبار"
+    "news": "اخبار",
+    "ticketing": "تیکتینگ",
+    "ticketTracking": "پیگیری تیکت"
   },
   "tools": {
     "toolbox": "جعبه ابزار",
@@ -199,6 +201,38 @@
     "captchaInstruction": "متن موجود در تصویر را وارد کنید:",
     "captchaRefresh": "تازه‌سازی کد امنیتی",
     "yourComment": "نظر شما"
+  },
+  "ticketing": {
+    "form": {
+      "trackingCodeLabel": "کد پیگیری خود را وارد نمایید :",
+      "trackingCodePlaceholder": "کد پیگیری",
+      "trackButton": "پیگیری",
+      "replyMessage": "ارسال پیام :",
+      "replyMessagePlaceholder": "پیام خود را اینجا بنویسید...",
+      "attachFileLabel": "فایل ضمیمه :",
+      "addFile": "افزودن فایل",
+      "sendReply": "ارسال پاسخ"
+    },
+    "result": {
+      "firstName": "نام",
+      "lastName": "نام خانوادگی",
+      "subject": "موضوع",
+      "account": "حساب کاربری سیستم تیکتینگ",
+      "education": "مدرک تحصیلی",
+      "interests": "علاقه مندی ها",
+      "books": "کتاب ها",
+      "uploadFile": "ارسال فایل",
+      "trackingCode": "کد رهگیری"
+    },
+    "reply": {
+      "sentByUser": "ارسال شده توسط کاربر",
+      "attachedFile": "فایل ضمیمه شده"
+    },
+    "sections": {
+      "submittedInfo": "اطلاعات ارسال شده",
+      "conversations": "گفتگوها",
+      "sendReply": "ارسال پاسخ"
+    }
   },
   "vote": {
     "question": "آیا این خبر برای شما مفید بود؟",
