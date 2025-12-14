@@ -16,23 +16,21 @@ $text-base: 1em;
 $text-sm: 0.875em;
 $text-xs: 0.75em;
 
-// Customer Bubble (Right-aligned - Blue)
-$customer-gradient-start: #4A90E2;
-$customer-gradient-end: #357ABD;
+// Customer Bubble (Left-aligned - Vibrant Deep Blue)
+$customer-bg: $blue-gray-600;  // Rich saturated blue
 $customer-text: #FFFFFF;
-$customer-meta: rgba(255, 255, 255, 0.85);
+$customer-meta: rgba(255, 255, 255, 0.9);
 
-// Admin Bubble (Left-aligned - Gray/Slate)
-$admin-gradient-start: #7C8BA1;
-$admin-gradient-end: #5F6F85;
-$admin-text: #FFFFFF;
-$admin-meta: rgba(255, 255, 255, 0.85);
+// Admin Bubble (Right-aligned - Vibrant Light Blue)
+$admin-bg: $blue-gray-200;
+$admin-text: $blue-gray-800;  // Deep blue text for contrast
+$admin-meta: rgba(26, 51, 83, 0.75);
 
-// Status Pill (Center - Amber/Gold)
-$status-bg: #FFF4E6;
-$status-border: #FFE0B2;
-$status-text: #B76E00;
-$status-icon-bg: #F5A623;
+// Status Pill (Center - Vibrant Accent)
+$status-bg: $gray-200;  // Soft blue tint
+$status-border: $blue-gray-200;  // Light blue border
+$status-text: $blue-gray-600;  // Vivid blue text
+$status-icon-bg: $blue-gray-400;  // Vivid blue icon
 
 // Attachment backgrounds
 $attachment-bg: rgba(255, 255, 255, 0.15);
@@ -42,6 +40,7 @@ $attachment-border: rgba(255, 255, 255, 0.2);
 // Background colors
 $conversation-bg: #FFFFFF;
 $page-bg: #F5F7FA;
+$conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
 
 // ============================================================================
 // UTILITY CLASSES
@@ -111,38 +110,58 @@ $page-bg: #F5F7FA;
   }
 
   // ============================================================================
-  // SUBMITTED DATA DISPLAY
+  // SUBMITTED DATA DISPLAY - Modern Card Design
   // ============================================================================
 
   #es-content-submits {
-    margin-bottom: $spacing-5;
+    margin-bottom: $spacing-4;
     padding: $spacing-4;
-    background: $gray-100;
-    border-radius: $radius-lg;
+    background: $white;
+    border-radius: $radius-xl;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid $gray-200;
 
     .es-submits-parent {
-      padding: $spacing-2 0;
-      display: flex;
+      padding: $spacing-2 $spacing-3;
+      display: grid;
+      grid-template-columns: minmax(140px, auto) 1fr;
+      gap: $spacing-2;
       align-items: center;
-      gap: $spacing-3;
-      border-bottom: 2px solid $gray-200;
+      border-radius: $radius-md;
+      transition: all 0.2s ease;
+      margin-bottom: $spacing-1;
 
       &:last-child {
-        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        background: $gray-50;
       }
 
       .es-submits-label {
         font-size: $text-sm;
-        color: $gray-600;
-        font-weight: $text-medium;
-        min-width: 150px;
+        color: $blue-gray-600;
+        font-weight: $text-semi-bold;
+        display: flex;
+        align-items: center;
+        gap: $spacing-1;
+
+        &::before {
+          content: "●";
+          color: $blue-gray-400;
+          font-size: 0.5em;
+        }
       }
 
       .es-submits-value {
-        font-size: $text-base;
+        font-size: $text-sm;
         color: $gray-700;
-        font-weight: $text-semi-bold;
-        padding: $spacing-sm 0;
+        font-weight: $text-medium;
+        padding: $spacing-1 $spacing-2;
+        background: $gray-100;
+        border-radius: $radius-sm;
+        border: 1px solid $gray-200;
       }
     }
 
@@ -150,12 +169,16 @@ $page-bg: #F5F7FA;
       padding: $spacing-3;
 
       .es-submits-parent {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: $spacing-3;
+        grid-template-columns: 1fr;
+        gap: $spacing-1;
+        padding: $spacing-1 $spacing-2;
 
         .es-submits-label {
-          min-width: auto;
+          font-size: $text-xs;
+        }
+
+        .es-submits-value {
+          font-size: $text-xs;
         }
       }
     }
@@ -166,10 +189,12 @@ $page-bg: #F5F7FA;
   // ============================================================================
 
   .ticketing-replay-container {
-    margin-top: $spacing-5;
-    padding: $spacing-5;
+    margin-top: $spacing-4;
+    padding: $spacing-4;
     background: $conversation-bg;
     border-radius: $radius-xl;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid $gray-200;
 
     @media (max-width: 768px) {
       padding: $spacing-3;
@@ -180,7 +205,16 @@ $page-bg: #F5F7FA;
   .conversation-messages {
     display: flex;
     flex-direction: column;
-    gap: $spacing-4;
+    gap: $spacing-3;
+    padding: $spacing-3;
+    background: $conversation-area-bg;
+    border-radius: $radius-lg;
+    min-height: 300px;
+
+    @media (max-width: 768px) {
+      padding: $spacing-2;
+      gap: $spacing-2;
+    }
   }
 
   // ============================================================================
@@ -241,17 +275,23 @@ $page-bg: #F5F7FA;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: $radius-full;
     background: rgba(255, 255, 255, 0.25);
-    font-size: 0.6875em;
+    font-size: 0.875em;
     font-weight: $text-bold;
+    flex-shrink: 0;
+
+    i {
+      font-size: 1em;
+      line-height: 1;
+    }
 
     @media (max-width: 768px) {
-      width: 20px;
-      height: 20px;
-      font-size: 0.625em;
+      width: 24px;
+      height: 24px;
+      font-size: 0.75em;
     }
   }
 
@@ -278,7 +318,7 @@ $page-bg: #F5F7FA;
     align-items: center;
     gap: $spacing-sm;
     font-size: 0.8125em;
-    opacity: 0.85;
+    opacity: 0.9;
     margin-top: $spacing-2;
 
     @media (max-width: 768px) {
@@ -287,18 +327,26 @@ $page-bg: #F5F7FA;
   }
 
   .time-icon {
-    font-size: 0.6875em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875em;
+
+    i {
+      font-size: 1em;
+      line-height: 1;
+    }
   }
 
   // ============================================================================
-  // CUSTOMER MESSAGE (es-ticketing-replay-1) - Right Blue Bubble
+  // CUSTOMER MESSAGE (es-ticketing-replay-1) - Dark Blue Gray Bubble
   // ============================================================================
 
   .es-ticketing-replay-1 {
     align-self: flex-start;
 
     .message-bubble {
-      background: linear-gradient(135deg, $customer-gradient-start 0%, $customer-gradient-end 100%);
+      background: $customer-bg;
       color: $customer-text;
       border-bottom-left-radius: $radius-sm;
 
@@ -320,14 +368,14 @@ $page-bg: #F5F7FA;
   }
 
   // ============================================================================
-  // ADMIN MESSAGE (es-ticketing-replay-2) - Left Gray Bubble
+  // ADMIN MESSAGE (es-ticketing-replay-2) - Light Blue Gray Bubble
   // ============================================================================
 
   .es-ticketing-replay-2 {
     align-self: flex-end;
 
     .message-bubble {
-      background: linear-gradient(135deg, $admin-gradient-start 0%, $admin-gradient-end 100%);
+      background: $admin-bg;
       color: $admin-text;
       border-bottom-right-radius: $radius-sm;
 
@@ -345,6 +393,26 @@ $page-bg: #F5F7FA;
 
     .message-time {
       color: $admin-meta;
+    }
+
+    // Dark badge for light background
+    .sender-badge {
+      background: rgba($blue-gray-600, 0.15);
+      color: $admin-text;
+    }
+
+    // Darker attachments for light background
+    .attachment-item {
+      background: rgba($blue-gray-600, 0.08);
+      border-color: rgba($blue-gray-600, 0.15);
+
+      &:hover {
+        background: rgba($blue-gray-600, 0.12);
+      }
+    }
+
+    .attachment-icon {
+      background: rgba($blue-gray-600, 0.12);
     }
   }
 
@@ -388,13 +456,19 @@ $page-bg: #F5F7FA;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       border-radius: $radius-full;
       background: $status-icon-bg;
       color: #FFFFFF;
-      font-size: 0.625em;
+      font-size: 0.75em;
       font-weight: $text-bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+      i {
+        font-size: 0.875em;
+        line-height: 1;
+      }
     }
 
     .message-attachments {
@@ -451,16 +525,22 @@ $page-bg: #F5F7FA;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: $radius-sm;
-    background: rgba(255, 255, 255, 0.2);
-    font-size: $text-sm;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.25);
+    font-size: 1em;
     flex-shrink: 0;
 
+    i {
+      font-size: 1.125em;
+      line-height: 1;
+    }
+
     @media (max-width: 768px) {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
+      font-size: 0.875em;
     }
   }
 
@@ -550,8 +630,8 @@ $page-bg: #F5F7FA;
   // ============================================================================
 
   .es-send-request {
-    margin-top: $spacing-5;
-    padding-top: $spacing-5;
+    margin-top: $spacing-4;
+    padding-top: $spacing-4;
     border-top: 2px solid $gray-200;
 
     .es-section-title {
@@ -562,7 +642,7 @@ $page-bg: #F5F7FA;
   hr {
     border: none;
     border-top: 2px solid $gray-200;
-    margin: $spacing-5 0;
+    margin: $spacing-4 0;
   }
 
   // ============================================================================

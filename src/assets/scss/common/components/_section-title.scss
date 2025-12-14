@@ -9,33 +9,37 @@ $text-lg: 1.125em;
 
 .es-section-title {
   font-size: $text-xl;
-  font-weight: $text-semi-bold;
-  color: $blue-gray-600;
-  margin-bottom: $spacing-4;
-  padding-bottom: $spacing-3;
-  border-bottom: 1px solid $blue-gray-600;
+  font-weight: $text-bold;
+  color: $blue-gray-700;
+  margin-bottom: $spacing-3;
+  padding: $spacing-3 $spacing-4;
+  background: linear-gradient(135deg, $blue-gray-50 0%, $gray-50 100%);
+  border-radius: $radius-lg;
+  border-right: 4px solid $blue-gray-600;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    right: 0;
-    width: 60px;
-    height: 3px;
-    background: $blue-gray-600;
+  [dir="ltr"] & {
+    border-right: none;
+    border-left: 4px solid $blue-gray-600;
   }
 
-  [dir="ltr"] &::after {
-    right: auto;
-    left: 0;
-    background: linear-gradient(90deg, $blue-gray-600 0%, transparent 100%);
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: $blue-gray-600;
+    border-radius: $radius-full;
+    flex-shrink: 0;
   }
 
   // Responsive
   @media (max-width: 768px) {
     font-size: $text-lg;
-    margin-bottom: $spacing-3;
-    padding-bottom: $spacing-2;
+    padding: $spacing-2 $spacing-3;
+    margin-bottom: $spacing-2;
   }
 }
