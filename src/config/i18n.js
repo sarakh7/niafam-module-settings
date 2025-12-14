@@ -5,9 +5,9 @@ import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "./constants";
 // Import translation files (will be created in next step)
 import fa from "../locales/fa.json";
 import en from "../locales/en.json";
-// import ar from "../locales/ar.json";
-// import tr from "../locales/tr.json";
-// import ru from "../locales/ru.json";
+import ar from "../locales/ar.json";
+import tr from "../locales/tr.json";
+import ru from "../locales/ru.json";
 
 /**
  * Initialize i18next

@@ -6,8 +6,7 @@
       "Bash(cp:*)",
       "Bash(pkill:*)",
       "Bash(npm install:*)",
-      "Bash(npx sass:*)",
-      "Skill(document-skills:frontend-design)"
+      "Bash(npx sass:*)"
     ],
     "deny": [],
     "ask": []

@@ -20,7 +20,6 @@ export default defineConfig({
         profileDashboard: resolve(__dirname, 'profile-dashboard.html'),
         profileView: resolve(__dirname, 'profile-view.html'),
         profileEdit: resolve(__dirname, 'profile-edit.html'),
-        profileDetails: resolve(__dirname, 'profile-details.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
         // auth: resolve(__dirname, 'auth.html'),

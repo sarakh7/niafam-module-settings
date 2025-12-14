@@ -38,12 +38,7 @@
 3. **❌ رنگ، spacing، radius را hardcode نکنید**
    - همیشه از متغیرها استفاده کنید: `$blue-gray-600`, `$spacing-4`, `$radius-lg`
 
-4. **❌ از gradient استفاده نکنید**
-   - فقط از رنگ‌های solid استفاده کنید
-   - به جای `background: linear-gradient(...)` از `background: $blue-gray-600` استفاده کنید
-   - این قاعده شامل تمام gradient ها می‌شود: linear-gradient, radial-gradient, conic-gradient
-
-5. **❌ از نام کلاس‌های مشترک با کتابخانه‌های عمومی استفاده نکنید**
+4. **❌ از نام کلاس‌های مشترک با کتابخانه‌های عمومی استفاده نکنید**
    - مثال‌های ممنوع: `.card`, `.nav-link`, `.tab`, `.modal`, `.dropdown`, `.alert`
    - این نام‌ها با Bootstrap, Tailwind و سایر کتابخانه‌ها تداخل دارند
    - **همیشه از پیشوند استفاده کنید**: `.nes-card`, `.nes-modal`, `.profile-tab`
