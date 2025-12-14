@@ -1,0 +1,431 @@
+/**
+ * Profile Details Styles
+ * Card-based grid layout for profile details page
+ */
+@use '../common/base/globals' as *;
+
+// ============================================
+// LOCAL VARIABLES
+// ============================================
+$white: #fff;
+$text-xl: 1.25em;
+$text-lg: 1.125em;
+$text-base: 1em;
+$text-sm: 0.875em;
+$text-xs: 0.75em;
+
+// Card-specific variables
+$card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+$card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+$card-border-radius: $radius-xl;
+
+// ============================================
+// MAIN CONTAINER
+// ============================================
+.profile-details-container {
+  min-height: 100vh;
+  padding: $spacing-5 0;
+  background: linear-gradient(180deg, $gray-50 0%, $gray-100 100%);
+}
+
+// ============================================
+// PROFILE DETAILS BLOCK
+// ============================================
+.profile-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+
+  // ========================================
+  // HEADER SECTION
+  // ========================================
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-4;
+    background: $white;
+    padding: $spacing-5;
+    border-radius: $card-border-radius;
+    box-shadow: $card-shadow;
+    margin-bottom: $spacing-5;
+    position: relative;
+    overflow: hidden;
+
+    // Decorative solid bar at top
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: $blue-gray-600;
+    }
+  }
+
+  &__avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  &__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: $radius-full;
+    object-fit: cover;
+    border: 4px solid $white;
+    box-shadow: 0 4px 12px rgba($blue-gray-600, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba($blue-gray-600, 0.3);
+    }
+  }
+
+  &__status {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: $radius-full;
+    border: 3px solid $white;
+    background: $gray-400;
+
+    &--active {
+      background: $success;
+      animation: pulse-status 2s infinite;
+    }
+
+    &--away {
+      background: #ffc107;
+    }
+  }
+
+  &__header-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__name {
+    font-size: 1.75em;
+    font-weight: $text-bold;
+    color: $blue-gray-700;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  &__username {
+    font-size: $text-base;
+    color: $gray-500;
+    font-weight: $text-medium;
+  }
+
+  &__member-since {
+    font-size: $text-sm;
+    color: $gray-400;
+  }
+
+  &__social-icons {
+    display: flex;
+    gap: $spacing-2;
+    margin-top: $spacing-2;
+  }
+
+  &__social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-full;
+    background: $gray-100;
+    color: $gray-600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    i {
+      font-size: 1em;
+    }
+
+    &:hover {
+      background: $blue-gray-600;
+      color: $white;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-1;
+    padding: $spacing-2 $spacing-4;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($blue-gray-600, 0.3);
+    }
+
+    i {
+      font-size: 1em;
+    }
+  }
+
+  // ========================================
+  // CARDS GRID
+  // ========================================
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-4;
+  }
+
+  // ========================================
+  // CARD BASE STYLES
+  // ========================================
+  &__card {
+    background: $white;
+    border-radius: $card-border-radius;
+    box-shadow: $card-shadow;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+
+    // Staggered animation delays
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $card-shadow-hover;
+    }
+
+    // Full-width modifier
+    &--full {
+      grid-column: 1 / -1;
+    }
+
+    // Card type modifiers with accent colors
+    &--personal {
+      .profile-details__card-header {
+        background: $blue-gray-600;
+      }
+    }
+
+    &--contact {
+      .profile-details__card-header {
+        background: $blue-gray-600;
+      }
+    }
+
+    &--bio {
+      .profile-details__card-header {
+        background: $blue-gray-400;
+      }
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    padding: $spacing-3 $spacing-4;
+    background: $blue-gray-600;
+    color: $white;
+  }
+
+  &__card-icon {
+    font-size: 1.25em;
+    opacity: 0.9;
+  }
+
+  &__card-title {
+    font-size: $text-base;
+    font-weight: $text-semi-bold;
+    margin: 0;
+  }
+
+  &__card-body {
+    padding: $spacing-4;
+  }
+
+  // ========================================
+  // INFO LIST (for Personal & Contact cards)
+  // ========================================
+  &__info-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+  }
+
+  &__info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: $spacing-2;
+    border-bottom: 1px dashed $gray-200;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__info-label {
+    font-size: $text-sm;
+    font-weight: $text-semi-bold;
+    color: $gray-600;
+    margin: 0;
+  }
+
+  &__info-value {
+    font-size: $text-base;
+    color: $gray-700;
+    margin: 0;
+    text-align: left;
+
+    [dir="rtl"] & {
+      text-align: right;
+    }
+
+    &--ltr {
+      direction: ltr;
+      text-align: left;
+
+      [dir="rtl"] & {
+        text-align: left;
+      }
+    }
+
+    a {
+      color: $blue-gray-600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $blue-gray-400;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // ========================================
+  // BIO TEXT
+  // ========================================
+  &__bio-text {
+    font-size: $text-base;
+    line-height: 1.8;
+    color: $gray-600;
+    margin: 0;
+  }
+}
+
+// ============================================
+// ANIMATIONS
+// ============================================
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-status {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba($success, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba($success, 0);
+  }
+}
+
+// ============================================
+// RESPONSIVE DESIGN
+// ============================================
+@media (max-width: 1024px) {
+  .profile-details {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-details-container {
+    padding: $spacing-3 0;
+  }
+
+  .profile-details {
+    padding: 0 $spacing-3;
+
+    &__header {
+      flex-direction: column;
+      text-align: center;
+      padding: $spacing-4;
+    }
+
+    &__avatar {
+      width: 100px;
+      height: 100px;
+    }
+
+    &__name {
+      font-size: 1.5em;
+    }
+
+    &__social-icons {
+      justify-content: center;
+    }
+
+    &__edit-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__card {
+      &--full {
+        grid-column: 1;
+      }
+    }
+
+    &__info-item {
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+    }
+
+    &__info-value {
+      text-align: right;
+
+      [dir="ltr"] & {
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-details {
+    &__avatar {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}

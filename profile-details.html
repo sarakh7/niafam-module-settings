@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="profileDetails.pageTitle">جزئیات پروفایل - Niafam</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Black.woff");
+        font-weight: 900;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-ExtraBold.woff");
+        font-weight: 800;
+        font-display: swap;
+      }
+
+      /* en font */
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+      }
+
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+
+      ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        margin: 0;
+      }
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+      }
+      ul.breadcrumb li a {
+        color: #000;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      ul.breadcrumb li + li:before {
+        padding: 0;
+        color: #000;
+        content: "/ ";
+      }
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img class="vector" src="/assets/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
+      <nav class="auto-layout">
+        <a href="#" class="text-wrapper" data-i18n="nav.contactUs">تماس با ما</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.organizationalPortal">پورتال سازمانی</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.aboutUs">درباره نیافام</a>
+        <a href="#" class="style-filled"><span class="do-something" data-i18n="nav.login">ورود کاربران</span></a>
+      </nav>
+    </header>
+
+    <div class="page-content-wrapper">
+      <div class="page-content-breadcrumb">
+        <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name" data-i18n="breadcrumb.home">صفحه اصلی</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="/profile-details.html">
+              <span itemprop="name" data-i18n="breadcrumb.profileDetails">جزئیات پروفایل</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Profile Details Content -->
+      <div class="profile-details-container">
+        <section class="profile-details">
+          <div class="es-container">
+
+            <!-- Profile Header with Avatar and Name -->
+            <div class="profile-details__header">
+              <div class="profile-details__avatar-wrapper">
+                <img
+                  class="profile-details__avatar"
+                  src="/assets/img/Avatar.jpg"
+                  alt="مهسا محمدی"
+                />
+                <!-- <span class="profile-details__status profile-details__status--active"></span> -->
+              </div>
+              <div class="profile-details__header-info">
+                <h1 class="profile-details__name">سارینا احمدی</h1>
+                <span class="profile-details__username">@maryam_hasani</span>
+                <span class="profile-details__member-since">
+                  <!-- <span data-i18n="profileDetails.memberSince">عضویت از</span>: 1402/05/12 -->
+                </span>
+                <div class="profile-details__social-icons">
+                  <a href="https://sara-ahmadi.com" target="_blank" rel="nofollow" class="profile-details__social-icon" title="وب‌سایت">
+                    <i class="es esprit-fi-rr-globe"></i>
+                  </a>
+                  <a href="https://linkedin.com/in/sara-ahmadi" target="_blank" rel="nofollow" class="profile-details__social-icon" title="لینکدین">
+                    <i class="es esprit-linkedin"></i>
+                  </a>
+                  <a href="https://instagram.com/sara.ahmadi" target="_blank" rel="nofollow" class="profile-details__social-icon" title="اینستاگرام">
+                    <i class="es esprit-Instagram"></i>
+                  </a>
+                  <a href="https://t.me/sara_ahmadi" target="_blank" rel="nofollow" class="profile-details__social-icon" title="تلگرام">
+                    <i class="es esprit-telegram"></i>
+                  </a>
+                </div>
+              </div>
+              <a href="/profile-edit.html" class="profile-details__edit-btn nes-btn nes-btn-primary">
+                <i class="es esprit-edit"></i>
+                <span data-i18n="profile.editProfile">ویرایش پروفایل</span>
+              </a>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="profile-details__grid">
+
+              <!-- Personal Information Card -->
+              <article class="profile-details__card profile-details__card--personal">
+                <header class="profile-details__card-header">
+                  <i class="es esprit-user profile-details__card-icon"></i>
+                  <h2 class="profile-details__card-title" data-i18n="profileDetails.personalInfo">اطلاعات شخصی</h2>
+                </header>
+                <div class="profile-details__card-body">
+                  <dl class="profile-details__info-list">
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.firstName">نام</dt>
+                      <dd class="profile-details__info-value">سارینا</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.lastName">نام خانوادگی</dt>
+                      <dd class="profile-details__info-value">احمدی</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.nickname">نام مستعار</dt>
+                      <dd class="profile-details__info-value">سارینا</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.gender">جنسیت</dt>
+                      <dd class="profile-details__info-value">زن</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.birthdate">تاریخ تولد</dt>
+                      <dd class="profile-details__info-value">1375/03/15</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.nationalCode">کد ملی</dt>
+                      <dd class="profile-details__info-value profile-details__info-value--ltr">0123456789</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.birthCode">شماره شناسنامه</dt>
+                      <dd class="profile-details__info-value profile-details__info-value--ltr">1234567890</dd>
+                    </div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Contact & Location Information Card -->
+              <article class="profile-details__card profile-details__card--contact">
+                <header class="profile-details__card-header">
+                  <i class="es esprit-envelope profile-details__card-icon"></i>
+                  <h2 class="profile-details__card-title" data-i18n="profileDetails.contactInfo">اطلاعات تماس و مکان</h2>
+                </header>
+                <div class="profile-details__card-body">
+                  <dl class="profile-details__info-list">
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.email">ایمیل</dt>
+                      <dd class="profile-details__info-value profile-details__info-value--ltr">
+                        <a href="mailto:sara.ahmadi@example.com">sara.ahmadi@example.com</a>
+                      </dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.mobile">تلفن همراه</dt>
+                      <dd class="profile-details__info-value profile-details__info-value--ltr">09123456789</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.province">استان</dt>
+                      <dd class="profile-details__info-value">تهران</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.city">شهر</dt>
+                      <dd class="profile-details__info-value">تهران</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.address">آدرس</dt>
+                      <dd class="profile-details__info-value">خیابان ولیعصر، نرسیده به میدان ونک</dd>
+                    </div>
+                    <div class="profile-details__info-item">
+                      <dt class="profile-details__info-label" data-i18n="profileDetails.postalCode">کد پستی</dt>
+                      <dd class="profile-details__info-value profile-details__info-value--ltr">1234567890</dd>
+                    </div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Bio/About Section Card (Full Width) -->
+              <!-- <article class="profile-details__card profile-details__card--bio profile-details__card--full">
+                <header class="profile-details__card-header">
+                  <i class="es esprit-file-alt profile-details__card-icon"></i>
+                  <h2 class="profile-details__card-title" data-i18n="profileDetails.bio">درباره من</h2>
+                </header>
+                <div class="profile-details__card-body">
+                  <p class="profile-details__bio-text">توسعه‌دهنده فرانت‌اند با بیش از 5 سال تجربه در طراحی و پیاده‌سازی رابط‌های کاربری مدرن. علاقه‌مند به یادگیری تکنولوژی‌های جدید و بهبود تجربه کاربری. در اوقات فراغت به عکاسی و مطالعه کتاب‌های علمی تخیلی می‌پردازم.</p>
+                </div>
+              </article> -->
+
+            </div>
+            <!-- End Cards Grid -->
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script type="module" src="/src/profile-main.js"></script>
+  </body>
+</html>
