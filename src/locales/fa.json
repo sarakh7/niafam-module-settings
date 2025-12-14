@@ -82,7 +82,8 @@
     "ticketTracking": "پیگیری تیکت",
     "dashboard": "داشبورد",
     "profile": "پروفایل",
-    "editProfile": "ویرایش پروفایل"
+    "editProfile": "ویرایش پروفایل",
+    "profileDetails": "جزئیات پروفایل"
   },
   "tools": {
     "toolbox": "جعبه ابزار",
@@ -296,6 +297,26 @@
       "close": "بستن"
     }
   },
+  "profileDetails": {
+    "pageTitle": "جزئیات پروفایل - Niafam",
+    "personalInfo": "اطلاعات شخصی",
+    "contactInfo": "اطلاعات تماس و مکان",
+    "firstName": "نام",
+    "lastName": "نام خانوادگی",
+    "nickname": "نام مستعار",
+    "gender": "جنسیت",
+    "birthdate": "تاریخ تولد",
+    "nationalCode": "کد ملی",
+    "birthCode": "شماره شناسنامه",
+    "email": "ایمیل",
+    "mobile": "تلفن همراه",
+    "province": "استان",
+    "city": "شهر",
+    "address": "آدرس",
+    "postalCode": "کد پستی",
+    "bio": "درباره من",
+    "memberSince": "عضویت از"
+  },
   "profile": {
     "greeting": "سلام",
     "dear": "عزیز!",
@@ -333,6 +354,14 @@
       "instagramPlaceholder": "آدرس اینستاگرام خود را وارد کنید",
       "telegram": "تلگرام",
       "telegramPlaceholder": "آدرس تلگرام خود را وارد کنید",
+      "city": "شهر",
+      "cityPlaceholder": "شهر خود را وارد کنید",
+      "province": "استان",
+      "provincePlaceholder": "استان خود را وارد کنید",
+      "postalCode": "کد پستی",
+      "postalCodePlaceholder": "کد پستی ده رقمی خود را وارد کنید",
+      "address": "آدرس",
+      "addressPlaceholder": "آدرس کامل خود را وارد کنید",
       "description": "توضیحات",
       "descriptionPlaceholder": "توضیحات خود را وارد کنید",
       "oldPassword": "رمز ورود قبلی",
@@ -342,7 +371,32 @@
       "repeatPassword": "تکرار رمز ورود",
       "repeatPasswordPlaceholder": "رمز ورود جدید را دوباره وارد کنید",
       "addFile": "افزودن فایل",
+      "chooseAvatar": "انتخاب تصویر",
+      "avatarHelp": "تصویر باید کمتر از 5MB و با فرمت JPG, PNG یا GIF باشد",
+      "passwordRequirements": "رمز عبور باید شامل حروف بزرگ، کوچک و عدد باشد",
       "submit": "ثبت فرم"
+    },
+    "validation": {
+      "required": "این فیلد الزامی است",
+      "invalidEmail": "ایمیل معتبر نیست",
+      "invalidURL": "آدرس وب سایت معتبر نیست",
+      "weakPassword": "رمز عبور باید شامل حروف بزرگ، کوچک و عدد باشد",
+      "passwordMismatch": "رمزهای عبور مطابقت ندارند",
+      "fixErrors": "لطفا خطاهای فرم را برطرف کنید",
+      "invalidFileType": "فقط فایل‌های JPG, PNG و GIF مجاز هستند",
+      "fileTooLarge": "حجم فایل نباید بیشتر از 5MB باشد"
+    },
+    "messages": {
+      "saveSuccess": "اطلاعات با موفقیت ذخیره شد",
+      "saveError": "خطا در ذخیره اطلاعات",
+      "passwordChangeSuccess": "رمز عبور با موفقیت تغییر کرد",
+      "passwordChangeError": "خطا در تغییر رمز عبور",
+      "avatarUploadSuccess": "تصویر پروفایل با موفقیت تغییر کرد",
+      "avatarUploadError": "خطا در آپلود تصویر",
+      "unknownError": "خطای ناشناخته"
     }
+  },
+  "common": {
+    "loading": "در حال ارسال..."
   }
 }

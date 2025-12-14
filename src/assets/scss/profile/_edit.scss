@@ -1,6 +1,6 @@
 /**
  * Profile Edit Styles
- * Styles for profile edit page
+ * Modern redesign with pill-style tabs, two-column forms, and enhanced UX
  */
 @use '../common/base/globals' as *;
 
@@ -9,7 +9,9 @@ $text-xl: 1.25em;
 $text-lg: 1.125em;
 $text-base: 1em;
 $text-sm: 0.875em;
+$text-xs: 0.75em;
 
+// Utility classes
 .d-none {
   display: none !important;
 }
@@ -18,52 +20,63 @@ $text-sm: 0.875em;
 .profile-edit-container {
   min-height: 100vh;
   padding: $spacing-5 0;
+  // background: $gray-50;
 }
 
 // Profile Edit
 .profile-edit {
-  // Tabs Navigation
+  // Modern Pill-Style Tabs
   &__tabs {
     display: flex;
     gap: $spacing-2;
     list-style: none;
-    padding: 0;
-    margin: 0 0 $spacing-5 0;
-    border-bottom: 2px solid $gray-200;
+    padding: $spacing-sm;
+    margin: 0 0 $spacing-4 0;
+    background: $gray-100;
+    border-radius: $radius-lg;
+    flex-wrap: wrap;
   }
 
   &__tab-item {
     margin: 0;
+    flex: 1;
+    min-width: 150px;
   }
 
   &__tab-link {
-    display: block;
-    padding: $spacing-3 $spacing-4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-2;
+    width: 100%;
+    padding: $spacing-2 $spacing-3;
     color: $gray-600;
     text-decoration: none;
-    border-radius: $radius-lg $radius-lg 0 0;
-    transition: $transition;
+    border-radius: $radius-lg;
+    transition: all 0.3s ease;
     font-weight: $text-medium;
-    border: 2px solid transparent;
-    border-bottom: none;
-    position: relative;
-    bottom: -2px;
+    font-size: $text-sm;
+    background: transparent;
+    border: none;
 
-    &:hover {
-      color: $blue-gray-600;
-      background: $gray-50;
+    &:not(.profile-edit__tab-link--active):hover {
+      color: $blue-gray-700;
+      background: $blue-gray-200;
     }
 
     &--active {
-      color: $blue-gray-600;
-      background: $white;
-      border-color: $gray-200;
-      border-bottom-color: $white;
+      color: $white;
+      background: $blue-gray-600;
       font-weight: $text-semi-bold;
+      box-shadow: 0 2px 8px rgba($blue-gray-600, 0.3);
     }
   }
 
-  // Tab Content
+  &__tab-icon {
+    font-size: 1.1em;
+  }
+
+  // Tab Content Container
   &__tab-content {
     background: $white;
     border-radius: $radius-xl;
@@ -80,53 +93,298 @@ $text-sm: 0.875em;
     }
   }
 
-  // Avatar Upload
-  &__avatar-upload {
-    .progress {
-      height: 8px;
-      background: $gray-200;
-      border-radius: $radius-full;
-      overflow: hidden;
-      margin-top: $spacing-3;
-      display: none;
+  // Two-Column Form Grid
+  &__form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-4;
+    margin-bottom: $spacing-4;
+  }
 
-      &.active {
-        display: block;
+  // Input Wrapper with Icon
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__input-icon {
+    position: absolute;
+    [dir="ltr"] & {
+      left: $spacing-3;
+    }
+    [dir="rtl"] & {
+      right: $spacing-3;
+    }
+    top: 50%;
+    transform: translateY(-50%);
+    color: $gray-400;
+    font-size: 1.1em;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .nes-input {
+    [dir="ltr"] & {
+      padding-left: calc($spacing-6 + 4px);
+    }
+    [dir="rtl"] & {
+      padding-right: calc($spacing-6 + 4px);
+    }
+  }
+
+  // Field Error Messages
+  &__field-error {
+    display: block;
+    color: $error;
+    font-size: $text-xs;
+    margin-top: $spacing-1;
+    min-height: 18px;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  // Password Wrapper (for show/hide toggle)
+  &__password-wrapper {
+    position: relative;
+  }
+
+  &__password-input {
+    [dir="ltr"] & {
+      padding-left: calc($spacing-6 + 4px);
+      padding-right: calc($spacing-6 + 8px);
+    }
+    [dir="rtl"] & {
+      padding-right: calc($spacing-6 + 4px);
+      padding-left: calc($spacing-6 + 8px);
+    }
+  }
+
+  &__password-toggle {
+    position: absolute;
+    [dir="ltr"] & {
+      right: $spacing-3;
+    }
+    [dir="rtl"] & {
+      left: $spacing-3;
+    }
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $gray-400;
+    cursor: pointer;
+    padding: $spacing-1;
+    border-radius: $radius-sm;
+    transition: $transition;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: $blue-gray-600;
+      background: $gray-100;
+    }
+
+    &:focus {
+      outline: 2px solid $blue-gray-600;
+      outline-offset: 2px;
+    }
+  }
+
+  // Password Strength Meter
+  &__password-strength {
+    height: 4px;
+    background: $gray-200;
+    border-radius: $radius-full;
+    margin-top: $spacing-1;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__password-strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease, background 0.3s ease;
+    border-radius: $radius-full;
+
+    &--weak {
+      background: $error;
+      width: 33%;
+    }
+
+    &--medium {
+      background: #f59e0b;
+      width: 66%;
+    }
+
+    &--strong {
+      background: $success;
+      width: 100%;
+    }
+  }
+
+  &__password-hint {
+    font-size: $text-xs;
+    color: $gray-500;
+    margin-top: $spacing-1;
+  }
+
+  // Avatar Upload Section
+  &__avatar-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-4;
+    padding: $spacing-4;
+    text-align: center;
+  }
+
+  &__avatar-preview {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: $radius-full;
+    overflow: hidden;
+    border: 4px solid $gray-200;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: $blue-gray-600;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+      .profile-edit__avatar-overlay {
+        opacity: 1;
       }
     }
+  }
 
-    .progress-bar {
-      height: 100%;
-      background: linear-gradient(90deg, $blue-gray-600 0%, $blue-gray-400 100%);
-      border-radius: $radius-full;
-      transition: width 0.3s ease;
+  &__avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($blue-gray-600, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    i {
+      font-size: 2em;
+      color: $white;
     }
+  }
+
+  &__avatar-button {
+    min-width: 200px;
+  }
+
+  &__file-info {
+    font-size: $text-sm;
+    color: $gray-600;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  // Progress Bar (Avatar Upload)
+  &__progress {
+    width: 100%;
+    max-width: 300px;
+    height: 24px;
+    background: $gray-200;
+    border-radius: $radius-full;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, $blue-gray-600 0%, $blue-gray-400 100%);
+    border-radius: $radius-full;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      animation: shimmer 1.5s infinite;
+    }
+  }
+
+  &__progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $text-xs;
+    font-weight: $text-semi-bold;
+    color: $gray-700;
+  }
+
+  &__help-text {
+    font-size: $text-xs;
+    color: $gray-500;
+    margin: 0;
+    text-align: center;
   }
 }
 
-// Form Message
+// Form Message (Success/Error)
 .form-message {
   padding: $spacing-3;
   border-radius: $radius-lg;
   margin-bottom: $spacing-3;
   display: none;
+  font-size: $text-sm;
 
-  &.success {
+  &:not(:empty) {
     display: block;
-    background: rgba($success, 0.1);
-    border: 1px solid $success;
-    color: darken($success, 10%);
   }
 
-  &.error {
-    display: block;
+  .alert-success {
+    background: rgba($success, 0.1);
+    border: 1px solid $success;
+    color: darken($success, 15%);
+    padding: $spacing-2 $spacing-3;
+    border-radius: $radius-lg;
+  }
+
+  .alert-danger {
     background: rgba($error, 0.1);
     border: 1px solid $error;
     color: darken($error, 10%);
+    padding: $spacing-2 $spacing-3;
+    border-radius: $radius-lg;
   }
 }
 
-// Animation
+// Animations
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -139,7 +397,24 @@ $text-sm: 0.875em;
   }
 }
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 // Responsive Design
+@media (max-width: 1024px) {
+  .profile-edit {
+    &__form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .profile-edit-container {
     padding: $spacing-3 0;
@@ -148,25 +423,68 @@ $text-sm: 0.875em;
   .profile-edit {
     &__tabs {
       flex-direction: column;
-      border-bottom: none;
+      padding: $spacing-1;
       gap: $spacing-1;
     }
 
+    &__tab-item {
+      min-width: 100%;
+    }
+
     &__tab-link {
-      border-radius: $radius-lg;
-      border: 2px solid $gray-200;
-      bottom: 0;
+      padding: $spacing-3 $spacing-4;
+      justify-content: flex-start;
 
       &--active {
-        border-color: $blue-gray-600;
-        background: $blue-gray-600;
-        color: $white;
+        box-shadow: 0 2px 6px rgba($blue-gray-600, 0.25);
       }
     }
 
     &__tab-content {
       padding: $spacing-4 $spacing-3;
       border-radius: $radius-lg;
+    }
+
+    &__form-grid {
+      grid-template-columns: 1fr;
+      gap: $spacing-3;
+    }
+
+    &__avatar-preview {
+      width: 120px;
+      height: 120px;
+    }
+
+    &__avatar-button {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-edit {
+    &__tabs {
+      padding: $spacing-sm;
+    }
+
+    &__tab-link {
+      font-size: $text-xs;
+      padding: $spacing-2 $spacing-3;
+    }
+
+    &__tab-icon {
+      font-size: 1em;
+    }
+
+    &__tab-content {
+      padding: $spacing-3 $spacing-2;
+    }
+
+    &__avatar-preview {
+      width: 100px;
+      height: 100px;
+      border-width: 3px;
     }
   }
 }

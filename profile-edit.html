@@ -151,47 +151,26 @@
       <div class="profile-edit-container">
         <div class="profile-edit">
           <div class="es-container">
-            <h2 class="es-section-title" data-i18n="profile.editProfile">ویرایش پروفایل</h2>
+            <h2 class="nes-section-title" data-i18n="profile.editProfile">ویرایش پروفایل</h2>
 
-            <!-- تب‌های ویرایش -->
+            <!-- تب‌های ویرایش - Pill Style -->
             <ul class="profile-edit__tabs" id="profiles-info" role="tablist">
               <li class="profile-edit__tab-item">
-                <a
-                  class="profile-edit__tab-link profile-edit__tab-link--active"
-                  data-toggle="tab"
-                  href="#profile-tab"
-                  role="tab"
-                  aria-controls="profile"
-                  aria-selected="true"
-                  data-i18n="profile.tabs.basicInfo"
-                >
-                  اطلاعات اصلی
+                <a class="profile-edit__tab-link profile-edit__tab-link--active" data-toggle="tab" href="#profile-tab" role="tab" aria-controls="profile" aria-selected="true">
+                  <i class="es esprit-user profile-edit__tab-icon"></i>
+                  <span data-i18n="profile.tabs.basicInfo">اطلاعات اصلی</span>
                 </a>
               </li>
               <li class="profile-edit__tab-item">
-                <a
-                  class="profile-edit__tab-link"
-                  data-toggle="tab"
-                  href="#password-tab"
-                  role="tab"
-                  aria-controls="password"
-                  aria-selected="false"
-                  data-i18n="profile.tabs.changePassword"
-                >
-                  تغییر رمز
+                <a class="profile-edit__tab-link" data-toggle="tab" href="#password-tab" role="tab" aria-controls="password" aria-selected="false">
+                  <i class="es esprit-lock profile-edit__tab-icon"></i>
+                  <span data-i18n="profile.tabs.changePassword">تغییر رمز</span>
                 </a>
               </li>
               <li class="profile-edit__tab-item">
-                <a
-                  class="profile-edit__tab-link"
-                  data-toggle="tab"
-                  href="#avatar-tab"
-                  role="tab"
-                  aria-controls="avatar"
-                  aria-selected="false"
-                  data-i18n="profile.tabs.uploadAvatar"
-                >
-                  آپلود تصویر
+                <a class="profile-edit__tab-link" data-toggle="tab" href="#avatar-tab" role="tab" aria-controls="avatar" aria-selected="false">
+                  <i class="es esprit-camera profile-edit__tab-icon"></i>
+                  <span data-i18n="profile.tabs.uploadAvatar">آپلود تصویر</span>
                 </a>
               </li>
             </ul>
@@ -199,177 +178,265 @@
             <!-- محتوای تب‌ها -->
             <div class="profile-edit__tab-content" id="profile-content">
               <!-- تب اطلاعات اصلی -->
-              <div
-                class="profile-edit__tab-pane profile-edit__tab-pane--active"
-                id="profile-tab"
-                role="tabpanel"
-                aria-labelledby="profile-tab"
-              >
-                <form id="profileForm" method="post" class="es-form" novalidate="novalidate">
+              <div class="profile-edit__tab-pane profile-edit__tab-pane--active" id="profile-tab" role="tabpanel" aria-labelledby="profile-tab">
+                <form id="profileForm" method="post" class="nes-form" novalidate="novalidate">
                   <input type="hidden" id="action" name="action" value="save_profile_user" />
 
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="name" data-i18n="profile.form.firstName">نام</label>
-                    <input
-                      type="text"
-                      class="es-form-control"
-                      name="name"
-                      id="name"
-                      value="{name}"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.firstNamePlaceholder"
-                      maxlength="512"
-                    />
+                  <!-- Two-column grid for form fields -->
+                  <div class="profile-edit__form-grid">
+                    <!-- Name -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="name" data-i18n="profile.form.firstName">نام</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-user profile-edit__input-icon"></i>
+                        <input type="text" class="nes-input" name="name" id="name" value="{name}" placeholder="" data-i18n="[placeholder]profile.form.firstNamePlaceholder" maxlength="512" />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="lastname" data-i18n="profile.form.lastName">نام خانوادگی</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-user profile-edit__input-icon"></i>
+                        <input
+                          type="text"
+                          class="nes-input"
+                          name="lastname"
+                          id="lastname"
+                          value="{lastname}"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.lastNamePlaceholder"
+                          maxlength="512"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="emailaddress" data-i18n="profile.form.email">ایمیل</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-mail profile-edit__input-icon"></i>
+                        <input
+                          type="email"
+                          class="nes-input"
+                          name="emailaddress"
+                          id="emailaddress"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.emailPlaceholder"
+                          maxlength="512"
+                          dir="ltr"
+                          value="{email}"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="mobile" data-i18n="profile.form.mobile">شماره تلفن همراه</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-phone profile-edit__input-icon"></i>
+                        <input
+                          type="text"
+                          class="nes-input"
+                          name="mobile"
+                          id="mobile"
+                          value="{mobile}"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.mobilePlaceholder"
+                          maxlength="512"
+                          dir="ltr"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Birthdate -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="birthdate" data-i18n="profile.form.birthdate">تاریخ تولد</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-calendar profile-edit__input-icon"></i>
+                        <input
+                          type="text"
+                          class="nes-input"
+                          name="birthdate"
+                          id="birthdate"
+                          value="{birthdate}"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.birthdatePlaceholder"
+                          maxlength="512"
+                          dir="ltr"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="gender" data-i18n="profile.form.gender">جنسیت</label>
+                      <select class="nes-input" name="gender" id="gender">
+                        <option value="" data-i18n="profile.form.genderNone">بدون انتخاب</option>
+                        <option value="1" {gen_male} data-i18n="profile.form.genderMale">مذکر</option>
+                        <option value="0" {gen_female} data-i18n="profile.form.genderFemale">مونث</option>
+                      </select>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Province -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="province" data-i18n="profile.form.province">استان</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-map profile-edit__input-icon"></i>
+                        <input
+                          type="text"
+                          class="nes-input"
+                          name="province"
+                          id="province"
+                          value="{province}"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.provincePlaceholder"
+                          maxlength="512"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- City -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="city" data-i18n="profile.form.city">شهر</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-map-pin profile-edit__input-icon"></i>
+                        <input type="text" class="nes-input" name="city" id="city" value="{city}" placeholder="" data-i18n="[placeholder]profile.form.cityPlaceholder" maxlength="512" />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Address (full width) -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="address" data-i18n="profile.form.address">آدرس</label>
+                      <textarea class="nes-input" name="address" id="address" placeholder="" data-i18n="[placeholder]profile.form.addressPlaceholder" maxlength="1024" rows="3">{address}</textarea>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Postal Code -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="postalcode" data-i18n="profile.form.postalCode">کد پستی</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-hash profile-edit__input-icon"></i>
+                        <input
+                          type="text"
+                          class="nes-input"
+                          name="postalcode"
+                          id="postalcode"
+                          value="{postalcode}"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.postalCodePlaceholder"
+                          maxlength="20"
+                          dir="ltr"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Website -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="website" data-i18n="profile.form.website">وب سایت</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-fi-rr-globe profile-edit__input-icon"></i>
+                        <input
+                          type="url"
+                          class="nes-input"
+                          name="website"
+                          id="website"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.websitePlaceholder"
+                          maxlength="512"
+                          dir="ltr"
+                          value="{website}"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- LinkedIn -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="linkedin" data-i18n="profile.form.linkedin">لینکدین</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-linkedin profile-edit__input-icon"></i>
+                        <input
+                          type="url"
+                          class="nes-input"
+                          name="linkedin"
+                          id="linkedin"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.linkedinPlaceholder"
+                          maxlength="512"
+                          dir="ltr"
+                          value="{linkedin}"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="instagram" data-i18n="profile.form.instagram">اینستاگرام</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-Instagram profile-edit__input-icon"></i>
+                        <input
+                          type="url"
+                          class="nes-input"
+                          name="instagram"
+                          id="instagram"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.instagramPlaceholder"
+                          maxlength="512"
+                          dir="ltr"
+                          value="{instagram}"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
+
+                    <!-- Telegram -->
+                    <div class="nes-form-group">
+                      <label class="nes-label" for="telegram" data-i18n="profile.form.telegram">تلگرام</label>
+                      <div class="profile-edit__input-wrapper">
+                        <i class="es esprit-telegram profile-edit__input-icon"></i>
+                        <input
+                          type="url"
+                          class="nes-input"
+                          name="telegram"
+                          id="telegram"
+                          placeholder=""
+                          data-i18n="[placeholder]profile.form.telegramPlaceholder"
+                          maxlength="512"
+                          dir="ltr"
+                          value="{telegram}"
+                        />
+                      </div>
+                      <span class="profile-edit__field-error"></span>
+                    </div>
                   </div>
 
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="lastname" data-i18n="profile.form.lastName">نام خانوادگی</label>
-                    <input
-                      type="text"
-                      class="es-form-control"
-                      name="lastname"
-                      id="lastname"
-                      value="{lastname}"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.lastNamePlaceholder"
-                      maxlength="512"
-                      autocomplete="off"
-                    />
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="emailaddress" data-i18n="profile.form.email">ایمیل</label>
-                    <input
-                      type="email"
-                      class="es-form-control"
-                      name="emailaddress"
-                      id="emailaddress"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.emailPlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      value="{email}"
-                    />
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="mobile" data-i18n="profile.form.mobile">شماره تلفن همراه</label>
-                    <input
-                      type="text"
-                      class="es-form-control"
-                      name="mobile"
-                      id="mobile"
-                      value="{mobile}"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.mobilePlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      autocomplete="off"
-                    />
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="birthdate" data-i18n="profile.form.birthdate">تاریخ تولد</label>
-                    <input
-                      type="text"
-                      class="es-form-control"
-                      name="birthdate"
-                      id="birthdate"
-                      value="{birthdate}"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.birthdatePlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      autocomplete="off"
-                    />
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="gender" data-i18n="profile.form.gender">جنسیت</label>
-                    <select class="es-form-control" name="gender" id="gender">
-                      <option value="" data-i18n="profile.form.genderNone">بدون انتخاب</option>
-                      <option value="1" {gen_male} data-i18n="profile.form.genderMale">مذکر</option>
-                      <option value="0" {gen_female} data-i18n="profile.form.genderFemale">مونث</option>
-                    </select>
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="website" data-i18n="profile.form.website">وب سایت</label>
-                    <input
-                      type="url"
-                      class="es-form-control"
-                      name="website"
-                      id="website"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.websitePlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      value="{website}"
-                    />
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="linkedin" data-i18n="profile.form.linkedin">لینکدین</label>
-                    <input
-                      type="url"
-                      class="es-form-control"
-                      name="linkedin"
-                      id="linkedin"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.linkedinPlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      value="{linkedin}"
-                    />
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="instagram" data-i18n="profile.form.instagram">اینستاگرام</label>
-                    <input
-                      type="url"
-                      class="es-form-control"
-                      name="instagram"
-                      id="instagram"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.instagramPlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      value="{instagram}"
-                    />
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="telegram" data-i18n="profile.form.telegram">تلگرام</label>
-                    <input
-                      type="url"
-                      class="es-form-control"
-                      name="telegram"
-                      id="telegram"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.telegramPlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      value="{telegram}"
-                    />
-                  </div>
-
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="description" data-i18n="profile.form.description">توضیحات</label>
-                    <textarea
-                      class="es-form-control"
-                      name="description"
-                      id="description"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.descriptionPlaceholder"
-                      maxlength="512"
-                      rows="4"
-                    >{description}</textarea>
+                  <!-- Description (full width) -->
+                  <div class="nes-form-group">
+                    <label class="nes-label" for="description" data-i18n="profile.form.description">توضیحات</label>
+                    <textarea class="nes-input" name="description" id="description" placeholder="" data-i18n="[placeholder]profile.form.descriptionPlaceholder" maxlength="512" rows="4">
+{description}</textarea
+                    >
+                    <span class="profile-edit__field-error"></span>
                   </div>
 
                   <div class="form-message"></div>
 
-                  <div class="es-form-group">
-                    <button type="submit" class="es-btn es-btn-primary">
+                  <div class="nes-form-actions">
+                    <button type="submit" class="nes-btn nes-btn-primary">
                       <i class="es esprit-check"></i>
                       <span data-i18n="profile.form.submit">ثبت فرم</span>
                     </button>
@@ -379,60 +446,89 @@
 
               <!-- تب تغییر رمز -->
               <div class="profile-edit__tab-pane" id="password-tab" role="tabpanel" aria-labelledby="password-tab">
-                <form id="changePassForm" method="post" class="es-form" novalidate="novalidate">
+                <form id="changePassForm" method="post" class="nes-form" novalidate="novalidate">
                   <input type="hidden" id="action" name="action" value="change_pass" />
 
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="oldpass" data-i18n="profile.form.oldPassword">رمز ورود قبلی</label>
-                    <input
-                      type="password"
-                      class="es-form-control"
-                      name="oldpass"
-                      id="oldpass"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.oldPasswordPlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      autocomplete="off"
-                    />
+                  <!-- Old Password -->
+                  <div class="nes-form-group">
+                    <label class="nes-label" for="oldpass" data-i18n="profile.form.oldPassword">رمز ورود قبلی</label>
+                    <div class="profile-edit__password-wrapper">
+                      <i class="es esprit-lock profile-edit__input-icon"></i>
+                      <input
+                        type="password"
+                        class="nes-input profile-edit__password-input"
+                        name="oldpass"
+                        id="oldpass"
+                        placeholder=""
+                        data-i18n="[placeholder]profile.form.oldPasswordPlaceholder"
+                        maxlength="512"
+                        dir="ltr"
+                        autocomplete="off"
+                      />
+                      <button type="button" class="profile-edit__password-toggle" data-target="oldpass" aria-label="Toggle password visibility">
+                        <i class="es esprit-eye"></i>
+                      </button>
+                    </div>
+                    <span class="profile-edit__field-error"></span>
                   </div>
 
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="newpass" data-i18n="profile.form.newPassword">رمز ورود جدید</label>
-                    <input
-                      type="password"
-                      class="es-form-control"
-                      name="newpass"
-                      id="newpass"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.newPasswordPlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      autocomplete="off"
-                    />
+                  <!-- New Password -->
+                  <div class="nes-form-group">
+                    <label class="nes-label" for="newpass" data-i18n="profile.form.newPassword">رمز ورود جدید</label>
+                    <div class="profile-edit__password-wrapper">
+                      <i class="es esprit-lock profile-edit__input-icon"></i>
+                      <input
+                        type="password"
+                        class="nes-input profile-edit__password-input"
+                        name="newpass"
+                        id="newpass"
+                        placeholder=""
+                        data-i18n="[placeholder]profile.form.newPasswordPlaceholder"
+                        maxlength="512"
+                        dir="ltr"
+                        autocomplete="off"
+                      />
+                      <button type="button" class="profile-edit__password-toggle" data-target="newpass" aria-label="Toggle password visibility">
+                        <i class="es esprit-eye"></i>
+                      </button>
+                    </div>
+                    <!-- Password strength meter -->
+                    <div class="profile-edit__password-strength">
+                      <div class="profile-edit__password-strength-bar" id="password-strength-bar"></div>
+                    </div>
+                    <div class="profile-edit__password-hint" id="password-hint">
+                      <span data-i18n="profile.form.passwordRequirements">رمز عبور باید شامل حروف بزرگ، کوچک و عدد باشد</span>
+                    </div>
+                    <span class="profile-edit__field-error"></span>
                   </div>
 
-                  <div class="es-form-group">
-                    <label class="es-form-label" for="newpassrepeat" data-i18n="profile.form.repeatPassword"
-                      >تکرار رمز ورود</label
-                    >
-                    <input
-                      type="password"
-                      class="es-form-control"
-                      name="newpassrepeat"
-                      id="newpassrepeat"
-                      placeholder=""
-                      data-i18n="[placeholder]profile.form.repeatPasswordPlaceholder"
-                      maxlength="512"
-                      dir="ltr"
-                      autocomplete="off"
-                    />
+                  <!-- Repeat New Password -->
+                  <div class="nes-form-group">
+                    <label class="nes-label" for="newpassrepeat" data-i18n="profile.form.repeatPassword">تکرار رمز ورود</label>
+                    <div class="profile-edit__password-wrapper">
+                      <i class="es esprit-lock profile-edit__input-icon"></i>
+                      <input
+                        type="password"
+                        class="nes-input profile-edit__password-input"
+                        name="newpassrepeat"
+                        id="newpassrepeat"
+                        placeholder=""
+                        data-i18n="[placeholder]profile.form.repeatPasswordPlaceholder"
+                        maxlength="512"
+                        dir="ltr"
+                        autocomplete="off"
+                      />
+                      <button type="button" class="profile-edit__password-toggle" data-target="newpassrepeat" aria-label="Toggle password visibility">
+                        <i class="es esprit-eye"></i>
+                      </button>
+                    </div>
+                    <span class="profile-edit__field-error"></span>
                   </div>
 
                   <div class="form-message"></div>
 
-                  <div class="es-form-group">
-                    <button type="submit" class="es-btn es-btn-primary">
+                  <div class="nes-form-actions">
+                    <button type="submit" class="nes-btn nes-btn-primary">
                       <i class="es esprit-check"></i>
                       <span data-i18n="profile.form.submit">ثبت فرم</span>
                     </button>
@@ -442,21 +538,43 @@
 
               <!-- تب آپلود تصویر -->
               <div class="profile-edit__tab-pane" id="avatar-tab" role="tabpanel" aria-labelledby="avatar-tab">
-                <form id="avatarForm" method="post" class="es-form" novalidate="novalidate">
+                <form id="avatarForm" method="post" class="nes-form" novalidate="novalidate">
                   <input type="hidden" id="action" name="action" value="save_profile_avatar" />
 
-                  <div class="es-form-group">
-                    <div class="profile-edit__avatar-upload">
-                      <input class="d-none" type="file" name="addpicurl-name" id="addpicurl-name" accept="image/*" />
-                      <div class="form-message"></div>
-                      <button class="es-btn es-btn-warning es-btn-block" id="addpicurl" type="button">
+                  <div class="profile-edit__avatar-upload-container">
+                    <!-- Avatar Preview -->
+                    <div class="profile-edit__avatar-preview">
+                      <img src="/uploads/sys/profiles/128/{userunicid}.jpg" alt="Current Avatar" class="profile-edit__avatar-image" id="avatar-preview-image" />
+                      <div class="profile-edit__avatar-overlay" id="avatar-overlay">
                         <i class="es esprit-camera"></i>
-                        <span data-i18n="profile.form.addFile">افزودن فایل</span>
-                      </button>
-                      <div class="progress">
-                        <div class="progress-bar" style="width: 0%"></div>
                       </div>
                     </div>
+
+                    <!-- File Input (hidden) -->
+                    <input class="d-none" type="file" name="addpicurl-name" id="addpicurl-name" accept="image/*" />
+
+                    <!-- Upload Button -->
+                    <button class="nes-btn nes-btn-primary profile-edit__avatar-button" id="addpicurl" type="button">
+                      <i class="es esprit-camera"></i>
+                      <span data-i18n="profile.form.chooseAvatar">انتخاب تصویر</span>
+                    </button>
+
+                    <!-- File Info -->
+                    <div class="profile-edit__file-info" id="file-info"></div>
+
+                    <!-- Progress Bar -->
+                    <div class="profile-edit__progress" id="upload-progress" style="display: none">
+                      <div class="profile-edit__progress-bar" id="progress-bar" style="width: 0%"></div>
+                      <span class="profile-edit__progress-text" id="progress-text">0%</span>
+                    </div>
+
+                    <!-- Messages -->
+                    <div class="form-message"></div>
+
+                    <!-- Help Text -->
+                    <p class="profile-edit__help-text">
+                      <span data-i18n="profile.form.avatarHelp">تصویر باید کمتر از 5MB و با فرمت JPG, PNG یا GIF باشد</span>
+                    </p>
                   </div>
                 </form>
               </div>
