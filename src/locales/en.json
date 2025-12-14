@@ -93,7 +93,8 @@
     "ticketTracking": "Ticket Tracking",
     "dashboard": "Dashboard",
     "profile": "Profile",
-    "editProfile": "Edit Profile"
+    "editProfile": "Edit Profile",
+    "profileDetails": "Profile Details"
   },
   "tools": {
     "toolbox": "Toolbox",
@@ -355,5 +356,34 @@
       "addFile": "Add File",
       "submit": "Submit"
     }
+  },
+  "profileDetails": {
+    "pageTitle": "Profile Details - Niafam",
+    "personalInfo": "Personal Information",
+    "contactInfo": "Contact Information",
+    "locationInfo": "Location Information",
+    "socialLinks": "Social Media",
+    "bio": "About Me",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "nickname": "Nickname",
+    "gender": "Gender",
+    "birthdate": "Birth Date",
+    "nationalCode": "National Code",
+    "birthCode": "Birth Certificate Number",
+    "email": "Email",
+    "mobile": "Mobile",
+    "province": "Province",
+    "city": "City",
+    "address": "Address",
+    "postalCode": "Postal Code",
+    "website": "Website",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "telegram": "Telegram",
+    "memberSince": "Member since",
+    "genderMale": "Male",
+    "genderFemale": "Female",
+    "genderNotSpecified": "Not specified"
   }
 }

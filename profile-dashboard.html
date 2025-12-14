@@ -163,84 +163,40 @@
             <!-- منوی ناوبری -->
             <nav class="profile-dashboard__navigation">
               <ul>
+                <li><a href="#" class="active">داشبورد</a></li>
+                <li><a href="/profile-details.html">مشاهده پروفایل</a></li>
+                <li><a href="/profile-edit.html">ویرایش پروفایل</a></li>
+
                 <li>
-                  <a href="/profile-dashboard.html" class="active">
-                    <i class="es esprit-home"></i>
-                    <span>داشبورد</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/profile-view.html">
-                    <i class="es esprit-user"></i>
-                    <span>مشاهده پروفایل</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/profile-edit.html">
-                    <i class="es esprit-edit"></i>
-                    <span>ویرایش پروفایل</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="has-submenu">
-                    <i class="es esprit-cog"></i>
-                    <span>تنظیمات</span>
-                  </a>
+                  <a href="#" class="has-submenu">مدیریت کاربران</a>
                   <ul>
-                    <li>
-                      <a href="#">
-                        <i class="es esprit-lock"></i>
-                        <span>حریم خصوصی</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="es esprit-bell"></i>
-                        <span>اعلان‌ها</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="es esprit-shield"></i>
-                        <span>امنیت</span>
-                      </a>
-                    </li>
+                    <li><a href="#">لیست کاربران</a></li>
+                    <li><a href="#">افزودن کاربر جدید</a></li>
+                    <li><a href="#">نقش‌ها و دسترسی‌ها</a></li>
+                    <li><a href="#">فعالیت‌های کاربران</a></li>
+                    <li><a href="#">درخواست‌ها و شکایات</a></li>
                   </ul>
                 </li>
+
                 <li>
-                  <a href="#">
-                    <i class="es esprit-envelope"></i>
-                    <span>پیام‌ها</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="has-submenu">
-                    <i class="es esprit-file-alt"></i>
-                    <span>محتوای من</span>
-                  </a>
+                  <a href="#" class="has-submenu">مدیریت سازمان</a>
                   <ul>
-                    <li>
-                      <a href="#">
-                        <i class="es esprit-newspaper"></i>
-                        <span>مقالات من</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="es esprit-bookmark"></i>
-                        <span>نشانک‌ها</span>
-                      </a>
-                    </li>
+                    <li><a href="#">لیست شعب</a></li>
+                    <li><a href="#">لیست پرسنل</a></li>
+                    <li><a href="#">انتصابات و سمت‌ها</a></li>
                   </ul>
                 </li>
+
+                <li><a href="#">کنترل کیفیت (QC)</a></li>
+                <li><a href="#">تنظیمات سیستم</a></li>
               </ul>
             </nav>
 
             <form class="profile-dashboard__logout-form" action="" method="post">
               <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout" />
-              <button type="submit" class="profile-dashboard__logout-btn es-btn es-btn-danger">
+              <button type="submit" class="profile-dashboard__logout-btn">
                 <i class="es esprit-fi-rr-sign-out-alt"></i>
-                <span data-i18n="profile.logout">خروج</span>
+                <span data-i18n="profile.logout">خروج از حساب کاربری</span>
               </button>
             </form>
           </div>
@@ -250,51 +206,44 @@
             <div class="profile-dashboard__content-wrapper">
               <h2 class="es-section-title">خوش آمدید به داشبورد</h2>
 
-              <p style="line-height: 1.8; margin-bottom: 20px;">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
-                مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+              <p style="line-height: 1.8; margin-bottom: 20px">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
               </p>
 
-              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">آمار و ارقام</h3>
-              <p style="line-height: 1.8; margin-bottom: 20px;">
-                کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا
-                با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در
-                زبان فارسی ایجاد کرد.
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568">آمار و ارقام</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px">
+                کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو
+                در زبان فارسی ایجاد کرد.
               </p>
 
-              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">فعالیت‌های اخیر</h3>
-              <p style="line-height: 1.8; margin-bottom: 20px;">
-                در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
-                پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568">فعالیت‌های اخیر</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px">
+                در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
                 موجود طراحی اساسا مورد استفاده قرار گیرد.
               </p>
 
-              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">پروژه‌های جاری</h3>
-              <p style="line-height: 1.8; margin-bottom: 20px;">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568">پروژه‌های جاری</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
               </p>
 
-              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">اعلان‌ها</h3>
-              <p style="line-height: 1.8; margin-bottom: 20px;">
-                کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا
-                با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در
-                زبان فارسی ایجاد کرد.
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568">اعلان‌ها</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px">
+                کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو
+                در زبان فارسی ایجاد کرد.
               </p>
 
-              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">تنظیمات سریع</h3>
-              <p style="line-height: 1.8; margin-bottom: 20px;">
-                در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
-                پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568">تنظیمات سریع</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px">
+                در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
                 موجود طراحی اساسا مورد استفاده قرار گیرد.
               </p>
 
-              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568;">گزارش‌های ماهانه</h3>
-              <p style="line-height: 1.8; margin-bottom: 20px;">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
-                مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+              <h3 style="font-size: 1.25em; font-weight: 600; margin: 30px 0 15px; color: #4a5568">گزارش‌های ماهانه</h3>
+              <p style="line-height: 1.8; margin-bottom: 20px">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
               </p>
             </div>
           </div>

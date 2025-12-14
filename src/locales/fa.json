@@ -82,7 +82,8 @@
     "ticketTracking": "پیگیری تیکت",
     "dashboard": "داشبورد",
     "profile": "پروفایل",
-    "editProfile": "ویرایش پروفایل"
+    "editProfile": "ویرایش پروفایل",
+    "profileDetails": "جزئیات پروفایل"
   },
   "tools": {
     "toolbox": "جعبه ابزار",
@@ -299,7 +300,7 @@
   "profile": {
     "greeting": "سلام",
     "dear": "عزیز!",
-    "logout": "خروج",
+    "logout": "خروج از حساب کاربری",
     "editProfile": "ویرایش پروفایل",
     "email": "ایمیل :",
     "mobile": "شماره تلفن همراه :",
@@ -344,5 +345,34 @@
       "addFile": "افزودن فایل",
       "submit": "ثبت فرم"
     }
+  },
+  "profileDetails": {
+    "pageTitle": "جزئیات پروفایل - Niafam",
+    "personalInfo": "اطلاعات شخصی",
+    "contactInfo": "اطلاعات تماس",
+    "locationInfo": "اطلاعات مکانی",
+    "socialLinks": "شبکه‌های اجتماعی",
+    "bio": "درباره من",
+    "firstName": "نام",
+    "lastName": "نام خانوادگی",
+    "nickname": "نام مستعار",
+    "gender": "جنسیت",
+    "birthdate": "تاریخ تولد",
+    "nationalCode": "کد ملی",
+    "birthCode": "شماره شناسنامه",
+    "email": "ایمیل",
+    "mobile": "تلفن همراه",
+    "province": "استان",
+    "city": "شهر",
+    "address": "آدرس",
+    "postalCode": "کد پستی",
+    "website": "وب‌سایت",
+    "linkedin": "لینکدین",
+    "instagram": "اینستاگرام",
+    "telegram": "تلگرام",
+    "memberSince": "عضویت از",
+    "genderMale": "مرد",
+    "genderFemale": "زن",
+    "genderNotSpecified": "مشخص نشده"
   }
 }

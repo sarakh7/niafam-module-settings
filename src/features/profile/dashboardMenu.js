@@ -8,16 +8,21 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css';
 export function initDashboardMenu() {
   const navigationElement = document.querySelector('.profile-dashboard__navigation');
 
-  // Initialize PerfectScrollbar on navigation
-  if (navigationElement) {
-    new PerfectScrollbar(navigationElement, {
-      wheelSpeed: 1,
-      wheelPropagation: false,
-      minScrollbarLength: 20
-    });
+  if (!navigationElement) {
+    console.warn('Dashboard navigation not found');
+    return;
   }
 
-  const menuToggles = document.querySelectorAll('.profile-dashboard__navigation a.has-submenu');
+  // Initialize PerfectScrollbar for navigation
+  const ps = new PerfectScrollbar(navigationElement, {
+    wheelSpeed: 0.5,
+    wheelPropagation: false,
+    minScrollbarLength: 20,
+    suppressScrollX: true,
+  });
+
+  // Find all links with submenus
+  const menuToggles = navigationElement.querySelectorAll('a.has-submenu');
 
   menuToggles.forEach((toggle) => {
     // Add arrow icon if it doesn't exist
@@ -27,10 +32,23 @@ export function initDashboardMenu() {
       toggle.appendChild(arrow);
     }
 
+    // Add click event to toggle submenu
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
 
-      // Toggle open class on the link
+      // Close other open submenus
+      const allToggles = navigationElement.querySelectorAll('a.has-submenu');
+      allToggles.forEach((otherToggle) => {
+        if (otherToggle !== toggle && otherToggle.classList.contains('open')) {
+          otherToggle.classList.remove('open');
+          const otherSubmenu = otherToggle.nextElementSibling;
+          if (otherSubmenu && otherSubmenu.tagName === 'UL') {
+            otherSubmenu.classList.remove('open');
+          }
+        }
+      });
+
+      // Toggle current submenu
       toggle.classList.toggle('open');
 
       // Get the next sibling (submenu ul)
@@ -38,7 +56,52 @@ export function initDashboardMenu() {
 
       if (submenu && submenu.tagName === 'UL') {
         submenu.classList.toggle('open');
+
+        // Update PerfectScrollbar after submenu animation
+        setTimeout(() => {
+          ps.update();
+        }, 300);
       }
     });
+  });
+
+  // Handle active state for current page
+  const currentPath = window.location.pathname;
+  const allLinks = navigationElement.querySelectorAll('a:not(.has-submenu)');
+
+  allLinks.forEach((link) => {
+    // Skip hash-only links (they're placeholders, not real navigation)
+    const href = link.getAttribute('href');
+    if (!href || href === '#' || href === 'javascript:void(0)' || href === 'javascript:;') {
+      return;
+    }
+
+    try {
+      const linkPath = new URL(link.href, window.location.origin).pathname;
+
+      if (linkPath === currentPath) {
+        link.classList.add('active');
+
+        // If this link is in a submenu, open the parent submenu
+        const parentLi = link.closest('li').parentElement.closest('li');
+        if (parentLi) {
+          const parentLink = parentLi.querySelector('a.has-submenu');
+          if (parentLink) {
+            parentLink.classList.add('open');
+            const submenu = parentLink.nextElementSibling;
+            if (submenu && submenu.tagName === 'UL') {
+              submenu.classList.add('open');
+
+              // Update PerfectScrollbar after submenu is opened
+              setTimeout(() => {
+                ps.update();
+              }, 300);
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Invalid URL for link:', link.href);
+    }
   });
 }
