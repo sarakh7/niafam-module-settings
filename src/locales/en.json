@@ -93,7 +93,8 @@
     "ticketTracking": "Ticket Tracking",
     "dashboard": "Dashboard",
     "profile": "Profile",
-    "editProfile": "Edit Profile"
+    "editProfile": "Edit Profile",
+    "profileDetails": "Profile Details"
   },
   "tools": {
     "toolbox": "Toolbox",
@@ -307,6 +308,26 @@
       "close": "Close"
     }
   },
+  "profileDetails": {
+    "pageTitle": "Profile Details - Niafam",
+    "personalInfo": "Personal Information",
+    "contactInfo": "Contact & Location Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "nickname": "Nickname",
+    "gender": "Gender",
+    "birthdate": "Birth Date",
+    "nationalCode": "National Code",
+    "birthCode": "Birth Certificate Number",
+    "email": "Email",
+    "mobile": "Mobile",
+    "province": "Province",
+    "city": "City",
+    "address": "Address",
+    "postalCode": "Postal Code",
+    "bio": "About Me",
+    "memberSince": "Member Since"
+  },
   "profile": {
     "greeting": "Hello",
     "dear": "!",
@@ -344,6 +365,14 @@
       "instagramPlaceholder": "Enter your Instagram URL",
       "telegram": "Telegram",
       "telegramPlaceholder": "Enter your Telegram URL",
+      "city": "City",
+      "cityPlaceholder": "Enter your city",
+      "province": "Province",
+      "provincePlaceholder": "Enter your province",
+      "postalCode": "Postal Code",
+      "postalCodePlaceholder": "Enter your postal code",
+      "address": "Address",
+      "addressPlaceholder": "Enter your complete address",
       "description": "Description",
       "descriptionPlaceholder": "Enter your description",
       "oldPassword": "Old Password",
@@ -353,7 +382,32 @@
       "repeatPassword": "Repeat Password",
       "repeatPasswordPlaceholder": "Re-enter your new password",
       "addFile": "Add File",
+      "chooseAvatar": "Choose Avatar",
+      "avatarHelp": "Image must be less than 5MB and in JPG, PNG, or GIF format",
+      "passwordRequirements": "Password must contain uppercase, lowercase, and number",
       "submit": "Submit"
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "invalidURL": "Invalid website URL",
+      "weakPassword": "Password must contain uppercase, lowercase, and number",
+      "passwordMismatch": "Passwords do not match",
+      "fixErrors": "Please fix the form errors",
+      "invalidFileType": "Only JPG, PNG, and GIF files are allowed",
+      "fileTooLarge": "File size must not exceed 5MB"
+    },
+    "messages": {
+      "saveSuccess": "Information saved successfully",
+      "saveError": "Error saving information",
+      "passwordChangeSuccess": "Password changed successfully",
+      "passwordChangeError": "Error changing password",
+      "avatarUploadSuccess": "Avatar updated successfully",
+      "avatarUploadError": "Error uploading avatar",
+      "unknownError": "Unknown error"
     }
+  },
+  "common": {
+    "loading": "Sending..."
   }
 }
