@@ -1,8 +1,13 @@
 /**
- * Ticket Tracking Styles
- * Styles for ticket tracking page
+ * Ticket Tracking - Modern Messaging Interface
+ * WhatsApp/Telegram-style conversation design
+ * Supports customer messages (right), admin responses (left), and status notifications (center)
  */
 @use '../common/base/globals' as *;
+
+// ============================================================================
+// LOCAL VARIABLES
+// ============================================================================
 
 $white: #fff;
 $text-xl: 1.25em;
@@ -11,10 +16,45 @@ $text-base: 1em;
 $text-sm: 0.875em;
 $text-xs: 0.75em;
 
+// Customer Bubble (Right-aligned - Blue)
+$customer-gradient-start: #4A90E2;
+$customer-gradient-end: #357ABD;
+$customer-text: #FFFFFF;
+$customer-meta: rgba(255, 255, 255, 0.85);
+
+// Admin Bubble (Left-aligned - Gray/Slate)
+$admin-gradient-start: #7C8BA1;
+$admin-gradient-end: #5F6F85;
+$admin-text: #FFFFFF;
+$admin-meta: rgba(255, 255, 255, 0.85);
+
+// Status Pill (Center - Amber/Gold)
+$status-bg: #FFF4E6;
+$status-border: #FFE0B2;
+$status-text: #B76E00;
+$status-icon-bg: #F5A623;
+
+// Attachment backgrounds
+$attachment-bg: rgba(255, 255, 255, 0.15);
+$attachment-hover: rgba(255, 255, 255, 0.25);
+$attachment-border: rgba(255, 255, 255, 0.2);
+
+// Background colors
+$conversation-bg: #FFFFFF;
+$page-bg: #F5F7FA;
+
+// ============================================================================
+// UTILITY CLASSES
+// ============================================================================
+
 .d-none,
 .es-d-none {
   display: none !important;
 }
+
+// ============================================================================
+// MAIN CONTAINER
+// ============================================================================
 
 .ticket-tracking-container {
   min-height: 100vh;
@@ -28,7 +68,10 @@ $text-xs: 0.75em;
     display: inline-block;
   }
 
-  // Tracking Request Form Section
+  // ============================================================================
+  // TRACKING REQUEST FORM SECTION
+  // ============================================================================
+
   .es-tracking-request {
     border-radius: $radius-xl;
     margin-bottom: $spacing-5;
@@ -45,13 +88,12 @@ $text-xs: 0.75em;
         display: inline-block;
       }
     }
-
-    // Captcha Section
-
-    // Submit Button
   }
 
-  // Ticket Details Section
+  // ============================================================================
+  // TICKET DETAILS SECTION
+  // ============================================================================
+
   #es-msg-form-success {
     display: block;
     animation: fadeIn 0.5s ease;
@@ -61,11 +103,17 @@ $text-xs: 0.75em;
     background: $white;
     border-radius: $radius-xl;
     margin-top: $spacing-5;
+    padding: $spacing-5;
+
+    @media (max-width: 768px) {
+      padding: $spacing-3;
+    }
   }
 
-  // Section Titles - now using common component from _section-title.scss
+  // ============================================================================
+  // SUBMITTED DATA DISPLAY
+  // ============================================================================
 
-  // Submitted Data Display
   #es-content-submits {
     margin-bottom: $spacing-5;
     padding: $spacing-4;
@@ -83,6 +131,12 @@ $text-xs: 0.75em;
         border-bottom: none;
       }
 
+      .es-submits-label {
+        font-size: $text-sm;
+        color: $gray-600;
+        font-weight: $text-medium;
+        min-width: 150px;
+      }
 
       .es-submits-value {
         font-size: $text-base;
@@ -91,102 +145,410 @@ $text-xs: 0.75em;
         padding: $spacing-sm 0;
       }
     }
+
+    @media (max-width: 768px) {
+      padding: $spacing-3;
+
+      .es-submits-parent {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: $spacing-3;
+
+        .es-submits-label {
+          min-width: auto;
+        }
+      }
+    }
   }
 
-  // Ticket Reply Cards
-  .es-ticketing-replay-card {
-    border: none;
+  // ============================================================================
+  // CONVERSATION MESSAGES CONTAINER
+  // ============================================================================
+
+  .ticketing-replay-container {
+    margin-top: $spacing-5;
+    padding: $spacing-5;
+    background: $conversation-bg;
     border-radius: $radius-xl;
-    overflow: hidden;
-    transition: $transition;
-    background: $blue-gray-100;
-    color: $blue-gray-800;
-    margin-bottom: $spacing-4;
+
+    @media (max-width: 768px) {
+      padding: $spacing-3;
+      border-radius: $radius-lg;
+    }
+  }
+
+  .conversation-messages {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+  }
+
+  // ============================================================================
+  // BASE MESSAGE STRUCTURE
+  // ============================================================================
+
+  .es-ticketing-replay-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 65%;
+    animation: messageSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    animation-fill-mode: forwards;
+
+    @media (max-width: 768px) {
+      max-width: 80%;
+    }
+
+    // Stagger animations
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
+    &:nth-child(5) { animation-delay: 0.5s; }
+    &:nth-child(6) { animation-delay: 0.6s; }
+    &:nth-child(n+7) { animation-delay: 0.7s; }
+  }
+
+  // Message bubble container
+  .message-bubble {
+    padding: $spacing-4 $spacing-5;
+    border-radius: $radius-lg;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 
     &:hover {
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
       transform: translateY(-2px);
     }
 
-    .es-card-header {
-      font-weight: $text-semi-bold;
-      font-size: $text-base;
+    @media (max-width: 768px) {
       padding: $spacing-3 $spacing-4;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  // Message sender header
+  .message-sender {
+    font-weight: $text-semi-bold;
+    margin-bottom: $spacing-2;
+    font-size: $text-sm;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+  }
+
+  .sender-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: $radius-full;
+    background: rgba(255, 255, 255, 0.25);
+    font-size: 0.6875em;
+    font-weight: $text-bold;
+
+    @media (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+      font-size: 0.625em;
+    }
+  }
+
+  // Message content
+  .message-content {
+    font-size: 0.9375em;
+    line-height: 1.6;
+    margin-bottom: $spacing-3;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+
+    &:last-child {
+      margin-bottom: 0;
     }
 
-    .es-card-body {
-      padding: $spacing-4;
+    @media (max-width: 768px) {
+      font-size: $text-sm;
+    }
+  }
 
-      blockquote {
-        border-right: 4px solid $blue-gray-400;
-        padding-right: $spacing-3;
-        margin: 0 0 $spacing-3 0;
-        color: $gray-700;
-        line-height: 1.6;
+  // Message timestamp
+  .message-time {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 0.8125em;
+    opacity: 0.85;
+    margin-top: $spacing-2;
 
-        [dir="rtl"] & {
-          border-right: none;
-          border-left: 4px solid $blue-gray-400;
-          padding-right: 0;
-          padding-left: $spacing-3;
-        }
-      }
+    @media (max-width: 768px) {
+      font-size: $text-xs;
+    }
+  }
 
-      audio {
-        width: 100%;
-        margin: $spacing-3 0;
-        border-radius: $radius-lg;
-      }
+  .time-icon {
+    font-size: 0.6875em;
+  }
 
-      a.small,
-      .btn-link {
-        display: inline-block;
-        margin-top: $spacing-sm;
-        padding: $spacing-sm $spacing-3;
-        background: $white;
-        border-radius: $radius-default;
-        text-decoration: none;
-        color: $blue-gray-800;
-        transition: $transition;
+  // ============================================================================
+  // CUSTOMER MESSAGE (es-ticketing-replay-1) - Right Blue Bubble
+  // ============================================================================
 
-        &:hover {
-          background: $blue-gray-400;
-          color: $white;
-        }
-      }
+  .es-ticketing-replay-1 {
+    align-self: flex-start;
 
-      .blockquote-footer {
-        margin-top: $spacing-3;
-        font-size: $text-sm;
-        color: $gray-400;
+    .message-bubble {
+      background: linear-gradient(135deg, $customer-gradient-start 0%, $customer-gradient-end 100%);
+      color: $customer-text;
+      border-bottom-left-radius: $radius-sm;
+
+      [dir="ltr"] & {
+        border-bottom-left-radius: $radius-lg;
+        border-bottom-right-radius: $radius-sm;
       }
     }
 
-    // Reply Type Colors
-    &.es-ticketing-replay-user {
-      .es-card-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: $white;
+    .message-sender,
+    .message-content,
+    .message-time {
+      color: $customer-text;
+    }
+
+    .message-time {
+      color: $customer-meta;
+    }
+  }
+
+  // ============================================================================
+  // ADMIN MESSAGE (es-ticketing-replay-2) - Left Gray Bubble
+  // ============================================================================
+
+  .es-ticketing-replay-2 {
+    align-self: flex-end;
+
+    .message-bubble {
+      background: linear-gradient(135deg, $admin-gradient-start 0%, $admin-gradient-end 100%);
+      color: $admin-text;
+      border-bottom-right-radius: $radius-sm;
+
+      [dir="ltr"] & {
+        border-bottom-right-radius: $radius-lg;
+        border-bottom-left-radius: $radius-sm;
       }
     }
 
-    &.es-ticketing-replay-admin {
-      .es-card-header {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        color: $white;
+    .message-sender,
+    .message-content,
+    .message-time {
+      color: $admin-text;
+    }
+
+    .message-time {
+      color: $admin-meta;
+    }
+  }
+
+  // ============================================================================
+  // STATUS MESSAGE (es-ticketing-replay-3) - Center System Notification
+  // ============================================================================
+
+  .es-ticketing-replay-3 {
+    align-self: center;
+    max-width: 100%;
+
+    .message-bubble {
+      background: $status-bg;
+      color: $status-text;
+      border: 1px solid $status-border;
+      border-radius: $radius-full;
+      padding: $spacing-3 $spacing-5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      text-align: center;
+
+      &:hover {
+        transform: none;
+      }
+
+      @media (max-width: 768px) {
+        padding: $spacing-2 $spacing-4;
       }
     }
 
-    &.es-ticketing-replay-support {
-      .es-card-header {
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        color: $white;
+    .message-content {
+      margin-bottom: 0;
+      font-size: $text-sm;
+      font-weight: $text-medium;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-2;
+    }
+
+    .status-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: $radius-full;
+      background: $status-icon-bg;
+      color: #FFFFFF;
+      font-size: 0.625em;
+      font-weight: $text-bold;
+    }
+
+    .message-attachments {
+      display: none;
+    }
+    .message-sender {
+      display: none;
+    }
+  }
+
+  // ============================================================================
+  // ATTACHMENTS (Files, Audio, Links)
+  // ============================================================================
+
+  .message-attachments {
+    margin-top: $spacing-3;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2;
+  }
+
+  .attachment-item {
+    background: $attachment-bg;
+    border: 1px solid $attachment-border;
+    border-radius: $radius-sm;
+    padding: $spacing-3;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+
+    &:hover {
+      background: $attachment-hover;
+
+      [dir="rtl"] & {
+        transform: translateX(-2px);
+      }
+
+      [dir="ltr"] & {
+        transform: translateX(2px);
       }
     }
   }
 
-  // Reply Form Section
+  .attachment-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    font-size: $text-sm;
+    font-weight: $text-medium;
+  }
+
+  .attachment-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-sm;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: $text-sm;
+    flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .attachment-audio {
+    width: 100%;
+    margin: $spacing-3 0;
+    border-radius: $radius-sm;
+    height: 40px;
+
+    &::-webkit-media-controls-panel {
+      background: $attachment-bg;
+      border-radius: $radius-sm;
+    }
+  }
+
+  // ============================================================================
+  // LEGACY SUPPORT (backward compatibility with old structure)
+  // ============================================================================
+
+  .es-card {
+    &.es-ticketing-replay-card {
+      // New styles take precedence
+    }
+  }
+
+  // Old card structure support
+  .es-card-header {
+    // Header is now .message-sender - styles inherited
+    font-weight: $text-semi-bold;
+    font-size: $text-base;
+    margin-bottom: $spacing-2;
+  }
+
+  .es-card-body {
+    // Body content is now part of .message-bubble
+
+    blockquote {
+      border-right: 4px solid rgba(255, 255, 255, 0.3);
+      padding-right: $spacing-3;
+      margin: 0 0 $spacing-3 0;
+      line-height: 1.6;
+
+      [dir="ltr"] & {
+        border-right: none;
+        border-left: 4px solid rgba(255, 255, 255, 0.3);
+        padding-right: 0;
+        padding-left: $spacing-3;
+      }
+    }
+
+    audio {
+      width: 100%;
+      margin: $spacing-3 0;
+      border-radius: $radius-lg;
+    }
+
+    a.small,
+    .btn-link {
+      display: inline-block;
+      margin-top: $spacing-sm;
+      padding: $spacing-sm $spacing-3;
+      background: $attachment-bg;
+      border: 1px solid $attachment-border;
+      border-radius: $radius-sm;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: $attachment-hover;
+      }
+    }
+
+    .blockquote-footer {
+      margin-top: $spacing-3;
+      font-size: $text-sm;
+      opacity: 0.85;
+
+      cite {
+        font-style: normal;
+      }
+    }
+  }
+
+  // ============================================================================
+  // REPLY FORM SECTION
+  // ============================================================================
+
   .es-send-request {
     margin-top: $spacing-5;
     padding-top: $spacing-5;
@@ -203,20 +565,36 @@ $text-xs: 0.75em;
     margin: $spacing-5 0;
   }
 
-  // Animation
+  // ============================================================================
+  // ANIMATIONS
+  // ============================================================================
+
   @keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
-
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
-  // Responsive Design
+  @keyframes messageSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // ============================================================================
+  // RESPONSIVE DESIGN
+  // ============================================================================
+
   @media (max-width: 768px) {
     padding: $spacing-3 0;
 
@@ -225,35 +603,11 @@ $text-xs: 0.75em;
       border-radius: $radius-lg;
     }
 
-    #es-content-submits {
-      padding: $spacing-3;
-
-      .es-submits-parent {
-        margin-bottom: $spacing-3;
-      }
-    }
-
-    .es-ticketing-replay-card {
-      margin-bottom: $spacing-3;
-
-      .es-card-header {
-        padding: $spacing-2 $spacing-3;
-        font-size: $text-sm;
-      }
-
-      .es-card-body {
-        padding: $spacing-3;
-      }
-    }
-
     .es-send-request {
-
       form,
       .nes-form {
-
         .es-form-group,
         .nes-form-group {
-
           label,
           .nes-label {
             margin-bottom: $spacing-sm;
@@ -281,13 +635,61 @@ $text-xs: 0.75em;
       }
     }
   }
+
+  // ============================================================================
+  // RTL/LTR ADJUSTMENTS
+  // ============================================================================
+
+  [dir="rtl"] {
+    .message-sender,
+    .message-content {
+      text-align: right;
+    }
+
+    .message-time {
+      flex-direction: row;
+    }
+  }
+
+  [dir="ltr"] {
+    .message-sender,
+    .message-content {
+      text-align: left;
+    }
+
+    .message-time {
+      flex-direction: row;
+    }
+  }
+
+  // ============================================================================
+  // PRINT STYLES
+  // ============================================================================
+
+  @media print {
+    .es-ticketing-replay-card {
+      animation: none;
+      opacity: 1;
+      page-break-inside: avoid;
+    }
+
+    .message-bubble {
+      box-shadow: none;
+      border: 1px solid #CCCCCC;
+    }
+  }
 }
+
+// ============================================================================
+// FORM-SPECIFIC STYLES
+// ============================================================================
 
 #trackingForm {
   .uniqueid-input {
     width: auto;
   }
 }
+
 #replayForm {
   max-width: 600px;
 }
