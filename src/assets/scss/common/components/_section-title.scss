@@ -1,45 +1,58 @@
 /**
  * Section Title Component
- * Reusable section title styles for all modules
+ * Minimal and modern section title for all modules
+ * Refined minimalism with geometric precision
  */
 @use '../base/globals' as *;
 
-$text-xl: 1.25em;
-$text-lg: 1.125em;
-
-.es-section-title {
-  font-size: $text-xl;
-  font-weight: $text-bold;
-  color: $blue-gray-700;
-  margin-bottom: $spacing-3;
-  padding: $spacing-3 $spacing-4;
-  background: linear-gradient(135deg, $blue-gray-50 0%, $gray-50 100%);
-  border-radius: $radius-lg;
-  border-right: 4px solid $blue-gray-600;
+.nes-section-title {
+  // Typography
+  color: $blue-gray-600;
+  font-size: 1em;
+  font-weight: 700;
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: $spacing-2;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding-inline-start: 24px;
+  margin: 0;
+  margin-bottom: $spacing-2;
 
-  [dir="ltr"] & {
-    border-right: none;
-    border-left: 4px solid $blue-gray-600;
-  }
-
-  &::before {
+  &::after {
     content: "";
-    width: 8px;
-    height: 8px;
+    width: 16px;
+    height: 1px;
     background: $blue-gray-600;
-    border-radius: $radius-full;
-    flex-shrink: 0;
+    border-end-end-radius: 10px;
+    border-start-end-radius: 10px;
+    position: absolute;
+    top: 50%;
+    inset-inline-start: 0;
+    transform: translateY(-50%);
+
+    // Responsive - mobile
+    @media (max-width: 768px) {
+      font-size: 1em; // 16px
+
+    }
+
+    // Responsive - tablet
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 1.0625em; // 17px
+    }
   }
 
-  // Responsive
-  @media (max-width: 768px) {
-    font-size: $text-lg;
-    padding: $spacing-2 $spacing-3;
-    margin-bottom: $spacing-2;
+  // Alternative variant: Larger for main headings
+  &--large {
+    font-size: 1.25em; // 22px
+    font-weight: $text-bold;
+    margin-bottom: $spacing-3;
+    padding-inline-start: 28px;
+
+    &::after {
+      width: 20px;
+      height: 2px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.125em; // 18px
+    }
   }
 }

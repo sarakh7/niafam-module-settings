@@ -17,20 +17,20 @@ $text-sm: 0.875em;
 $text-xs: 0.75em;
 
 // Customer Bubble (Left-aligned - Vibrant Deep Blue)
-$customer-bg: $blue-gray-600;  // Rich saturated blue
+$customer-bg: $blue-gray-600; // Rich saturated blue
 $customer-text: #FFFFFF;
 $customer-meta: rgba(255, 255, 255, 0.9);
 
 // Admin Bubble (Right-aligned - Vibrant Light Blue)
 $admin-bg: $blue-gray-200;
-$admin-text: $blue-gray-800;  // Deep blue text for contrast
+$admin-text: $blue-gray-800; // Deep blue text for contrast
 $admin-meta: rgba(26, 51, 83, 0.75);
 
 // Status Pill (Center - Vibrant Accent)
-$status-bg: $gray-200;  // Soft blue tint
-$status-border: $blue-gray-200;  // Light blue border
-$status-text: $blue-gray-600;  // Vivid blue text
-$status-icon-bg: $blue-gray-400;  // Vivid blue icon
+$status-bg: $gray-200; // Soft blue tint
+$status-border: $blue-gray-200; // Light blue border
+$status-text: $blue-gray-600; // Vivid blue text
+$status-icon-bg: $blue-gray-400; // Vivid blue icon
 
 // Attachment backgrounds
 $attachment-bg: rgba(255, 255, 255, 0.15);
@@ -40,7 +40,7 @@ $attachment-border: rgba(255, 255, 255, 0.2);
 // Background colors
 $conversation-bg: #FFFFFF;
 $page-bg: #F5F7FA;
-$conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
+$conversation-area-bg: #F0F4F9; // Subtle blue-tinted background
 
 // ============================================================================
 // UTILITY CLASSES
@@ -101,7 +101,6 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
   .es-ticketing-body {
     background: $white;
     border-radius: $radius-xl;
-    margin-top: $spacing-5;
     padding: $spacing-5;
 
     @media (max-width: 768px) {
@@ -116,9 +115,9 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
   #es-content-submits {
     margin-bottom: $spacing-4;
     padding: $spacing-4;
-    background: $white;
+    background: $blue-gray-100;
     border-radius: $radius-xl;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    // box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     border: 1px solid $gray-200;
 
     .es-submits-parent {
@@ -147,11 +146,6 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
         align-items: center;
         gap: $spacing-1;
 
-        &::before {
-          content: "●";
-          color: $blue-gray-400;
-          font-size: 0.5em;
-        }
       }
 
       .es-submits-value {
@@ -159,7 +153,7 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
         color: $gray-700;
         font-weight: $text-medium;
         padding: $spacing-1 $spacing-2;
-        background: $gray-100;
+        background: $gray-50;
         border-radius: $radius-sm;
         border: 1px solid $gray-200;
       }
@@ -191,14 +185,15 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
   .ticketing-replay-container {
     margin-top: $spacing-4;
     padding: $spacing-4;
-    background: $conversation-bg;
+    background: $blue-gray-100;
     border-radius: $radius-xl;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    // box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     border: 1px solid $gray-200;
 
     @media (max-width: 768px) {
       padding: $spacing-3;
       border-radius: $radius-lg;
+      padding: $spacing-1;
     }
   }
 
@@ -207,7 +202,7 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
     flex-direction: column;
     gap: $spacing-3;
     padding: $spacing-3;
-    background: $conversation-area-bg;
+    // background: $conversation-area-bg;
     border-radius: $radius-lg;
     min-height: 300px;
 
@@ -234,13 +229,33 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
     }
 
     // Stagger animations
-    &:nth-child(1) { animation-delay: 0.1s; }
-    &:nth-child(2) { animation-delay: 0.2s; }
-    &:nth-child(3) { animation-delay: 0.3s; }
-    &:nth-child(4) { animation-delay: 0.4s; }
-    &:nth-child(5) { animation-delay: 0.5s; }
-    &:nth-child(6) { animation-delay: 0.6s; }
-    &:nth-child(n+7) { animation-delay: 0.7s; }
+    &:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    &:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    &:nth-child(n+7) {
+      animation-delay: 0.7s;
+    }
   }
 
   // Message bubble container
@@ -301,7 +316,7 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
     line-height: 1.6;
     margin-bottom: $spacing-3;
     word-wrap: break-word;
-    white-space: pre-wrap;
+    // white-space: pre-wrap;
 
     &:last-child {
       margin-bottom: 0;
@@ -348,11 +363,11 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
     .message-bubble {
       background: $customer-bg;
       color: $customer-text;
-      border-bottom-left-radius: $radius-sm;
+      border-bottom-right-radius: $radius-sm;
 
       [dir="ltr"] & {
-        border-bottom-left-radius: $radius-lg;
-        border-bottom-right-radius: $radius-sm;
+        border-bottom-right-radius: $radius-lg;
+        border-bottom-left-radius: $radius-sm;
       }
     }
 
@@ -377,11 +392,11 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
     .message-bubble {
       background: $admin-bg;
       color: $admin-text;
-      border-bottom-right-radius: $radius-sm;
+      border-bottom-left-radius: $radius-sm;
 
       [dir="ltr"] & {
-        border-bottom-right-radius: $radius-lg;
-        border-bottom-left-radius: $radius-sm;
+        border-bottom-left-radius: $radius-lg;
+        border-bottom-right-radius: $radius-sm;
       }
     }
 
@@ -474,6 +489,7 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
     .message-attachments {
       display: none;
     }
+
     .message-sender {
       display: none;
     }
@@ -654,6 +670,7 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -665,6 +682,7 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
       opacity: 0;
       transform: translateY(12px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -684,10 +702,13 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
     }
 
     .es-send-request {
+
       form,
       .nes-form {
+
         .es-form-group,
         .nes-form-group {
+
           label,
           .nes-label {
             margin-bottom: $spacing-sm;
@@ -721,6 +742,7 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
   // ============================================================================
 
   [dir="rtl"] {
+
     .message-sender,
     .message-content {
       text-align: right;
@@ -732,6 +754,7 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
   }
 
   [dir="ltr"] {
+
     .message-sender,
     .message-content {
       text-align: left;
@@ -765,8 +788,26 @@ $conversation-area-bg: #F0F4F9;  // Subtle blue-tinted background
 // ============================================================================
 
 #trackingForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   .uniqueid-input {
     width: auto;
+  }
+
+  .nes-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nes-captcha-group {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
