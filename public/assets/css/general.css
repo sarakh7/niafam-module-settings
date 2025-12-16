@@ -1,0 +1,305 @@
+/**
+ * General Module Styles
+ * Standalone pages (404, 500, maintenance, etc.)
+ */
+/**
+ * General Module Main Styles
+ * Imports all general components
+ */
+:root {
+  /* Blue gray colors */
+  --blue-gray-50: hsl(231, 36%, 98%);
+  --blue-gray-100: hsl(231, 36%, 94%);
+  --blue-gray-200: hsl(229, 35%, 88%);
+  --blue-gray-300: hsl(231, 36%, 77%);
+  --blue-gray-400: hsl(232, 36%, 59%);
+  --blue-gray-600: hsl(232, 36%, 38%);
+  --blue-gray-700: hsl(231, 36%, 33%);
+  --blue-gray-800: hsl(230, 36%, 25%);
+  /* Error color */
+  --error-700: hsl(4, 76%, 40%);
+  /* Gray colors */
+  --gray-25: hsl(0, 0%, 99%);
+  --gray-50: hsl(0, 0%, 98%);
+  --gray-100: hsl(0, 0%, 96%);
+  --gray-200: hsl(220, 5%, 92%);
+  --gray-300: hsl(220, 6%, 85%);
+  --gray-400: hsl(220, 6%, 66%);
+  --gray-500: hsl(220, 6%, 47%);
+  --gray-600: hsl(220, 8%, 35%);
+  --gray-700: hsl(220, 11%, 29%);
+  --gray-900: hsl(220, 24%, 12%);
+}
+
+/**
+ * General Module Main Styles
+ * Imports all general components
+ */
+.inputbox:focus,
+input[type=color]:focus,
+input[type=date]:focus,
+input[type=datetime-local]:focus,
+input[type=datetime]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=textbox]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
+select:focus,
+textarea:focus {
+  border-color: #0d6efd !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2) !important;
+}
+
+.nes-form {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.nes-form-group {
+  margin-bottom: 1rem;
+}
+
+.nes-captcha-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nes-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid hsl(231, 36%, 77%);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+@media (max-width: 767.98px) {
+  .nes-input {
+    width: 100%;
+  }
+}
+.nes-input:focus {
+  border-color: #0d6efd;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+}
+
+.nes-captcha-input {
+  padding: 12px;
+  border: 1px solid hsl(231, 36%, 77%);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.nes-captcha-input:focus {
+  border-color: #0d6efd;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+}
+
+.nes-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid hsl(231, 36%, 77%);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  max-width: 100%;
+}
+.nes-textarea:focus {
+  border-color: #0d6efd;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+}
+
+.nes-label {
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.nes-captcha-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media (max-width: 767.98px) {
+  .nes-captcha-group {
+    flex-wrap: wrap;
+  }
+}
+.nes-captcha-group .nes-captcha-img {
+  width: 90px;
+  height: 39px;
+  object-fit: cover;
+  border: 1px solid hsl(231, 36%, 77%);
+  border-radius: 8px;
+}
+.nes-captcha-group .nes-captcha-input {
+  width: 90px;
+  text-align: center;
+}
+
+.nes-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
+  transition: linear 0.2s;
+}
+.nes-btn.nes-btn-icon {
+  background: #f8f9fa;
+  border: 1px solid hsl(231, 36%, 77%);
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+.nes-btn.nes-btn-icon:hover {
+  background: #e9ecef;
+}
+.nes-btn-primary {
+  background: hsl(232, 36%, 38%);
+  color: #fff;
+}
+.nes-btn-primary:hover {
+  background: hsl(231, 36%, 33%);
+}
+.nes-btn.nes-btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+.nes-btn.nes-btn-success:hover {
+  background-color: rgb(35.0724637681, 146.4275362319, 60.5);
+}
+.nes-btn.nes-btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+.nes-btn.nes-btn-danger:hover {
+  background-color: rgb(210.9493670886, 36.5506329114, 53.2594936709);
+}
+
+.nes-form-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+.nes-form-actions .nes-btn {
+  min-width: 100px;
+}
+
+.nes-form-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nes-input-wrapper {
+  width: calc(50% - 6px);
+}
+@media (max-width: 767.98px) {
+  .nes-input-wrapper {
+    width: 100%;
+  }
+}
+
+.product-reviews form {
+  width: 600px;
+}
+
+@media (max-width: 767.98px) {
+  .nes-captcha-text {
+    width: 100%;
+  }
+}
+
+/**
+ * 404 Not Found Page
+ * Minimal, modern error page
+ */
+.general-404 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(0, 0%, 98%);
+  padding: 24px;
+}
+
+.general-404__container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 64px 32px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.general-404__number {
+  font-size: 6rem;
+  font-weight: 700;
+  color: hsl(232, 36%, 38%);
+  margin-bottom: 24px;
+  animation: number404Entrance 0.6s ease-out;
+  line-height: 1;
+}
+
+.general-404__heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(220, 11%, 29%);
+  margin-bottom: 16px;
+}
+
+.general-404__message {
+  color: hsl(220, 8%, 35%);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes number404Entrance {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media (max-width: 768px) {
+  .general-404__container {
+    padding: 32px 24px;
+  }
+  .general-404__number {
+    font-size: 4rem;
+  }
+  .general-404__heading {
+    font-size: 1.25rem;
+  }
+  .general-404__message {
+    font-size: 0.9rem;
+  }
+}
+
+/*# sourceMappingURL=general.css.map */

@@ -99,5 +99,13 @@
       "editProfile": "Profili Düzenle",
       "logout": "Çıkış Yap"
     }
+  },
+  "general": {
+    "404": {
+      "number": "404",
+      "heading": "Sayfa Bulunamadı",
+      "message": "Üzgünüz, aradığınız sayfa mevcut değil veya kaldırılmış olabilir.",
+      "button": "Ana Sayfaya Dön"
+    }
   }
 }
