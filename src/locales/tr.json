@@ -106,6 +106,19 @@
       "heading": "Sayfa Bulunamadı",
       "message": "Üzgünüz, aradığınız sayfa mevcut değil veya kaldırılmış olabilir.",
       "button": "Ana Sayfaya Dön"
+    },
+    "404Creative": {
+      "heading": "Aradığınız Sayfa Bulunamıyor!",
+      "message": "Belki bağlantı yanlıştı veya sayfa taşındı. Endişelenmeyin, size yardımcı olabiliriz!",
+      "searchPlaceholder": "Niafam'da ara...",
+      "searchButton": "Ara",
+      "quickLinksTitle": "Veya bunları deneyebilirsiniz:",
+      "homeLink": "Ana Sayfa",
+      "aboutLink": "Hakkımızda",
+      "profileLink": "Profil",
+      "supportLink": "Destek",
+      "homeButton": "Ana Sayfaya Dön",
+      "portalLink": "Esprit Portalı"
     }
   }
 }

@@ -430,6 +430,19 @@
       "heading": "Page Not Found",
       "message": "Sorry, the page you are looking for doesn't exist or may have been removed.",
       "button": "Go to Homepage"
+    },
+    "404Creative": {
+      "heading": "The Page You're Looking For Can't Be Found!",
+      "message": "Maybe the link was wrong or the page has been moved. Don't worry, we can help you!",
+      "searchPlaceholder": "Search on Niafam...",
+      "searchButton": "Search",
+      "quickLinksTitle": "Or you can try these:",
+      "homeLink": "Home",
+      "aboutLink": "About Us",
+      "profileLink": "Profile",
+      "supportLink": "Support",
+      "homeButton": "Go to Homepage",
+      "portalLink": "Esprit Portal"
     }
   }
 }

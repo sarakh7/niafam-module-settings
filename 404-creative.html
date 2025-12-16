@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="general.404Creative.heading">صفحه پیدا نشد - Niafam</title>
+  <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/assets/css/reset.css" />
+
+  <style>
+    @font-face {
+      font-family: "niafam";
+      src: url("/assets/fonts/niafam.woff?ahg0bg");
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: dana;
+      src: url("/assets/fonts/DanaFaNum-Regular.woff");
+      font-weight: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: dana;
+      src: url("/assets/fonts/DanaFaNum-Bold.woff");
+      font-weight: bold;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: dana;
+      src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    /* en font */
+    @font-face {
+      font-family: Roboto;
+      src: url("/assets/fonts/Roboto-Regular.woff");
+      font-weight: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Roboto;
+      src: url("/assets/fonts/Roboto-Bold.woff");
+      font-weight: bold;
+      font-display: swap;
+    }
+
+    body {
+      font-size: 16px;
+      font-family: dana;
+    }
+
+    body[dir="ltr"] {
+      font-family: Roboto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Creative 404 Not Found Page -->
+  <div class="general-404-creative">
+    <!-- Floating Background Elements -->
+    <div class="general-404-creative__bg-elements">
+      <div class="general-404-creative__float-circle general-404-creative__float-circle--1"></div>
+      <div class="general-404-creative__float-circle general-404-creative__float-circle--2"></div>
+      <div class="general-404-creative__float-circle general-404-creative__float-circle--3"></div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="general-404-creative__container">
+
+      <!-- 404 Illustration Area -->
+      <div class="general-404-creative__illustration">
+        <div class="general-404-creative__number-wrapper">
+          <span class="general-404-creative__number">4</span>
+          <div class="general-404-creative__icon-wrapper">
+            <i class="es esprit-fi-rr-search general-404-creative__icon"></i>
+          </div>
+          <span class="general-404-creative__number">4</span>
+        </div>
+      </div>
+
+      <!-- Text Content -->
+      <div class="general-404-creative__content">
+        <h1 class="general-404-creative__heading" data-i18n="general.404Creative.heading">
+          صفحه‌ای که دنبالش می‌گردید پیدا نشد!
+        </h1>
+        <p class="general-404-creative__message" data-i18n="general.404Creative.message">
+          شاید لینک اشتباه بوده یا صفحه جابجا شده. نگران نباشید، می‌تونیم کمکتون کنیم!
+        </p>
+      </div>
+
+      <!-- Search Box -->
+      <div class="general-404-creative__search">
+        <div class="general-404-creative__search-box">
+          <i class="es esprit-fi-rr-search general-404-creative__search-icon"></i>
+          <input
+            type="text"
+            class="general-404-creative__search-input"
+            data-i18n="[placeholder]general.404Creative.searchPlaceholder"
+            placeholder="جستجو در نیافام..."
+          >
+          <button class="general-404-creative__search-btn" data-i18n="general.404Creative.searchButton">
+            جستجو
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="general-404-creative__quick-links">
+        <h3 class="general-404-creative__quick-links-title" data-i18n="general.404Creative.quickLinksTitle">
+          یا می‌تونید اینجا رو امتحان کنید:
+        </h3>
+        <div class="general-404-creative__links-grid">
+          <a href="/" class="general-404-creative__link">
+            <i class="es esprit-fi-rr-home"></i>
+            <span data-i18n="general.404Creative.homeLink">صفحه اصلی</span>
+          </a>
+          <a href="/about.html" class="general-404-creative__link">
+            <i class="es esprit-fi-rr-info"></i>
+            <span data-i18n="general.404Creative.aboutLink">درباره ما</span>
+          </a>
+          <a href="/profile-dashboard.html" class="general-404-creative__link">
+            <i class="es esprit-fi-rr-user"></i>
+            <span data-i18n="general.404Creative.profileLink">پروفایل</span>
+          </a>
+          <a href="/ticket-tracking.html" class="general-404-creative__link">
+            <i class="es esprit-fi-rr-headset"></i>
+            <span data-i18n="general.404Creative.supportLink">پشتیبانی</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Primary Action Button -->
+      <div class="general-404-creative__actions">
+        <a href="/" class="nes-btn nes-btn-primary general-404-creative__home-btn">
+          <i class="es esprit-fi-rr-home"></i>
+          <span data-i18n="general.404Creative.homeButton">بازگشت به صفحه اصلی</span>
+        </a>
+      </div>
+
+      <!-- Esprit Portal Link -->
+      <div class="general-404-creative__footer">
+        <a href="#" class="general-404-creative__portal-link">
+          <i class="es esprit-fi-rr-globe"></i>
+          <span data-i18n="general.404Creative.portalLink">پورتال اسپریت</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="/src/general-main.js"></script>
+</body>
+</html>

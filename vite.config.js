@@ -22,6 +22,7 @@ export default defineConfig({
         profileEdit: resolve(__dirname, 'profile-edit.html'),
         authForms: resolve(__dirname, 'login-forms.html'),
         notFound: resolve(__dirname, '404.html'),
+        notFoundCreative: resolve(__dirname, '404-creative.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
       },
