@@ -20,21 +20,12 @@ $card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
 $card-border-radius: $radius-xl;
 
 // ============================================
-// MAIN CONTAINER
-// ============================================
-.profile-details-container {
-  min-height: 100vh;
-  padding: $spacing-5 0;
-  // background: linear-gradient(180deg, $gray-50 0%, $gray-100 100%);
-}
-
-// ============================================
 // PROFILE DETAILS BLOCK
 // ============================================
 .profile-details {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $spacing-4;
+  padding: $spacing-5 $spacing-4;
 
   // ========================================
   // HEADER SECTION
@@ -365,12 +356,8 @@ $card-border-radius: $radius-xl;
 }
 
 @media (max-width: 768px) {
-  .profile-details-container {
-    padding: $spacing-3 0;
-  }
-
   .profile-details {
-    padding: 0 $spacing-3;
+    padding: $spacing-3;
 
     &__header {
       flex-direction: column;

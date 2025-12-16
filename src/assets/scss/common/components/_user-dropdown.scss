@@ -71,12 +71,12 @@
     font-size: 0.85rem;
     transition: transform 0.3s ease;
     color: $gray-500;
-    margin-left: $spacing-1;
-    margin-right: $spacing-2;
+    // margin-left: $spacing-1;
+    // margin-right: $spacing-2;
 
     [dir="rtl"] & {
-      margin-left: $spacing-2;
-      margin-right: $spacing-1;
+      // margin-left: $spacing-2;
+      // margin-right: $spacing-1;
     }
   }
 
