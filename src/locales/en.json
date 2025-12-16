@@ -409,5 +409,19 @@
   },
   "common": {
     "loading": "Sending..."
+  },
+  "auth": {
+    "pageTitle": "Authentication Forms - Niafam",
+    "submitLink": "Submit",
+    "loginLink": "Login",
+    "demo": {
+      "siteTitle": "Niafam Demo",
+      "userName": "John Doe"
+    },
+    "userDropdown": {
+      "viewProfile": "View Profile",
+      "editProfile": "Edit Profile",
+      "logout": "Logout"
+    }
   }
 }

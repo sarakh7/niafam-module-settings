@@ -1,0 +1,273 @@
+/**
+ * User Dropdown Component Styles
+ * Reusable dropdown menu for logged-in users
+ */
+
+@use '../base/globals' as *;
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+
+  // Wrapper for name, icon, and trigger
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    cursor: pointer;
+  }
+
+  // Trigger button (avatar only)
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus {
+      outline: 2px solid $blue-gray-600;
+      outline-offset: 2px;
+      border-radius: 50%;
+    }
+  }
+
+  // Avatar
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: $blue-gray-600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $text-semi-bold;
+    font-size: 0.85rem;
+
+    &--initials::after {
+      content: attr(data-initials);
+    }
+  }
+
+  // User name (outside trigger)
+  &__name {
+    font-weight: $text-medium;
+    font-size: 0.95rem;
+    color: $gray-700;
+    line-height: 1.2;
+  }
+
+  // Chevron icon (next to name)
+  &__icon {
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+    color: $gray-500;
+    margin-left: $spacing-1;
+    margin-right: $spacing-2;
+
+    [dir="rtl"] & {
+      margin-left: $spacing-2;
+      margin-right: $spacing-1;
+    }
+  }
+
+  &--open &__icon {
+    transform: rotate(180deg);
+  }
+
+  // Dropdown menu
+  &__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    background: #fff;
+    border: 1px solid $gray-200;
+    border-radius: $radius-lg;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+
+    [dir="rtl"] & {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  &--open &__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  // Menu header with user info
+  &__header {
+    padding: $spacing-3;
+    border-bottom: 1px solid $gray-200;
+    background: $gray-50;
+  }
+
+  &__header-name {
+    font-weight: $text-semi-bold;
+    color: $gray-700;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__header-email {
+    font-size: 0.85rem;
+    color: $gray-600;
+  }
+
+  // Menu list
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: $spacing-2 0;
+  }
+
+  // Menu item
+  &__item {
+    margin: 0;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    padding: $spacing-2 $spacing-3;
+    color: $gray-700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: $transition;
+
+    i {
+      font-size: 1.1rem;
+      color: $gray-500;
+    }
+
+    &:hover {
+      background: $gray-100;
+      color: $blue-gray-700;
+
+      i {
+        color: $blue-gray-600;
+      }
+    }
+  }
+
+  // Logout button (legacy - kept for backward compatibility)
+  &__logout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    padding: $spacing-2 $spacing-3;
+    background: transparent;
+    border: none;
+    border-top: 1px solid $gray-200;
+    color: $error;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: start;
+    transition: $transition;
+
+    i {
+      font-size: 1.1rem;
+    }
+
+    &:hover {
+      background: rgba($error, 0.1);
+      color: $error-700;
+    }
+  }
+}
+
+// Logout form (when using form submission instead of button)
+.profile-dashboard__logout-form {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid $gray-200;
+}
+
+.profile-dashboard__logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  padding: $spacing-2 $spacing-3;
+  background: transparent;
+  border: none;
+  color: $error;
+  font-size: 0.9rem;
+  font-weight: $text-regular;
+  cursor: pointer;
+  text-align: start;
+  transition: $transition;
+  font-family: inherit;
+
+  i {
+    font-size: 1.1rem;
+  }
+
+  &:hover {
+    background: rgba($error, 0.1);
+    color: $error-700;
+  }
+
+  &:focus {
+    outline: 2px solid $error;
+    outline-offset: -2px;
+  }
+}
+
+// Responsive - hide name on small screens
+@media (max-width: 768px) {
+  .user-dropdown {
+    &__name {
+      display: none;
+    }
+
+    &__icon {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &__menu {
+      right: 0;
+      min-width: 180px;
+
+      [dir="rtl"] & {
+        left: 0;
+      }
+    }
+
+    &__header-email {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Animation for dropdown
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

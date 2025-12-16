@@ -54,5 +54,19 @@
     "error": "Ошибка",
     "retry": "Повторить",
     "close": "Закрыть"
+  },
+  "auth": {
+    "pageTitle": "Формы аутентификации - Niafam",
+    "submitLink": "Регистрация",
+    "loginLink": "Войти",
+    "demo": {
+      "siteTitle": "Демо Niafam",
+      "userName": "Джон Доу"
+    },
+    "userDropdown": {
+      "viewProfile": "Просмотр профиля",
+      "editProfile": "Редактировать профиль",
+      "logout": "Выйти"
+    }
   }
 }

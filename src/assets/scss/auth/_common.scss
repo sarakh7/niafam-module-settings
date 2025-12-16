@@ -1,0 +1,75 @@
+/**
+ * Common Authentication Styles
+ * Shared styles and utilities for auth module
+ */
+
+@use '../common/base/globals' as *;
+
+// Captcha refresh spin animation
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Focus styles for better accessibility
+.nes-input:focus,
+.nes-textarea:focus,
+.nes-btn:focus {
+  outline: 2px solid $blue-gray-600;
+  outline-offset: 2px;
+}
+
+// Loading button state
+.nes-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+// Form row responsive behavior
+.nes-form-row {
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .nes-input-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+// Utility classes
+.d-none {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// RTL support for password toggle
+[dir="rtl"] {
+  .auth-password-toggle {
+    left: 8px;
+    right: auto;
+  }
+
+  .auth-password-wrapper .nes-input {
+    padding-right: 12px;
+    padding-left: 45px;
+  }
+}
+
+[dir="ltr"] {
+  .auth-password-toggle {
+    right: 8px;
+    left: auto;
+  }
+
+  .auth-password-wrapper .nes-input {
+    padding-left: 12px;
+    padding-right: 45px;
+  }
+}

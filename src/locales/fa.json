@@ -398,5 +398,130 @@
   },
   "common": {
     "loading": "در حال ارسال..."
+  },
+  "auth": {
+    "pageTitle": "فرم‌های احراز هویت - نیافام",
+    "submitLink": "ثبت نام",
+    "loginLink": "ورود",
+    "nav": {
+      "login": "ورود",
+      "otp": "ورود با موبایل",
+      "register": "ثبت نام",
+      "recovery": "بازیابی رمز",
+      "success": "موفقیت"
+    },
+    "demo": {
+      "siteTitle": "دمو نیافام",
+      "userName": "جان دو"
+    },
+    "userDropdown": {
+      "viewProfile": "مشاهده پروفایل",
+      "editProfile": "ویرایش پروفایل",
+      "logout": "خروج"
+    },
+    "login": {
+      "title": "ورود به حساب کاربری",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری خود را وارد کنید",
+      "password": "رمز عبور",
+      "passwordPlaceholder": "رمز عبور خود را وارد کنید",
+      "submit": "ورود",
+      "submitting": "در حال ورود...",
+      "forgotPassword": "رمز عبور را فراموش کرده‌اید؟",
+      "signUp": "ثبت نام",
+      "noAccount": "حساب کاربری ندارید؟"
+    },
+    "otp": {
+      "title": "ورود با شماره موبایل",
+      "step1Title": "شماره موبایل خود را وارد کنید",
+      "step2Title": "کد تأیید را وارد کنید",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری خود را وارد کنید",
+      "phone": "شماره موبایل",
+      "phonePlaceholder": "شماره موبایل خود را وارد کنید",
+      "sendCode": "ارسال کد تأیید",
+      "verificationCode": "کد تأیید ۶ رقمی",
+      "codePlaceholder": "000000",
+      "resendCode": "ارسال مجدد کد",
+      "resendIn": "ارسال مجدد در {{time}}",
+      "verifyCode": "تأیید و ورود",
+      "editPhone": "ویرایش شماره موبایل"
+    },
+    "registration": {
+      "title": "ایجاد حساب کاربری جدید",
+      "firstName": "نام",
+      "firstNamePlaceholder": "نام خود را وارد کنید",
+      "lastName": "نام خانوادگی",
+      "lastNamePlaceholder": "نام خانوادگی خود را وارد کنید",
+      "email": "ایمیل",
+      "emailPlaceholder": "ایمیل خود را وارد کنید (اختیاری)",
+      "phone": "شماره موبایل",
+      "phonePlaceholder": "شماره موبایل خود را وارد کنید",
+      "nationalCode": "کد ملی",
+      "nationalCodePlaceholder": "کد ملی خود را وارد کنید (اختیاری)",
+      "gender": "جنسیت",
+      "male": "مرد",
+      "female": "زن",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری دلخواه را انتخاب کنید",
+      "password": "رمز عبور",
+      "passwordPlaceholder": "یک رمز عبور قوی انتخاب کنید",
+      "confirmPassword": "تکرار رمز عبور",
+      "confirmPasswordPlaceholder": "رمز عبور را مجدداً وارد کنید",
+      "submit": "ایجاد حساب کاربری",
+      "haveAccount": "قبلاً ثبت نام کرده‌اید؟",
+      "signIn": "ورود"
+    },
+    "passwordReset": {
+      "title": "بازیابی رمز عبور",
+      "description": "ایمیل، شماره موبایل یا نام کاربری خود را برای دریافت کد بازیابی وارد کنید",
+      "emailPhoneUsername": "ایمیل، موبایل یا نام کاربری",
+      "identifierPlaceholder": "ایمیل، شماره موبایل یا نام کاربری",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری خود را وارد کنید",
+      "submit": "ارسال کد بازیابی",
+      "backToLogin": "بازگشت به صفحه ورود"
+    },
+    "confirmation": {
+      "title": "تأیید حساب کاربری",
+      "enterCode": "کد ۶ رقمی را وارد کنید",
+      "submit": "تأیید",
+      "resendCode": "ارسال مجدد کد"
+    },
+    "success": {
+      "title": "موفقیت!",
+      "registrationComplete": "ثبت نام با موفقیت انجام شد",
+      "message": "حساب کاربری شما ایجاد شد و اکنون می‌توانید وارد داشبورد خود شوید.",
+      "backToLogin": "رفتن به صفحه ورود"
+    },
+    "validation": {
+      "required": "این فیلد الزامی است",
+      "invalidEmail": "فرمت ایمیل معتبر نیست",
+      "invalidPhone": "شماره موبایل معتبر نیست",
+      "weakPassword": "رمز عبور باید شامل حروف بزرگ، کوچک و عدد باشد",
+      "passwordMismatch": "رمزهای عبور مطابقت ندارند",
+      "invalidUsername": "نام کاربری باید ۳ تا ۲۰ کاراکتر (حروف، اعداد و زیرخط) باشد",
+      "invalidOTP": "کد باید ۶ رقم باشد",
+      "fixErrors": "لطفاً خطاهای فرم را برطرف کنید"
+    },
+    "captcha": {
+      "label": "کد امنیتی",
+      "placeholder": "کد را وارد کنید",
+      "refresh": "تازه‌سازی"
+    },
+    "messages": {
+      "loginSuccess": "ورود موفقیت‌آمیز!",
+      "loginError": "نام کاربری یا رمز عبور اشتباه است",
+      "otpSent": "کد تأیید ارسال شد",
+      "otpResent": "کد مجدداً ارسال شد",
+      "otpSuccess": "ورود موفقیت‌آمیز!",
+      "otpInvalid": "کد وارد شده نامعتبر است",
+      "otpError": "خطا در ارسال کد",
+      "registrationSuccess": "ثبت نام با موفقیت انجام شد!",
+      "registrationError": "خطا در ثبت نام",
+      "passwordResetSent": "کد بازیابی به ایمیل/موبایل شما ارسال شد",
+      "passwordResetError": "خطا در ارسال کد بازیابی",
+      "serverError": "خطای سرور رخ داد"
+    }
   }
 }

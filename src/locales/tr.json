@@ -85,5 +85,19 @@
       "conversations": "Konuşmalar",
       "sendReply": "Yanıt Gönder"
     }
+  },
+  "auth": {
+    "pageTitle": "Kimlik Doğrulama Formları - Niafam",
+    "submitLink": "Kayıt Ol",
+    "loginLink": "Giriş Yap",
+    "demo": {
+      "siteTitle": "Niafam Demo",
+      "userName": "John Doe"
+    },
+    "userDropdown": {
+      "viewProfile": "Profili Görüntüle",
+      "editProfile": "Profili Düzenle",
+      "logout": "Çıkış Yap"
+    }
   }
 }

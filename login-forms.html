@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="auth.pageTitle">Authentication Forms - Niafam</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      /* en font */
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+      }
+
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+
+      .d-none {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Page Header with User Dropdown Demo -->
+    <header class="auth-page-header">
+      <div class="auth-page-header__container">
+        <div class="auth-page-header__logo">
+          <h1 class="auth-page-header__title" data-i18n="auth.demo.siteTitle">Niafam Demo</h1>
+        </div>
+
+        <div class="auth-page-header__actions">
+          <!-- Submit/Login Link (shown before login) -->
+          <a href="#login-form" class="auth-page-header__login-link">
+            <i class="es esprit-fi-rr-sign-in"></i>
+            <span data-i18n="auth.loginLink">Login</span>
+            <span class="auth-page-header__separator">/</span>
+            <span data-i18n="auth.submitLink">Submit</span>
+          </a>
+
+          <!-- User Dropdown Component (shown after login) -->
+          <div class="user-dropdown">
+          <div class="user-dropdown__wrapper">
+            <button class="user-dropdown__trigger" aria-expanded="false" aria-haspopup="true">
+              <img src="/assets/img/avatar-placeholder.png" alt="User Avatar" class="user-dropdown__avatar user-dropdown__avatar--initials" data-initials="JD" />
+            </button>
+            <span class="user-dropdown__name" data-i18n="auth.demo.userName">جان دو</span>
+            <i class="es esprit-fi-rr-angle-down arrow user-dropdown__icon"></i>
+          </div>
+
+          <div class="user-dropdown__menu">
+            <div class="user-dropdown__header">
+              <div class="user-dropdown__header-name" data-i18n="auth.demo.userName">جان دو</div>
+              <div class="user-dropdown__header-email">john.doe@example.com</div>
+            </div>
+
+            <ul class="user-dropdown__list">
+              <li class="user-dropdown__item">
+                <a href="/profile-view.html" class="user-dropdown__link">
+                  <i class="es esprit-fi-rr-user"></i>
+                  <span data-i18n="auth.userDropdown.viewProfile">View Profile</span>
+                </a>
+              </li>
+              <li class="user-dropdown__item">
+                <a href="/profile-edit.html" class="user-dropdown__link">
+                  <i class="es esprit-fi-rr-edit"></i>
+                  <span data-i18n="auth.userDropdown.editProfile">Edit Profile</span>
+                </a>
+              </li>
+            </ul>
+            <form class="profile-dashboard__logout-form" action="" method="post">
+              <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout" />
+              <button type="submit" class="profile-dashboard__logout-btn">
+                <i class="es esprit-fi-rr-sign-out-alt"></i>
+                <span data-i18n="profile.logout">خروج از حساب کاربری</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav class="auth-nav" id="auth-nav">
+      <ul class="auth-nav__list">
+        <li class="auth-nav__item">
+          <a href="#login-form" class="auth-nav__link auth-nav__link--active">
+            <i class="es esprit-user"></i>
+            <span data-i18n="auth.nav.login">Login</span>
+          </a>
+        </li>
+        <li class="auth-nav__item">
+          <a href="#otp-form" class="auth-nav__link">
+            <i class="es esprit-smart-phone"></i>
+            <span data-i18n="auth.nav.otp">OTP Login</span>
+          </a>
+        </li>
+        <li class="auth-nav__item">
+          <a href="#registration-form" class="auth-nav__link">
+            <i class="es esprit-user-plus"></i>
+            <span data-i18n="auth.nav.register">Register</span>
+          </a>
+        </li>
+        <li class="auth-nav__item">
+          <a href="#password-recovery-form" class="auth-nav__link">
+            <i class="es esprit-key"></i>
+            <span data-i18n="auth.nav.recovery">Password Recovery</span>
+          </a>
+        </li>
+        <li class="auth-nav__item">
+          <a href="#success-message" class="auth-nav__link">
+            <i class="es esprit-check-circle"></i>
+            <span data-i18n="auth.nav.success">Success</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="auth-container">
+      <div class="auth-forms">
+        <!-- 1. Login Form -->
+        <section id="login-form" class="auth-section">
+          <h2 class="nes-section-title" data-i18n="auth.login.title">Login to Your Account</h2>
+          <div class="nes-card">
+            <form class="nes-form" id="login-form-element">
+              <div class="nes-form-group">
+                <label class="nes-label" data-i18n="auth.login.username">Username</label>
+                <input type="text" class="nes-input" id="login-username" name="username" data-i18n="[placeholder]auth.login.usernamePlaceholder" placeholder="Enter your username" required />
+              </div>
+
+              <div class="nes-form-group">
+                <label class="nes-label" data-i18n="auth.login.password">Password</label>
+                <div class="auth-password-wrapper">
+                  <input type="password" class="nes-input" id="login-password" name="password" data-i18n="[placeholder]auth.login.passwordPlaceholder" placeholder="Enter your password" required />
+                  <button type="button" class="auth-password-toggle" id="login-password-toggle">
+                    <i class="es esprit-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="nes-captcha-row">
+                <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
+                <div class="nes-captcha-group">
+                  <img src="/assets/img/captcha-sample.png" alt="captcha" class="nes-captcha-img" id="login-captcha-img" />
+                  <input type="text" class="nes-captcha-input" id="login-captcha" name="captcha" data-i18n="[placeholder]auth.captcha.placeholder" placeholder="Enter code" />
+                  <button type="button" class="nes-btn nes-btn-icon" id="login-captcha-refresh">
+                    <i class="es esprit-refresh-cw"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="nes-form-actions">
+                <button type="submit" class="nes-btn nes-btn-primary">
+                  <span data-i18n="auth.login.submit">Login</span>
+                </button>
+              </div>
+
+              <div class="auth-form-links">
+                <a href="#password-recovery-form" class="auth-link" data-i18n="auth.login.forgotPassword">Forgot Password?</a>
+                <a href="#registration-form" class="auth-link" data-i18n="auth.login.signUp">Sign Up</a>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- 2. OTP Login Form -->
+        <section id="otp-form" class="auth-section">
+          <h2 class="nes-section-title" data-i18n="auth.otp.title">Login with Phone Number</h2>
+          <div class="nes-card">
+            <!-- Step Indicators -->
+            <div class="auth-otp__steps">
+              <div class="auth-otp__step auth-otp__step--active" data-step="1">1</div>
+              <div class="auth-otp__step-divider"></div>
+              <div class="auth-otp__step" data-step="2">2</div>
+            </div>
+
+            <!-- Step 1: Phone Number Entry -->
+            <div class="auth-otp__step-1" id="otp-step-1">
+              <h3 class="auth-step-title" data-i18n="auth.otp.step1Title">Enter Your Phone Number</h3>
+
+              <form class="nes-form" id="otp-phone-form">
+                <div class="nes-form-group">
+                  <label class="nes-label" data-i18n="auth.otp.username">Username</label>
+                  <input type="text" class="nes-input" id="otp-username" name="username" data-i18n="[placeholder]auth.otp.usernamePlaceholder" placeholder="Enter your username" required />
+                </div>
+
+                <div class="nes-form-group">
+                  <label class="nes-label" data-i18n="auth.otp.phone">Phone Number</label>
+                  <input type="tel" class="nes-input" id="otp-phone" name="phone" data-i18n="[placeholder]auth.otp.phonePlaceholder" placeholder="Enter your phone number" required />
+                </div>
+
+                <div class="nes-captcha-row">
+                  <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
+                  <div class="nes-captcha-group">
+                    <img src="/assets/img/captcha-sample.png" alt="captcha" class="nes-captcha-img" id="otp-captcha-img" />
+                    <input type="text" class="nes-captcha-input" id="otp-captcha" name="captcha" data-i18n="[placeholder]auth.captcha.placeholder" placeholder="Enter code" />
+                    <button type="button" class="nes-btn nes-btn-icon" id="otp-captcha-refresh">
+                      <i class="es esprit-refresh-cw"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="nes-form-actions">
+                  <button type="submit" class="nes-btn nes-btn-primary">
+                    <span data-i18n="auth.otp.sendCode">Send Verification Code</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Step 2: Verification Code Entry -->
+            <div class="auth-otp__step-2 d-none" id="otp-step-2">
+              <h3 class="auth-step-title" data-i18n="auth.otp.step2Title">Enter Verification Code</h3>
+
+              <form class="nes-form" id="otp-verify-form">
+                <div class="nes-form-group">
+                  <label class="nes-label" data-i18n="auth.otp.verificationCode">6-Digit Verification Code</label>
+                  <input type="text" class="nes-input auth-otp-code-input" id="otp-code" name="code" data-i18n="[placeholder]auth.otp.codePlaceholder" placeholder="000000" maxlength="6" required />
+                </div>
+
+                <div class="auth-resend-timer">
+                  <span id="otp-timer-text" class="d-none" data-i18n="auth.otp.resendIn">Resend in {seconds} seconds</span>
+                  <button type="button" class="auth-link d-none" id="otp-resend-btn" data-i18n="auth.otp.resendCode">Resend Code</button>
+                </div>
+
+                <div class="nes-form-actions">
+                  <button type="submit" class="nes-btn nes-btn-success">
+                    <span data-i18n="auth.otp.verifyCode">Verify & Login</span>
+                  </button>
+                  <button type="button" class="nes-btn nes-btn-danger" id="otp-back-btn">
+                    <span data-i18n="auth.otp.editPhone">Edit Phone Number</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Registration Form -->
+        <section id="registration-form" class="auth-section">
+          <h2 class="nes-section-title" data-i18n="auth.registration.title">Create New Account</h2>
+          <div class="nes-card">
+            <form class="nes-form" id="registration-form-element">
+              <div class="nes-form-row">
+                <div class="nes-input-wrapper">
+                  <label class="nes-label" data-i18n="auth.registration.firstName">First Name</label>
+                  <input type="text" class="nes-input" id="reg-firstname" name="firstname" data-i18n="[placeholder]auth.registration.firstNamePlaceholder" placeholder="Enter first name" required />
+                </div>
+                <div class="nes-input-wrapper">
+                  <label class="nes-label" data-i18n="auth.registration.lastName">Last Name</label>
+                  <input type="text" class="nes-input" id="reg-lastname" name="lastname" data-i18n="[placeholder]auth.registration.lastNamePlaceholder" placeholder="Enter last name" required />
+                </div>
+              </div>
+
+              <div class="nes-form-row">
+                <div class="nes-input-wrapper">
+                  <label class="nes-label" data-i18n="auth.registration.email">Email</label>
+                  <input type="email" class="nes-input" id="reg-email" name="email" data-i18n="[placeholder]auth.registration.emailPlaceholder" placeholder="Enter email (optional)" />
+                </div>
+                <div class="nes-input-wrapper">
+                  <label class="nes-label" data-i18n="auth.registration.phone">Phone Number</label>
+                  <input type="tel" class="nes-input" id="reg-phone" name="phone" data-i18n="[placeholder]auth.registration.phonePlaceholder" placeholder="Enter phone number" required />
+                </div>
+              </div>
+
+              <div class="nes-form-row">
+                <div class="nes-input-wrapper">
+                  <label class="nes-label" data-i18n="auth.registration.nationalCode">National Code</label>
+                  <input
+                    type="text"
+                    class="nes-input"
+                    id="reg-nationalcode"
+                    name="national_code"
+                    data-i18n="[placeholder]auth.registration.nationalCodePlaceholder"
+                    placeholder="Enter national code (optional)"
+                  />
+                </div>
+                <div class="nes-input-wrapper">
+                  <label class="nes-label" data-i18n="auth.registration.gender">Gender</label>
+                  <select class="nes-input" id="reg-gender" name="gender">
+                    <option value="1" data-i18n="auth.registration.male">Male</option>
+                    <option value="0" data-i18n="auth.registration.female">Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="nes-form-group">
+                <label class="nes-label" data-i18n="auth.registration.username">Username</label>
+                <input type="text" class="nes-input" id="reg-username" name="username" data-i18n="[placeholder]auth.registration.usernamePlaceholder" placeholder="Choose a username" required />
+              </div>
+
+              <div class="nes-form-group">
+                <label class="nes-label" data-i18n="auth.registration.password">Password</label>
+                <div class="auth-password-wrapper">
+                  <input
+                    type="password"
+                    class="nes-input"
+                    id="reg-password"
+                    name="password"
+                    data-i18n="[placeholder]auth.registration.passwordPlaceholder"
+                    placeholder="Choose a strong password"
+                    required
+                  />
+                  <button type="button" class="auth-password-toggle" id="reg-password-toggle">
+                    <i class="es esprit-eye"></i>
+                  </button>
+                </div>
+                <div class="auth-password-strength">
+                  <div class="auth-password-strength-bar" id="reg-password-strength"></div>
+                </div>
+              </div>
+
+              <div class="nes-form-group">
+                <label class="nes-label" data-i18n="auth.registration.confirmPassword">Confirm Password</label>
+                <div class="auth-password-wrapper">
+                  <input
+                    type="password"
+                    class="nes-input"
+                    id="reg-confirm-password"
+                    name="confirm_password"
+                    data-i18n="[placeholder]auth.registration.confirmPasswordPlaceholder"
+                    placeholder="Re-enter password"
+                    required
+                  />
+                  <button type="button" class="auth-password-toggle" id="reg-confirm-password-toggle">
+                    <i class="es esprit-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="nes-captcha-row">
+                <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
+                <div class="nes-captcha-group">
+                  <img src="/assets/img/captcha-sample.png" alt="captcha" class="nes-captcha-img" id="reg-captcha-img" />
+                  <input type="text" class="nes-captcha-input" id="reg-captcha" name="captcha" data-i18n="[placeholder]auth.captcha.placeholder" placeholder="Enter code" />
+                  <button type="button" class="nes-btn nes-btn-icon" id="reg-captcha-refresh">
+                    <i class="es esprit-refresh-cw"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="nes-form-actions">
+                <button type="submit" class="nes-btn nes-btn-success">
+                  <span data-i18n="auth.registration.submit">Create Account</span>
+                </button>
+              </div>
+
+              <div class="auth-form-links">
+                <span data-i18n="auth.registration.haveAccount">Already have an account?</span>
+                <a href="#login-form" class="auth-link" data-i18n="auth.registration.signIn">Sign In</a>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- 4. Password Recovery Form -->
+        <section id="password-recovery-form" class="auth-section">
+          <h2 class="nes-section-title" data-i18n="auth.passwordReset.title">Reset Password</h2>
+          <div class="nes-card">
+            <p class="auth-form-description" data-i18n="auth.passwordReset.description">Enter your email, phone, or username to receive a password reset code</p>
+
+            <form class="nes-form" id="password-reset-form">
+              <div class="nes-form-group">
+                <label class="nes-label" data-i18n="auth.passwordReset.emailPhoneUsername">Email, Phone, or Username</label>
+                <input
+                  type="text"
+                  class="nes-input"
+                  id="reset-identifier"
+                  name="identifier"
+                  data-i18n="[placeholder]auth.passwordReset.identifierPlaceholder"
+                  placeholder="Enter email, phone, or username"
+                  required
+                />
+              </div>
+
+              <div class="nes-form-group">
+                <label class="nes-label" data-i18n="auth.passwordReset.username">Username</label>
+                <input type="text" class="nes-input" id="reset-username" name="username" data-i18n="[placeholder]auth.passwordReset.usernamePlaceholder" placeholder="Enter your username" required />
+              </div>
+
+              <div class="nes-captcha-row">
+                <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
+                <div class="nes-captcha-group">
+                  <img src="/assets/img/captcha-sample.png" alt="captcha" class="nes-captcha-img" id="reset-captcha-img" />
+                  <input type="text" class="nes-captcha-input" id="reset-captcha" name="captcha" data-i18n="[placeholder]auth.captcha.placeholder" placeholder="Enter code" />
+                  <button type="button" class="nes-btn nes-btn-icon" id="reset-captcha-refresh">
+                    <i class="es esprit-refresh-cw"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="nes-form-actions">
+                <button type="submit" class="nes-btn nes-btn-primary">
+                  <span data-i18n="auth.passwordReset.submit">Send Reset Code</span>
+                </button>
+              </div>
+
+              <div class="auth-form-links">
+                <a href="#login-form" class="auth-link" data-i18n="auth.passwordReset.backToLogin">Back to Login</a>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- 5. Success Message -->
+        <section id="success-message" class="auth-section">
+          <h2 class="nes-section-title" data-i18n="auth.success.title">Success!</h2>
+          <div class="nes-card auth-success-card">
+            <div class="auth-success-icon">
+              <i class="es esprit-check-circle"></i>
+            </div>
+            <h3 class="auth-success-title" data-i18n="auth.success.registrationComplete">Registration completed successfully</h3>
+            <p class="auth-success-message" data-i18n="auth.success.message">Your account has been created and you can now login to access your dashboard.</p>
+            <div class="nes-form-actions">
+              <a href="#login-form" class="nes-btn nes-btn-primary">
+                <span data-i18n="auth.success.backToLogin">Go to Login</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script type="module" src="/src/auth-main.js"></script>
+  </body>
+</html>

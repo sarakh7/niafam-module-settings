@@ -20,9 +20,9 @@ export default defineConfig({
         profileDashboard: resolve(__dirname, 'profile-dashboard.html'),
         profileView: resolve(__dirname, 'profile-view.html'),
         profileEdit: resolve(__dirname, 'profile-edit.html'),
+        authForms: resolve(__dirname, 'login-forms.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
-        // auth: resolve(__dirname, 'auth.html'),
       },
       output: {
         // فایل‌های build را در پوشه‌های جداگانه قرار بده

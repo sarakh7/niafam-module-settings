@@ -1,0 +1,683 @@
+<!-- نمایش لاگین در صفحه -->
+<div class="es-blank-page login-form-area">
+  <div class="es-content-wrapper">
+    <section class="es-flexbox-container">
+      <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center">
+        <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+          <div class="es-card es-border-lighten-3 es-m-0">
+            <div class="es-card-header es-border-0">
+              <h5
+                  class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+                <span data-local=""> {logintitle}  </span>
+              </h5>
+
+            </div>
+            <div class="es-card-content">
+              <div class="es-card-body">
+
+                <form class="es-form-horizontal es-form-simple" action="" method="post">
+                  {loginmsg}
+                  {success_msg} 
+                  <fieldset class="es-form-group es-position-relative es-has-icon-right">
+                    <input type="text"
+                           class="es-form-control es-form-control-lg es-dir-ltr es-input-field-right-placeholder"
+                           autocomplete="off" name="username" id="username" placeholder="{Username_Placeholder}"
+                           required="">
+                    <div class="es-form-control-position">
+                      <i class="es esprit-user"></i>
+                    </div>
+                  </fieldset>
+                  <fieldset class="es-form-group es-position-relative es-has-icon-right es-mb-3">
+                    <input type="password" autocomplete="off"
+                           class="es-form-control es-form-control-lg es-dir-ltr es-input-field-right-placeholder"
+                           name="password" id="password" placeholder="{Password_Placeholder}"
+                           required="">
+                    <div class="es-form-control-position">
+                      <i class="es esprit-key"></i>
+                    </div>
+                  </fieldset>
+                  <div class="es-form-group es-row es-recaptcha">
+                    {captchahtml}
+                  </div>
+
+                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="login">
+                  <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block"><i
+                                                                                             class="esprit-unlock"></i> <span>{Login_Btn}</span> </button>
+                </form>
+                <form action="" method="post" class="es-text-center es-mt-1" >
+                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="otpform">
+                  <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block  es-btn-outline-primary otpform-btn" style="display:{otpstatus}"><i class="esprit-unlock"></i> <span>{Login_With_Phone_Number}</span> </button>
+                </form>
+              </div>
+            </div>
+            <div class="es-card-footer">
+              <div class="">
+                <form action="" method="post" class="es-float-sm-left es-text-center es-m-0">
+                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="recoveryform">
+                  <button type="submit" id="es-recover-pass"
+                          class="es-card-link">{Recover_Password}</button>
+                </form>
+                <form action="" method="post" class="es-float-sm-right es-text-center es-m-0">
+                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signupform">
+                  <button type="submit" id="es-signup-user" class="es-card-link">{Sign_Up}</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- فرم بازیابی گذرواژۀ فراموش‌شده -->
+ <div class="es-blank-page">
+    <div class="es-content-wrapper">
+        <section class="es-flexbox-container">
+            <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center">
+                <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+                    <div class="es-card es-border-lighten-3 es-m-0">
+                        <div class="es-card-header es-border-0">
+                            <h5 class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+                                <span data-local=""> {Recover_Password_Title} </span>
+                            </h5>
+                        </div>
+                        <div class="es-card-content">
+                            <div class="es-card-body">
+
+                                <form class="es-form-horizontal es-form-simple es-dir-{rtl_ltr}" action="" method="post">
+                                    {error_msg}
+                                    <div class="es-Recover_Password_msg es-mb-3">{Recover_Password_msg}</div>
+                                    <fieldset class="es-form-group es-position-relative es-has-icon-right es-mb-3">
+                                        <input type="text" class="es-form-control es-form-control-lg dir-ltr es-input-field-right-placeholder" autocomplete="off" name="username_mail_mobile" id="username_mail_mobile"
+                                            placeholder="{username_mail_mobile_Placeholder}" required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-user"></i>
+                                        </div>
+                                    </fieldset>
+
+      <fieldset class="es-form-group es-position-relative es-has-icon-right es-mb-3">
+                                        <input type="text" class="es-form-control es-form-control-lg dir-ltr es-input-field-right-placeholder" autocomplete="off" name="username_username" id="username_username"
+                                            placeholder="{username}" required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-user"></i>
+                                        </div>
+                                    </fieldset>
+                                    <div class="es-form-group es-row">
+                                       {captchahtml}
+                                     
+                                    </div>
+                                
+                                    <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="recoveryformconfirmform">
+
+                                    <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block"><i class="esprit-unlock"></i> <span>{Recover_Password_Btn}</span> </button>
+                                </form>
+                                
+                            </div>
+                        </div>
+                        <div class="es-card-footer">
+                            <div class="">
+                                <form action="" method="post" class="es-float-sm-right es-text-center es-m-0">
+                                    <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="login">
+                                    <button type="submit" id="es-recover-pass" class="es-card-link">{signin}</button>
+                                </form>
+                                <form action="" method="post" class="es-float-sm-left es-text-center es-m-0">
+                                    <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signupform">
+                                    <button type="submit" id="es-signup-user" class="es-card-link">{Sign_Up}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- فرم تأیید گذرواژه -->
+ <div class="es-blank-page">
+    <div class="es-content-wrapper">
+        <section class="es-flexbox-container">
+            <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center">
+                <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+                    <div class="es-card es-border-lighten-3 es-m-0">
+                        <div class="es-card-header es-border-0">
+                            <h5 class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+                                <span data-local=""> {confirm_form_Title} </span>
+                            </h5>
+                        </div>
+                        <div class="es-card-content">
+                            <div class="es-card-body">
+                                <form class="es-form-horizontal es-form-simple" action="" method="post">
+                                    {error_msg}
+                                    <fieldset class="es-form-group es-position-relative es-has-icon-right mb-0">
+                                      
+                                        <input type="text" autocomplete="off" class="es-form-control es-form-control-lg es-input-field-right-placeholder es-input-text-center" name="confirmcode" id="confirmcode" required="">
+                                      
+                                    </fieldset>
+                                    <div>
+                                        <h6 class="card-subtitle line-on-side text-muted text-center font-small-3">
+                                            <span>{resend_count_msg}</span>
+                                        </h6>
+                                        <p id="es-confirm-counter"></p>
+                                        <div id="es-resendcode-parent" class="es-d-none es-mb-4">{resendcode}</div>
+                                        <script>
+                                            var confirmcount = document.getElementById("rcount").innerHTML;
+                                            var confirmcounter = setInterval(timer, 1000);
+                                            function timer() {
+                                                confirmcount = confirmcount - 1;
+                                                if (confirmcount <= 0) {
+                                                    clearInterval(confirmcounter);
+                                                    document.getElementById("es-resendcode-parent").classList.remove("es-d-none");
+                                                    document.getElementById("es-resendcode-parent").innerHTML = "<button type=\\u2019button\\u2019 id=\\u2019es-recover-pass\\u2019 class=\\u2019es-card-link es-btn\\u2019 onclick=\\u2019history.back(-1)\\u2019>{resendcode}</button>"
+                                                    return;
+                                                }
+                                                document.getElementById("rcount").innerHTML = confirmcount;
+                                            }
+                                        </script>
+
+                                    </div>
+                                    <div class="es-form-group es-row">
+                                       {captchahtml}
+                                    </div>
+                                    <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="sendconfirmcode">
+                                   <input type="hidden" autocomplete="off"  name="username_username" id="username_username" value="{username_username}">
+                                    <input type="hidden" autocomplete="off" name="username_mail_mobile" id="username_mail_mobile" value="{username_mail_mobile}">
+                                    <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block"><i class="esprit-unlock"></i> <span>{submit}</span> </button>
+                                </form>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- فرم ثبت نام -->
+
+<div class="es-blank-page">
+    <div class="es-content-wrapper">
+        <section class="es-flexbox-container">
+            <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center">
+                <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+                    <div class="es-card es-border-lighten-3 es-m-0">
+                        <div class="es-card-header es-border-0">
+                            <h5
+                                class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+                                <span data-local=""> {signuptitle} </span>
+                            </h5>
+
+                        </div>
+                        <div class="es-card-content">
+                            <div class="es-card-body">
+
+                                <form class="es-form-horizontal es-form-simple es-dir-{rtl_ltr}" action=""   method="post">
+                                    {signupmsg}
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="firstname" id="firstname" placeholder="{firstname_Placeholder}" value="{firstname_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-user"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="lastname" id="lastname" placeholder="{lastname_Placeholder}" value="{lastname_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-user"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="email" id="email" placeholder="{email_Placeholder}" value="{email_value}"> 
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-at-sign"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="tellphon" id="tellphon" placeholder="{tellphon_Placeholder}" value="{tellphon_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-smart-phone"></i>
+                                        </div>
+                                    </fieldset>
+                                   <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="national_code" id="national_code" placeholder="{national_code_Placeholder}" value="{national_code_value}">
+                                       
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <label class="es-label-control es-lable-margin">{gender}</label>
+                                        <select name="gender" id="gender">
+                                            <option  {maleselected} value="1">{male}</option>
+                                            <option  {femaleselected} value="0">{female}</option>
+                                        </select>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="username" id="username" placeholder="{Username_Placeholder}" value="{username_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-user"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="password" name="password" id="password"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg  es-input-field-right-placeholder es"
+                                            maxlength="25" placeholder="{Password_Placeholder}"
+                                            data-validation-pattern-message="{Password_Validation}" aria-invalid="false" value="{password_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-key"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative es-mb-3">
+                                        <input type="password" name="repassword" id="repassword"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg  es-input-field-right-placeholder"
+                                            placeholder="{rePassword_Placeholder}"
+                                            data-validation-matches-match="password"
+                                            data-validation-matches-message="{Match_Validation}" aria-invalid="false" value="{repassword_value}">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-key"></i>
+                                        </div>
+                                    </fieldset>
+                                    <div class="es-form-group es-row">
+                                        {captchahtml}
+                                    </div>
+                                    <input type="hidden"  autocomplete="off" name="espritaction" id="espritaction" value="signup">
+                                    <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block"><i
+                                            class="esprit-unlock"></i> <span>{signup_btn}</span> </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="es-card-footer">
+                            <div class="">
+                                <form action="" method="post" class="es-float-sm-left es-text-center es-m-0">
+                                    <input type="hidden"  autocomplete="off" name="espritaction" id="espritaction" value="recoveryform">
+                                    <button type="submit" id="es-recover-pass"
+                                        class="es-card-link">{Recover_Password}</button>
+                                </form>
+                                <form action="" method="post" class="es-float-sm-right es-text-center es-m-0">
+                                    <input type="hidden"  autocomplete="off" name="espritaction" id="espritaction" value="login">
+                                    <button type="submit" id="es-recover-pass" class="es-card-link">{signin}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- قالب فرم درج کد تأیید ارسال شده (بعد از ثبت نام) -->
+ <div class="es-blank-page">
+        <div class="es-content-wrapper">
+            <section class="es-flexbox-container">
+                <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center">
+                    <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+                        <div class="es-card es-border-lighten-3 es-m-0">
+                            <div class="es-card-header es-border-0">
+                                <h5 class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+                                    <span data-local=""> {confirm_form_Title} </span>
+                                </h5>
+                            </div>
+                            <div class="es-card-content">
+                                <div class="es-card-body">
+                                    <form class="es-form-horizontal es-form-simple" action="" method="post">
+                                        {error_msg}
+    
+                                        <fieldset class="es-form-group es-position-relative es-has-icon-right mb-0">
+                                            <input type="text" class="es-form-control es-form-control-lg es-input-field-right-placeholder es-input-text-center" name="confirmcode" id="confirmcode" required="">
+                                        </fieldset>
+                                        <input type="hidden"  autocomplete="off" name="firstname" id="firstname" value="{firstname}" >
+                                        <input type="hidden"  autocomplete="off" name="lastname" id="lastname" value="{lastname}" >
+                                        <input type="hidden"  autocomplete="off" name="email" id="email" value="{email}" >
+                                        <input type="hidden"  autocomplete="off" name="tellphon" id="tellphon" value="{tellphon}" >
+                                        <input type="hidden"  autocomplete="off" name="national_code" id="national_code" value="{national_code}" >
+                                        <input type="hidden"  autocomplete="off" name="gender" id="gender" value="{gender}" >
+                                        <input type="hidden"  autocomplete="off" name="username" id="username" value="{username}" >
+                                        <input type="hidden"  autocomplete="off" name="password" id="password" value="{password}" >
+                                        <input type="hidden"  autocomplete="off" name="repassword" id="repassword" value="{repassword}" >
+                                        <input type="hidden"  autocomplete="off" name="codemd5" id="codemd5" value="{codemd5}"> 
+                                       
+                                        <div>
+                                            <h6 class="card-subtitle line-on-side text-muted text-center font-small-3">
+                                                <span>{resend_count_msg}</span>
+                                            </h6>
+                                            <p id="es-confirm-counter"></p>
+                                            <div id="es-resendcode-parent" class="es-d-none es-mb-4">{resendcode}</div>
+
+
+                                            <script>
+                                                var confirmcount = document.getElementById("rcount").innerHTML;
+                                                var confirmcounter = setInterval(timer, 1000);
+                                                function timer() {
+                                                    confirmcount = confirmcount - 1;
+                                                    if (confirmcount <= 0) {
+                                                        clearInterval(confirmcounter);
+                                                        document.getElementById("es-resendcode-parent").classList.remove("es-d-none");
+                                                        document.getElementById("es-resendcode-parent").innerHTML = "<button type='button' id='es-recover-pass' class='es-card-link es-btn' onclick='window.location.reload()'>{resendcode}</button>"
+                                                        return;
+                                                    }
+                                                    document.getElementById("rcount").innerHTML = confirmcount;
+                                                }
+                                            </script>
+    
+                                        </div>
+                                        <input type="hidden"  autocomplete="off" name="espritaction" id="espritaction" value="signup">
+                                        <input type="hidden"  autocomplete="off" name="username_mail_mobile" id="username_mail_mobile" value="{username_mail_mobile}">
+                                        <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block"><i class="esprit-unlock"></i> <span>{submit}</span> </button>
+                                    </form>
+                                </div>
+                                            
+                            </div>
+                            <div class="es-card-footer">
+                                <div class="">
+                                    <div class="user-logout">
+                                        <form class="es-form-horizontal es-form-simple" action="" method="post">
+                                            <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout">
+                                            <button type="submit" class="es-card-link" id="logout-btn"><span><i
+                                                        class="niafam-close"></i> خروج</span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- قالب پیام ثبت نام موفق -->
+     <div class="es-blank-page es-dir-ltr">
+    <div class="es-content-wrapper">
+        <section class="es-flexbox-container">
+            <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center es-dir-rtl">
+                <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+                    <div class="es-card es-border-lighten-3 es-m-0">
+                        <div class="es-card-header es-border-0">
+                            <h5 class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+                                <span data-local=""> {Success_Title} </span>
+                            </h5>
+                        </div>
+                        <div class="es-card-content">
+                            <div class="es-card-body">
+                                
+                                    <h6 class="card-subtitle line-on-side text-muted text-center font-small-3">
+                                        <div class="es-mb-2">{Success_msg}</div>
+                                        <a url="{backlink_title}" class="es-btn es-btn-info es-btn-lg es-btn-block">{backlink_title}</a>
+                                    </h6>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- کدهای نمایش ورود از طریق شماره همراه -->
+ <div class="es-blank-page login-form-area">
+  <div class="es-content-wrapper">
+    <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center">
+      <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+        <!-- بخش alerts -->
+        <div class="es-card es-border-lighten-3 es-m-0">
+          <div class="es-card-header es-border-0">
+            <h6 class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+              <span id="form-title">{Login_With_Phone_Number}</span>
+            </h6>
+          </div>
+          <div class="es-card-content">
+            <div class="es-card-body">
+              <!-- فرم ورود با شماره همراه -->
+              <form id="phone-form" class="es-form-horizontal es-form-simple">
+                <fieldset class="es-form-group es-position-relative es-has-icon-right">
+                  <input type="text" class="es-form-control es-form-control-lg es-dir-rtl es-input-field-right-placeholder" name="username" id="username" placeholder="{Enter_Your_Username}" required>
+                  <div class="es-form-control-position"><i class="es esprit-user"></i></div>
+                </fieldset>
+                <fieldset class="es-form-group es-position-relative es-has-icon-right">
+                  <input type="tel" class="es-form-control es-form-control-lg es-dir-rtl es-input-field-right-placeholder" name="phone" id="phone" placeholder="{Enter_Your_Phone_Number}" required>
+                  <div class="es-form-control-position"><i class="es esprit-phone"></i></div>
+                </fieldset>
+                <div class="es-form-group es-row">
+                  {captchahtml}
+                </div>
+                <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block">
+                  <span>{Send_Verification_Code}</span>
+                </button>
+                <button type="button" id="reload-page" class="es-btn es-btn-outline-danger es-btn-info es-btn-lg es-btn-block">{Back}</button>
+              </form>
+
+              <!-- فرم تأیید کد -->
+              <form id="otp-form" class="es-form-horizontal es-form-simple d-none">
+                <fieldset class="es-form-group es-position-relative es-has-icon-right">
+                  <input type="text"
+                         class="es-form-control es-form-control-lg es-dir-rtl es-input-field-right-placeholder"
+                         autocomplete="off" name="otp" id="otp"
+                         placeholder="{Enter_6_Digit_Verification_Code}" required>
+                  <div class="es-form-control-position">
+                    <i class="es esprit-key"></i>
+                  </div>
+                </fieldset>
+                <div class="es-form-group es-position-relative es-has-icon-right d-flex">
+                  <button type="button" id="resend-code" class="es-btn es-btn-link es-text-primary es-p-0 es-d-block es-text-center mt-1" style="display: none;" disabled="disabled">
+                    {Resend_Code}
+                  </button>
+                  <small id="resend-text" class="es-text-muted es-d-block es-text-center mt-1" style="display: none;"></small>
+                </div>
+                <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block">
+                  <span>{Confirm_And_Login}</span>
+                </button>
+                <button type="button" id="back-to-phone"  class="es-btn es-btn-outline-secondary es-btn-lg es-btn-block mt-2">
+                  <span>{Edit_Phone_Number}</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="alerts" class="es-p-2"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+  var fake = false;
+  var counter_time = 120;
+
+  //showAlert bc
+  /*    function showAlert(type, message) {
+    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+    const alertHtml = `
+<div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+${message}
+<button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+`;
+    $("#alerts").html(alertHtml);
+  }*/
+
+  // تابع نمایش پیام‌ها
+  function showAlert(type, message) {
+    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+    const alertHtml = `
+<div class="alert ${alertClass} alert-dismissible show" role="alert">
+${message}
+<button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+`;
+    $("#alerts").html(alertHtml);
+  }
+
+  $(document).ready(function () {
+    $("#phone-form").submit(function (e) {
+      e.preventDefault();
+      let phone = $("#phone").val().trim();
+      let username = $("#username").val().trim();
+      let captcha = $("#g-recaptcha-response").val().trim();
+      if (!captcha) {
+        showAlert('error', 'Please confirm you are not a robot.');
+        return;
+      }
+      $.ajax({
+        url: "/inc/ajax.ashx",
+        type: "POST",
+        data: {
+          action: "send_otp",
+          phone: phone,
+          username: username,
+          "g-recaptcha-response": captcha
+        },
+        beforeSend: function () {
+          $("button[type=submit]").attr("disabled", true);
+        },
+        success: function (res) {
+          res =   JSON.parse(res);
+          $("button[type=submit]").attr("disabled", false);
+          if (res.status == "success") {
+            counter_time = res.time;
+            $("#phone-form").addClass("d-none");
+            $("#otp-form").removeClass("d-none");
+            $("#form-title").text("{Resend_Code}");
+            startTimer();
+            $("#captchaImage3").attr("src", "/inc/ajax.ashx?action=captcha&" + Math.random())
+            if (typeof grecaptcha !== 'undefined') {
+              grecaptcha.reset();
+            }
+          } else {
+            let cleanMsg = res.msg.replace(/^"(.*)"$/, '$1');
+            if (cleanMsg === "User not found!") {
+              showAlert('error', "نام کاربری وجود ندارد!");
+            }
+            else {
+              showAlert('error', res.msg);
+            }
+            $("#captchaImage3").attr("src", "/inc/ajax.ashx?action=captcha&" + Math.random())
+            if (typeof grecaptcha !== 'undefined') {
+              grecaptcha.reset();
+            }
+          }
+        },
+        error: function () {
+          $("button[type=submit]").attr("disabled", false);
+          showAlert('error', 'There was an issue connecting to the server.');
+        }
+      });
+    });
+
+    $("#otp-form").submit(function (e) {
+      e.preventDefault();
+      let otp = $("#otp").val().trim();
+
+      $.ajax({
+        url: "/inc/ajax.ashx",
+        type: "POST",
+        data: {
+          action: "verify_otp",
+          otp: otp
+        },
+        beforeSend: function () {
+          $("button[type=submit]").attr("disabled", true);
+        },
+        success: function (res) {
+          res =   JSON.parse(res);
+          $("button[type=submit]").attr("disabled", false);
+          if (res.status == "success") {
+            showAlert('success', 'Successful login!');
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
+          } else {
+            showAlert('error', res.msg);
+          }
+        },
+        error: function () {
+          $("button[type=submit]").attr("disabled", false);
+          showAlert('error', 'There was an issue connecting to the server.');
+        }
+      });
+    });
+
+    $("#resend-code").click(function () {
+      let phone = $("#phone").val().trim();
+
+      $.ajax({
+        url: "/inc/ajax.ashx",
+        type: "POST",
+        data: {
+          action: "resend_otp",
+          phone: phone
+        },
+        beforeSend: function () {
+          $("#resend-code").attr("disabled", true);
+        },
+        success: function (res) {
+          res =   JSON.parse(res);
+          if (res.status == "success") {
+            showAlert('success', 'The code has been resent..');
+            startTimer();
+          } else {
+            showAlert('error', res.msg);
+          }
+        },
+        error: function () {
+          $("#resend-code").attr("disabled", false);
+          showAlert('error', 'A problem occurred with the server connection..');
+        }
+      });
+    });
+
+    function startTimer() {
+      $("#resend-code").attr("disabled", true);
+      $("#resend-text").show();
+
+      let countdown = counter_time;
+      let timer = setInterval(function () {
+        if (countdown > 0) {
+          $("#resend-text").text(`${countdown} {Second}`);
+          countdown--;
+        } else {
+          $("#resend-text").text(``);
+          $("#resend-text").hide();
+          $("#resend-code").show();
+          $("#resend-code").attr("disabled", false);
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+
+    $("#back-to-phone").click(function () {
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.reset();
+      }
+      $("#g-recaptcha-response").val("") 
+      $("#otp-form").addClass("d-none");
+      $("#phone-form").removeClass("d-none");
+      $("#form-title").text("{Login_With_Phone_Number}");
+    });
+
+
+    $("#reload-page").click(function () {
+      history.back();
+    });
+  });
+</script>
+
+
+

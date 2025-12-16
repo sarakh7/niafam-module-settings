@@ -137,5 +137,19 @@
       "conversations": "المحادثات",
       "sendReply": "إرسال الرد"
     }
+  },
+  "auth": {
+    "pageTitle": "نماذج المصادقة - نيافام",
+    "submitLink": "تسجيل",
+    "loginLink": "تسجيل الدخول",
+    "demo": {
+      "siteTitle": "عرض نيافام",
+      "userName": "جون دو"
+    },
+    "userDropdown": {
+      "viewProfile": "عرض الملف الشخصي",
+      "editProfile": "تحرير الملف الشخصي",
+      "logout": "تسجيل الخروج"
+    }
   }
 }
