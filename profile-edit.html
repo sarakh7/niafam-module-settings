@@ -117,6 +117,155 @@
         color: #01447e;
         text-decoration: underline;
       }
+
+      /* Custom Select Styling */
+      .profile-edit__select-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .profile-edit__select-icon {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #6b7280;
+        pointer-events: none;
+        z-index: 2;
+        transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      body[dir="ltr"] .profile-edit__select-icon {
+        left: 16px;
+        right: auto;
+      }
+
+      .profile-edit__select-chevron {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        color: #9ca3af;
+        pointer-events: none;
+        z-index: 2;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      body[dir="ltr"] .profile-edit__select-chevron {
+        right: 16px;
+        left: auto;
+      }
+
+      .profile-edit__select {
+        width: 100%;
+        padding-right: 48px !important;
+        padding-left: 48px !important;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: #ffffff;
+        background-image: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: dana;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #1f2937;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      body[dir="ltr"] .profile-edit__select {
+        font-family: Roboto;
+      }
+
+      .profile-edit__select:hover:not(:disabled) {
+        border-color: #cbd5e1;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+
+      .profile-edit__select:hover:not(:disabled) ~ .profile-edit__select-icon {
+        color: #4b5563;
+      }
+
+      .profile-edit__select:hover:not(:disabled) ~ .profile-edit__select-chevron {
+        color: #6b7280;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .profile-edit__select:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-edit__select:focus ~ .profile-edit__select-icon {
+        color: #3b82f6;
+      }
+
+      .profile-edit__select:focus ~ .profile-edit__select-chevron {
+        color: #3b82f6;
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      .profile-edit__select:disabled {
+        background-color: #f9fafb;
+        color: #9ca3af;
+        cursor: not-allowed;
+        opacity: 0.6;
+        border-color: #e5e7eb;
+      }
+
+      .profile-edit__select:disabled ~ .profile-edit__select-icon,
+      .profile-edit__select:disabled ~ .profile-edit__select-chevron {
+        color: #d1d5db;
+      }
+
+      .profile-edit__select option {
+        padding: 12px 16px;
+        font-size: 15px;
+        color: #1f2937;
+        background-color: #ffffff;
+      }
+
+      .profile-edit__select option:hover {
+        background-color: #f3f4f6;
+      }
+
+      .profile-edit__select option:disabled {
+        color: #9ca3af;
+      }
+
+      /* Animation for select state change */
+      @keyframes selectPulse {
+        0%, 100% {
+          box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+        }
+      }
+
+      .profile-edit__select.select-changed {
+        animation: selectPulse 0.6s ease-out;
+      }
+
+      /* Enhanced focus-visible for keyboard navigation */
+      .profile-edit__select:focus-visible {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15), 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Smooth transitions for all interactive states */
+      .profile-edit__select,
+      .profile-edit__select-icon,
+      .profile-edit__select-chevron {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
     </style>
   </head>
   <body>
@@ -290,18 +439,18 @@
                     <!-- Province -->
                     <div class="nes-form-group">
                       <label class="nes-label" for="province" data-i18n="profile.form.province">استان</label>
-                      <div class="profile-edit__input-wrapper">
-                        <i class="es esprit-map profile-edit__input-icon"></i>
-                        <input
-                          type="text"
-                          class="nes-input"
+                      <div class="profile-edit__select-wrapper">
+                        <i class="es esprit-map profile-edit__select-icon"></i>
+                        <select
+                          class="nes-input profile-edit__select"
                           name="province"
                           id="province"
-                          value="{province}"
-                          placeholder=""
-                          data-i18n="[placeholder]profile.form.provincePlaceholder"
-                          maxlength="512"
-                        />
+                          data-i18n="[data-placeholder]profile.form.provincePlaceholder"
+                          data-placeholder="انتخاب استان"
+                        >
+                          <option value="" data-i18n="profile.form.provincePlaceholder">انتخاب استان</option>
+                        </select>
+                        <i class="es esprit-chevron-down profile-edit__select-chevron"></i>
                       </div>
                       <span class="profile-edit__field-error"></span>
                     </div>
@@ -309,9 +458,19 @@
                     <!-- City -->
                     <div class="nes-form-group">
                       <label class="nes-label" for="city" data-i18n="profile.form.city">شهر</label>
-                      <div class="profile-edit__input-wrapper">
-                        <i class="es esprit-map-pin profile-edit__input-icon"></i>
-                        <input type="text" class="nes-input" name="city" id="city" value="{city}" placeholder="" data-i18n="[placeholder]profile.form.cityPlaceholder" maxlength="512" />
+                      <div class="profile-edit__select-wrapper">
+                        <i class="es esprit-map-pin profile-edit__select-icon"></i>
+                        <select
+                          class="nes-input profile-edit__select"
+                          name="city"
+                          id="city"
+                          data-i18n="[data-placeholder]profile.form.cityPlaceholder"
+                          data-placeholder="انتخاب شهر"
+                          disabled
+                        >
+                          <option value="" data-i18n="profile.form.cityPlaceholder">ابتدا استان را انتخاب کنید</option>
+                        </select>
+                        <i class="es esprit-chevron-down profile-edit__select-chevron"></i>
                       </div>
                       <span class="profile-edit__field-error"></span>
                     </div>
@@ -583,6 +742,255 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // Province and City Data
+      const locationData = {
+        provinces: [
+          { id: 1, name: 'تهران', nameEn: 'Tehran' },
+          { id: 2, name: 'اصفهان', nameEn: 'Isfahan' },
+          { id: 3, name: 'فارس', nameEn: 'Fars' },
+          { id: 4, name: 'خراسان رضوی', nameEn: 'Razavi Khorasan' },
+          { id: 5, name: 'خوزستان', nameEn: 'Khuzestan' },
+          { id: 6, name: 'آذربایجان شرقی', nameEn: 'East Azerbaijan' },
+          { id: 7, name: 'مازندران', nameEn: 'Mazandaran' },
+          { id: 8, name: 'گیلان', nameEn: 'Gilan' },
+          { id: 9, name: 'کرمان', nameEn: 'Kerman' },
+          { id: 10, name: 'البرز', nameEn: 'Alborz' },
+          { id: 11, name: 'همدان', nameEn: 'Hamadan' },
+          { id: 12, name: 'کرمانشاه', nameEn: 'Kermanshah' },
+          { id: 13, name: 'یزد', nameEn: 'Yazd' },
+          { id: 14, name: 'قم', nameEn: 'Qom' },
+          { id: 15, name: 'سمنان', nameEn: 'Semnan' }
+        ],
+        cities: {
+          1: [ // تهران
+            { id: 101, name: 'تهران', nameEn: 'Tehran' },
+            { id: 102, name: 'شهریار', nameEn: 'Shahriar' },
+            { id: 103, name: 'ری', nameEn: 'Rey' },
+            { id: 104, name: 'ورامین', nameEn: 'Varamin' },
+            { id: 105, name: 'اسلامشهر', nameEn: 'Eslamshahr' },
+            { id: 106, name: 'پاکدشت', nameEn: 'Pakdasht' },
+            { id: 107, name: 'دماوند', nameEn: 'Damavand' },
+            { id: 108, name: 'شمیرانات', nameEn: 'Shemiranat' }
+          ],
+          2: [ // اصفهان
+            { id: 201, name: 'اصفهان', nameEn: 'Isfahan' },
+            { id: 202, name: 'کاشان', nameEn: 'Kashan' },
+            { id: 203, name: 'نجف آباد', nameEn: 'Najafabad' },
+            { id: 204, name: 'خمینی شهر', nameEn: 'Khomeyni Shahr' },
+            { id: 205, name: 'شاهین شهر', nameEn: 'Shahin Shahr' },
+            { id: 206, name: 'فلاورجان', nameEn: 'Falavarjan' },
+            { id: 207, name: 'نائین', nameEn: 'Naein' },
+            { id: 208, name: 'گلپایگان', nameEn: 'Golpayegan' }
+          ],
+          3: [ // فارس
+            { id: 301, name: 'شیراز', nameEn: 'Shiraz' },
+            { id: 302, name: 'مرودشت', nameEn: 'Marvdasht' },
+            { id: 303, name: 'جهرم', nameEn: 'Jahrom' },
+            { id: 304, name: 'فسا', nameEn: 'Fasa' },
+            { id: 305, name: 'کازرون', nameEn: 'Kazerun' },
+            { id: 306, name: 'لار', nameEn: 'Lar' },
+            { id: 307, name: 'داراب', nameEn: 'Darab' },
+            { id: 308, name: 'آباده', nameEn: 'Abadeh' }
+          ],
+          4: [ // خراسان رضوی
+            { id: 401, name: 'مشهد', nameEn: 'Mashhad' },
+            { id: 402, name: 'نیشابور', nameEn: 'Neyshabur' },
+            { id: 403, name: 'سبزوار', nameEn: 'Sabzevar' },
+            { id: 404, name: 'تربت حیدریه', nameEn: 'Torbat-e Heydarieh' },
+            { id: 405, name: 'قوچان', nameEn: 'Quchan' },
+            { id: 406, name: 'کاشمر', nameEn: 'Kashmar' },
+            { id: 407, name: 'گناباد', nameEn: 'Gonabad' },
+            { id: 408, name: 'چناران', nameEn: 'Chenaran' }
+          ],
+          5: [ // خوزستان
+            { id: 501, name: 'اهواز', nameEn: 'Ahvaz' },
+            { id: 502, name: 'آبادان', nameEn: 'Abadan' },
+            { id: 503, name: 'خرمشهر', nameEn: 'Khorramshahr' },
+            { id: 504, name: 'دزفول', nameEn: 'Dezful' },
+            { id: 505, name: 'بهبهان', nameEn: 'Behbahan' },
+            { id: 506, name: 'اندیمشک', nameEn: 'Andimeshk' },
+            { id: 507, name: 'شوشتر', nameEn: 'Shushtar' },
+            { id: 508, name: 'ماهشهر', nameEn: 'Mahshahr' }
+          ],
+          6: [ // آذربایجان شرقی
+            { id: 601, name: 'تبریز', nameEn: 'Tabriz' },
+            { id: 602, name: 'مراغه', nameEn: 'Maragheh' },
+            { id: 603, name: 'مرند', nameEn: 'Marand' },
+            { id: 604, name: 'میانه', nameEn: 'Mianeh' },
+            { id: 605, name: 'بناب', nameEn: 'Bonab' },
+            { id: 606, name: 'سراب', nameEn: 'Sarab' },
+            { id: 607, name: 'شبستر', nameEn: 'Shabestar' },
+            { id: 608, name: 'هشترود', nameEn: 'Hashtrud' }
+          ],
+          7: [ // مازندران
+            { id: 701, name: 'ساری', nameEn: 'Sari' },
+            { id: 702, name: 'بابل', nameEn: 'Babol' },
+            { id: 703, name: 'آمل', nameEn: 'Amol' },
+            { id: 704, name: 'قائم شهر', nameEn: 'Qaem Shahr' },
+            { id: 705, name: 'بابلسر', nameEn: 'Babolsar' },
+            { id: 706, name: 'نور', nameEn: 'Nur' },
+            { id: 707, name: 'نوشهر', nameEn: 'Nowshahr' },
+            { id: 708, name: 'تنکابن', nameEn: 'Tonekabon' }
+          ],
+          8: [ // گیلان
+            { id: 801, name: 'رشت', nameEn: 'Rasht' },
+            { id: 802, name: 'بندر انزلی', nameEn: 'Bandar Anzali' },
+            { id: 803, name: 'لاهیجان', nameEn: 'Lahijan' },
+            { id: 804, name: 'لنگرود', nameEn: 'Langarud' },
+            { id: 805, name: 'رودسر', nameEn: 'Rudsar' },
+            { id: 806, name: 'آستارا', nameEn: 'Astara' },
+            { id: 807, name: 'تالش', nameEn: 'Talesh' },
+            { id: 808, name: 'صومعه سرا', nameEn: 'Sowme\'eh Sara' }
+          ],
+          9: [ // کرمان
+            { id: 901, name: 'کرمان', nameEn: 'Kerman' },
+            { id: 902, name: 'رفسنجان', nameEn: 'Rafsanjan' },
+            { id: 903, name: 'جیرفت', nameEn: 'Jiroft' },
+            { id: 904, name: 'سیرجان', nameEn: 'Sirjan' },
+            { id: 905, name: 'بم', nameEn: 'Bam' },
+            { id: 906, name: 'زرند', nameEn: 'Zarand' },
+            { id: 907, name: 'شهربابک', nameEn: 'Shahrbabak' },
+            { id: 908, name: 'بافت', nameEn: 'Baft' }
+          ],
+          10: [ // البرز
+            { id: 1001, name: 'کرج', nameEn: 'Karaj' },
+            { id: 1002, name: 'نظرآباد', nameEn: 'Nazarabad' },
+            { id: 1003, name: 'ساوجبلاغ', nameEn: 'Savojbolagh' },
+            { id: 1004, name: 'اشتهارد', nameEn: 'Eshtehard' },
+            { id: 1005, name: 'فردیس', nameEn: 'Fardis' },
+            { id: 1006, name: 'طالقان', nameEn: 'Taleqan' },
+            { id: 1007, name: 'هشتگرد', nameEn: 'Hashtgerd' },
+            { id: 1008, name: 'محمدشهر', nameEn: 'Mohammadshahr' }
+          ],
+          11: [ // همدان
+            { id: 1101, name: 'همدان', nameEn: 'Hamadan' },
+            { id: 1102, name: 'ملایر', nameEn: 'Malayer' },
+            { id: 1103, name: 'نهاوند', nameEn: 'Nahavand' },
+            { id: 1104, name: 'تویسرکان', nameEn: 'Tuyserkan' },
+            { id: 1105, name: 'کبودرآهنگ', nameEn: 'Kabudarahang' },
+            { id: 1106, name: 'رزن', nameEn: 'Razan' },
+            { id: 1107, name: 'اسدآباد', nameEn: 'Asadabad' },
+            { id: 1108, name: 'بهار', nameEn: 'Bahar' }
+          ],
+          12: [ // کرمانشاه
+            { id: 1201, name: 'کرمانشاه', nameEn: 'Kermanshah' },
+            { id: 1202, name: 'اسلام آباد غرب', nameEn: 'Eslamabad-e Gharb' },
+            { id: 1203, name: 'پاوه', nameEn: 'Paveh' },
+            { id: 1204, name: 'جوانرود', nameEn: 'Javanrud' },
+            { id: 1205, name: 'سنقر', nameEn: 'Sonqor' },
+            { id: 1206, name: 'هرسین', nameEn: 'Harsin' },
+            { id: 1207, name: 'کنگاور', nameEn: 'Kangavar' },
+            { id: 1208, name: 'صحنه', nameEn: 'Sahneh' }
+          ],
+          13: [ // یزد
+            { id: 1301, name: 'یزد', nameEn: 'Yazd' },
+            { id: 1302, name: 'اردکان', nameEn: 'Ardakan' },
+            { id: 1303, name: 'میبد', nameEn: 'Meybod' },
+            { id: 1304, name: 'مهریز', nameEn: 'Mehriz' },
+            { id: 1305, name: 'ابرکوه', nameEn: 'Abarkuh' },
+            { id: 1306, name: 'بافق', nameEn: 'Bafq' },
+            { id: 1307, name: 'تفت', nameEn: 'Taft' },
+            { id: 1308, name: 'اشکذر', nameEn: 'Ashkezar' }
+          ],
+          14: [ // قم
+            { id: 1401, name: 'قم', nameEn: 'Qom' },
+            { id: 1402, name: 'جعفریه', nameEn: 'Jafarieh' },
+            { id: 1403, name: 'دستجرد', nameEn: 'Dastjerd' },
+            { id: 1404, name: 'سلفچگان', nameEn: 'Salafchegan' },
+            { id: 1405, name: 'قنوات', nameEn: 'Qanavat' }
+          ],
+          15: [ // سمنان
+            { id: 1501, name: 'سمنان', nameEn: 'Semnan' },
+            { id: 1502, name: 'شاهرود', nameEn: 'Shahroud' },
+            { id: 1503, name: 'دامغان', nameEn: 'Damghan' },
+            { id: 1504, name: 'گرمسار', nameEn: 'Garmsar' },
+            { id: 1505, name: 'مهدی شهر', nameEn: 'Mahdi Shahr' },
+            { id: 1506, name: 'سرخه', nameEn: 'Sorkheh' }
+          ]
+        }
+      };
+
+      // Initialize selects
+      function initializeLocationSelects() {
+        const provinceSelect = document.getElementById('province');
+        const citySelect = document.getElementById('city');
+
+        if (!provinceSelect || !citySelect) return;
+
+        // Populate provinces
+        locationData.provinces.forEach(province => {
+          const option = document.createElement('option');
+          option.value = province.id;
+          option.textContent = province.name;
+          option.setAttribute('data-name-en', province.nameEn);
+          provinceSelect.appendChild(option);
+        });
+
+        // Province change handler
+        provinceSelect.addEventListener('change', function() {
+          const provinceId = parseInt(this.value);
+
+          // Reset and disable city select
+          citySelect.innerHTML = '<option value="">انتخاب شهر</option>';
+          citySelect.disabled = !provinceId;
+
+          if (provinceId && locationData.cities[provinceId]) {
+            // Populate cities for selected province
+            locationData.cities[provinceId].forEach(city => {
+              const option = document.createElement('option');
+              option.value = city.id;
+              option.textContent = city.name;
+              option.setAttribute('data-name-en', city.nameEn);
+              citySelect.appendChild(option);
+            });
+
+            // Enable city select
+            citySelect.disabled = false;
+
+            // Add pulse animation
+            this.classList.add('select-changed');
+            setTimeout(() => this.classList.remove('select-changed'), 600);
+          }
+
+          // Reset city value
+          citySelect.value = '';
+        });
+
+        // Add pulse animation on city change
+        citySelect.addEventListener('change', function() {
+          if (this.value) {
+            this.classList.add('select-changed');
+            setTimeout(() => this.classList.remove('select-changed'), 600);
+          }
+        });
+
+        // Optional: Set initial values if they exist (for edit mode)
+        // This would be populated by your backend when editing existing profile
+        const initialProvinceId = provinceSelect.getAttribute('data-initial-value');
+        const initialCityId = citySelect.getAttribute('data-initial-value');
+
+        if (initialProvinceId) {
+          provinceSelect.value = initialProvinceId;
+          provinceSelect.dispatchEvent(new Event('change'));
+
+          if (initialCityId) {
+            // Wait for cities to populate, then set city
+            setTimeout(() => {
+              citySelect.value = initialCityId;
+            }, 50);
+          }
+        }
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeLocationSelects);
+      } else {
+        initializeLocationSelects();
+      }
+    </script>
 
     <script type="module" src="/src/profile-main.js"></script>
   </body>
