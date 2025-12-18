@@ -193,9 +193,14 @@
   color: $gray-700;
   outline: none;
   padding: $spacing-2 0;
+  font-family: inherit;
 
   &::placeholder {
     color: $gray-400;
+  }
+
+  &[type=text]:focus {
+    box-shadow: none !important;
   }
 }
 
@@ -205,10 +210,11 @@
   border: none;
   padding: $spacing-2 $spacing-4;
   border-radius: $radius-full;
-  font-weight: $text-semi-bold;
+  font-weight: $text-medium;
   cursor: pointer;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  font-family: inherit;
 
   &:hover {
     background: $blue-gray-700;

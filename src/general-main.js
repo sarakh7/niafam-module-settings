@@ -5,7 +5,7 @@
 
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
-import { loadSettingsFromFile } from "./config/settings";
+import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import { init404Page } from "./features/general/notFound404";
 import "./assets/scss/general.scss";
 
@@ -19,6 +19,12 @@ async function initializeGeneralApp() {
 
     // CRITICAL: Initialize i18n SECOND
     await initI18n();
+
+    // Auto-detect and set direction if not already set in HTML
+    if (!document.documentElement.dir) {
+      document.documentElement.dir = getDirectionFromHTML();
+    }
+
     initLocalization();
 
     // Initialize 404 page features

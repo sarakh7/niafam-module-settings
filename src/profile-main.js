@@ -1,6 +1,6 @@
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
-import { loadSettingsFromFile } from "./config/settings";
+import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import { initDashboardMenu } from "./features/profile/dashboardMenu";
 import { initTabNavigation } from "./features/profile/tabNavigation";
 import { initProfileForm } from "./features/profile/profileForm";
@@ -18,6 +18,12 @@ async function initializeProfileApp() {
 
     // CRITICAL: Initialize i18n SECOND
     await initI18n();
+
+    // Auto-detect and set direction if not already set in HTML
+    if (!document.documentElement.dir) {
+      document.documentElement.dir = getDirectionFromHTML();
+    }
+
     initLocalization();
 
     // Initialize dashboard menu toggle

@@ -1,81 +1,127 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="general.404.heading">صفحه مورد نظر یافت نشد - Niafam</title>
-  <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="/assets/css/reset.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="general.404Creative.heading">صفحه پیدا نشد - Niafam</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
 
-  <style>
-    @font-face {
-      font-family: "niafam";
-      src: url("/assets/fonts/niafam.woff?ahg0bg");
-      font-weight: normal;
-      font-style: normal;
-      font-display: block;
-    }
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
 
-    @font-face {
-      font-family: dana;
-      src: url("/assets/fonts/DanaFaNum-Regular.woff");
-      font-weight: normal;
-      font-display: swap;
-    }
+      @font-face {
+        font-family: Vazir-FD;
+        src: url("/assets/fonts/Vazir-Regular-FD.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
 
-    @font-face {
-      font-family: dana;
-      src: url("/assets/fonts/DanaFaNum-Bold.woff");
-      font-weight: bold;
-      font-display: swap;
-    }
+      @font-face {
+        font-family: Vazir-FD;
+        src: url("/assets/fonts/Vazir-Bold-FD.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
 
-    @font-face {
-      font-family: dana;
-      src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
-      font-weight: 600;
-      font-display: swap;
-    }
+      @font-face {
+        font-family: Vazir-FD;
+        src: url("/assets/Vazir-Medium-FD.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
 
-    /* en font */
-    @font-face {
-      font-family: Roboto;
-      src: url("/assets/fonts/Roboto-Regular.woff");
-      font-weight: normal;
-      font-display: swap;
-    }
+      /* en font */
+      @font-face {
+        font-family: vazir;
+        src: url("/assets/fonts/Vazir-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
 
-    @font-face {
-      font-family: Roboto;
-      src: url("/assets/fonts/Roboto-Bold.woff");
-      font-weight: bold;
-      font-display: swap;
-    }
+      @font-face {
+        font-family: vazir;
+        src: url("/assets/fonts/Vazir-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
 
-    body {
-      font-size: 16px;
-      font-family: dana;
-    }
+      @font-face {
+        font-family: vazir;
+        src: url("/assets/Vazir-Medium.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
 
-    body[dir="ltr"] {
-      font-family: Roboto;
-    }
-  </style>
-</head>
-<body>
-  <!-- 404 Not Found Page -->
-  <div class="general-404">
-    <div class="general-404__container">
-      <div class="general-404__number" data-i18n="general.404.number">404</div>
-      <h1 class="general-404__heading" data-i18n="general.404.heading">صفحه مورد نظر یافت نشد</h1>
-      <p class="general-404__message" data-i18n="general.404.message">
-        متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا ممکن است حذف شده باشد.
-      </p>
-      <a href="/" class="nes-btn nes-btn-primary" data-i18n="general.404.button">بازگشت به صفحه اصلی</a>
+      html {
+        font-size: 16px;
+        font-family: Vazir-FD;
+      }
+
+      html:not([lang="fa"]):not([lang="ar"]) {
+        font-family: vazir;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Creative 404 Not Found Page -->
+    <div class="general-404-creative">
+      <!-- Floating Background Elements -->
+      <div class="general-404-creative__bg-elements">
+        <div class="general-404-creative__float-circle general-404-creative__float-circle--1"></div>
+        <div class="general-404-creative__float-circle general-404-creative__float-circle--2"></div>
+        <div class="general-404-creative__float-circle general-404-creative__float-circle--3"></div>
+      </div>
+
+      <!-- Main Content Container -->
+      <div class="general-404-creative__container">
+        <!-- 404 Illustration Area -->
+        <div class="general-404-creative__illustration">
+          <div class="general-404-creative__number-wrapper">
+            <span class="general-404-creative__number">404</span>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="general-404-creative__content">
+          <h1 class="general-404__heading" data-i18n="general.404.heading">صفحه مورد نظر یافت نشد</h1>
+          <p class="general-404__message" data-i18n="general.404.message">متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا ممکن است حذف شده باشد.</p>
+        </div>
+
+        <!-- Search Box -->
+        <form class="general-404-creative__search" action="/جستجو" method="post" data-i18n="[action]general.404Creative.searchAction">
+          <div class="general-404-creative__search-box">
+            <i class="es esprit-fi-rr-search general-404-creative__search-icon"></i>
+            <input name="q" type="text" class="general-404-creative__search-input" data-i18n="[placeholder]general.404Creative.searchPlaceholder" placeholder="جستجو در سایت..." />
+            <button class="general-404-creative__search-btn" data-i18n="general.404Creative.searchButton">جستجو</button>
+          </div>
+        </form>
+
+        <!-- Primary Action Button -->
+        <div class="general-404-creative__actions">
+          <a href="/" class="nes-btn nes-btn-primary general-404-creative__home-btn">
+            <i class="es esprit-fi-rr-home"></i>
+            <span data-i18n="general.404Creative.homeButton">بازگشت به صفحه اصلی</span>
+          </a>
+        </div>
+
+        <!-- Esprit Portal Link -->
+        <div class="general-404-creative__footer">
+          <a href="#" class="general-404-creative__portal-link">
+            <i class="es esprit-fi-rr-globe"></i>
+            <span data-i18n="general.404Creative.portalLink">پورتال اسپریت</span>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <script type="module" src="/src/general-main.js"></script>
-</body>
+    <script type="module" src="/src/general-main.js"></script>
+  </body>
 </html>

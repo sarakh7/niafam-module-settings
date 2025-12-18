@@ -534,15 +534,16 @@
     "404Creative": {
       "heading": "صفحه‌ای که دنبالش می‌گردید پیدا نشد!",
       "message": "شاید لینک اشتباه بوده یا صفحه جابجا شده. نگران نباشید، می‌تونیم کمکتون کنیم!",
-      "searchPlaceholder": "جستجو در نیافام...",
+      "searchPlaceholder": "جستجو در سایت...",
       "searchButton": "جستجو",
+      "searchAction": "/جستجو",
       "quickLinksTitle": "یا می‌تونید اینجا رو امتحان کنید:",
       "homeLink": "صفحه اصلی",
       "aboutLink": "درباره ما",
       "profileLink": "پروفایل",
       "supportLink": "پشتیبانی",
       "homeButton": "بازگشت به صفحه اصلی",
-      "portalLink": "پورتال اسپریت"
+      "portalLink": "اسپریت پورتال"
     }
   }
 }

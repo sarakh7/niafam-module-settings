@@ -434,8 +434,9 @@
     "404Creative": {
       "heading": "The Page You're Looking For Can't Be Found!",
       "message": "Maybe the link was wrong or the page has been moved. Don't worry, we can help you!",
-      "searchPlaceholder": "Search on Niafam...",
+      "searchPlaceholder": "Search ...",
       "searchButton": "Search",
+      "searchAction": "/search",
       "quickLinksTitle": "Or you can try these:",
       "homeLink": "Home",
       "aboutLink": "About Us",

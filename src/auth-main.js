@@ -1,6 +1,6 @@
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
-import { loadSettingsFromFile } from "./config/settings";
+import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import { initUserDropdown, updateUserDropdown } from "./features/common/userDropdown";
 import { initAuthNav } from "./features/auth/authNav";
 import { initLoginForm } from "./features/auth/loginForm";
@@ -20,6 +20,12 @@ async function initializeAuthApp() {
 
     // CRITICAL: Initialize i18n SECOND
     await initI18n();
+
+    // Auto-detect and set direction if not already set in HTML
+    if (!document.documentElement.dir) {
+      document.documentElement.dir = getDirectionFromHTML();
+    }
+
     initLocalization();
 
     // Initialize common features
