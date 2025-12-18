@@ -445,5 +445,22 @@
       "homeButton": "Go to Homepage",
       "portalLink": "Esprit Portal"
     }
+  },
+  "contentsList": {
+    "pageTitle": "Contents List - Niafam",
+    "breadcrumb": "Contents List",
+    "title": "Contents List",
+    "description": "View all news, articles, videos, and audio content",
+    "categoryText": "Medical University",
+    "categoryImage": "Photo Report",
+    "categoryVideo": "Video Report",
+    "categoryAudio": "Specialized Podcast",
+    "readTime": "min read",
+    "featured": "Featured",
+    "loadMore": "Load More Content"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "content": "Content"
   }
 }

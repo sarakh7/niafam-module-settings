@@ -23,6 +23,7 @@ export default defineConfig({
         authForms: resolve(__dirname, 'login-forms.html'),
         notFound: resolve(__dirname, '404.html'),
         notFoundCreative: resolve(__dirname, '404-creative.html'),
+        contentsList: resolve(__dirname, 'contents-list.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
       },

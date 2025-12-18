@@ -12,7 +12,8 @@
     "sass": "sass src/assets/scss/contents.scss public/assets/css/espritstyle.css --watch",
     "sass:about": "sass src/assets/scss/about.scss public/assets/css/about.css --watch",
     "sass:auth": "sass src/assets/scss/auth.scss public/assets/css/auth.css --watch",
-    "sass:general": "sass src/assets/scss/general.scss public/assets/css/general.css --watch"
+    "sass:general": "sass src/assets/scss/general.scss public/assets/css/general.css --watch",
+    "sass:contents-list": "sass src/assets/scss/contents-list.scss public/assets/css/contents-list.css --watch"
   },
   "devDependencies": {
     "cross-env": "^10.1.0",

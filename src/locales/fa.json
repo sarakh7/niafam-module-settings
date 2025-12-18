@@ -545,5 +545,22 @@
       "homeButton": "بازگشت به صفحه اصلی",
       "portalLink": "اسپریت پورتال"
     }
+  },
+  "contentsList": {
+    "pageTitle": "فهرست محتوا - نیافام",
+    "breadcrumb": "فهرست محتوا",
+    "title": "فهرست محتوا",
+    "description": "مشاهده تمامی اخبار، مقالات، ویدئوها و محتوای صوتی",
+    "categoryText": "دانشگاه علوم پزشکی",
+    "categoryImage": "گزارش تصویری",
+    "categoryVideo": "گزارش ویدئویی",
+    "categoryAudio": "پادکست تخصصی",
+    "readTime": "دقیقه مطالعه",
+    "featured": "ویژه",
+    "loadMore": "بارگذاری محتوای بیشتر"
+  },
+  "breadcrumb": {
+    "home": "صفحه اصلی",
+    "content": "محتوا"
   }
 }

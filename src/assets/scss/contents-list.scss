@@ -1,0 +1,17 @@
+/**
+ * Contents List Page Main SCSS
+ * Editorial Persian magazine aesthetic
+ * Imports common base styles and custom content list component
+ */
+
+// Import common base styles
+@use './common/base/variables' as *;
+@use './common/base/mixins';
+@use './common/base/colors' as *;
+@use './common/esfonticon/style';
+
+// Import common components
+@use './common/components/pagination';
+
+// Import contents list component
+@use './contents/components/contentsList';

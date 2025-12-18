@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="contentsList.pageTitle">فهرست محتوا - نیافام</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+      }
+
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Container -->
+    <main class="esprit-contents-list-container">
+      <!-- Page Header -->
+      <header class="esprit-contents-list-header">
+        <div class="esprit-contents-list-header-inner">
+          <div class="esprit-contents-list-breadcrumb">
+            <a href="#" class="esprit-contents-list-breadcrumb-link" data-i18n="breadcrumb.home">صفحه اصلی</a>
+            <span class="esprit-contents-list-breadcrumb-separator">/</span>
+            <span class="esprit-contents-list-breadcrumb-current" data-i18n="contentsList.breadcrumb">فهرست محتوا</span>
+          </div>
+
+          <h1 class="esprit-contents-list-title" data-i18n="contentsList.title">فهرست محتوا</h1>
+          <p class="esprit-contents-list-description" data-i18n="contentsList.description">مشاهده تمامی اخبار، مقالات، ویدئوها و محتوای صوتی</p>
+
+          <div class="esprit-contents-list-decorative-line"></div>
+        </div>
+      </header>
+
+      <!-- Content List -->
+      <section class="esprit-contents-list-section">
+        <div class="esprit-contents-list-items">
+          <!-- Text Content Item 1 -->
+          <article class="esprit-contents-list-item esprit-contents-list-item--text" style="animation-delay: 0.1s">
+            <a href="#" class="esprit-contents-list-link">
+              <div class="esprit-contents-list-content">
+                <div class="esprit-contents-list-image-wrapper">
+                  <img class="esprit-contents-list-image" src="/assets/img/related-text-thumb-1.jpg" alt="خبر متنی" loading="lazy" />
+                  <div class="esprit-contents-list-icon-overlay">
+                    <i class="es esprit-fi-rr-document-signed esprit-contents-list-icon"></i>
+                  </div>
+                </div>
+                <div class="esprit-contents-list-caption">
+                  <span class="esprit-contents-list-category esprit-contents-list-category--text" data-i18n="contentsList.categoryText">دانشگاه علوم پزشکی</span>
+                  <h3 class="esprit-contents-list-headline">برنامه‌ریزی جامع برای برگزاری باشکوه سالگرد دانشگاه علوم پزشکی تهران</h3>
+                  <p class="esprit-contents-list-summary">
+                    دکتر سید رضا رئیس کرمی، سرپرست دانشگاه علوم پزشکی تهران، در نشستی با حضور مدیران ارشد دانشگاه بر ضرورت برنامه‌ریزی دقیق و جامع برای برگزاری باشکوه مراسم سالگرد تأکید کرد.
+                  </p>
+                  <div class="esprit-contents-list-meta">
+                    <time class="esprit-contents-list-date">۱۴۰۲/۰۹/۲۷</time>
+                    <span class="esprit-contents-list-meta-separator">•</span>
+                    <span class="esprit-contents-list-read-time" data-i18n="contentsList.readTime">۵ دقیقه مطالعه</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Image Content Item -->
+          <article class="esprit-contents-list-item esprit-contents-list-item--image esprit-contents-list-item--featured" style="animation-delay: 0.2s">
+            <a href="#" class="esprit-contents-list-link">
+              <div class="esprit-contents-list-content">
+                <div class="esprit-contents-list-image-wrapper">
+                  <img class="esprit-contents-list-image" src="/assets/img/related-picture-thumb-1.jpg" alt="خبر تصویری" loading="lazy" />
+                  <div class="esprit-contents-list-icon-overlay">
+                    <i class="es esprit-fi-rr-camera esprit-contents-list-icon"></i>
+                  </div>
+                  <span class="esprit-contents-list-featured-badge" data-i18n="contentsList.featured">ویژه</span>
+                </div>
+                <div class="esprit-contents-list-caption">
+                  <span class="esprit-contents-list-category esprit-contents-list-category--image" data-i18n="contentsList.categoryImage">گزارش تصویری</span>
+                  <h3 class="esprit-contents-list-headline">افتتاح مرکز پیشرفته تحقیقات سرطان دانشگاه علوم پزشکی تهران</h3>
+                  <p class="esprit-contents-list-summary">
+                    مرکز تحقیقاتی پیشرفته سرطان با حضور وزیر بهداشت، رئیس دانشگاه و جمعی از محققان برجسته کشور افتتاح شد. این مرکز مجهز به آزمایشگاه‌های مدرن و تجهیزات روز دنیا است.
+                  </p>
+                  <div class="esprit-contents-list-meta">
+                    <time class="esprit-contents-list-date">۱۴۰۲/۰۹/۲۶</time>
+                    <span class="esprit-contents-list-meta-separator">•</span>
+                    <span class="esprit-contents-list-photo-count">۱۲ تصویر</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Video Content Item -->
+          <article class="esprit-contents-list-item esprit-contents-list-item--video" style="animation-delay: 0.3s">
+            <a href="#" class="esprit-contents-list-link">
+              <div class="esprit-contents-list-content">
+                <div class="esprit-contents-list-image-wrapper">
+                  <img class="esprit-contents-list-image" src="/assets/img/related-video-thumb-1.jpg" alt="خبر ویدئویی" loading="lazy" />
+                  <div class="esprit-contents-list-icon-overlay">
+                    <i class="es esprit-fi-rr-video-camera esprit-contents-list-icon"></i>
+                  </div>
+                  <span class="esprit-contents-list-duration">۱۵:۲۳</span>
+                </div>
+                <div class="esprit-contents-list-caption">
+                  <span class="esprit-contents-list-category esprit-contents-list-category--video" data-i18n="contentsList.categoryVideo">گزارش ویدئویی</span>
+                  <h3 class="esprit-contents-list-headline">بیمارستان امام خمینی؛ نماد پیشرفت در آموزش و درمان پزشکی ایران</h3>
+                  <p class="esprit-contents-list-summary">گزارشی جامع از فعالیت‌های آموزشی، درمانی و پژوهشی بیمارستان امام خمینی که به عنوان یکی از بزرگترین مراکز آموزشی کشور شناخته می‌شود.</p>
+                  <div class="esprit-contents-list-meta">
+                    <time class="esprit-contents-list-date">۱۴۰۲/۰۹/۲۵</time>
+                    <span class="esprit-contents-list-meta-separator">•</span>
+                    <span class="esprit-contents-list-views">۲,۳۴۵ بازدید</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Audio Content Item -->
+          <article class="esprit-contents-list-item esprit-contents-list-item--audio" style="animation-delay: 0.4s">
+            <a href="#" class="esprit-contents-list-link">
+              <div class="esprit-contents-list-content">
+                <div class="esprit-contents-list-image-wrapper">
+                  <img class="esprit-contents-list-image" src="/assets/img/related-sound-thumb-1.jpg" alt="خبر صوتی" loading="lazy" />
+                  <div class="esprit-contents-list-icon-overlay">
+                    <i class="es esprit-fi-rr-microphone esprit-contents-list-icon"></i>
+                  </div>
+                  <span class="esprit-contents-list-duration">۲۵:۴۰</span>
+                </div>
+                <div class="esprit-contents-list-caption">
+                  <span class="esprit-contents-list-category esprit-contents-list-category--audio" data-i18n="contentsList.categoryAudio">پادکست تخصصی</span>
+                  <h3 class="esprit-contents-list-headline">سلامت روان در دوران پساکرونا؛ چالش‌ها و راهکارها</h3>
+                  <p class="esprit-contents-list-summary">
+                    در این پادکست، متخصصان روانشناسی و روانپزشکی دانشگاه به بررسی تأثیرات روانی همه‌گیری کرونا و ارائه راهکارهای عملی برای مواجهه با آن پرداخته‌اند.
+                  </p>
+                  <div class="esprit-contents-list-meta">
+                    <time class="esprit-contents-list-date">۱۴۰۲/۰۹/۲۴</time>
+                    <span class="esprit-contents-list-meta-separator">•</span>
+                    <span class="esprit-contents-list-listens">۱,۸۹۰ شنونده</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Text Content Item 2 -->
+          <article class="esprit-contents-list-item esprit-contents-list-item--text" style="animation-delay: 0.5s">
+            <a href="#" class="esprit-contents-list-link">
+              <div class="esprit-contents-list-content">
+                <div class="esprit-contents-list-image-wrapper">
+                  <img class="esprit-contents-list-image" src="/assets/img/related-text-thumb-2.jpg" alt="خبر متنی" loading="lazy" />
+                  <div class="esprit-contents-list-icon-overlay">
+                    <i class="es esprit-fi-rr-document-signed esprit-contents-list-icon"></i>
+                  </div>
+                </div>
+                <div class="esprit-contents-list-caption">
+                  <span class="esprit-contents-list-category esprit-contents-list-category--text" data-i18n="contentsList.categoryText">پژوهش و فناوری</span>
+                  <h3 class="esprit-contents-list-headline">موفقیت محققان دانشگاه در توسعه داروی جدید ضد سرطان</h3>
+                  <p class="esprit-contents-list-summary">
+                    تیم تحقیقاتی دانشکده داروسازی موفق به توسعه ترکیب دارویی نوینی شدند که در آزمایش‌های اولیه نتایج امیدوارکننده‌ای در درمان سرطان‌های خاص نشان داده است.
+                  </p>
+                  <div class="esprit-contents-list-meta">
+                    <time class="esprit-contents-list-date">۱۴۰۲/۰۹/۲۳</time>
+                    <span class="esprit-contents-list-meta-separator">•</span>
+                    <span class="esprit-contents-list-read-time" data-i18n="contentsList.readTime">۸ دقیقه مطالعه</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Image Content Item 2 -->
+          <article class="esprit-contents-list-item esprit-contents-list-item--image" style="animation-delay: 0.6s">
+            <a href="#" class="esprit-contents-list-link">
+              <div class="esprit-contents-list-content">
+                <div class="esprit-contents-list-image-wrapper">
+                  <img class="esprit-contents-list-image" src="/assets/img/related-picture-thumb-2.jpg" alt="خبر تصویری" loading="lazy" />
+                  <div class="esprit-contents-list-icon-overlay">
+                    <i class="es esprit-fi-rr-camera esprit-contents-list-icon"></i>
+                  </div>
+                </div>
+                <div class="esprit-contents-list-caption">
+                  <span class="esprit-contents-list-category esprit-contents-list-category--image" data-i18n="contentsList.categoryImage">رویداد علمی</span>
+                  <h3 class="esprit-contents-list-headline">همایش بین‌المللی نوآوری در علوم پزشکی با حضور محققان جهانی</h3>
+                  <p class="esprit-contents-list-summary">دومین همایش بین‌المللی نوآوری در علوم پزشکی با حضور بیش از ۵۰۰ محقق از ۳۰ کشور جهان در تالار اجلاس سران برگزار شد.</p>
+                  <div class="esprit-contents-list-meta">
+                    <time class="esprit-contents-list-date">۱۴۰۲/۰۹/۲۲</time>
+                    <span class="esprit-contents-list-meta-separator">•</span>
+                    <span class="esprit-contents-list-photo-count">۸ تصویر</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Video Content Item 2 -->
+          <article class="esprit-contents-list-item esprit-contents-list-item--video" style="animation-delay: 0.7s">
+            <a href="#" class="esprit-contents-list-link">
+              <div class="esprit-contents-list-content">
+                <div class="esprit-contents-list-image-wrapper">
+                  <img class="esprit-contents-list-image" src="/assets/img/related-video-thumb-2.jpg" alt="خبر ویدئویی" loading="lazy" />
+                  <div class="esprit-contents-list-icon-overlay">
+                    <i class="es esprit-fi-rr-video-camera esprit-contents-list-icon"></i>
+                  </div>
+                  <span class="esprit-contents-list-duration">۱۰:۱۵</span>
+                </div>
+                <div class="esprit-contents-list-caption">
+                  <span class="esprit-contents-list-category esprit-contents-list-category--video" data-i18n="contentsList.categoryVideo">آموزش پزشکی</span>
+                  <h3 class="esprit-contents-list-headline">تکنیک‌های نوین جراحی کم‌تهاجمی در دانشگاه علوم پزشکی</h3>
+                  <p class="esprit-contents-list-summary">معرفی جدیدترین تکنیک‌های جراحی کم‌تهاجمی که در بیمارستان‌های آموزشی دانشگاه به کار گرفته می‌شود و نتایج بهتری برای بیماران به همراه دارد.</p>
+                  <div class="esprit-contents-list-meta">
+                    <time class="esprit-contents-list-date">۱۴۰۲/۰۹/۲۱</time>
+                    <span class="esprit-contents-list-meta-separator">•</span>
+                    <span class="esprit-contents-list-views">۳,۵۶۷ بازدید</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Audio Content Item 2 -->
+          <article class="esprit-contents-list-item esprit-contents-list-item--audio" style="animation-delay: 0.8s">
+            <a href="#" class="esprit-contents-list-link">
+              <div class="esprit-contents-list-content">
+                <div class="esprit-contents-list-image-wrapper">
+                  <img class="esprit-contents-list-image" src="/assets/img/related-sound-thumb-2.jpg" alt="خبر صوتی" loading="lazy" />
+                  <div class="esprit-contents-list-icon-overlay">
+                    <i class="es esprit-fi-rr-microphone esprit-contents-list-icon"></i>
+                  </div>
+                  <span class="esprit-contents-list-duration">۳۲:۱۰</span>
+                </div>
+                <div class="esprit-contents-list-caption">
+                  <span class="esprit-contents-list-category esprit-contents-list-category--audio" data-i18n="contentsList.categoryAudio">مصاحبه تخصصی</span>
+                  <h3 class="esprit-contents-list-headline">گفت‌وگو با دکتر احمدی درباره آینده پزشکی هوشمند در ایران</h3>
+                  <p class="esprit-contents-list-summary">مصاحبه‌ای با دکتر محمد احمدی، رئیس مرکز نوآوری دانشگاه، درباره نقش هوش مصنوعی و فناوری‌های نوین در تحول پزشکی کشور.</p>
+                  <div class="esprit-contents-list-meta">
+                    <time class="esprit-contents-list-date">۱۴۰۲/۰۹/۲۰</time>
+                    <span class="esprit-contents-list-meta-separator">•</span>
+                    <span class="esprit-contents-list-listens">۲,۴۵۰ شنونده</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <ul class="pagination pagination-sm">
+          <li class="active"><a href="/1">1</a></li>
+          <li class=""><a href="/2">2</a></li>
+          <li class=""><a href="/3">3</a></li>
+          <li class=""><a href="/4">4</a></li>
+          <li class=""><a href="/5">5</a></li>
+          <li class=""><a href="/6">6</a></li>
+          <li class=""><a href="/7">7</a></li>
+          <li class=""><a href="/8">8</a></li>
+          <li class=""><a href="/9">9</a></li>
+          <li class=""><a href="/10">10</a></li>
+          <li class=""><a href="/11">11</a></li>
+        </ul>
+        <!-- Load More Button -->
+        <!-- <div class="esprit-contents-list-load-more">
+        <button class="esprit-contents-list-btn" data-i18n="contentsList.loadMore">بارگذاری محتوای بیشتر</button>
+      </div> -->
+      </section>
+    </main>
+
+    <script type="module" src="/src/contents-list.js"></script>
+  </body>
+</html>

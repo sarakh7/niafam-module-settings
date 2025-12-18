@@ -89,5 +89,22 @@
       "homeButton": "Вернуться на главную",
       "portalLink": "Портал Esprit"
     }
+  },
+  "contentsList": {
+    "pageTitle": "Список контента - Niafam",
+    "breadcrumb": "Список контента",
+    "title": "Список контента",
+    "description": "Просмотр всех новостей, статей, видео и аудио контента",
+    "categoryText": "Медицинский университет",
+    "categoryImage": "Фото-отчет",
+    "categoryVideo": "Видео-отчет",
+    "categoryAudio": "Специализированный подкаст",
+    "readTime": "мин чтения",
+    "featured": "Рекомендуемое",
+    "loadMore": "Загрузить еще контент"
+  },
+  "breadcrumb": {
+    "home": "Главная",
+    "content": "Контент"
   }
 }

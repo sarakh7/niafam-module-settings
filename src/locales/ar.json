@@ -172,5 +172,22 @@
       "homeButton": "العودة إلى الصفحة الرئيسية",
       "portalLink": "بوابة إسبريت"
     }
+  },
+  "contentsList": {
+    "pageTitle": "قائمة المحتوى - نيافام",
+    "breadcrumb": "قائمة المحتوى",
+    "title": "قائمة المحتوى",
+    "description": "عرض جميع الأخبار والمقالات ومقاطع الفيديو والمحتوى الصوتي",
+    "categoryText": "جامعة العلوم الطبية",
+    "categoryImage": "تقرير مصور",
+    "categoryVideo": "تقرير فيديو",
+    "categoryAudio": "بودكاست متخصص",
+    "readTime": "دقيقة قراءة",
+    "featured": "مميز",
+    "loadMore": "تحميل المزيد من المحتوى"
+  },
+  "breadcrumb": {
+    "home": "الصفحة الرئيسية",
+    "content": "المحتوى"
   }
 }

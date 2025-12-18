@@ -120,5 +120,22 @@
       "homeButton": "Ana Sayfaya Dön",
       "portalLink": "Esprit Portalı"
     }
+  },
+  "contentsList": {
+    "pageTitle": "İçerik Listesi - Niafam",
+    "breadcrumb": "İçerik Listesi",
+    "title": "İçerik Listesi",
+    "description": "Tüm haberler, makaleler, videolar ve ses içeriğini görüntüleyin",
+    "categoryText": "Tıp Üniversitesi",
+    "categoryImage": "Fotoğraf Raporu",
+    "categoryVideo": "Video Raporu",
+    "categoryAudio": "Uzman Podcast",
+    "readTime": "dakika okuma",
+    "featured": "Öne Çıkan",
+    "loadMore": "Daha Fazla İçerik Yükle"
+  },
+  "breadcrumb": {
+    "home": "Ana Sayfa",
+    "content": "İçerik"
   }
 }
