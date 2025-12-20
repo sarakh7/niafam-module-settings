@@ -498,5 +498,12 @@
     },
     "relatedGalleries": "Related Galleries",
     "archive": "Gallery Archive"
+  },
+  "galleryCategories": {
+    "pageTitle": "Gallery Categories - Niafam",
+    "breadcrumb": "Gallery Categories",
+    "title": "Gallery Categories",
+    "description": "Browse photo, video and audio galleries of Tehran University of Medical Sciences by topic",
+    "galleryCount": "Galleries"
   }
 }

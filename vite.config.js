@@ -26,6 +26,7 @@ export default defineConfig({
         contentsList: resolve(__dirname, 'contents-list.html'),
         searchResults: resolve(__dirname, 'search-results.html'),
         gallery: resolve(__dirname, 'gallery.html'),
+        galleryCategories: resolve(__dirname, 'gallery-categories.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
       },
