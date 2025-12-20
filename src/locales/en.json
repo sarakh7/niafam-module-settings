@@ -176,7 +176,10 @@
     "videographers": "Videographers:",
     "editors": "Editors:",
     "readingTime": "Reading Time:",
-    "minutes": "minutes"
+    "minutes": "minutes",
+    "lastUpdateDate": "Last Update Date:",
+    "lastUpdateTime": "Update Time:",
+    "contentProducer": "Content Producer:"
   },
   "modal": {
     "sendToFriend": {
@@ -492,6 +495,8 @@
     },
     "sounds": {
       "title": "Audios"
-    }
+    },
+    "relatedGalleries": "Related Galleries",
+    "archive": "Gallery Archive"
   }
 }

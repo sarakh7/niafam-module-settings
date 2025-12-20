@@ -13,6 +13,7 @@
 @use './common/components/gallery';
 @use './contents/components/videoList';
 @use './contents/components/soundList';
+@use './contents/components/shortLink';
 
 // Gallery page specific styles
 @use './gallery/container';

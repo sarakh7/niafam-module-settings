@@ -4,6 +4,7 @@ import { loadSettingsFromFile } from "./config/settings";
 import { initImageGallery } from "./features/gallery/imageGallery";
 import { initVideoSection } from "./features/gallery/videoSection";
 import { initAudioSection } from "./features/gallery/audioSection";
+import { initCopyShortUrl } from "./features/common/copyShortUrl";
 import "./assets/scss/gallery.scss";
 
 /**
@@ -31,6 +32,9 @@ async function initializeGalleryApp() {
     if (document.getElementById('gallery-section-sounds')) {
       initAudioSection();
     }
+
+    // Initialize short URL copy functionality
+    initCopyShortUrl();
 
     console.log("Gallery page initialized successfully");
   } catch (error) {

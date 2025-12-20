@@ -165,7 +165,10 @@
     "videographers": "فیلمبرداران:",
     "editors": "تدوین‌گران:",
     "readingTime": "زمان مطالعه:",
-    "minutes": "دقیقه"
+    "minutes": "دقیقه",
+    "lastUpdateDate": "تاریخ آخرین بروزرسانی:",
+    "lastUpdateTime": "ساعت بروزرسانی:",
+    "contentProducer": "تولید محتوا:"
   },
   "modal": {
     "sendToFriend": {
@@ -592,6 +595,8 @@
     },
     "sounds": {
       "title": "صوت‌ها"
-    }
+    },
+    "relatedGalleries": "گالری‌های مرتبط",
+    "archive": "آرشیو گالری"
   }
 }

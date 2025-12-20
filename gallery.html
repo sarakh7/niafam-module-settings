@@ -176,6 +176,33 @@
         </div>
 
         <div class="gallery-page-main">
+          <!-- Gallery Header -->
+          <header class="gallery-header">
+            <h1 class="gallery-header__title">گالری رویداد علمی دانشگاه علوم پزشکی تهران</h1>
+            <p class="gallery-header__description">
+              مجموعه تصاویر، ویدئوها و صوت‌های مربوط به نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران که در تاریخ 27 آبان 1403 برگزار شد. این گالری شامل لحظات مهم جلسه، گزارش پیشرفت برنامه‌های ویژه سالگرد و بررسی راهکارهای بهبود دسترسی معاونت‌ها است.
+            </p>
+          </header>
+
+          <!-- Gallery Metadata -->
+          <div class="gallery-metadata">
+            <div class="gallery-metadata__item">
+              <i class="es esprit-fi-rr-calendar"></i>
+              <span class="gallery-metadata__label" data-i18n="metadata.lastUpdateDate">تاریخ آخرین بروزرسانی:</span>
+              <span class="gallery-metadata__value">1403/10/01</span>
+            </div>
+            <div class="gallery-metadata__item">
+              <i class="es esprit-fi-rr-clock"></i>
+              <span class="gallery-metadata__label" data-i18n="metadata.lastUpdateTime">ساعت بروزرسانی:</span>
+              <span class="gallery-metadata__value">14:25</span>
+            </div>
+            <div class="gallery-metadata__item">
+              <i class="es esprit-fi-rr-user"></i>
+              <span class="gallery-metadata__label" data-i18n="metadata.contentProducer">تولید محتوا:</span>
+              <span class="gallery-metadata__value">سینا رسانه - دانشگاه علوم پزشکی تهران</span>
+            </div>
+          </div>
+
           <!-- Images Section -->
           <section id="gallery-section-images" class="gallery-section">
             <h2 class="gallery-section__title" data-i18n="gallery.images.title">تصاویر</h2>
@@ -345,6 +372,85 @@
               </div>
             </div>
           </section>
+
+          <!-- Related Galleries Section -->
+          <section class="gallery-related">
+            <h2 class="gallery-related__title" data-i18n="gallery.relatedGalleries">گالری‌های مرتبط</h2>
+            <div class="gallery-related__list">
+              <article class="gallery-related__item">
+                <a href="#" class="gallery-related__link">
+                  <div class="gallery-related__image-wrapper">
+                    <img class="gallery-related__image" src="/assets/img/related-text-thumb-1.jpg" alt="گالری نشست هیئت رئیسه" loading="lazy" />
+                    <i class="es esprit-fi-rr-picture gallery-related__icon"></i>
+                    <div class="gallery-related__badge">
+                      <span>18</span>
+                      <i class="es esprit-fi-rr-picture"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-related__caption">
+                    <h3 class="gallery-related__headline">گالری نشست هیئت رئیسه - مهر 1403</h3>
+                    <p class="gallery-related__description">تصاویر نشست هیئت رئیسه دانشگاه علوم پزشکی تهران در مهر ماه 1403</p>
+                    <time class="gallery-related__date">۱۴۰۳/۰۷/۱۵</time>
+                  </div>
+                </a>
+              </article>
+              <article class="gallery-related__item">
+                <a href="#" class="gallery-related__link">
+                  <div class="gallery-related__image-wrapper">
+                    <img class="gallery-related__image" src="/assets/img/related-picture-thumb-1.jpg" alt="گالری افتتاح بیمارستان" loading="lazy" />
+                    <i class="es esprit-fi-rr-picture gallery-related__icon"></i>
+                    <div class="gallery-related__badge">
+                      <span>25</span>
+                      <i class="es esprit-fi-rr-picture"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-related__caption">
+                    <h3 class="gallery-related__headline">گالری افتتاح بیمارستان جدید انستیتو کانسر</h3>
+                    <p class="gallery-related__description">تصاویر مراسم افتتاح بیمارستان جدید با حضور مسئولان دانشگاه</p>
+                    <time class="gallery-related__date">۱۴۰۳/۰۶/۲۰</time>
+                  </div>
+                </a>
+              </article>
+              <article class="gallery-related__item">
+                <a href="#" class="gallery-related__link">
+                  <div class="gallery-related__image-wrapper">
+                    <img class="gallery-related__image" src="/assets/img/related-text-thumb-2.jpg" alt="گالری همایش علمی" loading="lazy" />
+                    <i class="es esprit-fi-rr-picture gallery-related__icon"></i>
+                    <div class="gallery-related__badge">
+                      <span>32</span>
+                      <i class="es esprit-fi-rr-picture"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-related__caption">
+                    <h3 class="gallery-related__headline">گالری همایش علمی پزشکی</h3>
+                    <p class="gallery-related__description">تصاویر همایش ملی پیشرفت‌های علوم پزشکی برگزار شده در دانشگاه</p>
+                    <time class="gallery-related__date">۱۴۰۳/۰۵/۱۰</time>
+                  </div>
+                </a>
+              </article>
+            </div>
+          </section>
+
+          <!-- Short Link Section -->
+          <div id="esprit-article-shortlink-wrapper" class="esprit-article-shortlink">
+            <!-- Right side - Short link -->
+            <input id="shorturlitem" type="hidden" value="https://niafam.com/gallery" class="" />
+            <div id="copy-shorturl-btn" class="esprit-article-shortlink__link-container" role="button" tabindex="0" data-i18n="[aria-label]tools.shortlink.copy">
+              <span id="shortur-alert" class="esprit-article-shortlink__alert accessible-hidden" data-i18n="tools.shortlink.copied">کپی شد!</span>
+              <span class="esprit-article-shortlink__link-icon">
+                <i class="es esprit-fi-rr-copy"></i>
+              </span>
+              <span class="esprit-article-shortlink__text" data-i18n="tools.shortlink.copy">کپی لینک</span>
+            </div>
+
+            <!-- Gallery Navigation List -->
+            <div class="gallery-navigation">
+              <a href="#" class="gallery-navigation__item">
+                <i class="es esprit-fi-rr-arrow-left"></i>
+                <span data-i18n="gallery.archive">آرشیو گالری</span>
+              </a>
+            </div>
+          </div>
 
         </div>
       </div>
