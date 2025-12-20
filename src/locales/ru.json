@@ -106,5 +106,23 @@
   "breadcrumb": {
     "home": "Главная",
     "content": "Контент"
+  },
+  "searchResults": {
+    "pageTitle": "Результаты поиска - Niafam",
+    "title": "Результаты поиска",
+    "breadcrumbHome": "Главная",
+    "breadcrumbSearch": "Поиск",
+    "resultCount": "Найдено {{count}} результатов",
+    "resultCountSingular": "Найден 1 результат",
+    "noResults": "Результатов не найдено",
+    "categoryText": "Статья",
+    "categoryImage": "Галерея",
+    "categoryVideo": "Видео",
+    "categoryAudio": "Подкаст",
+    "filterOr": "ИЛИ",
+    "filterAnd": "И",
+    "filterPhrase": "Точная фраза",
+    "searchPlaceholder": "Поиск...",
+    "searchButton": "Поиск"
   }
 }

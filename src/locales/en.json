@@ -462,5 +462,23 @@
   "breadcrumb": {
     "home": "Home",
     "content": "Content"
+  },
+  "searchResults": {
+    "pageTitle": "Search Results - Niafam",
+    "title": "Search Results",
+    "breadcrumbHome": "Home",
+    "breadcrumbSearch": "Search",
+    "resultCount": "{{count}} results found",
+    "resultCountSingular": "1 result found",
+    "noResults": "No results found",
+    "categoryText": "Article",
+    "categoryImage": "Gallery",
+    "categoryVideo": "Video",
+    "categoryAudio": "Podcast",
+    "filterOr": "OR",
+    "filterAnd": "AND",
+    "filterPhrase": "Exact phrase",
+    "searchPlaceholder": "Search...",
+    "searchButton": "Search"
   }
 }

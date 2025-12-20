@@ -189,5 +189,23 @@
   "breadcrumb": {
     "home": "الصفحة الرئيسية",
     "content": "المحتوى"
+  },
+  "searchResults": {
+    "pageTitle": "نتائج البحث - نيافام",
+    "title": "نتائج البحث",
+    "breadcrumbHome": "الصفحة الرئيسية",
+    "breadcrumbSearch": "البحث",
+    "resultCount": "تم العثور على {{count}} نتيجة",
+    "resultCountSingular": "تم العثور على نتيجة واحدة",
+    "noResults": "لم يتم العثور على نتائج",
+    "categoryText": "مقالة",
+    "categoryImage": "معرض الصور",
+    "categoryVideo": "فيديو",
+    "categoryAudio": "بودكاست",
+    "filterOr": "أو",
+    "filterAnd": "و",
+    "filterPhrase": "عبارة كاملة",
+    "searchPlaceholder": "بحث...",
+    "searchButton": "بحث"
   }
 }

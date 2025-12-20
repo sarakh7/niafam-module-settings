@@ -137,5 +137,23 @@
   "breadcrumb": {
     "home": "Ana Sayfa",
     "content": "İçerik"
+  },
+  "searchResults": {
+    "pageTitle": "Arama Sonuçları - Niafam",
+    "title": "Arama Sonuçları",
+    "breadcrumbHome": "Ana Sayfa",
+    "breadcrumbSearch": "Arama",
+    "resultCount": "{{count}} sonuç bulundu",
+    "resultCountSingular": "1 sonuç bulundu",
+    "noResults": "Sonuç bulunamadı",
+    "categoryText": "Makale",
+    "categoryImage": "Galeri",
+    "categoryVideo": "Video",
+    "categoryAudio": "Podcast",
+    "filterOr": "VEYA",
+    "filterAnd": "VE",
+    "filterPhrase": "Tam ifade",
+    "searchPlaceholder": "Ara...",
+    "searchButton": "Ara"
   }
 }

@@ -562,5 +562,23 @@
   "breadcrumb": {
     "home": "صفحه اصلی",
     "content": "محتوا"
+  },
+  "searchResults": {
+    "pageTitle": "نتایج جستجو - نیافام",
+    "title": "نتایج جستجو",
+    "breadcrumbHome": "صفحه اصلی",
+    "breadcrumbSearch": "جستجو",
+    "resultCount": "{{count}} نتیجه یافت شد",
+    "resultCountSingular": "۱ نتیجه یافت شد",
+    "noResults": "نتیجه‌ای یافت نشد",
+    "categoryText": "مقاله",
+    "categoryImage": "گالری تصاویر",
+    "categoryVideo": "ویدئو",
+    "categoryAudio": "پادکست",
+    "filterOr": "یا",
+    "filterAnd": "و",
+    "filterPhrase": "عبارت کامل",
+    "searchPlaceholder": "جستجو...",
+    "searchButton": "جستجو"
   }
 }

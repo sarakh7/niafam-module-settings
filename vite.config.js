@@ -24,6 +24,7 @@ export default defineConfig({
         notFound: resolve(__dirname, '404.html'),
         notFoundCreative: resolve(__dirname, '404-creative.html'),
         contentsList: resolve(__dirname, 'contents-list.html'),
+        searchResults: resolve(__dirname, 'search-results.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
       },
