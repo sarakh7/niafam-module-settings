@@ -207,5 +207,18 @@
     "filterPhrase": "عبارة كاملة",
     "searchPlaceholder": "بحث...",
     "searchButton": "بحث"
+  },
+  "gallery": {
+    "pageTitle": "المعرض - نيافام",
+    "breadcrumb": "المعرض",
+    "images": {
+      "title": "الصور"
+    },
+    "videos": {
+      "title": "الفيديوهات"
+    },
+    "sounds": {
+      "title": "الصوتيات"
+    }
   }
 }

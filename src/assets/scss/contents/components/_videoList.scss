@@ -8,6 +8,11 @@
         margin-top: $spacing-4;
         max-width: 100%;
 
+        @include respond-to(xs) {
+            padding: 0;
+            margin: 0;
+        }
+
         .plyr__video-wrapper {
             aspect-ratio: 871 / 490;
         }
@@ -22,6 +27,10 @@
         margin-top: $spacing-3;
         padding: 0 $spacing-4;
         max-width: 100%;
+
+        @include respond-to(xs) {
+            padding: 0;
+        }
     }
 }
 

@@ -480,5 +480,18 @@
     "filterPhrase": "Exact phrase",
     "searchPlaceholder": "Search...",
     "searchButton": "Search"
+  },
+  "gallery": {
+    "pageTitle": "Gallery - Niafam",
+    "breadcrumb": "Gallery",
+    "images": {
+      "title": "Images"
+    },
+    "videos": {
+      "title": "Videos"
+    },
+    "sounds": {
+      "title": "Audios"
+    }
   }
 }

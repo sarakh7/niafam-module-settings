@@ -580,5 +580,18 @@
     "filterPhrase": "عبارت کامل",
     "searchPlaceholder": "جستجو...",
     "searchButton": "جستجو"
+  },
+  "gallery": {
+    "pageTitle": "گالری - نیافام",
+    "breadcrumb": "گالری",
+    "images": {
+      "title": "تصاویر"
+    },
+    "videos": {
+      "title": "ویدئوها"
+    },
+    "sounds": {
+      "title": "صوت‌ها"
+    }
   }
 }

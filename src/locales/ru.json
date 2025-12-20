@@ -124,5 +124,18 @@
     "filterPhrase": "Точная фраза",
     "searchPlaceholder": "Поиск...",
     "searchButton": "Поиск"
+  },
+  "gallery": {
+    "pageTitle": "Галерея - Niafam",
+    "breadcrumb": "Галерея",
+    "images": {
+      "title": "Изображения"
+    },
+    "videos": {
+      "title": "Видео"
+    },
+    "sounds": {
+      "title": "Аудио"
+    }
   }
 }

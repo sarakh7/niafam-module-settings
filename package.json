@@ -14,7 +14,8 @@
     "sass:auth": "sass src/assets/scss/auth.scss public/assets/css/auth.css --watch",
     "sass:general": "sass src/assets/scss/general.scss public/assets/css/general.css --watch",
     "sass:contents-list": "sass src/assets/scss/contents-list.scss public/assets/css/contents-list.css --watch",
-    "sass:search-results": "sass src/assets/scss/search-results.scss public/assets/css/search-results.css --watch"
+    "sass:search-results": "sass src/assets/scss/search-results.scss public/assets/css/search-results.css --watch",
+    "sass:gallery": "sass src/assets/scss/gallery.scss public/assets/css/gallery.css --watch"
   },
   "devDependencies": {
     "cross-env": "^10.1.0",

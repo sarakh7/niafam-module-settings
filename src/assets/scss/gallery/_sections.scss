@@ -1,0 +1,32 @@
+/**
+ * Gallery Sections Styles
+ */
+@use '../common/base/globals' as *;
+
+// Section spacing
+.gallery-section {
+  margin-bottom: $spacing-6;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: $spacing-5;
+  }
+}
+
+// Section titles
+.gallery-section__title {
+  font-size: 1.5em;
+  font-weight: $text-bold;
+  color: $blue-gray-600;
+  margin-bottom: $spacing-4;
+  padding-bottom: $spacing-3;
+  border-bottom: 2px solid $blue-gray-600;
+
+  @media (max-width: 768px) {
+    font-size: 1.25em;
+    margin-bottom: $spacing-3;
+  }
+}

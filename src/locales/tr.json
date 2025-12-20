@@ -155,5 +155,18 @@
     "filterPhrase": "Tam ifade",
     "searchPlaceholder": "Ara...",
     "searchButton": "Ara"
+  },
+  "gallery": {
+    "pageTitle": "Galeri - Niafam",
+    "breadcrumb": "Galeri",
+    "images": {
+      "title": "Resimler"
+    },
+    "videos": {
+      "title": "Videolar"
+    },
+    "sounds": {
+      "title": "Sesler"
+    }
   }
 }

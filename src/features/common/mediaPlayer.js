@@ -244,6 +244,24 @@ export function initVideoPlayer(
         tabList.scrollLeft = scrollLeft - walk;
       });
 
+      // Touch drag to scroll (for mobile)
+      tabList.addEventListener("touchstart", function (event) {
+        isDragging = true;
+        startX = event.touches[0].pageX - tabList.offsetLeft;
+        scrollLeft = tabList.scrollLeft;
+      }, { passive: true });
+
+      tabList.addEventListener("touchend", function () {
+        isDragging = false;
+      }, { passive: true });
+
+      tabList.addEventListener("touchmove", function (event) {
+        if (!isDragging) return;
+        const x = event.touches[0].pageX - tabList.offsetLeft;
+        const walk = (x - startX) * 2;
+        tabList.scrollLeft = scrollLeft - walk;
+      }, { passive: true });
+
       // Move selected tab to center of page when clicked
       tabs.forEach((tab) => {
         tab.addEventListener("click", function () {
