@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="generalSubcategories.pageTitle">زیرمجموعه‌های عمومی - نیافام</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+      }
+
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+
+      /* Breadcrumb styles */
+      ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        margin: 0;
+      }
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+      }
+      ul.breadcrumb li a {
+        color: #000;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      ul.breadcrumb li + li:before {
+        padding: 0;
+        color: #000;
+        content: "/ ";
+      }
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <img class="vector" src="/assets/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
+      <nav class="auto-layout">
+        <a href="#" class="text-wrapper" data-i18n="nav.contactUs">تماس با ما</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.organizationalPortal">پورتال سازمانی</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.aboutUs">درباره نیافام</a>
+        <a href="#" class="style-filled"><span class="do-something" data-i18n="nav.login">ورود کاربران</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-content-wrapper">
+        <div class="page-content-breadcrumb">
+          <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+              <a itemprop="item" href="/">
+                <span itemprop="name" data-i18n="breadcrumb.home">صفحه اصلی</span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+              <a itemprop="item" href="/general-subcategories.html">
+                <span itemprop="name" data-i18n="generalSubcategories.breadcrumb">زیرمجموعه‌های عمومی</span>
+              </a>
+              <meta itemprop="position" content="2" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="general-subcats-page-main">
+          <!-- Page Header -->
+          <header class="general-subcats-header">
+            <h1 class="general-subcats-header__title" data-i18n="generalSubcategories.title">زیرمجموعه‌های عمومی</h1>
+            <!-- <p class="general-subcats-header__description" data-i18n="generalSubcategories.description">دسترسی سریع به بخش‌های مختلف سیستم مدیریتی</p> -->
+          </header>
+
+          <!-- Subcategories Grid -->
+          <div class="general-subcats-grid">
+
+            <!-- Item 1: Settings (with image) -->
+            <!-- <a href="/settings.html" class="general-subcats-card general-subcats-card--with-image">
+              <div class="general-subcats-card__image-wrapper">
+                <img class="general-subcats-card__image"
+                     src="/assets/img/subcategory-settings.jpg"
+                     alt=""
+                     loading="lazy" />
+                <div class="general-subcats-card__overlay">
+                  <img src="/assets/icons/settings.png" alt="" loading="lazy" />
+                </div>
+              </div>
+              <div class="general-subcats-card__content">
+                <img class="general-subcats-card__icon" src="/assets/icons/settings.png" alt="" loading="lazy" />
+                <h2 class="general-subcats-card__title" data-i18n="generalSubcategories.items.settings">تنظیمات پایه</h2>
+              </div>
+            </a> -->
+
+            <!-- Item 2: Documents (without image) -->
+            <a href="/documents.html" class="general-subcats-card general-subcats-card--no-image">
+              <div class="general-subcats-card__content general-subcats-card__content--centered">
+                <img class="general-subcats-card__icon" src="./assets/img/document.png" alt="" loading="lazy" />
+                <h2 class="general-subcats-card__title" data-i18n="generalSubcategories.items.documents">اسناد و مدارک</h2>
+              </div>
+            </a>
+
+            <!-- Item 4: Notifications (without image) -->
+            <a href="/notifications.html" class="general-subcats-card general-subcats-card--no-image">
+              <div class="general-subcats-card__content general-subcats-card__content--centered">
+                <img class="general-subcats-card__icon" src="./assets/img/document.png" alt="" loading="lazy" />
+                <h2 class="general-subcats-card__title" data-i18n="generalSubcategories.items.notifications">اعلانات</h2>
+              </div>
+            </a>
+            <!-- Item 6: Security (without image) -->
+            <a href="/security.html" class="general-subcats-card general-subcats-card--no-image">
+              <div class="general-subcats-card__content general-subcats-card__content--centered">
+                <img class="general-subcats-card__icon" src="./assets/img/document.png" alt="" loading="lazy" />
+                <h2 class="general-subcats-card__title" data-i18n="generalSubcategories.items.security">امنیت</h2>
+              </div>
+            </a>
+          </div>
+
+          <!-- Separator between main grid and subpages list -->
+          <div style="padding: 40px 0;"></div>
+
+          <!-- Subpages List Section -->
+          <!-- This section displays general module subpages (404, about, etc.) in compact list mode -->
+          <!-- Toggle between grid/list by adding/removing data-list-mode="true" attribute -->
+          <div class="general-subcats-grid" data-list-mode="true">
+
+            <!-- Item 2: Documents (without image) -->
+            <a href="/documents.html" class="general-subcats-card general-subcats-card--no-image">
+              <div class="general-subcats-card__content general-subcats-card__content--centered">
+                <img class="general-subcats-card__icon" src="./assets/img/document.png" alt="" loading="lazy" />
+                <h2 class="general-subcats-card__title" data-i18n="generalSubcategories.items.documents">اسناد و مدارک</h2>
+              </div>
+            </a>
+
+            <!-- Item 4: Notifications (without image) -->
+            <a href="/notifications.html" class="general-subcats-card general-subcats-card--no-image">
+              <div class="general-subcats-card__content general-subcats-card__content--centered">
+                <h2 class="general-subcats-card__title" data-i18n="generalSubcategories.items.notifications">اعلانات</h2>
+              </div>
+            </a>
+            <a href="/notifications.html" class="general-subcats-card general-subcats-card--no-image">
+              <div class="general-subcats-card__content general-subcats-card__content--centered">
+                <h2 class="general-subcats-card__title">معرفی</h2>
+              </div>
+            </a>
+            <a href="/notifications.html" class="general-subcats-card general-subcats-card--no-image">
+              <div class="general-subcats-card__content general-subcats-card__content--centered">
+                <h2 class="general-subcats-card__title">حوزه ریاست</h2>
+              </div>
+            </a>
+            <a href="/notifications.html" class="general-subcats-card general-subcats-card--no-image">
+              <div class="general-subcats-card__content general-subcats-card__content--centered">
+                <h2 class="general-subcats-card__title">معاونت ها</h2>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="/src/general-subcategories-main.js"></script>
+  </body>
+</html>

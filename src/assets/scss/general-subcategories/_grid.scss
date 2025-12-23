@@ -1,0 +1,450 @@
+/**
+ * General Subcategories Grid Component
+ * Responsive grid layout with two card variants (with/without images)
+ */
+@use '../common/base/globals' as *;
+
+// ========================================
+// Grid Container
+// ========================================
+
+.general-subcats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-5;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $spacing-4;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-4;
+  }
+
+  @media (max-width: 480px) {
+    gap: $spacing-3;
+  }
+}
+
+// ========================================
+// Base Card Component
+// ========================================
+
+.general-subcats-card {
+  display: block;
+  background-color: #fff;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  border: 1px solid transparent;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: $blue-gray-100;
+  }
+
+  &:active {
+    transform: translateY(-4px);
+  }
+
+  @media (max-width: 480px) {
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    &:active {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ========================================
+// Card Variant: WITH Image
+// ========================================
+
+.general-subcats-card--with-image {
+
+  &:hover {
+    .general-subcats-card__image {
+      transform: scale(1.08);
+    }
+
+    .general-subcats-card__overlay {
+      opacity: 1;
+      backdrop-filter: blur(2px);
+    }
+
+    .general-subcats-card__overlay i,
+    .general-subcats-card__overlay img {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+// Image Wrapper
+.general-subcats-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; // 16:9 aspect ratio
+  overflow: hidden;
+  background: $gray-100;
+
+  @media (max-width: 768px) {
+    padding-top: 50%; // Shorter on mobile
+  }
+}
+
+.general-subcats-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Image Overlay (appears on hover with icon)
+.general-subcats-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(35, 48, 68, 0.75); // Solid semi-transparent, NO gradient
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+
+  // Font icon support
+  i {
+    font-size: 3.5em;
+    color: #fff;
+    transform: scale(0.8) translateY(10px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+
+    @media (max-width: 768px) {
+      font-size: 2.5em;
+    }
+  }
+
+  // Image icon support
+  img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transform: scale(0.8) translateY(10px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3)) brightness(0) invert(1);
+
+    @media (max-width: 768px) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+// ========================================
+// Card Variant: WITHOUT Image
+// ========================================
+
+.general-subcats-card--no-image {
+  background: $blue-gray-50;
+  border: 2px solid $blue-gray-100;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  // Subtle pattern effect using pseudo-element
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(45deg,
+        transparent,
+        transparent 20px,
+        rgba(255, 255, 255, 0.03) 20px,
+        rgba(255, 255, 255, 0.03) 40px);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &:hover {
+    background: $blue-gray-100;
+    border-color: $blue-gray-600;
+
+    .general-subcats-card__icon {
+      transform: scale(1.15) rotate(-5deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: 160px;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 140px;
+  }
+}
+
+// ========================================
+// Card Content Area
+// ========================================
+
+.general-subcats-card__content {
+  padding: $spacing-4;
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    padding: $spacing-3;
+    gap: $spacing-2;
+  }
+
+  @media (max-width: 480px) {
+    padding: $spacing-3 $spacing-2;
+  }
+
+  // Centered variant (for no-image cards)
+  &--centered {
+    flex-direction: column;
+    text-align: center;
+    padding: $spacing-5;
+
+    @media (max-width: 768px) {
+      padding: $spacing-4;
+    }
+
+    @media (max-width: 480px) {
+      padding: $spacing-3;
+    }
+
+    // When no icon present, just center the title
+    &:not(:has(.general-subcats-card__icon)) {
+      justify-content: center;
+
+      .general-subcats-card__title {
+        margin: 0;
+      }
+    }
+  }
+
+  // Left-aligned content (when icon is present)
+  &:has(.general-subcats-card__icon) {
+    &:not(.general-subcats-card__content--centered) {
+      gap: $spacing-3;
+    }
+  }
+
+  // When no icon, adjust padding
+  &:not(:has(.general-subcats-card__icon)) {
+    &:not(.general-subcats-card__content--centered) {
+      padding-inline-start: $spacing-5;
+
+      @media (max-width: 768px) {
+        padding-inline-start: $spacing-4;
+      }
+
+      @media (max-width: 480px) {
+        padding-inline-start: $spacing-3;
+      }
+    }
+  }
+}
+
+// ========================================
+// Card Elements
+// ========================================
+
+// Icon (visible in content area) - supports both font icons and images
+.general-subcats-card__icon {
+  flex-shrink: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1;
+
+  // Font icon styles
+  &.es,
+  &[class*="esprit-"],
+  &[class*="icon-"] {
+    font-size: 2.25em;
+    color: $blue-gray-600;
+
+    .general-subcats-card:hover & {
+      color: $blue-gray-700;
+      transform: scale(1.1);
+    }
+
+    .general-subcats-card--no-image & {
+      font-size: 3.5em;
+      margin-bottom: $spacing-2;
+
+      @media (max-width: 768px) {
+        font-size: 2.75em;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 2.25em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.75em;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5em;
+    }
+  }
+
+  // Image icon styles
+  &[src] {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+
+    .general-subcats-card:hover & {
+      transform: scale(1.1);
+    }
+
+    .general-subcats-card--no-image & {
+      width: 72px;
+      height: 72px;
+      margin-bottom: $spacing-2;
+
+      @media (max-width: 768px) {
+        width: 56px;
+        height: 56px;
+      }
+
+      @media (max-width: 480px) {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (max-width: 480px) {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+// Title
+.general-subcats-card__title {
+  font-size: 1.25em;
+  font-weight: $text-bold;
+  color: $blue-gray-700;
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+  letter-spacing: -0.01em;
+
+  .general-subcats-card:hover & {
+    color: $blue-gray-600;
+  }
+
+  // Larger title for no-image cards
+  .general-subcats-card--no-image & {
+    font-size: 1.5em;
+    font-weight: $text-extra-bold;
+
+    @media (max-width: 768px) {
+      font-size: 1.25em;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.125em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.125em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1em;
+  }
+}
+
+// ========================================
+// RTL/LTR Support
+// ========================================
+
+[dir="rtl"] {
+  .general-subcats-card__content {
+    // Flex gap handles RTL automatically
+  }
+
+  .general-subcats-card--no-image:hover {
+    .general-subcats-card__icon {
+      transform: scale(1.15) rotate(5deg); // Mirror rotation
+    }
+  }
+}
+
+[dir="ltr"] {
+  .general-subcats-card__content {
+    // Flex gap handles LTR automatically
+  }
+}
+
+// ========================================
+// Animation & Performance
+// ========================================
+
+// Reduce motion for users who prefer it
+@media (prefers-reduced-motion: reduce) {
+
+  .general-subcats-card,
+  .general-subcats-card__image,
+  .general-subcats-card__overlay,
+  .general-subcats-card__overlay i,
+  .general-subcats-card__icon,
+  .general-subcats-card__title {
+    transition: none;
+    animation: none;
+  }
+}
+
+// Hardware acceleration for smooth animations
+.general-subcats-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.general-subcats-card__image {
+  will-change: transform;
+  backface-visibility: hidden;
+}

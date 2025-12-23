@@ -1,0 +1,15 @@
+/**
+ * General Subcategories Page Styles
+ * Main SCSS entry point for general subcategories listing page
+ */
+
+// Import common base styles
+@use './common/base/variables' as *;
+@use './common/base/mixins';
+@use './common/base/colors' as *;
+@use './common/esfonticon/style';
+
+// Import page-specific components
+@use './general-subcategories/header';
+@use './general-subcategories/grid';
+@use './general-subcategories/subpages-list';

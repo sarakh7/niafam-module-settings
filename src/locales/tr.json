@@ -168,5 +168,19 @@
     "sounds": {
       "title": "Sesler"
     }
+  },
+  "generalSubcategories": {
+    "pageTitle": "Genel Alt Kategoriler - Niafam",
+    "breadcrumb": "Genel Alt Kategoriler",
+    "title": "Genel Alt Kategoriler",
+    "description": "Yönetim sisteminin farklı bölümlerine hızlı erişim",
+    "items": {
+      "settings": "Temel Ayarlar",
+      "documents": "Belgeler ve Dokümanlar",
+      "users": "Kullanıcı Yönetimi",
+      "notifications": "Bildirimler",
+      "analytics": "İstatistikler ve Raporlar",
+      "security": "Güvenlik"
+    }
   }
 }

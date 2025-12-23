@@ -505,5 +505,19 @@
     "title": "Gallery Categories",
     "description": "Browse photo, video and audio galleries of Tehran University of Medical Sciences by topic",
     "galleryCount": "Galleries"
+  },
+  "generalSubcategories": {
+    "pageTitle": "General Subcategories - Niafam",
+    "breadcrumb": "General Subcategories",
+    "title": "General Subcategories",
+    "description": "Quick access to different sections of the management system",
+    "items": {
+      "settings": "Base Settings",
+      "documents": "Documents",
+      "users": "User Management",
+      "notifications": "Notifications",
+      "analytics": "Statistics and Reports",
+      "security": "Security"
+    }
   }
 }

@@ -27,6 +27,7 @@ export default defineConfig({
         searchResults: resolve(__dirname, 'search-results.html'),
         gallery: resolve(__dirname, 'gallery.html'),
         galleryCategories: resolve(__dirname, 'gallery-categories.html'),
+        generalSubcategories: resolve(__dirname, 'general-subcategories.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
       },
