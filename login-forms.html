@@ -88,43 +88,43 @@
 
           <!-- User Dropdown Component (shown after login) -->
           <div class="user-dropdown">
-          <div class="user-dropdown__wrapper">
-            <button class="user-dropdown__trigger" aria-expanded="false" aria-haspopup="true">
-              <img src="/assets/img/avatar-placeholder.png" alt="User Avatar" class="user-dropdown__avatar user-dropdown__avatar--initials" data-initials="JD" />
-            </button>
-            <span class="user-dropdown__name" data-i18n="auth.demo.userName">جان دو</span>
-            <i class="es esprit-fi-rr-angle-down arrow user-dropdown__icon"></i>
-          </div>
-
-          <div class="user-dropdown__menu">
-            <div class="user-dropdown__header">
-              <div class="user-dropdown__header-name" data-i18n="auth.demo.userName">جان دو</div>
-              <div class="user-dropdown__header-email">john.doe@example.com</div>
+            <div class="user-dropdown__wrapper">
+              <button class="user-dropdown__trigger" aria-expanded="false" aria-haspopup="true">
+                <img src="/assets/img/avatar-placeholder.png" alt="User Avatar" class="user-dropdown__avatar user-dropdown__avatar--initials" data-initials="JD" />
+              </button>
+              <span class="user-dropdown__name" data-i18n="auth.demo.userName">جان دو</span>
+              <i class="es esprit-fi-rr-angle-down arrow user-dropdown__icon"></i>
             </div>
 
-            <ul class="user-dropdown__list">
-              <li class="user-dropdown__item">
-                <a href="/profile-view.html" class="user-dropdown__link">
-                  <i class="es esprit-fi-rr-user"></i>
-                  <span data-i18n="auth.userDropdown.viewProfile">View Profile</span>
-                </a>
-              </li>
-              <li class="user-dropdown__item">
-                <a href="/profile-edit.html" class="user-dropdown__link">
-                  <i class="es esprit-fi-rr-edit"></i>
-                  <span data-i18n="auth.userDropdown.editProfile">Edit Profile</span>
-                </a>
-              </li>
-            </ul>
-            <form class="profile-dashboard__logout-form" action="" method="post">
-              <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout" />
-              <button type="submit" class="profile-dashboard__logout-btn">
-                <i class="es esprit-fi-rr-sign-out-alt"></i>
-                <span data-i18n="profile.logout">خروج از حساب کاربری</span>
-              </button>
-            </form>
+            <div class="user-dropdown__menu">
+              <div class="user-dropdown__header">
+                <div class="user-dropdown__header-name" data-i18n="auth.demo.userName">جان دو</div>
+                <div class="user-dropdown__header-email">john.doe@example.com</div>
+              </div>
+
+              <ul class="user-dropdown__list">
+                <li class="user-dropdown__item">
+                  <a href="/profile-view.html" class="user-dropdown__link">
+                    <i class="es esprit-fi-rr-user"></i>
+                    <span data-i18n="auth.userDropdown.viewProfile">View Profile</span>
+                  </a>
+                </li>
+                <li class="user-dropdown__item">
+                  <a href="/profile-edit.html" class="user-dropdown__link">
+                    <i class="es esprit-fi-rr-edit"></i>
+                    <span data-i18n="auth.userDropdown.editProfile">Edit Profile</span>
+                  </a>
+                </li>
+              </ul>
+              <form class="profile-dashboard__logout-form" action="" method="post">
+                <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout" />
+                <button type="submit" class="profile-dashboard__logout-btn">
+                  <i class="es esprit-fi-rr-sign-out-alt"></i>
+                  <span data-i18n="profile.logout">خروج از حساب کاربری</span>
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </header>
@@ -158,8 +158,14 @@
         </li>
         <li class="auth-nav__item">
           <a href="#success-message" class="auth-nav__link">
-            <i class="es esprit-check-circle"></i>
+            <i class="es esprit-fi-rr-check"></i>
             <span data-i18n="auth.nav.success">Success</span>
+          </a>
+        </li>
+        <li class="auth-nav__item">
+          <a href="#two-factor-confirm" class="auth-nav__link">
+            <i class="es esprit-fi-rr-shield-check"></i>
+            <span data-i18n="auth.nav.twoFactor">2FA Confirm</span>
           </a>
         </li>
       </ul>
@@ -457,7 +463,7 @@
           <h2 class="nes-section-title" data-i18n="auth.success.title">Success!</h2>
           <div class="nes-card auth-success-card">
             <div class="auth-success-icon">
-              <i class="es esprit-check-circle"></i>
+              <i class="es esprit-fi-rr-check"></i>
             </div>
             <h3 class="auth-success-title" data-i18n="auth.success.registrationComplete">Registration completed successfully</h3>
             <p class="auth-success-message" data-i18n="auth.success.message">Your account has been created and you can now login to access your dashboard.</p>
@@ -468,6 +474,78 @@
             </div>
           </div>
         </section>
+
+        <!-- 6. Two-Factor Authentication Confirmation -->
+        <section id="two-factor-confirm" class="auth-section">
+          <h2 class="nes-section-title" data-i18n="auth.twoFactor.title">Two-Factor Authentication</h2>
+          <div class="nes-card">
+            <div class="auth-2fa-header">
+              <div class="auth-2fa-icon">
+                <i class="es esprit-fi-rr-shield-check"></i>
+              </div>
+              <h3 class="auth-step-title" data-i18n="auth.twoFactor.confirmTitle">Enter Confirmation Code</h3>
+              <p class="auth-form-description" data-i18n="auth.twoFactor.description">
+                We've sent a verification code to your registered device. Please enter it below to continue.
+              </p>
+            </div>
+
+            <form class="nes-form" id="two-factor-confirm-form">
+              <!-- Error Message Placeholder -->
+              <div class="auth-error-message d-none" id="two-factor-error">
+                <i class="es esprit-fi-rr-triangle-warning"></i>
+                <span data-i18n="auth.twoFactor.error">Invalid code. Please try again.</span>
+              </div>
+
+              <div class="nes-form-group">
+                <label class="nes-label" data-i18n="auth.twoFactor.codeLabel">Verification Code</label>
+                <input
+                  type="text"
+                  class="nes-input auth-2fa-code-input"
+                  id="confirmcode"
+                  name="confirmcode"
+                  data-i18n="[placeholder]auth.twoFactor.codePlaceholder"
+                  placeholder="Enter 6-digit code"
+                  maxlength="6"
+                  autocomplete="one-time-code"
+                  required
+                />
+              </div>
+
+              <!-- Resend Timer Section -->
+              <div class="auth-2fa-timer">
+                <div class="auth-2fa-timer-wrapper">
+                  <i class="es esprit-fi-rr-clock"></i>
+                  <span id="two-factor-timer-text" data-i18n="auth.twoFactor.codeExpiresIn">Code expires in</span>
+                  <strong id="two-factor-countdown" class="auth-2fa-countdown">2:00</strong>
+                </div>
+                <button type="button" class="auth-link d-none" id="two-factor-resend-btn" data-i18n="auth.twoFactor.resendCode">
+                  Resend Code
+                </button>
+              </div>
+
+              <div class="nes-form-actions">
+                <button type="submit" class="nes-btn nes-btn-success">
+                  <i class="es esprit-fi-rr-unlock"></i>
+                  <span data-i18n="auth.twoFactor.submit">Verify & Continue</span>
+                </button>
+              </div>
+
+              <!-- Logout Option -->
+              <div class="auth-2fa-logout">
+                <p class="auth-2fa-logout-text" data-i18n="auth.twoFactor.notYou">Not you?</p>
+                <form class="auth-2fa-logout-form" action="" method="post">
+                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction-2fa" value="logout" />
+                  <button type="submit" class="auth-link auth-link--danger" id="two-factor-logout-btn">
+                    <i class="es esprit-fi-rr-sign-out-alt"></i>
+                    <span data-i18n="auth.twoFactor.logout">Logout</span>
+                  </button>
+                </form>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        
       </div>
     </div>
 

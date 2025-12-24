@@ -164,7 +164,8 @@ textarea:focus {
     color: #fff;
 
     &:hover {
-      background: $blue-gray-700;
+      background: $blue-gray-200;
+      color: $blue-gray-800;
     }
   }
 

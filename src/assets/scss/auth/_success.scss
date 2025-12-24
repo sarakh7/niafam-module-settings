@@ -8,6 +8,10 @@
 .auth-success-card {
   text-align: center;
   padding: $spacing-6 $spacing-5;
+
+  .nes-form-actions {
+    justify-content: center;
+  }
 }
 
 .auth-success-icon {

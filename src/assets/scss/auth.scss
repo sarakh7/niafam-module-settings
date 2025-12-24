@@ -18,4 +18,5 @@
 @use './auth/password';
 @use './auth/otp';
 @use './auth/success';
+@use './auth/two-factor';
 @use './auth/common';

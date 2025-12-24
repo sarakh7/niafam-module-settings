@@ -2690,7 +2690,8 @@ textarea:focus {
   color: #fff;
 }
 .nes-btn-primary:hover {
-  background: hsl(231, 36%, 33%);
+  background: hsl(229, 35%, 88%);
+  color: hsl(230, 36%, 25%);
 }
 .nes-btn.nes-btn-success {
   background-color: #28a745;

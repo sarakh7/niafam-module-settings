@@ -513,7 +513,8 @@
       "otp": "Telefonla Giriş",
       "register": "Kayıt Ol",
       "recovery": "Şifre Kurtarma",
-      "success": "Başarılı"
+      "success": "Başarılı",
+      "twoFactor": "İki Faktörlü Doğrulama"
     },
     "demo": {
       "siteTitle": "Niafam Demo",
@@ -586,6 +587,19 @@
       "usernamePlaceholder": "Kullanıcı adınızı girin",
       "submit": "Kurtarma Kodu Gönder",
       "backToLogin": "Giriş sayfasına dön"
+    },
+    "twoFactor": {
+      "title": "İki Faktörlü Kimlik Doğrulama",
+      "confirmTitle": "Onay Kodunu Girin",
+      "description": "Kayıtlı cihazınıza bir doğrulama kodu gönderdik. Devam etmek için lütfen aşağıya girin.",
+      "codeLabel": "Doğrulama Kodu",
+      "codePlaceholder": "6 haneli kodu girin",
+      "codeExpiresIn": "Kodun geçerlilik süresi",
+      "error": "Geçersiz kod. Lütfen tekrar deneyin.",
+      "resendCode": "Kodu Tekrar Gönder",
+      "submit": "Doğrula ve Devam Et",
+      "notYou": "Siz değil misiniz?",
+      "logout": "Çıkış Yap"
     },
     "confirmation": {
       "title": "Hesap Onayı",

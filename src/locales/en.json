@@ -425,6 +425,27 @@
       "viewProfile": "View Profile",
       "editProfile": "Edit Profile",
       "logout": "Logout"
+    },
+    "nav": {
+      "login": "Login",
+      "otp": "OTP Login",
+      "register": "Register",
+      "recovery": "Password Recovery",
+      "success": "Success",
+      "twoFactor": "2FA Confirm"
+    },
+    "twoFactor": {
+      "title": "Two-Factor Authentication",
+      "confirmTitle": "Enter Confirmation Code",
+      "description": "We've sent a verification code to your registered device. Please enter it below to continue.",
+      "codeLabel": "Verification Code",
+      "codePlaceholder": "Enter 6-digit code",
+      "codeExpiresIn": "Code expires in",
+      "error": "Invalid code. Please try again.",
+      "resendCode": "Resend Code",
+      "submit": "Verify & Continue",
+      "notYou": "Not you?",
+      "logout": "Logout"
     }
   },
   "general": {
