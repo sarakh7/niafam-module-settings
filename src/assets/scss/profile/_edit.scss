@@ -3,6 +3,7 @@
  * Modern redesign with pill-style tabs, two-column forms, and enhanced UX
  */
 @use '../common/base/globals' as *;
+@use 'sass:color';
 
 $white: #fff;
 $text-xl: 1.25em;
@@ -367,7 +368,7 @@ $text-xs: 0.75em;
   .alert-success {
     background: rgba($success, 0.1);
     border: 1px solid $success;
-    color: darken($success, 15%);
+    color: color.scale($success, $lightness: -15%);
     padding: $spacing-2 $spacing-3;
     border-radius: $radius-lg;
   }
@@ -375,7 +376,7 @@ $text-xs: 0.75em;
   .alert-danger {
     background: rgba($error, 0.1);
     border: 1px solid $error;
-    color: darken($error, 10%);
+    color: color.scale($error, $lightness: -10%);
     padding: $spacing-2 $spacing-3;
     border-radius: $radius-lg;
   }
