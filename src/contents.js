@@ -17,7 +17,7 @@ import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
 import { initTtsVisibility, initReadingModeTtsVisibility } from "./features/contents/ttsManager";
 import { initRelatedContent } from "./features/contents/relatedContent";
-import { loadSettingsFromFile } from "./config/settings";
+import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import { initCommentReplyToggle } from "./features/contents/commentReplyToggle";
 import { initTtsAutoLoader } from "./features/contents/ttsAutoLoader";
 import { initArticleMetadata } from "./features/contents/articleMetadata";
@@ -72,6 +72,12 @@ async function initializeApp() {
 
     // CRITICAL: Initialize i18n SECOND
     await initI18n();
+
+    // Auto-detect and set direction if not already set in HTML
+    if (!document.documentElement.dir) {
+      document.documentElement.dir = getDirectionFromHTML();
+    }
+
     // console.log("i18n initialized successfully");
     initLocalization();
 

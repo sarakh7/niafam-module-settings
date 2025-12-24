@@ -55,6 +55,47 @@
     "retry": "إعادة المحاولة",
     "close": "إغلاق"
   },
+  "pdf": {
+    "generationError": "خطأ في إنشاء PDF. يرجى المحاولة مرة أخرى.",
+    "contentNotFound": "لم يتم العثور على عنصر المحتوى!",
+    "imageNotAvailable": "[الصورة غير متاحة]",
+    "contentInfo": "معلومات إنتاج المحتوى",
+    "page": "صفحة",
+    "of": "من",
+    "generationDate": "تاريخ الإنشاء",
+    "metadata": {
+      "author": "المؤلف",
+      "publishDate": "تاريخ النشر",
+      "photographer": "المصور",
+      "videographer": "مصور الفيديو",
+      "editor": "المحرر",
+      "newsCode": "رمز الخبر",
+      "newsGroup": "مجموعة الأخبار",
+      "readingTime": "وقت القراءة",
+      "minutes": "دقائق"
+    }
+  },
+  "print": {
+    "error": "خطأ في الطباعة",
+    "contentNotFound": "لم يتم العثور على عنصر المحتوى!"
+  },
+  "nav": {
+    "contactUs": "اتصل بنا",
+    "organizationalPortal": "البوابة",
+    "aboutUs": "من نحن",
+    "login": "تسجيل الدخول"
+  },
+  "breadcrumb": {
+    "home": "الصفحة الرئيسية",
+    "content": "المحتوى",
+    "news": "الأخبار",
+    "ticketing": "التذاكر",
+    "ticketTracking": "تتبع التذاكر",
+    "dashboard": "لوحة التحكم",
+    "profile": "الملف الشخصي",
+    "editProfile": "تعديل الملف الشخصي",
+    "profileDetails": "تفاصيل الملف الشخصي"
+  },
   "tools": {
     "toolbox": "صندوق الأدوات",
     "shortlink": {
@@ -66,6 +107,137 @@
     "print": "طباعة",
     "pdf": "PDF",
     "sendToFriend": "إرسال إلى صديق"
+  },
+  "accessibility": {
+    "fontSize": "حجم الخط",
+    "wordSpacing": "تباعد الكلمات",
+    "lineHeight": "ارتفاع السطر",
+    "lineHeightAdjust": "ضبط ارتفاع السطر",
+    "wordSpacingAdjust": "ضبط تباعد الكلمات",
+    "backgroundColor": "تغيير الخلفية",
+    "reset": "إعادة تعيين",
+    "reloadPage": "إعادة تحميل الصفحة",
+    "textOnly": "نص فقط",
+    "textOnlyMode": "وضع النص فقط"
+  },
+  "tts": {
+    "title": "تحويل النص إلى كلام",
+    "play": "تشغيل",
+    "pause": "إيقاف مؤقت",
+    "stop": "إيقاف",
+    "speed": "السرعة",
+    "voice": "الصوت"
+  },
+  "share": {
+    "title": "مشاركة",
+    "shareButton": "مشاركة",
+    "facebook": "مشاركة على فيسبوك",
+    "telegram": "مشاركة على تيليجرام",
+    "whatsapp": "مشاركة على واتساب",
+    "eitaa": "مشاركة على إيتا",
+    "bale": "مشاركة على بيل",
+    "twitter": "مشاركة على X (تويتر)",
+    "linkedin": "مشاركة على لينكدإن"
+  },
+  "relatedContent": {
+    "title": "المحتوى المتعلق بهذا الخبر",
+    "description": "انقر على العنوان المطلوب للوصول السريع إلى كل قسم.",
+    "attachments": "المرفقات",
+    "images": "الصور",
+    "videos": "مقاطع الفيديو",
+    "audios": "الملفات الصوتية",
+    "relatedNews": "الأخبار ذات الصلة"
+  },
+  "article": {
+    "attachments": "الملفات القابلة للتنزيل",
+    "pictures": "الصور",
+    "videos": "مقاطع الفيديو",
+    "audios": "الملفات الصوتية",
+    "relatedNews": "الأخبار ذات الصلة",
+    "tags": "الوسوم",
+    "textNews": "الأخبار النصية",
+    "pictureNews": "أخبار الصور",
+    "videoNews": "أخبار الفيديو",
+    "audioNews": "الأخبار الصوتية",
+    "video": "فيديو",
+    "audio": "صوت",
+    "picture": "صورة"
+  },
+  "metadata": {
+    "author": "المؤلف",
+    "publishDate": "تاريخ النشر:",
+    "views": "المشاهدات:",
+    "newsCode": "رمز الخبر",
+    "newsGroup": "مجموعة الأخبار",
+    "photographer": "المصور:",
+    "videographer": "مصور الفيديو:",
+    "editor": "المحرر:",
+    "photographers": "المصورون:",
+    "videographers": "مصورو الفيديو:",
+    "editors": "المحررون:",
+    "readingTime": "وقت القراءة:",
+    "minutes": "دقائق",
+    "lastUpdateDate": "تاريخ آخر تحديث:",
+    "lastUpdateTime": "وقت التحديث:",
+    "contentProducer": "منتج المحتوى:"
+  },
+  "modal": {
+    "sendToFriend": {
+      "title": "إرسال إلى صديق",
+      "yourEmail": "بريدك الإلكتروني",
+      "recipientEmail": "بريد المستلم",
+      "captchaLabel": "أدخل النص الموجود في الصورة:",
+      "submit": "إرسال",
+      "cancel": "إلغاء"
+    },
+    "readingMode": {
+      "title": "وضع القراءة",
+      "themes": {
+        "light": "فاتح",
+        "dark": "داكن",
+        "yellow": "أصفر",
+        "blue": "أزرق"
+      },
+      "sampleCharacter": "أ"
+    }
+  },
+  "comments": {
+    "title": "التعليقات",
+    "count": "تعليق (تعليقات) لهذا الخبر",
+    "reply": "رد",
+    "submitComment": "إرسال التعليق",
+    "cancel": "إلغاء",
+    "leaveComment": "اترك تعليقاً"
+  },
+  "form": {
+    "fullName": "الاسم الكامل",
+    "fullNameRequired": "الاسم الكامل *",
+    "email": "البريد الإلكتروني",
+    "emailRequired": "البريد الإلكتروني *",
+    "comment": "أدخل تعليقك ...",
+    "captcha": "رمز الأمان",
+    "captchaInstruction": "أدخل النص الموجود في الصورة:",
+    "captchaRefresh": "تحديث رمز الأمان",
+    "yourComment": "تعليقك"
+  },
+  "vote": {
+    "question": "هل كان هذا الخبر مفيداً؟",
+    "yes": "نعم",
+    "no": "لا",
+    "useful": "مفيد",
+    "notUseful": "غير مفيد",
+    "voteGroup": "التصويت للخبر"
+  },
+  "rating": {
+    "alreadyVoted": "لقد صوّت بالفعل لهذا التعليق"
+  },
+  "audio": {
+    "player": "مشغل تحويل النص إلى كلام",
+    "unsupported": "متصفحك لا يدعم تشغيل الصوت."
+  },
+  "images": {
+    "author": "صورة المؤلف",
+    "commenter": "صورة المعلق"
   },
   "about": {
     "title": "عن نيافام",
@@ -219,6 +391,242 @@
     },
     "sounds": {
       "title": "الصوتيات"
+    },
+    "relatedGalleries": "معارض ذات صلة",
+    "archive": "أرشيف المعرض"
+  },
+  "galleryCategories": {
+    "pageTitle": "فئات المعرض - نيافام",
+    "breadcrumb": "فئات المعرض",
+    "title": "فئات المعرض",
+    "description": "تصفح معارض الصور والفيديو والصوت لجامعة طهران للعلوم الطبية حسب الموضوع",
+    "galleryCount": "معارض"
+  },
+  "profileDetails": {
+    "pageTitle": "تفاصيل الملف الشخصي - نيافام",
+    "personalInfo": "المعلومات الشخصية",
+    "contactInfo": "معلومات الاتصال والموقع",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "nickname": "اللقب",
+    "gender": "الجنس",
+    "birthdate": "تاريخ الميلاد",
+    "nationalCode": "الرقم الوطني",
+    "birthCode": "رقم شهادة الميلاد",
+    "email": "البريد الإلكتروني",
+    "mobile": "الهاتف المحمول",
+    "province": "المحافظة",
+    "city": "المدينة",
+    "address": "العنوان",
+    "postalCode": "الرمز البريدي",
+    "bio": "نبذة عني",
+    "memberSince": "عضو منذ"
+  },
+  "profile": {
+    "greeting": "مرحباً",
+    "dear": "!",
+    "logout": "تسجيل الخروج",
+    "editProfile": "تعديل الملف الشخصي",
+    "email": "البريد الإلكتروني:",
+    "mobile": "رقم الهاتف المحمول:",
+    "birthdate": "تاريخ الميلاد:",
+    "website": "الموقع الإلكتروني:",
+    "tabs": {
+      "basicInfo": "المعلومات الأساسية",
+      "changePassword": "تغيير كلمة المرور",
+      "uploadAvatar": "تحميل الصورة الشخصية"
+    },
+    "form": {
+      "firstName": "الاسم الأول",
+      "firstNamePlaceholder": "أدخل اسمك الأول",
+      "lastName": "اسم العائلة",
+      "lastNamePlaceholder": "أدخل اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "mobile": "رقم الهاتف المحمول",
+      "mobilePlaceholder": "أدخل رقم هاتفك المحمول",
+      "birthdate": "تاريخ الميلاد",
+      "birthdatePlaceholder": "اختر تاريخ ميلادك",
+      "gender": "الجنس",
+      "genderNone": "غير محدد",
+      "genderMale": "ذكر",
+      "genderFemale": "أنثى",
+      "website": "الموقع الإلكتروني",
+      "websitePlaceholder": "أدخل عنوان موقعك الإلكتروني",
+      "linkedin": "لينكدإن",
+      "linkedinPlaceholder": "أدخل عنوان لينكدإن الخاص بك",
+      "instagram": "إنستغرام",
+      "instagramPlaceholder": "أدخل عنوان إنستغرام الخاص بك",
+      "telegram": "تيليجرام",
+      "telegramPlaceholder": "أدخل عنوان تيليجرام الخاص بك",
+      "city": "المدينة",
+      "cityPlaceholder": "أدخل مدينتك",
+      "province": "المحافظة",
+      "provincePlaceholder": "أدخل محافظتك",
+      "postalCode": "الرمز البريدي",
+      "postalCodePlaceholder": "أدخل رمزك البريدي",
+      "address": "العنوان",
+      "addressPlaceholder": "أدخل عنوانك الكامل",
+      "description": "الوصف",
+      "descriptionPlaceholder": "أدخل وصفك",
+      "oldPassword": "كلمة المرور القديمة",
+      "oldPasswordPlaceholder": "أدخل كلمة المرور القديمة",
+      "newPassword": "كلمة المرور الجديدة",
+      "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
+      "repeatPassword": "تكرار كلمة المرور",
+      "repeatPasswordPlaceholder": "أعد إدخال كلمة المرور الجديدة",
+      "addFile": "إضافة ملف",
+      "chooseAvatar": "اختر الصورة",
+      "avatarHelp": "يجب أن تكون الصورة أقل من 5 ميجابايت وبصيغة JPG أو PNG أو GIF",
+      "passwordRequirements": "يجب أن تحتوي كلمة المرور على أحرف كبيرة وصغيرة وأرقام",
+      "submit": "إرسال"
+    },
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "invalidEmail": "عنوان البريد الإلكتروني غير صالح",
+      "invalidURL": "عنوان الموقع الإلكتروني غير صالح",
+      "weakPassword": "يجب أن تحتوي كلمة المرور على أحرف كبيرة وصغيرة وأرقام",
+      "passwordMismatch": "كلمات المرور غير متطابقة",
+      "fixErrors": "يرجى إصلاح أخطاء النموذج",
+      "invalidFileType": "يُسمح فقط بملفات JPG و PNG و GIF",
+      "fileTooLarge": "يجب ألا يتجاوز حجم الملف 5 ميجابايت"
+    },
+    "messages": {
+      "saveSuccess": "تم حفظ المعلومات بنجاح",
+      "saveError": "خطأ في حفظ المعلومات",
+      "passwordChangeSuccess": "تم تغيير كلمة المرور بنجاح",
+      "passwordChangeError": "خطأ في تغيير كلمة المرور",
+      "avatarUploadSuccess": "تم تحديث الصورة الشخصية بنجاح",
+      "avatarUploadError": "خطأ في تحميل الصورة",
+      "unknownError": "خطأ غير معروف"
+    }
+  },
+  "common": {
+    "loading": "جاري الإرسال..."
+  },
+  "auth": {
+    "pageTitle": "نماذج المصادقة - نيافام",
+    "submitLink": "تسجيل",
+    "loginLink": "تسجيل الدخول",
+    "nav": {
+      "login": "تسجيل الدخول",
+      "otp": "الدخول بالهاتف",
+      "register": "التسجيل",
+      "recovery": "استعادة كلمة المرور",
+      "success": "النجاح"
+    },
+    "demo": {
+      "siteTitle": "عرض نيافام",
+      "userName": "جون دو"
+    },
+    "userDropdown": {
+      "viewProfile": "عرض الملف الشخصي",
+      "editProfile": "تحرير الملف الشخصي",
+      "logout": "تسجيل الخروج"
+    },
+    "login": {
+      "title": "تسجيل الدخول إلى حسابك",
+      "username": "اسم المستخدم",
+      "usernamePlaceholder": "أدخل اسم المستخدم",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "submit": "تسجيل الدخول",
+      "submitting": "جاري تسجيل الدخول...",
+      "forgotPassword": "هل نسيت كلمة المرور؟",
+      "signUp": "التسجيل",
+      "noAccount": "ليس لديك حساب؟"
+    },
+    "otp": {
+      "title": "تسجيل الدخول برقم الهاتف المحمول",
+      "step1Title": "أدخل رقم هاتفك المحمول",
+      "step2Title": "أدخل رمز التحقق",
+      "username": "اسم المستخدم",
+      "usernamePlaceholder": "أدخل اسم المستخدم",
+      "phone": "رقم الهاتف المحمول",
+      "phonePlaceholder": "أدخل رقم هاتفك المحمول",
+      "sendCode": "إرسال رمز التحقق",
+      "verificationCode": "رمز التحقق المكون من 6 أرقام",
+      "codePlaceholder": "000000",
+      "resendCode": "إعادة إرسال الرمز",
+      "resendIn": "إعادة الإرسال خلال {{time}}",
+      "verifyCode": "التحقق وتسجيل الدخول",
+      "editPhone": "تعديل رقم الهاتف المحمول"
+    },
+    "registration": {
+      "title": "إنشاء حساب جديد",
+      "firstName": "الاسم الأول",
+      "firstNamePlaceholder": "أدخل اسمك الأول",
+      "lastName": "اسم العائلة",
+      "lastNamePlaceholder": "أدخل اسم عائلتك",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني (اختياري)",
+      "phone": "رقم الهاتف المحمول",
+      "phonePlaceholder": "أدخل رقم هاتفك المحمول",
+      "nationalCode": "الرقم الوطني",
+      "nationalCodePlaceholder": "أدخل رقمك الوطني (اختياري)",
+      "gender": "الجنس",
+      "male": "ذكر",
+      "female": "أنثى",
+      "username": "اسم المستخدم",
+      "usernamePlaceholder": "اختر اسم مستخدم",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "اختر كلمة مرور قوية",
+      "confirmPassword": "تكرار كلمة المرور",
+      "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+      "submit": "إنشاء حساب",
+      "haveAccount": "هل سبق لك التسجيل؟",
+      "signIn": "تسجيل الدخول"
+    },
+    "passwordReset": {
+      "title": "استعادة كلمة المرور",
+      "description": "أدخل بريدك الإلكتروني أو رقم هاتفك أو اسم المستخدم لتلقي رمز الاستعادة",
+      "emailPhoneUsername": "البريد الإلكتروني أو الهاتف أو اسم المستخدم",
+      "identifierPlaceholder": "البريد الإلكتروني أو رقم الهاتف أو اسم المستخدم",
+      "username": "اسم المستخدم",
+      "usernamePlaceholder": "أدخل اسم المستخدم",
+      "submit": "إرسال رمز الاستعادة",
+      "backToLogin": "العودة إلى صفحة تسجيل الدخول"
+    },
+    "confirmation": {
+      "title": "تأكيد الحساب",
+      "enterCode": "أدخل الرمز المكون من 6 أرقام",
+      "submit": "تأكيد",
+      "resendCode": "إعادة إرسال الرمز"
+    },
+    "success": {
+      "title": "نجح!",
+      "registrationComplete": "تم التسجيل بنجاح",
+      "message": "تم إنشاء حسابك ويمكنك الآن الدخول إلى لوحة التحكم الخاصة بك.",
+      "backToLogin": "الانتقال إلى صفحة تسجيل الدخول"
+    },
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "invalidEmail": "تنسيق البريد الإلكتروني غير صالح",
+      "invalidPhone": "رقم الهاتف المحمول غير صالح",
+      "weakPassword": "يجب أن تحتوي كلمة المرور على أحرف كبيرة وصغيرة وأرقام",
+      "passwordMismatch": "كلمات المرور غير متطابقة",
+      "invalidUsername": "يجب أن يتكون اسم المستخدم من 3 إلى 20 حرفاً (أحرف وأرقام وشرطة سفلية)",
+      "invalidOTP": "يجب أن يتكون الرمز من 6 أرقام",
+      "fixErrors": "يرجى إصلاح أخطاء النموذج"
+    },
+    "captcha": {
+      "label": "رمز الأمان",
+      "placeholder": "أدخل الرمز",
+      "refresh": "تحديث"
+    },
+    "messages": {
+      "loginSuccess": "تم تسجيل الدخول بنجاح!",
+      "loginError": "اسم المستخدم أو كلمة المرور غير صحيحة",
+      "otpSent": "تم إرسال رمز التحقق",
+      "otpResent": "تم إعادة إرسال الرمز",
+      "otpSuccess": "تم تسجيل الدخول بنجاح!",
+      "otpInvalid": "الرمز المدخل غير صالح",
+      "otpError": "خطأ في إرسال الرمز",
+      "registrationSuccess": "تم التسجيل بنجاح!",
+      "registrationError": "خطأ في التسجيل",
+      "passwordResetSent": "تم إرسال رمز الاستعادة إلى بريدك الإلكتروني/هاتفك",
+      "passwordResetError": "خطأ في إرسال رمز الاستعادة",
+      "serverError": "حدث خطأ في الخادم"
     }
   },
   "generalSubcategories": {

@@ -1,6 +1,6 @@
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
-import { loadSettingsFromFile } from "./config/settings";
+import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import "./assets/scss/gallery-categories.scss";
 
 /**
@@ -14,6 +14,12 @@ async function initializeGalleryCategoriesApp() {
 
     // 2. Initialize i18n SECOND
     await initI18n();
+
+    // Auto-detect and set direction if not already set in HTML
+    if (!document.documentElement.dir) {
+      document.documentElement.dir = getDirectionFromHTML();
+    }
+
     initLocalization();
 
     console.log("Gallery categories page initialized successfully");

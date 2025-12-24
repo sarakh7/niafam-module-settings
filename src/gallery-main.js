@@ -1,6 +1,6 @@
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
-import { loadSettingsFromFile } from "./config/settings";
+import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import { initImageGallery } from "./features/gallery/imageGallery";
 import { initVideoSection } from "./features/gallery/videoSection";
 import { initAudioSection } from "./features/gallery/audioSection";
@@ -18,6 +18,12 @@ async function initializeGalleryApp() {
 
     // 2. Initialize i18n SECOND
     await initI18n();
+
+    // Auto-detect and set direction if not already set in HTML
+    if (!document.documentElement.dir) {
+      document.documentElement.dir = getDirectionFromHTML();
+    }
+
     initLocalization();
 
     // 3. Initialize gallery sections
