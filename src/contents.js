@@ -17,6 +17,7 @@ import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
 import { initTtsVisibility, initReadingModeTtsVisibility } from "./features/contents/ttsManager";
 import { initRelatedContent } from "./features/contents/relatedContent";
+import { initRelatedNews } from "./features/contents/relatedNews";
 import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import { initCommentReplyToggle } from "./features/contents/commentReplyToggle";
 import { initTtsAutoLoader } from "./features/contents/ttsAutoLoader";
@@ -110,6 +111,7 @@ async function initializeApp() {
     // Initialize related content - only if related news section exists
     if (document.getElementById("article-related-news") || document.querySelector(".esprit-article__related-news")) {
       initRelatedContent();
+      initRelatedNews();
       initScrollNav("related-content-list");
     }
 

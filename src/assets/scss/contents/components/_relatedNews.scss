@@ -2,6 +2,10 @@
 @use '../../common/base/globals' as *;
 
 .esprit-article {
+    &__related-news:has(.article-related-news__inner:empty) {
+        display: none;
+    }
+
 
     &__news-list {
         padding: 0 $spacing-4;
