@@ -28,20 +28,45 @@ export default defineConfig({
         gallery: resolve(__dirname, 'gallery.html'),
         galleryCategories: resolve(__dirname, 'gallery-categories.html'),
         generalSubcategories: resolve(__dirname, 'general-subcategories.html'),
+        contentDetail: resolve(__dirname, 'content-detail.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
       },
       output: {
         // فایل‌های build را در پوشه‌های جداگانه قرار بده
         entryFileNames: 'assets/[name]/[name]-[hash].js',
-        // چانک‌های lazy load در پوشه اصلی assets قرار می‌گیرند (نه زیرپوشه)
-        // این کار مسیر نسبی را برای production درست می‌کند
-        chunkFileNames: 'assets/[name]-[hash].js',
+
+        // Custom chunk naming for i18n files
+        chunkFileNames: (chunkInfo) => {
+          // Name language chunks clearly for debugging
+          if (chunkInfo.name.startsWith('locales/')) {
+            return 'assets/i18n/[name]-[hash].js';
+          }
+          // چانک‌های lazy load در پوشه اصلی assets قرار می‌گیرند (نه زیرپوشه)
+          // این کار مسیر نسبی را برای production درست می‌کند
+          return 'assets/[name]-[hash].js';
+        },
+
         assetFileNames: 'assets/[name]/[name]-[hash][extname]',
-      }
+      },
+
+      // Manual chunk optimization for i18n
+      manualChunks: (id) => {
+        // Group all locale files into separate chunks
+        if (id.includes('/locales/')) {
+          // Extract language code: src/locales/fa.json -> locales/fa
+          const match = id.match(/locales\/([a-z]{2})\.json/);
+          if (match) {
+            return `locales/${match[1]}`;
+          }
+        }
+      },
     },
     // Source maps برای debugging
     sourcemap: true,
+
+    // Optimize chunk size
+    chunkSizeWarningLimit: 600, // Warn if chunk > 600KB
   },
 
   server: {
@@ -57,5 +82,10 @@ export default defineConfig({
         // additionalData: `@import "./src/assets/scss/variables";`
       }
     }
+  },
+
+  // JSON optimization - keep as ES modules for tree-shaking
+  json: {
+    stringify: false,
   }
 });

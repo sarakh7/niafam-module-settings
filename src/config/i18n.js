@@ -1,36 +1,41 @@
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "./constants";
-
-// Import translation files (will be created in next step)
-import fa from "../locales/fa.json";
-import en from "../locales/en.json";
-import ar from "../locales/ar.json";
-import tr from "../locales/tr.json";
-import ru from "../locales/ru.json";
+import ViteBackendLoader from "./i18n-backend-loader";
 
 /**
- * Initialize i18next
+ * Initialize i18next with lazy-loaded language resources
+ * Languages are loaded on-demand via dynamic imports
  */
 export async function initI18n() {
-  await i18next.use(LanguageDetector).init({
-    resources: {
-      [SUPPORTED_LANGUAGES.FA]: { translation: fa },
-      [SUPPORTED_LANGUAGES.EN]: { translation: en },
-      [SUPPORTED_LANGUAGES.AR]: { translation: ar },
-      [SUPPORTED_LANGUAGES.TR]: { translation: tr },
-      [SUPPORTED_LANGUAGES.RU]: { translation: ru },
-    },
-    fallbackLng: DEFAULT_LANGUAGE,
-    lng: document.documentElement.lang || DEFAULT_LANGUAGE,
-    detection: {
-      order: ["htmlTag", "navigator"],
-      caches: [],
-    },
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+  await i18next
+    .use(ViteBackendLoader)
+    .use(LanguageDetector)
+    .init({
+      // No static resources - loaded by backend on demand
+      fallbackLng: DEFAULT_LANGUAGE,
+      lng: document.documentElement.lang || DEFAULT_LANGUAGE,
+
+      // Language detection configuration
+      detection: {
+        order: ["htmlTag", "navigator"],
+        caches: [],
+      },
+
+      // Backend configuration
+      ns: ['translation'],
+      defaultNS: 'translation',
+
+      // Load only the detected language initially
+      preload: [],
+
+      interpolation: {
+        escapeValue: false,
+      },
+
+      // Debug in development mode
+      debug: import.meta.env.DEV,
+    });
 
   return i18next;
 }
