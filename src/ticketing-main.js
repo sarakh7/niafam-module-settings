@@ -23,7 +23,7 @@ async function initializeTicketingApp() {
     initLocalization();
 
     // Initialize ticket tracking feature
-    initTicketTracking();
+    // initTicketTracking();
 
     // console.log("Ticketing application initialized successfully");
   } catch (error) {

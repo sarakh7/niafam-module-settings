@@ -29,9 +29,9 @@ async function initialize404App() {
     initLocalization();
 
     // 4. Initialize 404 page features
-    init404Page();
+    // init404Page();
 
-    console.log("404 page initialized successfully");
+    // console.log("404 page initialized successfully");
   } catch (error) {
     console.error("Failed to initialize 404 page:", error);
   }

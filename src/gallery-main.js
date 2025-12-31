@@ -42,7 +42,7 @@ async function initializeGalleryApp() {
     // Initialize short URL copy functionality
     initCopyShortUrl();
 
-    console.log("Gallery page initialized successfully");
+    // console.log("Gallery page initialized successfully");
   } catch (error) {
     console.error("Failed to initialize gallery page:", error);
   }

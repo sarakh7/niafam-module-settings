@@ -30,7 +30,7 @@ export function initPasswordForm() {
   // Handle form submission
   form.addEventListener('submit', handlePasswordFormSubmit);
 
-  console.log('Password Form: Initialized');
+  // console.log('Password Form: Initialized');
 }
 
 /**

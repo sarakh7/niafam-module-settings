@@ -64,9 +64,9 @@ function localizeElement(element) {
 
 /**
  * Localize all elements with data-i18n or data-label-i18n attributes in a container
- * @param {HTMLElement} [container=document.body] - Container to search in
+ * @param {HTMLElement} [container=document.documentElement] - Container to search in
  */
-export function localizeDOM(container = document.body) {
+export function localizeDOM(container = document.documentElement) {
   // Localize elements with data-i18n
   const i18nElements = container.querySelectorAll('[data-i18n]');
   i18nElements.forEach(localizeElement);
@@ -139,7 +139,7 @@ export function initLocalization() {
     console.log(`i18next language changed: ${lang} (${direction})`);
   });
   
-  console.log('Localization system initialized');
+  // console.log('Localization system initialized');
 }
 
 /**

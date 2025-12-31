@@ -200,7 +200,7 @@
   border: 1px solid $gray-200;
 
   &:hover {
-    transform: translateY(-4px);
+    // transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   }
 }
@@ -306,4 +306,17 @@
   font-size: 0.85em;
   color: $gray-500;
   display: block;
+}
+
+[dir="ltr"] {
+  .gallery-navigation__item i {
+    transform: scale(-1);
+  }
+
+  .video-list__container::after {
+    right: -1px;
+    left: auto;
+    background: linear-gradient(270deg, rgba(234, 236, 245, 0) 0%, #EAECF5 100%);
+    transform: scale(-1);
+  }
 }

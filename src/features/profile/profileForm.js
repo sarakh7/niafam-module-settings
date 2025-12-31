@@ -28,7 +28,7 @@ export function initProfileForm() {
   // Handle form submission
   form.addEventListener('submit', handleFormSubmit);
 
-  console.log('Profile Form: Initialized');
+  // console.log('Profile Form: Initialized');
 }
 
 /**

@@ -49,7 +49,7 @@ const ViteBackendLoader = {
       .then((module) => {
         // Vite imports JSON as default export
         const translations = module.default || module;
-        console.log(`[i18n-backend] Loaded ${language}.json (${Object.keys(translations).length} keys)`);
+        // console.log(`[i18n-backend] Loaded ${language}.json (${Object.keys(translations).length} keys)`);
         callback(null, translations);
       })
       .catch((error) => {

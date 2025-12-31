@@ -35,7 +35,7 @@ async function initializeProfileApp() {
     initPasswordForm();
     initAvatarUpload();
 
-    console.log("Profile application initialized successfully");
+    // console.log("Profile application initialized successfully");
   } catch (error) {
     console.error("Failed to initialize profile application:", error);
   }

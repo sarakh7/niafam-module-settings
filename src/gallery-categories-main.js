@@ -22,7 +22,7 @@ async function initializeGalleryCategoriesApp() {
 
     initLocalization();
 
-    console.log("Gallery categories page initialized successfully");
+    // console.log("Gallery categories page initialized successfully");
   } catch (error) {
     console.error("Failed to initialize gallery categories page:", error);
   }

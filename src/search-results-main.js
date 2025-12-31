@@ -25,7 +25,7 @@ async function initializeSearchResultsApp() {
     // Initialize search results features
     initSearchResults();
 
-    console.log("Search results application initialized successfully");
+    // console.log("Search results application initialized successfully");
   } catch (error) {
     console.error("Failed to initialize search results application:", error);
   }

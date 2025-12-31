@@ -32,7 +32,7 @@ export function initAvatarUpload() {
   // Handle file selection
   fileInput.addEventListener('change', handleFileSelection);
 
-  console.log('Avatar Upload: Initialized');
+  // console.log('Avatar Upload: Initialized');
 }
 
 /**

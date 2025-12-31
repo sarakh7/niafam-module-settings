@@ -8,8 +8,8 @@
  */
 export function initSearchResults() {
   initAnimations();
-  initSmoothScroll();
-  console.log("Search results features initialized");
+  // initSmoothScroll();
+  // console.log("Search results features initialized");
 }
 
 /**
@@ -30,7 +30,7 @@ function initAnimations() {
     item.classList.add('esprit-search-results-item--animate');
   });
 
-  console.log(`Initialized animations for ${items.length} result items`);
+  // console.log(`Initialized animations for ${items.length} result items`);
 }
 
 /**
@@ -59,6 +59,6 @@ function initSmoothScroll() {
   });
 
   if (breadcrumbLinks.length) {
-    console.log("Initialized smooth scroll for breadcrumb links");
+    // console.log("Initialized smooth scroll for breadcrumb links");
   }
 }

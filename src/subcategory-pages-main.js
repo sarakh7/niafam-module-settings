@@ -26,7 +26,7 @@ async function initializeGeneralSubcategoriesApp() {
 
     initLocalization();
 
-    console.log("General subcategories page initialized successfully");
+    // console.log("General subcategories page initialized successfully");
   } catch (error) {
     console.error("Failed to initialize general subcategories page:", error);
   }

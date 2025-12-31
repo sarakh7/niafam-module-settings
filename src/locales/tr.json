@@ -305,6 +305,7 @@
       "attachedFile": "Ekli Dosya"
     },
     "sections": {
+      "trackingForm": "Bilet Takibi",
       "submittedInfo": "Gönderilen Bilgiler",
       "conversations": "Konuşmalar",
       "sendReply": "Yanıt Gönder"
@@ -332,8 +333,9 @@
       "button": "Ana Sayfaya Dön"
     },
     "404Creative": {
-      "heading": "Aradığınız Sayfa Bulunamıyor!",
-      "message": "Belki bağlantı yanlıştı veya sayfa taşındı. Endişelenmeyin, size yardımcı olabiliriz!",
+      "pageTitle": "Sayfa Bulunamadı",
+      "heading": "İstenilen Sayfa Bulunamadı!",
+      "message": "Maalesef, aradığınız sayfa mevcut değil veya kaldırılmış olabilir.",
       "searchPlaceholder": "Niafam'da ara...",
       "searchButton": "Ara",
       "quickLinksTitle": "Veya bunları deneyebilirsiniz:",
