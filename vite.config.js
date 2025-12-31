@@ -18,7 +18,6 @@ export default defineConfig({
         about: resolve(__dirname, 'about.html'),
         ticketTracking: resolve(__dirname, 'ticket-tracking.html'),
         profileDashboard: resolve(__dirname, 'profile-dashboard.html'),
-        profileView: resolve(__dirname, 'profile-view.html'),
         profileEdit: resolve(__dirname, 'profile-edit.html'),
         profileDetails: resolve(__dirname, 'profile-details.html'),
         authForms: resolve(__dirname, 'login-forms.html'),
@@ -44,7 +43,6 @@ export default defineConfig({
           if (name === 'gallery') return 'assets/gallery/gallery-[hash].js';
           if (name === 'galleryCategories') return 'assets/gallery/galleryCategories-[hash].js';
           if (name === 'profileDashboard') return 'assets/profile/profileDashboard-[hash].js';
-          if (name === 'profileView') return 'assets/profile/profileView-[hash].js';
           if (name === 'profileEdit') return 'assets/profile/profileEdit-[hash].js';
           if (name === 'profileDetails') return 'assets/profile/profileDetails-[hash].js';
           if (name === 'authForms') return 'assets/auth/authForms-[hash].js';
@@ -107,7 +105,6 @@ export default defineConfig({
             if (name.includes('galleryCategories')) return 'assets/gallery/galleryCategories-[hash].css';
             if (name.includes('gallery')) return 'assets/gallery/gallery-[hash].css';
             if (name.includes('profileDashboard')) return 'assets/profile/profileDashboard-[hash].css';
-            if (name.includes('profileView')) return 'assets/profile/profileView-[hash].css';
             if (name.includes('profileEdit')) return 'assets/profile/profileEdit-[hash].css';
             if (name.includes('profileDetails')) return 'assets/profile/profileDetails-[hash].css';
             if (name.includes('profile-main')) return 'assets/profile/profile-main-[hash].css';
