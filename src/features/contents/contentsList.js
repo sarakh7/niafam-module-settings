@@ -78,5 +78,5 @@ export function initContentsList() {
     initSmoothScroll();
   }
 
-  console.log('Contents list feature initialized');
+  // console.log('Contents list feature initialized');
 }

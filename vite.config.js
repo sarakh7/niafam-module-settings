@@ -23,12 +23,11 @@ export default defineConfig({
         profileDetails: resolve(__dirname, 'profile-details.html'),
         authForms: resolve(__dirname, 'login-forms.html'),
         notFound: resolve(__dirname, '404.html'),
-        notFoundCreative: resolve(__dirname, '404-creative.html'),
         contentsList: resolve(__dirname, 'contents-list.html'),
         searchResults: resolve(__dirname, 'search-results.html'),
         gallery: resolve(__dirname, 'gallery.html'),
         galleryCategories: resolve(__dirname, 'gallery-categories.html'),
-        generalSubcategories: resolve(__dirname, 'general-subcategories.html'),
+        subcategoryPages: resolve(__dirname, 'subcategory-pages.html'),
         contentDetail: resolve(__dirname, 'content-detail.html'),
         // برای ماژول‌های آینده:
         // settings: resolve(__dirname, 'settings.html'),
@@ -51,10 +50,9 @@ export default defineConfig({
           if (name === 'authForms') return 'assets/auth/authForms-[hash].js';
           if (name === 'about') return 'assets/about/about-[hash].js';
           if (name === 'searchResults') return 'assets/search/searchResults-[hash].js';
-          if (name === 'generalSubcategories') return 'assets/general/generalSubcategories-[hash].js';
+          if (name === 'subcategoryPages') return 'assets/subcategory/subcategoryPages-[hash].js';
           if (name === 'ticketTracking') return 'assets/ticketing/ticketTracking-[hash].js';
           if (name === 'notFound') return 'assets/error/notFound-[hash].js';
-          if (name === 'notFoundCreative') return 'assets/error/notFoundCreative-[hash].js';
 
           // Default fallback
           return 'assets/[name]/[name]-[hash].js';
@@ -90,6 +88,9 @@ export default defineConfig({
           // General main
           if (name === 'general-main') return 'assets/general/general-main-[hash].js';
 
+          // 404 main chunk
+          if (name === '404-main') return 'assets/error/404-main-[hash].js';
+
           // Default
           return 'assets/[name]-[hash].js';
         },
@@ -113,10 +114,11 @@ export default defineConfig({
             if (name.includes('authForms') || name.includes('auth')) return 'assets/auth/authForms-[hash].css';
             if (name.includes('about')) return 'assets/about/about-[hash].css';
             if (name.includes('searchResults')) return 'assets/search/searchResults-[hash].css';
-            if (name.includes('generalSubcategories')) return 'assets/general/generalSubcategories-[hash].css';
+            if (name.includes('subcategoryPages')) return 'assets/subcategory/subcategoryPages-[hash].css';
             if (name.includes('general-main')) return 'assets/general/general-main-[hash].css';
             if (name.includes('ticketTracking')) return 'assets/ticketing/ticketTracking-[hash].css';
             if (name.includes('notFound')) return 'assets/error/notFound-[hash].css';
+            if (name.includes('404-main')) return 'assets/error/404-main-[hash].css';
             if (name.includes('plyr')) return 'assets/common/plyr-[hash].css';
           }
 
@@ -138,6 +140,11 @@ export default defineConfig({
             if (match) {
               return `locales/${match[1]}`;
             }
+          }
+
+          // 404 module
+          if (id.includes('/src/404-main.js')) {
+            return '404-main';
           }
 
           // Group common libraries

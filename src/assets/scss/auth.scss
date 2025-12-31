@@ -11,6 +11,7 @@
 @use './common/components/form';
 @use './common/components/section-title';
 @use './common/components/user-dropdown';
+@use './common/components/pagination';
 
 // Import auth-specific component styles
 @use './auth/nav';

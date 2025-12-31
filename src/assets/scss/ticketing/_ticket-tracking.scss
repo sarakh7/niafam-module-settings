@@ -267,7 +267,7 @@ $conversation-area-bg: #F0F4F9; // Subtle blue-tinted background
 
     &:hover {
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-      transform: translateY(-2px);
+      // transform: translateY(-2px);
     }
 
     @media (max-width: 768px) {

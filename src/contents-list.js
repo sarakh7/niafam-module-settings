@@ -26,7 +26,7 @@ async function initializeApp() {
       initContentsList();
     }
 
-    console.log("Contents List page initialized successfully");
+    // console.log("Contents List page initialized successfully");
   } catch (error) {
     console.error("Failed to initialize Contents List page:", error);
   }

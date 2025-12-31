@@ -9,6 +9,9 @@
 @use './common/base/colors' as *;
 @use './common/esfonticon/style';
 
+// Import common components
+@use './common/components/pagination';
+
 // Gallery page specific styles
 @use './gallery/container';
 @use './gallery-categories/header';

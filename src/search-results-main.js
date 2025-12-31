@@ -1,7 +1,7 @@
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
 import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
-import { initSearchResults } from "./features/general/searchResults";
+import { initSearchResults } from "./features/search/searchResults";
 import "./assets/scss/search-results.scss";
 
 /**

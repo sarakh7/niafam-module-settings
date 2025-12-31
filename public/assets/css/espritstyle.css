@@ -2983,6 +2983,239 @@ textarea:focus {
     transform: none !important;
   }
 }
+/**
+ * Pagination Component
+ * Reusable pagination component for all modules
+ * Supports RTL/LTR, responsive design, and multiple variants
+ */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 32px 0 0 0;
+  padding: 0;
+}
+@media (max-width: 768px) {
+  .pagination {
+    margin-top: 24px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+}
+.pagination li {
+  display: inline-block;
+}
+.pagination li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 12px;
+  font-size: 0.9375em;
+  font-weight: 600;
+  color: hsl(231, 36%, 33%);
+  background: #fff;
+  border: 2px solid hsl(229, 35%, 88%);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .pagination li a {
+    min-width: 38px;
+    height: 38px;
+    font-size: 0.875em;
+    padding: 8px;
+  }
+}
+.pagination li a:hover {
+  color: hsl(230, 36%, 25%);
+  background: hsl(231, 36%, 98%);
+  border-color: hsl(232, 36%, 59%);
+  box-shadow: 0 4px 12px rgba(65, 70, 81, 0.15);
+}
+.pagination li a:active {
+  transform: translateY(0);
+}
+.pagination li.active a {
+  color: #fff;
+  background: linear-gradient(135deg, hsl(232, 36%, 38%), hsl(231, 36%, 33%));
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(65, 70, 81, 0.3);
+  cursor: default;
+  pointer-events: none;
+}
+.pagination li.active a:hover {
+  transform: none;
+}
+.pagination li.disabled a {
+  color: hsl(231, 36%, 77%);
+  background: hsl(231, 36%, 98%);
+  border-color: hsl(231, 36%, 94%);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.pagination-sm {
+  gap: 6px;
+}
+@media (max-width: 768px) {
+  .pagination-sm {
+    gap: 4px;
+  }
+}
+.pagination-sm li a {
+  min-width: 38px;
+  height: 38px;
+  font-size: 0.875em;
+}
+@media (max-width: 768px) {
+  .pagination-sm li a {
+    min-width: 34px;
+    height: 34px;
+    font-size: 0.8125em;
+  }
+}
+.pagination-lg {
+  gap: 12px;
+}
+.pagination-lg li a {
+  min-width: 50px;
+  height: 50px;
+  font-size: 1em;
+  border-radius: 12px;
+}
+@media (max-width: 768px) {
+  .pagination-lg li a {
+    min-width: 44px;
+    height: 44px;
+    font-size: 0.9375em;
+  }
+}
+.pagination-minimal li a {
+  border: none;
+  background: transparent;
+  color: hsl(232, 36%, 38%);
+}
+.pagination-minimal li a:hover {
+  background: hsl(231, 36%, 94%);
+  color: hsl(230, 36%, 25%);
+  border: none;
+}
+.pagination-minimal li.active a {
+  background: hsl(232, 36%, 38%);
+  color: #fff;
+  border: none;
+}
+.pagination-rounded li a {
+  border-radius: 9999px;
+}
+.pagination .pagination-prev a,
+.pagination .pagination-next a {
+  position: relative;
+  font-size: 1.125em;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .pagination .pagination-prev a,
+  .pagination .pagination-next a {
+    font-size: 1em;
+  }
+}
+.pagination .pagination-prev a::before,
+.pagination .pagination-next a::before {
+  font-family: "niafam";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination .pagination-prev a::before {
+  content: "\f053";
+}
+[dir=ltr] .pagination .pagination-prev a::before {
+  content: "\f054";
+}
+.pagination .pagination-next a::before {
+  content: "\f054";
+}
+[dir=ltr] .pagination .pagination-next a::before {
+  content: "\f053";
+}
+.pagination .pagination-first a,
+.pagination .pagination-last a {
+  font-size: 0.875em;
+}
+@media (max-width: 768px) {
+  .pagination .pagination-first a,
+  .pagination .pagination-last a {
+    font-size: 0.8125em;
+  }
+}
+.pagination .pagination-ellipsis a {
+  border: none;
+  background: transparent;
+  cursor: default;
+  pointer-events: none;
+  color: hsl(232, 36%, 59%);
+  font-weight: 700;
+}
+.pagination .pagination-ellipsis a:hover {
+  transform: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.pagination-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 0.875em;
+  color: hsl(232, 36%, 38%);
+}
+@media (max-width: 768px) {
+  .pagination-info {
+    font-size: 0.8125em;
+    margin-top: 12px;
+  }
+}
+.pagination-info strong {
+  font-weight: 600;
+  color: hsl(230, 36%, 25%);
+}
+
+.pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+@media (max-width: 768px) {
+  .pagination-wrapper {
+    margin-top: 24px;
+  }
+}
+
+.pagination-compact {
+  gap: 4px;
+}
+.pagination-compact li a {
+  min-width: 32px;
+  height: 32px;
+  font-size: 0.8125em;
+  padding: 4px;
+}
+@media (max-width: 768px) {
+  .pagination-compact li a {
+    min-width: 28px;
+    height: 28px;
+    font-size: 0.75em;
+  }
+}
+
 .esprit-article__section {
   background: hsl(231, 36%, 94%);
   border-radius: 8px;
@@ -3859,6 +4092,9 @@ textarea:focus {
   font-weight: 400;
 }
 
+.esprit-article__related-news:has(.article-related-news__inner:empty) {
+  display: none;
+}
 .esprit-article__news-list {
   padding: 0 24px;
 }

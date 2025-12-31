@@ -9,7 +9,10 @@
 @use './common/base/colors' as *;
 @use './common/esfonticon/style';
 
+// Import common components
+@use './common/components/pagination';
+
 // Import page-specific components
-@use './general-subcategories/header';
-@use './general-subcategories/grid';
-@use './general-subcategories/subpages-list';
+@use './subcategory-pages/header';
+@use './subcategory-pages/grid';
+@use './subcategory-pages/subpages-list';

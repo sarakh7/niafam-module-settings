@@ -9,9 +9,9 @@
 @use './common/esfonticon/style';
 @use './common/components/form';
 @use './common/components/section-title';
+@use './common/components/pagination';
 
 // Import profile-specific styles
 @use './profile/dashboard';
-@use './profile/view';
 @use './profile/edit';
 @use './profile/details';

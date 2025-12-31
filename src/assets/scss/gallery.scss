@@ -9,6 +9,9 @@
 @use './common/base/colors' as *;
 @use './common/esfonticon/style';
 
+// Import common components
+@use './common/components/pagination';
+
 // Reuse existing components (from index.html)
 @use './common/components/gallery';
 @use './contents/components/videoList';

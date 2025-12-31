@@ -1,7 +1,7 @@
 import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
 import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
-import "./assets/scss/general-subcategories.scss";
+import "./assets/scss/subcategory-pages.scss";
 
 /**
  * Initialize general subcategories page
