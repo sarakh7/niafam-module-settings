@@ -4,9 +4,8 @@
  */
 
 import i18next from 'i18next';
-import { showSuccessToast, showErrorToast } from '../common/toast';
-import { validateLogin } from './mockAuth';
-import { validateRequired, validateField, clearFieldError } from './formValidation';
+import { showInlineAlert, clearInlineAlerts } from '../common/inlineAlert';
+import { validateField, clearFieldError } from './formValidation';
 
 /**
  * Initialize login form
@@ -22,7 +21,7 @@ export function initLoginForm() {
   setupPasswordToggle('login-password', 'login-password-toggle');
 
   // Setup captcha refresh
-  setupCaptchaRefresh('login-captcha-refresh', 'login-captcha-img');
+  // setupCaptchaRefresh('login-captcha-refresh', 'login-captcha-img');
 
   // Setup form submission
   form.addEventListener('submit', handleLoginSubmit);
@@ -42,13 +41,14 @@ export function initLoginForm() {
  * Handle login form submission
  * @param {Event} e - Submit event
  */
-async function handleLoginSubmit(e) {
-  e.preventDefault();
-
+function handleLoginSubmit(e) {
   const form = e.target;
+
+  // Clear previous alerts
+  clearInlineAlerts('alerts');
+
   const usernameField = form.querySelector('#login-username');
   const passwordField = form.querySelector('#login-password');
-  const submitBtn = form.querySelector('button[type="submit"]');
 
   // Validate fields
   let isValid = true;
@@ -62,40 +62,14 @@ async function handleLoginSubmit(e) {
   }
 
   if (!isValid) {
-    showErrorToast(i18next.t('auth.validation.fixErrors', 'Please fix the errors'));
+    e.preventDefault(); // Prevent form submission
+    showInlineAlert('error', i18next.t('auth.validation.fixErrors', 'Please fix the errors'), 'alerts');
     return;
   }
 
-  // Show loading state
-  const originalText = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<span data-i18n="auth.login.submitting">Logging in...</span>';
-
-  try {
-    // Mock validation with delay
-    const result = await validateLogin(usernameField.value, passwordField.value);
-
-    if (result.success) {
-      showSuccessToast(i18next.t('auth.messages.loginSuccess', 'Login successful!'));
-
-      // Scroll to success section after short delay
-      setTimeout(() => {
-        const successSection = document.getElementById('success-message');
-        if (successSection) {
-          successSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 1000);
-    } else {
-      showErrorToast(result.message || i18next.t('auth.messages.loginError', 'Invalid credentials'));
-    }
-  } catch (error) {
-    console.error('Login error:', error);
-    showErrorToast(i18next.t('auth.messages.serverError', 'Server error occurred'));
-  } finally {
-    // Restore button state
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
-  }
+  // If validation passes, allow form to submit naturally
+  // The form will POST to the server with espritaction=login
+  // Server will handle authentication and return the page with success/error messages
 }
 
 /**
@@ -115,7 +89,7 @@ function setupPasswordToggle(passwordId, toggleId) {
 
     const icon = toggleBtn.querySelector('i');
     if (icon) {
-      icon.className = isPassword ? 'es esprit-eye-off' : 'es esprit-eye';
+      icon.className = isPassword ? 'es esprit-fi-rr-eye-crossed' : 'es esprit-fi-rr-eye';
     }
   });
 }
@@ -125,24 +99,24 @@ function setupPasswordToggle(passwordId, toggleId) {
  * @param {string} refreshBtnId - Refresh button ID
  * @param {string} captchaImgId - Captcha image ID
  */
-function setupCaptchaRefresh(refreshBtnId, captchaImgId) {
-  const refreshBtn = document.getElementById(refreshBtnId);
-  const captchaImg = document.getElementById(captchaImgId);
+// function setupCaptchaRefresh(refreshBtnId, captchaImgId) {
+//   const refreshBtn = document.getElementById(refreshBtnId);
+//   const captchaImg = document.getElementById(captchaImgId);
 
-  if (!refreshBtn || !captchaImg) return;
+//   if (!refreshBtn || !captchaImg) return;
 
-  refreshBtn.addEventListener('click', () => {
-    // Simulate captcha refresh by adding random query string
-    const currentSrc = captchaImg.src.split('?')[0];
-    captchaImg.src = `${currentSrc}?t=${Date.now()}`;
+//   refreshBtn.addEventListener('click', () => {
+//     // Simulate captcha refresh by adding random query string
+//     const currentSrc = captchaImg.src.split('?')[0];
+//     captchaImg.src = `${currentSrc}?t=${Date.now()}`;
 
-    // Add spin animation to refresh button
-    const icon = refreshBtn.querySelector('i');
-    if (icon) {
-      icon.style.animation = 'spin 0.5s linear';
-      setTimeout(() => {
-        icon.style.animation = '';
-      }, 500);
-    }
-  });
-}
+//     // Add spin animation to refresh button
+//     const icon = refreshBtn.querySelector('i');
+//     if (icon) {
+//       icon.style.animation = 'spin 0.5s linear';
+//       setTimeout(() => {
+//         icon.style.animation = '';
+//       }, 500);
+//     }
+//   });
+// }

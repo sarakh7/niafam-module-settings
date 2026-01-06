@@ -4,12 +4,34 @@
  */
 
 import i18next from 'i18next';
-import { showSuccessToast, showErrorToast } from '../common/toast';
-import { sendOTP, verifyOTP } from './mockAuth';
+import { showInlineAlert, clearInlineAlerts } from '../common/inlineAlert';
 import { validateField, clearFieldError } from './formValidation';
 
 let otpTimer = null;
 let otpCountdown = 120;
+let serverTimerValue = 120;
+
+/**
+ * Reset captcha after form submission
+ */
+function resetCaptcha() {
+  // Reset reCAPTCHA if available
+  if (typeof grecaptcha !== 'undefined') {
+    grecaptcha.reset();
+  }
+
+  // Clear g-recaptcha-response hidden field
+  const captchaField = document.getElementById('g-recaptcha-response');
+  if (captchaField) {
+    captchaField.value = '';
+  }
+
+  // Refresh custom captcha image if exists
+  const captchaImg = document.getElementById('otp-captcha-img');
+  if (captchaImg) {
+    captchaImg.src = `/inc/ajax.ashx?action=captcha&${Math.random()}`;
+  }
+}
 
 /**
  * Initialize OTP login form
@@ -22,9 +44,6 @@ export function initOTPForm() {
     console.warn('OTP form steps not found');
     return;
   }
-
-  // Setup captcha refresh
-  setupCaptchaRefresh('otp-captcha-refresh', 'otp-captcha-img');
 
   // Setup phone form submission (Step 1)
   const phoneForm = document.getElementById('otp-phone-form');
@@ -62,6 +81,9 @@ async function handlePhoneSubmit(e) {
   const phoneField = form.querySelector('#otp-phone');
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  // Get captcha value
+  const captcha = document.getElementById('g-recaptcha-response')?.value || document.getElementById('otp-captcha')?.value || '';
+
   // Validate fields
   let isValid = true;
 
@@ -73,10 +95,19 @@ async function handlePhoneSubmit(e) {
     isValid = false;
   }
 
-  if (!isValid) {
-    showErrorToast(i18next.t('auth.validation.fixErrors', 'Please fix the errors'));
+  // Validate captcha
+  if (!captcha) {
+    showInlineAlert('error', 'Please confirm you are not a robot.', 'alerts');
     return;
   }
+
+  if (!isValid) {
+    showInlineAlert('error', i18next.t('auth.validation.fixErrors', 'Please fix the errors'), 'alerts');
+    return;
+  }
+
+  // Clear previous alerts
+  clearInlineAlerts('alerts');
 
   // Show loading state
   const originalText = submitBtn.innerHTML;
@@ -84,23 +115,49 @@ async function handlePhoneSubmit(e) {
   submitBtn.innerHTML = '<span>Sending...</span>';
 
   try {
-    // Mock send OTP
-    const result = await sendOTP(usernameField.value, phoneField.value);
+    // Real API call to send OTP
+    const result = await window.sendOTPCode({
+      action: 'send_otp',
+      phone: phoneField.value.trim(),
+      username: usernameField.value.trim(),
+      'g-recaptcha-response': captcha
+    });
 
-    if (result.success) {
-      showSuccessToast(i18next.t('auth.messages.otpSent', 'Verification code sent!'));
+    if (result.status === 'success') {
+      // Extract timer value from server
+      serverTimerValue = result.time || 120;
+
+      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpSent', 'Verification code sent!'), 'alerts');
 
       // Move to step 2
       goToStep(2);
 
-      // Start countdown timer
+      // Start countdown timer with server value
       startOTPTimer();
+
+      // Reset captcha
+      resetCaptcha();
     } else {
-      showErrorToast(result.message || i18next.t('auth.messages.otpError', 'Failed to send code'));
+      // Clean quotes from error message
+      let errorMsg = result.msg || i18next.t('auth.messages.otpError', 'Failed to send code');
+      errorMsg = errorMsg.replace(/^"(.*)"$/, '$1');
+
+      // Handle specific error messages
+      if (errorMsg === 'User not found!') {
+        errorMsg = 'نام کاربری وجود ندارد!';
+      }
+
+      showInlineAlert('error', errorMsg, 'alerts');
+
+      // Reset captcha
+      resetCaptcha();
     }
   } catch (error) {
     console.error('OTP send error:', error);
-    showErrorToast(i18next.t('auth.messages.serverError', 'Server error occurred'));
+    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'alerts');
+
+    // Reset captcha on error
+    resetCaptcha();
   } finally {
     submitBtn.disabled = false;
     submitBtn.innerHTML = originalText;
@@ -120,9 +177,12 @@ async function handleVerifySubmit(e) {
 
   // Validate code
   if (!validateField(codeField, 'otp')) {
-    showErrorToast(i18next.t('auth.validation.invalidOTP', 'Code must be 6 digits'));
+    showInlineAlert('error', i18next.t('auth.validation.invalidOTP', 'Code must be 6 digits'), 'alerts');
     return;
   }
+
+  // Clear previous alerts
+  clearInlineAlerts('alerts');
 
   // Show loading state
   const originalText = submitBtn.innerHTML;
@@ -130,28 +190,32 @@ async function handleVerifySubmit(e) {
   submitBtn.innerHTML = '<span>Verifying...</span>';
 
   try {
-    // Mock verify OTP
-    const result = await verifyOTP(codeField.value);
+    // Real API call to verify OTP
+    const result = await window.verifyOTPCode({
+      action: 'verify_otp',
+      otp: codeField.value.trim()
+    });
 
-    if (result.success) {
-      showSuccessToast(i18next.t('auth.messages.otpSuccess', 'Login successful!'));
+    if (result.status === 'success') {
+      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpSuccess', 'Login successful!'), 'alerts');
 
       // Stop timer
       stopOTPTimer();
 
-      // Scroll to success section
+      // Reload page after 2 seconds
       setTimeout(() => {
-        const successSection = document.getElementById('success-message');
-        if (successSection) {
-          successSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 1000);
+        location.reload();
+      }, 2000);
     } else {
-      showErrorToast(result.message || i18next.t('auth.messages.otpInvalid', 'Invalid code'));
+      // Clean quotes from error message
+      let errorMsg = result.msg || i18next.t('auth.messages.otpInvalid', 'Invalid code');
+      errorMsg = errorMsg.replace(/^"(.*)"$/, '$1');
+
+      showInlineAlert('error', errorMsg, 'alerts');
     }
   } catch (error) {
     console.error('OTP verify error:', error);
-    showErrorToast(i18next.t('auth.messages.serverError', 'Server error occurred'));
+    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'alerts');
   } finally {
     submitBtn.disabled = false;
     submitBtn.innerHTML = originalText;
@@ -164,21 +228,53 @@ async function handleVerifySubmit(e) {
 async function handleResendOTP() {
   const usernameField = document.getElementById('otp-username');
   const phoneField = document.getElementById('otp-phone');
+  const resendBtn = document.getElementById('otp-resend-btn');
 
   if (!usernameField || !phoneField) return;
 
-  try {
-    const result = await sendOTP(usernameField.value, phoneField.value);
+  // Disable resend button
+  if (resendBtn) {
+    resendBtn.disabled = true;
+  }
 
-    if (result.success) {
-      showSuccessToast(i18next.t('auth.messages.otpResent', 'Code resent!'));
+  // Clear previous alerts
+  clearInlineAlerts('alerts');
+
+  try {
+    // Real API call to resend OTP
+    const result = await window.resendOTPCode({
+      action: 'resend_otp',
+      phone: phoneField.value.trim()
+    });
+
+    if (result.status === 'success') {
+      // Extract new timer value from server
+      serverTimerValue = result.time || 120;
+
+      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpResent', 'Code resent!'), 'alerts');
+
+      // Restart timer with new server value
       startOTPTimer();
     } else {
-      showErrorToast(result.message || i18next.t('auth.messages.otpError', 'Failed to send code'));
+      // Clean quotes from error message
+      let errorMsg = result.msg || i18next.t('auth.messages.otpError', 'Failed to send code');
+      errorMsg = errorMsg.replace(/^"(.*)"$/, '$1');
+
+      showInlineAlert('error', errorMsg, 'alerts');
+
+      // Re-enable resend button on error
+      if (resendBtn) {
+        resendBtn.disabled = false;
+      }
     }
   } catch (error) {
     console.error('OTP resend error:', error);
-    showErrorToast(i18next.t('auth.messages.serverError', 'Server error occurred'));
+    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'alerts');
+
+    // Re-enable resend button on error
+    if (resendBtn) {
+      resendBtn.disabled = false;
+    }
   }
 }
 
@@ -203,6 +299,12 @@ function goToStep(step) {
 
     // Stop timer
     stopOTPTimer();
+
+    // Clear alerts when going back
+    clearInlineAlerts('alerts');
+
+    // Reset captcha when going back to step 1
+    resetCaptcha();
   } else if (step === 2) {
     step1.classList.add('d-none');
     step2.classList.remove('d-none');
@@ -211,6 +313,9 @@ function goToStep(step) {
     stepIndicators[0]?.classList.remove('auth-otp__step--active');
     stepIndicators[0]?.classList.add('auth-otp__step--completed');
     stepIndicators[1]?.classList.add('auth-otp__step--active');
+
+    // Clear alerts when moving to step 2
+    clearInlineAlerts('alerts');
 
     // Focus on code input
     const codeField = document.getElementById('otp-code');
@@ -222,7 +327,7 @@ function goToStep(step) {
  * Start OTP countdown timer
  */
 function startOTPTimer() {
-  otpCountdown = 120; // 2 minutes
+  otpCountdown = serverTimerValue; // Use server-provided timer value
   const timerText = document.getElementById('otp-timer-text');
   const resendBtn = document.getElementById('otp-resend-btn');
 
@@ -263,27 +368,3 @@ function stopOTPTimer() {
   }
 }
 
-/**
- * Setup captcha refresh button
- * @param {string} refreshBtnId - Refresh button ID
- * @param {string} captchaImgId - Captcha image ID
- */
-function setupCaptchaRefresh(refreshBtnId, captchaImgId) {
-  const refreshBtn = document.getElementById(refreshBtnId);
-  const captchaImg = document.getElementById(captchaImgId);
-
-  if (!refreshBtn || !captchaImg) return;
-
-  refreshBtn.addEventListener('click', () => {
-    const currentSrc = captchaImg.src.split('?')[0];
-    captchaImg.src = `${currentSrc}?t=${Date.now()}`;
-
-    const icon = refreshBtn.querySelector('i');
-    if (icon) {
-      icon.style.animation = 'spin 0.5s linear';
-      setTimeout(() => {
-        icon.style.animation = '';
-      }, 500);
-    }
-  });
-}

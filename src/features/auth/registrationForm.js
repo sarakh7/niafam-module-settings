@@ -4,8 +4,7 @@
  */
 
 import i18next from 'i18next';
-import { showSuccessToast, showErrorToast } from '../common/toast';
-import { registerUser } from './mockAuth';
+import { showInlineAlert, clearInlineAlerts } from '../common/inlineAlert';
 import { validatePassword, validateField, clearFieldError, showFieldError } from './formValidation';
 
 /**
@@ -19,14 +18,14 @@ export function initRegistrationForm() {
   }
 
   // Setup password visibility toggles
-  setupPasswordToggle('reg-password', 'reg-password-toggle');
-  setupPasswordToggle('reg-confirm-password', 'reg-confirm-password-toggle');
+  setupPasswordToggle('password', 'password-toggle');
+  setupPasswordToggle('repassword', 'repassword-toggle');
 
   // Setup password strength meter
   setupPasswordStrengthMeter();
 
   // Setup captcha refresh
-  setupCaptchaRefresh('reg-captcha-refresh', 'reg-captcha-img');
+  setupCaptchaRefresh('captcha-refresh', 'captcha-img');
 
   // Setup form submission
   form.addEventListener('submit', handleRegistrationSubmit);
@@ -44,17 +43,17 @@ function setupRealTimeValidation(form) {
     firstname: { type: 'required' },
     lastname: { type: 'required' },
     email: { type: 'email' },
-    phone: { type: 'phone' },
+    tellphon: { type: 'phone' },
     username: { type: 'username' },
     password: { type: 'password' },
   };
 
   Object.entries(fields).forEach(([fieldName, config]) => {
-    const field = form.querySelector(`#reg-${fieldName}`);
+    const field = form.querySelector(`#${fieldName}`);
     if (!field) return;
 
     field.addEventListener('blur', () => {
-      if (field.value.trim() !== '' || fieldName === 'firstname' || fieldName === 'lastname' || fieldName === 'phone' || fieldName === 'username') {
+      if (field.value.trim() !== '' || fieldName === 'firstname' || fieldName === 'lastname' || fieldName === 'tellphon' || fieldName === 'username') {
         validateField(field, config.type);
       }
     });
@@ -65,7 +64,7 @@ function setupRealTimeValidation(form) {
   });
 
   // Special handling for confirm password
-  const confirmPasswordField = form.querySelector('#reg-confirm-password');
+  const confirmPasswordField = form.querySelector('#repassword');
   confirmPasswordField?.addEventListener('blur', () => validatePasswordMatch());
   confirmPasswordField?.addEventListener('input', () => clearFieldError(confirmPasswordField));
 }
@@ -74,8 +73,8 @@ function setupRealTimeValidation(form) {
  * Setup password strength meter
  */
 function setupPasswordStrengthMeter() {
-  const passwordField = document.getElementById('reg-password');
-  const strengthBar = document.getElementById('reg-password-strength');
+  const passwordField = document.getElementById('password');
+  const strengthBar = document.getElementById('password-strength');
 
   if (!passwordField || !strengthBar) return;
 
@@ -106,8 +105,8 @@ function setupPasswordStrengthMeter() {
  * @returns {boolean} True if passwords match
  */
 function validatePasswordMatch() {
-  const passwordField = document.getElementById('reg-password');
-  const confirmPasswordField = document.getElementById('reg-confirm-password');
+  const passwordField = document.getElementById('password');
+  const confirmPasswordField = document.getElementById('repassword');
 
   if (!passwordField || !confirmPasswordField) return false;
 
@@ -129,49 +128,49 @@ function validatePasswordMatch() {
  * Handle registration form submission
  * @param {Event} e - Submit event
  */
-async function handleRegistrationSubmit(e) {
-  e.preventDefault();
-
+function handleRegistrationSubmit(e) {
   const form = e.target;
-  const submitBtn = form.querySelector('button[type="submit"]');
+
+  // Clear previous alerts
+  clearInlineAlerts('alerts');
 
   // Collect form data
   const formData = {
-    firstname: form.querySelector('#reg-firstname').value,
-    lastname: form.querySelector('#reg-lastname').value,
-    email: form.querySelector('#reg-email').value,
-    phone: form.querySelector('#reg-phone').value,
-    nationalCode: form.querySelector('#reg-nationalcode').value,
-    gender: form.querySelector('#reg-gender').value,
-    username: form.querySelector('#reg-username').value,
-    password: form.querySelector('#reg-password').value,
-    confirmPassword: form.querySelector('#reg-confirm-password').value,
+    firstname: form.querySelector('#firstname').value,
+    lastname: form.querySelector('#lastname').value,
+    email: form.querySelector('#email').value,
+    tellphon: form.querySelector('#tellphon').value,
+    national_code: form.querySelector('#national_code').value,
+    gender: form.querySelector('#gender').value,
+    username: form.querySelector('#username').value,
+    password: form.querySelector('#password').value,
+    repassword: form.querySelector('#repassword').value,
   };
 
   // Validate all required fields
   let isValid = true;
 
-  if (!validateField(form.querySelector('#reg-firstname'), 'required')) {
+  if (!validateField(form.querySelector('#firstname'), 'required')) {
     isValid = false;
   }
 
-  if (!validateField(form.querySelector('#reg-lastname'), 'required')) {
+  if (!validateField(form.querySelector('#lastname'), 'required')) {
     isValid = false;
   }
 
-  if (formData.email && !validateField(form.querySelector('#reg-email'), 'email')) {
+  if (formData.email && !validateField(form.querySelector('#email'), 'email')) {
     isValid = false;
   }
 
-  if (!validateField(form.querySelector('#reg-phone'), 'phone')) {
+  if (!validateField(form.querySelector('#tellphon'), 'phone')) {
     isValid = false;
   }
 
-  if (!validateField(form.querySelector('#reg-username'), 'username')) {
+  if (!validateField(form.querySelector('#username'), 'username')) {
     isValid = false;
   }
 
-  if (!validateField(form.querySelector('#reg-password'), 'password')) {
+  if (!validateField(form.querySelector('#password'), 'password')) {
     isValid = false;
   }
 
@@ -180,49 +179,14 @@ async function handleRegistrationSubmit(e) {
   }
 
   if (!isValid) {
-    showErrorToast(i18next.t('auth.validation.fixErrors', 'Please fix the errors'));
+    e.preventDefault(); // Prevent form submission
+    showInlineAlert('error', i18next.t('auth.validation.fixErrors', 'Please fix the errors'), 'alerts');
     return;
   }
 
-  // Show loading state
-  const originalText = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<span>Creating Account...</span>';
-
-  try {
-    // Mock registration
-    const result = await registerUser(formData);
-
-    if (result.success) {
-      showSuccessToast(i18next.t('auth.messages.registrationSuccess', 'Registration successful!'));
-
-      // Clear form
-      form.reset();
-
-      // Reset password strength meter
-      const strengthBar = document.getElementById('reg-password-strength');
-      if (strengthBar) {
-        strengthBar.style.width = '0%';
-        strengthBar.className = 'auth-password-strength-bar';
-      }
-
-      // Scroll to success section
-      setTimeout(() => {
-        const successSection = document.getElementById('success-message');
-        if (successSection) {
-          successSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 1000);
-    } else {
-      showErrorToast(result.message || i18next.t('auth.messages.registrationError', 'Registration failed'));
-    }
-  } catch (error) {
-    console.error('Registration error:', error);
-    showErrorToast(i18next.t('auth.messages.serverError', 'Server error occurred'));
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
-  }
+  // If validation passes, allow form to submit naturally
+  // The form will POST to the server with espritaction=signup
+  // Server will handle registration and return the page with {signupmsg}
 }
 
 /**
@@ -259,9 +223,10 @@ function setupCaptchaRefresh(refreshBtnId, captchaImgId) {
   if (!refreshBtn || !captchaImg) return;
 
   refreshBtn.addEventListener('click', () => {
-    const currentSrc = captchaImg.src.split('?')[0];
-    captchaImg.src = `${currentSrc}?t=${Date.now()}`;
+    // Refresh captcha image from server
+    captchaImg.src = `/inc/ajax.ashx?action=captcha&${Math.random()}`;
 
+    // Add spin animation
     const icon = refreshBtn.querySelector('i');
     if (icon) {
       icon.style.animation = 'spin 0.5s linear';

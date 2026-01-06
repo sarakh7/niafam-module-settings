@@ -4,7 +4,7 @@
  */
 
 import i18next from 'i18next';
-import { showSuccessToast, showErrorToast } from '../common/toast';
+import { showInlineAlert, clearInlineAlerts } from '../common/inlineAlert';
 import { validatePassword, showFieldError, clearFieldError } from './formValidation';
 
 /**
@@ -158,6 +158,9 @@ async function handlePasswordFormSubmit(e) {
   const submitButton = form.querySelector('button[type="submit"]');
   const messageContainer = form.querySelector('.form-message');
 
+  // Clear previous alerts
+  clearInlineAlerts('form-message');
+
   // Get form fields
   const oldPassInput = document.getElementById('oldpass');
   const newPassInput = document.getElementById('newpass');
@@ -198,7 +201,7 @@ async function handlePasswordFormSubmit(e) {
   }
 
   if (!isValid) {
-    showErrorToast(i18next.t('profile.validation.fixErrors', 'لطفا خطاهای فرم را برطرف کنید'));
+    showInlineAlert('error', i18next.t('profile.validation.fixErrors', 'لطفا خطاهای فرم را برطرف کنید'), 'form-message');
     return;
   }
 
@@ -215,11 +218,13 @@ async function handlePasswordFormSubmit(e) {
 
   try {
     // Submit to backend
-    const response = await submitPasswordChange(formData);
+    const response = await window.submitPasswordChangeData(formData);
 
     if (response.status === 'success') {
-      showSuccessToast(
-        i18next.t('profile.messages.passwordChangeSuccess', 'رمز عبور با موفقیت تغییر کرد')
+      showInlineAlert(
+        'success',
+        i18next.t('profile.messages.passwordChangeSuccess', 'رمز عبور با موفقیت تغییر کرد'),
+        'form-message'
       );
 
       // Clear form
@@ -238,7 +243,7 @@ async function handlePasswordFormSubmit(e) {
       }
     } else {
       const errorMessage = response.msg || i18next.t('profile.messages.passwordChangeError', 'خطا در تغییر رمز عبور');
-      showErrorToast(errorMessage);
+      showInlineAlert('error', errorMessage, 'form-message');
 
       if (messageContainer) {
         messageContainer.innerHTML = `<div class="alert-danger">${errorMessage}</div>`;
@@ -246,7 +251,7 @@ async function handlePasswordFormSubmit(e) {
     }
   } catch (error) {
     console.error('Password Form: Submit error', error);
-    showErrorToast(i18next.t('profile.messages.unknownError', 'خطای ناشناخته'));
+    showInlineAlert('error', i18next.t('profile.messages.unknownError', 'خطای ناشناخته'), 'form-message');
 
     if (messageContainer) {
       messageContainer.innerHTML = `<div class="alert-danger">${i18next.t('profile.messages.unknownError', 'خطای ناشناخته')}</div>`;
@@ -254,27 +259,6 @@ async function handlePasswordFormSubmit(e) {
   } finally {
     setLoadingState(submitButton, false);
   }
-}
-
-/**
- * Submit password change to backend via AJAX
- * @param {object} data - Form data
- * @returns {Promise<object>} Response from server
- */
-async function submitPasswordChange(data) {
-  const response = await fetch('/inc/ajax.ashx', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams(data),
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  return await response.json();
 }
 
 /**

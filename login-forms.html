@@ -98,8 +98,8 @@
 
             <div class="user-dropdown__menu">
               <div class="user-dropdown__header">
-                <div class="user-dropdown__header-name" data-i18n="auth.demo.userName">جان دو</div>
-                <div class="user-dropdown__header-email">john.doe@example.com</div>
+                <div class="user-dropdown__header-name">کاربر تست</div>
+                <div class="user-dropdown__header-email">testuser@example.com</div>
               </div>
 
               <ul class="user-dropdown__list">
@@ -178,7 +178,8 @@
         <section id="login-form" class="auth-section">
           <h2 class="nes-section-title" data-i18n="auth.login.title">Login to Your Account</h2>
           <div class="nes-card">
-            <form class="nes-form" id="login-form-element">
+            <form class="nes-form" id="login-form-element" action="" method="post">
+              <input type="hidden" name="espritaction" id="espritaction" value="login" />
               <div class="nes-form-group">
                 <label class="nes-label" data-i18n="auth.login.username">Username</label>
                 <input type="text" class="nes-input" id="login-username" name="username" data-i18n="[placeholder]auth.login.usernamePlaceholder" placeholder="Enter your username" required />
@@ -189,7 +190,7 @@
                 <div class="auth-password-wrapper">
                   <input type="password" class="nes-input" id="login-password" name="password" data-i18n="[placeholder]auth.login.passwordPlaceholder" placeholder="Enter your password" required />
                   <button type="button" class="auth-password-toggle" id="login-password-toggle">
-                    <i class="es esprit-eye"></i>
+                    <i class="es esprit-fi-rr-eye"></i>
                   </button>
                 </div>
               </div>
@@ -290,32 +291,35 @@
               </form>
             </div>
           </div>
+          <!-- Alerts Container -->
+          <div id="alerts"></div>
         </section>
 
         <!-- 3. Registration Form -->
         <section id="registration-form" class="auth-section">
           <h2 class="nes-section-title" data-i18n="auth.registration.title">Create New Account</h2>
           <div class="nes-card">
-            <form class="nes-form" id="registration-form-element">
+            <form class="nes-form" id="registration-form-element" action="" method="post">
+              <input type="hidden" name="espritaction" id="espritaction" value="signup" />
               <div class="nes-form-row">
                 <div class="nes-input-wrapper">
                   <label class="nes-label" data-i18n="auth.registration.firstName">First Name</label>
-                  <input type="text" class="nes-input" id="reg-firstname" name="firstname" data-i18n="[placeholder]auth.registration.firstNamePlaceholder" placeholder="Enter first name" required />
+                  <input type="text" class="nes-input" id="firstname" name="firstname" data-i18n="[placeholder]auth.registration.firstNamePlaceholder" placeholder="Enter first name" required />
                 </div>
                 <div class="nes-input-wrapper">
                   <label class="nes-label" data-i18n="auth.registration.lastName">Last Name</label>
-                  <input type="text" class="nes-input" id="reg-lastname" name="lastname" data-i18n="[placeholder]auth.registration.lastNamePlaceholder" placeholder="Enter last name" required />
+                  <input type="text" class="nes-input" id="lastname" name="lastname" data-i18n="[placeholder]auth.registration.lastNamePlaceholder" placeholder="Enter last name" required />
                 </div>
               </div>
 
               <div class="nes-form-row">
                 <div class="nes-input-wrapper">
                   <label class="nes-label" data-i18n="auth.registration.email">Email</label>
-                  <input type="email" class="nes-input" id="reg-email" name="email" data-i18n="[placeholder]auth.registration.emailPlaceholder" placeholder="Enter email (optional)" />
+                  <input type="email" class="nes-input" id="email" name="email" data-i18n="[placeholder]auth.registration.emailPlaceholder" placeholder="Enter email (optional)" />
                 </div>
                 <div class="nes-input-wrapper">
                   <label class="nes-label" data-i18n="auth.registration.phone">Phone Number</label>
-                  <input type="tel" class="nes-input" id="reg-phone" name="phone" data-i18n="[placeholder]auth.registration.phonePlaceholder" placeholder="Enter phone number" required />
+                  <input type="tel" class="nes-input" id="tellphon" name="tellphon" data-i18n="[placeholder]auth.registration.phonePlaceholder" placeholder="Enter phone number" required />
                 </div>
               </div>
 
@@ -325,7 +329,7 @@
                   <input
                     type="text"
                     class="nes-input"
-                    id="reg-nationalcode"
+                    id="national_code"
                     name="national_code"
                     data-i18n="[placeholder]auth.registration.nationalCodePlaceholder"
                     placeholder="Enter national code (optional)"
@@ -333,7 +337,7 @@
                 </div>
                 <div class="nes-input-wrapper">
                   <label class="nes-label" data-i18n="auth.registration.gender">Gender</label>
-                  <select class="nes-input" id="reg-gender" name="gender">
+                  <select class="nes-input" id="gender" name="gender">
                     <option value="1" data-i18n="auth.registration.male">Male</option>
                     <option value="0" data-i18n="auth.registration.female">Female</option>
                   </select>
@@ -342,7 +346,7 @@
 
               <div class="nes-form-group">
                 <label class="nes-label" data-i18n="auth.registration.username">Username</label>
-                <input type="text" class="nes-input" id="reg-username" name="username" data-i18n="[placeholder]auth.registration.usernamePlaceholder" placeholder="Choose a username" required />
+                <input type="text" class="nes-input" id="username" name="username" data-i18n="[placeholder]auth.registration.usernamePlaceholder" placeholder="Choose a username" required />
               </div>
 
               <div class="nes-form-group">
@@ -351,18 +355,18 @@
                   <input
                     type="password"
                     class="nes-input"
-                    id="reg-password"
+                    id="password"
                     name="password"
                     data-i18n="[placeholder]auth.registration.passwordPlaceholder"
                     placeholder="Choose a strong password"
                     required
                   />
-                  <button type="button" class="auth-password-toggle" id="reg-password-toggle">
+                  <button type="button" class="auth-password-toggle" id="password-toggle">
                     <i class="es esprit-eye"></i>
                   </button>
                 </div>
                 <div class="auth-password-strength">
-                  <div class="auth-password-strength-bar" id="reg-password-strength"></div>
+                  <div class="auth-password-strength-bar" id="password-strength"></div>
                 </div>
               </div>
 
@@ -372,13 +376,13 @@
                   <input
                     type="password"
                     class="nes-input"
-                    id="reg-confirm-password"
-                    name="confirm_password"
+                    id="repassword"
+                    name="repassword"
                     data-i18n="[placeholder]auth.registration.confirmPasswordPlaceholder"
                     placeholder="Re-enter password"
                     required
                   />
-                  <button type="button" class="auth-password-toggle" id="reg-confirm-password-toggle">
+                  <button type="button" class="auth-password-toggle" id="repassword-toggle">
                     <i class="es esprit-eye"></i>
                   </button>
                 </div>
@@ -387,9 +391,9 @@
               <div class="nes-captcha-row">
                 <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
                 <div class="nes-captcha-group">
-                  <img src="/assets/img/captcha-sample.png" alt="captcha" class="nes-captcha-img" id="reg-captcha-img" />
-                  <input type="text" class="nes-captcha-input" id="reg-captcha" name="captcha" data-i18n="[placeholder]auth.captcha.placeholder" placeholder="Enter code" />
-                  <button type="button" class="nes-btn nes-btn-icon" id="reg-captcha-refresh">
+                  <img src="/assets/img/captcha-sample.png" alt="captcha" class="nes-captcha-img" id="captcha-img" />
+                  <input type="text" class="nes-captcha-input" id="captcha" name="captcha" data-i18n="[placeholder]auth.captcha.placeholder" placeholder="Enter code" />
+                  <button type="button" class="nes-btn nes-btn-icon" id="captcha-refresh">
                     <i class="es esprit-fi-rr-refresh"></i>
                   </button>
                 </div>
@@ -407,6 +411,8 @@
               </div>
             </form>
           </div>
+          <!-- Alerts Container -->
+          <div id="alerts"></div>
         </section>
 
         <!-- 4. Password Recovery Form -->
@@ -415,14 +421,15 @@
           <div class="nes-card">
             <p class="auth-form-description" data-i18n="auth.passwordReset.description">Enter your email, phone, or username to receive a password reset code</p>
 
-            <form class="nes-form" id="password-reset-form">
+            <form class="nes-form" id="password-reset-form" action="" method="post">
+              <input type="hidden" name="espritaction" id="espritaction" value="recoveryformconfirmform" />
               <div class="nes-form-group">
                 <label class="nes-label" data-i18n="auth.passwordReset.emailPhoneUsername">Email, Phone, or Username</label>
                 <input
                   type="text"
                   class="nes-input"
-                  id="reset-identifier"
-                  name="identifier"
+                  id="username_mail_mobile"
+                  name="username_mail_mobile"
                   data-i18n="[placeholder]auth.passwordReset.identifierPlaceholder"
                   placeholder="Enter email, phone, or username"
                   required
@@ -431,15 +438,15 @@
 
               <div class="nes-form-group">
                 <label class="nes-label" data-i18n="auth.passwordReset.username">Username</label>
-                <input type="text" class="nes-input" id="reset-username" name="username" data-i18n="[placeholder]auth.passwordReset.usernamePlaceholder" placeholder="Enter your username" required />
+                <input type="text" class="nes-input" id="username_username" name="username_username" data-i18n="[placeholder]auth.passwordReset.usernamePlaceholder" placeholder="Enter your username" required />
               </div>
 
               <div class="nes-captcha-row">
                 <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
                 <div class="nes-captcha-group">
-                  <img src="/assets/img/captcha-sample.png" alt="captcha" class="nes-captcha-img" id="reset-captcha-img" />
-                  <input type="text" class="nes-captcha-input" id="reset-captcha" name="captcha" data-i18n="[placeholder]auth.captcha.placeholder" placeholder="Enter code" />
-                  <button type="button" class="nes-btn nes-btn-icon" id="reset-captcha-refresh">
+                  <img src="/assets/img/captcha-sample.png" alt="captcha" class="nes-captcha-img" id="recovery-captcha-img" />
+                  <input type="text" class="nes-captcha-input" id="recovery-captcha" name="captcha" data-i18n="[placeholder]auth.captcha.placeholder" placeholder="Enter code" />
+                  <button type="button" class="nes-btn nes-btn-icon" id="recovery-captcha-refresh">
                     <i class="es esprit-fi-rr-refresh"></i>
                   </button>
                 </div>
@@ -456,6 +463,8 @@
               </div>
             </form>
           </div>
+          <!-- Alerts Container -->
+          <div id="alerts"></div>
         </section>
 
         <!-- 5. Success Message -->
@@ -548,6 +557,76 @@
         
       </div>
     </div>
+
+    <script>
+      /**
+       * Backend submission functions for authentication forms
+       * These functions handle AJAX/fetch requests to the server
+       */
+
+      /**
+       * Send OTP code to user's phone
+       * @param {object} data - Form data with action: 'send_otp', phone, username, g-recaptcha-response
+       * @returns {Promise<object>} Response: {status, msg, time}
+       */
+      window.sendOTPCode = async function(data) {
+        const response = await fetch('/inc/ajax.ashx', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(data),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+      };
+
+      /**
+       * Verify OTP code entered by user
+       * @param {object} data - Form data with action: 'verify_otp', otp
+       * @returns {Promise<object>} Response: {status, msg}
+       */
+      window.verifyOTPCode = async function(data) {
+        const response = await fetch('/inc/ajax.ashx', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(data),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+      };
+
+      /**
+       * Resend OTP code to user's phone
+       * @param {object} data - Form data with action: 'resend_otp', phone
+       * @returns {Promise<object>} Response: {status, msg, time}
+       */
+      window.resendOTPCode = async function(data) {
+        const response = await fetch('/inc/ajax.ashx', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(data),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+      };
+    </script>
 
     <script type="module" src="/src/auth-main.js"></script>
   </body>

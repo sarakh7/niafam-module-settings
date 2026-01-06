@@ -31,14 +31,19 @@ async function initializeAuthApp() {
     // Initialize common features
     initUserDropdown();
 
-    // Mock user data for demo
-    updateUserDropdown({
-      name: 'جان دو',
-      email: 'john.doe@example.com',
-    });
+    // Get user data from HTML
+    const userNameElement = document.querySelector('.user-dropdown__header-name');
+    const userEmailElement = document.querySelector('.user-dropdown__header-email');
+
+    if (userNameElement && userEmailElement) {
+      updateUserDropdown({
+        name: userNameElement.textContent.trim(),
+        email: userEmailElement.textContent.trim(),
+      });
+    }
 
     // Initialize auth-specific features
-    initAuthNav();
+    // initAuthNav();
     initLoginForm();
     initOTPForm();
     initRegistrationForm();

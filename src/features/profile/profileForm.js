@@ -4,7 +4,7 @@
  */
 
 import i18next from 'i18next';
-import { showSuccessToast, showErrorToast } from '../common/toast';
+import { showInlineAlert, clearInlineAlerts } from '../common/inlineAlert';
 import { validateField, getFieldRules, clearFieldError } from './formValidation';
 
 /**
@@ -54,9 +54,12 @@ async function handleFormSubmit(e) {
   const submitButton = form.querySelector('button[type="submit"]');
   const messageContainer = form.querySelector('.form-message');
 
+  // Clear previous alerts
+  clearInlineAlerts('form-message');
+
   // Validate all fields
   if (!validateAllFields(form)) {
-    showErrorToast(i18next.t('profile.validation.fixErrors', 'لطفا خطاهای فرم را برطرف کنید'));
+    showInlineAlert('error', i18next.t('profile.validation.fixErrors', 'لطفا خطاهای فرم را برطرف کنید'), 'form-message');
     return;
   }
 
@@ -68,11 +71,13 @@ async function handleFormSubmit(e) {
 
   try {
     // Submit to backend
-    const response = await submitFormData(formData);
+    const response = await window.submitProfileData(formData);
 
     if (response.status === 'success') {
-      showSuccessToast(
-        i18next.t('profile.messages.saveSuccess', 'اطلاعات با موفقیت ذخیره شد')
+      showInlineAlert(
+        'success',
+        i18next.t('profile.messages.saveSuccess', 'اطلاعات با موفقیت ذخیره شد'),
+        'form-message'
       );
 
       // Optionally clear form message
@@ -81,7 +86,7 @@ async function handleFormSubmit(e) {
       }
     } else {
       const errorMessage = response.msg || i18next.t('profile.messages.saveError', 'خطا در ذخیره اطلاعات');
-      showErrorToast(errorMessage);
+      showInlineAlert('error', errorMessage, 'form-message');
 
       if (messageContainer) {
         messageContainer.innerHTML = `<div class="alert-danger">${errorMessage}</div>`;
@@ -89,7 +94,7 @@ async function handleFormSubmit(e) {
     }
   } catch (error) {
     console.error('Profile Form: Submit error', error);
-    showErrorToast(i18next.t('profile.messages.unknownError', 'خطای ناشناخته'));
+    showInlineAlert('error', i18next.t('profile.messages.unknownError', 'خطای ناشناخته'), 'form-message');
 
     if (messageContainer) {
       messageContainer.innerHTML = `<div class="alert-danger">${i18next.t('profile.messages.unknownError', 'خطای ناشناخته')}</div>`;
@@ -142,27 +147,6 @@ function collectFormData(form) {
   });
 
   return formData;
-}
-
-/**
- * Submit form data to backend via AJAX
- * @param {object} data - Form data
- * @returns {Promise<object>} Response from server
- */
-async function submitFormData(data) {
-  const response = await fetch('/inc/ajax.ashx', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams(data),
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  return await response.json();
 }
 
 /**

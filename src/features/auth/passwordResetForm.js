@@ -4,8 +4,7 @@
  */
 
 import i18next from 'i18next';
-import { showSuccessToast, showErrorToast } from '../common/toast';
-import { requestPasswordReset } from './mockAuth';
+import { showInlineAlert, clearInlineAlerts } from '../common/inlineAlert';
 import { validateField, clearFieldError } from './formValidation';
 
 /**
@@ -19,14 +18,14 @@ export function initPasswordResetForm() {
   }
 
   // Setup captcha refresh
-  setupCaptchaRefresh('reset-captcha-refresh', 'reset-captcha-img');
+  // setupCaptchaRefresh('recovery-captcha-refresh', 'recovery-captcha-img');
 
   // Setup form submission
   form.addEventListener('submit', handlePasswordResetSubmit);
 
   // Setup real-time validation
-  const identifierField = form.querySelector('#reset-identifier');
-  const usernameField = form.querySelector('#reset-username');
+  const identifierField = form.querySelector('#username_mail_mobile');
+  const usernameField = form.querySelector('#username_username');
 
   identifierField?.addEventListener('blur', () => validateField(identifierField, 'required'));
   usernameField?.addEventListener('blur', () => validateField(usernameField, 'required'));
@@ -39,13 +38,14 @@ export function initPasswordResetForm() {
  * Handle password reset form submission
  * @param {Event} e - Submit event
  */
-async function handlePasswordResetSubmit(e) {
-  e.preventDefault();
-
+function handlePasswordResetSubmit(e) {
   const form = e.target;
-  const identifierField = form.querySelector('#reset-identifier');
-  const usernameField = form.querySelector('#reset-username');
-  const submitBtn = form.querySelector('button[type="submit"]');
+
+  // Clear previous alerts
+  clearInlineAlerts('alerts');
+
+  const identifierField = form.querySelector('#username_mail_mobile');
+  const usernameField = form.querySelector('#username_username');
 
   // Validate fields
   let isValid = true;
@@ -59,42 +59,14 @@ async function handlePasswordResetSubmit(e) {
   }
 
   if (!isValid) {
-    showErrorToast(i18next.t('auth.validation.fixErrors', 'Please fix the errors'));
+    e.preventDefault(); // Prevent form submission
+    showInlineAlert('error', i18next.t('auth.validation.fixErrors', 'Please fix the errors'), 'alerts');
     return;
   }
 
-  // Show loading state
-  const originalText = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<span>Sending...</span>';
-
-  try {
-    // Mock password reset request
-    const result = await requestPasswordReset(identifierField.value, usernameField.value);
-
-    if (result.success) {
-      showSuccessToast(i18next.t('auth.messages.passwordResetSent', 'Recovery code sent to your email/phone'));
-
-      // Clear form
-      form.reset();
-
-      // Optionally scroll to confirmation section or success
-      setTimeout(() => {
-        const successSection = document.getElementById('success-message');
-        if (successSection) {
-          successSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 1500);
-    } else {
-      showErrorToast(result.message || i18next.t('auth.messages.passwordResetError', 'Failed to send recovery code'));
-    }
-  } catch (error) {
-    console.error('Password reset error:', error);
-    showErrorToast(i18next.t('auth.messages.serverError', 'Server error occurred'));
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
-  }
+  // If validation passes, allow form to submit naturally
+  // The form will POST to the server with espritaction=recoveryformconfirmform
+  // Server will handle password reset and return the page with {error_msg} or {Recover_Password_msg}
 }
 
 /**
@@ -102,22 +74,23 @@ async function handlePasswordResetSubmit(e) {
  * @param {string} refreshBtnId - Refresh button ID
  * @param {string} captchaImgId - Captcha image ID
  */
-function setupCaptchaRefresh(refreshBtnId, captchaImgId) {
-  const refreshBtn = document.getElementById(refreshBtnId);
-  const captchaImg = document.getElementById(captchaImgId);
+// function setupCaptchaRefresh(refreshBtnId, captchaImgId) {
+//   const refreshBtn = document.getElementById(refreshBtnId);
+//   const captchaImg = document.getElementById(captchaImgId);
 
-  if (!refreshBtn || !captchaImg) return;
+//   if (!refreshBtn || !captchaImg) return;
 
-  refreshBtn.addEventListener('click', () => {
-    const currentSrc = captchaImg.src.split('?')[0];
-    captchaImg.src = `${currentSrc}?t=${Date.now()}`;
+//   refreshBtn.addEventListener('click', () => {
+//     // Refresh captcha image from server
+//     captchaImg.src = `/inc/ajax.ashx?action=captcha&${Math.random()}`;
 
-    const icon = refreshBtn.querySelector('i');
-    if (icon) {
-      icon.style.animation = 'spin 0.5s linear';
-      setTimeout(() => {
-        icon.style.animation = '';
-      }, 500);
-    }
-  });
-}
+//     // Add spin animation
+//     const icon = refreshBtn.querySelector('i');
+//     if (icon) {
+//       icon.style.animation = 'spin 0.5s linear';
+//       setTimeout(() => {
+//         icon.style.animation = '';
+//       }, 500);
+//     }
+//   });
+// }

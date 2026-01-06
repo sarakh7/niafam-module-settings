@@ -992,6 +992,102 @@
       }
     </script>
 
+    <script>
+      /**
+       * Backend submission functions for profile forms
+       * These functions handle AJAX/fetch requests to the server
+       */
+
+      /**
+       * Submit profile form data to backend
+       * @param {object} data - Form data with action: 'save_profile_user'
+       * @returns {Promise<object>} Response from server
+       */
+      window.submitProfileData = async function(data) {
+        const response = await fetch('/inc/ajax.ashx', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(data),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+      };
+
+      /**
+       * Submit password change to backend
+       * @param {object} data - Form data with action: 'change_pass'
+       * @returns {Promise<object>} Response from server
+       */
+      window.submitPasswordChangeData = async function(data) {
+        const response = await fetch('/inc/ajax.ashx', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(data),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+      };
+
+      /**
+       * Upload avatar file to server using jQuery simpleUpload
+       * @param {File} file - File to upload
+       * @param {HTMLInputElement} fileInput - File input element (for simpleUpload)
+       */
+      window.uploadAvatarFile = function(file, fileInput) {
+        // Use jQuery simpleUpload plugin for compatibility with existing backend
+        const $fileInput = $(fileInput);
+        const $progressContainer = $('#upload-progress');
+        const $progressBar = $('#progress-bar');
+        const $progressText = $('#progress-text');
+        const $messageContainer = $('.form-message');
+
+        $fileInput.simpleUpload('/inc/ajax.ashx?action=change_avatar', {
+          start: function (file) {
+            // Show progress bar
+            $progressContainer.show();
+            $progressBar.css('width', '0%');
+            $progressText.text('0%');
+
+            // Clear previous messages
+            $messageContainer.html('');
+          },
+
+          progress: function (progress) {
+            // Update progress bar
+            const progressPercent = Math.round(progress);
+            $progressBar.css('width', progressPercent + '%');
+            $progressText.text(progressPercent + '%');
+          },
+
+          success: function (data) {
+            // Dispatch custom event for JS module to handle UI updates
+            window.dispatchEvent(new CustomEvent('avatarUploadSuccess', {
+              detail: { data }
+            }));
+          },
+
+          error: function (error) {
+            // Dispatch custom event for JS module to handle UI updates
+            window.dispatchEvent(new CustomEvent('avatarUploadError', {
+              detail: { error }
+            }));
+          },
+        });
+      };
+    </script>
+
     <script type="module" src="/src/profile-main.js"></script>
   </body>
 </html>

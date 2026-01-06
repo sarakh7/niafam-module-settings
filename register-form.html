@@ -1,0 +1,123 @@
+<div class="es-blank-page">
+    <div class="es-content-wrapper">
+        <section class="es-flexbox-container">
+            <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center">
+                <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+                    <div class="es-card es-border-lighten-3 es-m-0">
+                        <div class="es-card-header es-border-0">
+                            <h5
+                                class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+                                <span data-local=""> {signuptitle} </span>
+                            </h5>
+
+                        </div>
+                        <div class="es-card-content">
+                            <div class="es-card-body">
+
+                                <form class="es-form-horizontal es-form-simple es-dir-{rtl_ltr}" action=""   method="post">
+                                    {signupmsg}
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="firstname" id="firstname" placeholder="{firstname_Placeholder}" value="{firstname_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-user"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="lastname" id="lastname" placeholder="{lastname_Placeholder}" value="{lastname_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-user"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="email" id="email" placeholder="{email_Placeholder}" value="{email_value}"> 
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-at-sign"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="tellphon" id="tellphon" placeholder="{tellphon_Placeholder}" value="{tellphon_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-smart-phone"></i>
+                                        </div>
+                                    </fieldset>
+                                   <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="national_code" id="national_code" placeholder="{national_code_Placeholder}" value="{national_code_value}">
+                                       
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <label class="es-label-control es-lable-margin">{gender}</label>
+                                        <select name="gender" id="gender">
+                                            <option  {maleselected} value="1">{male}</option>
+                                            <option  {femaleselected} value="0">{female}</option>
+                                        </select>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="text"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg es-input-field-right-placeholder"
+                                            name="username" id="username" placeholder="{Username_Placeholder}" value="{username_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-user"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative">
+                                        <input type="password" name="password" id="password"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg  es-input-field-right-placeholder es"
+                                            maxlength="25" placeholder="{Password_Placeholder}"
+                                            data-validation-pattern-message="{Password_Validation}" aria-invalid="false" value="{password_value}"
+                                            required="">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-key"></i>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="es-form-group es-position-relative es-mb-3">
+                                        <input type="password" name="repassword" id="repassword"  autocomplete="off"
+                                            class="es-form-control es-form-control-lg  es-input-field-right-placeholder"
+                                            placeholder="{rePassword_Placeholder}"
+                                            data-validation-matches-match="password"
+                                            data-validation-matches-message="{Match_Validation}" aria-invalid="false" value="{repassword_value}">
+                                        <div class="es-form-control-position">
+                                            <i class="es esprit-key"></i>
+                                        </div>
+                                    </fieldset>
+                                    <div class="es-form-group es-row">
+                                        {captchahtml}
+                                    </div>
+                                    <input type="hidden"  autocomplete="off" name="espritaction" id="espritaction" value="signup">
+                                    <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block"><i
+                                            class="esprit-unlock"></i> <span>{signup_btn}</span> </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="es-card-footer">
+                            <div class="">
+                                <form action="" method="post" class="es-float-sm-left es-text-center es-m-0">
+                                    <input type="hidden"  autocomplete="off" name="espritaction" id="espritaction" value="recoveryform">
+                                    <button type="submit" id="es-recover-pass"
+                                        class="es-card-link">{Recover_Password}</button>
+                                </form>
+                                <form action="" method="post" class="es-float-sm-right es-text-center es-m-0">
+                                    <input type="hidden"  autocomplete="off" name="espritaction" id="espritaction" value="login">
+                                    <button type="submit" id="es-recover-pass" class="es-card-link">{signin}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
