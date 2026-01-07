@@ -72,6 +72,7 @@ export default defineConfig({
           if (name === 'mediaPlayer') return 'assets/common/mediaPlayer.js';
           if (name === 'modal') return 'assets/common/modal.js';
           if (name === 'toast') return 'assets/common/toast.js';
+          if (name === 'inlineAlert') return 'assets/common/inlineAlert.js';
           if (name === 'i18n-localizer') return 'assets/common/i18n-localizer.js';
           if (name.includes('plyr')) return 'assets/common/plyr.js';
           if (name.includes('html2canvas')) return 'assets/common/html2canvas.js';
