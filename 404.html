@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="general.404Creative.pageTitle">صفحه پیدا نشد</title>
+    <title>صفحه پیدا نشد</title>
     <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
 
     <style>
@@ -96,6 +96,16 @@
         font-display: swap;
       }
 
+      @font-face {
+        font-family: "esfonticon";
+        src: url("/assets/fonts/esfonticon.ttf?ron46o") format("truetype"),
+             url("/assets/fonts/esfonticon.woff?ron46o") format("woff"),
+             url("/assets/fonts/esfonticon.svg?ron46o#esfonticon") format("svg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
       html {
         font-size: 16px;
         font-family: Vazir-FD;
@@ -103,6 +113,414 @@
 
       html:not([lang="fa"]):not([lang="ar"]) {
         font-family: vazir;
+      }
+
+      /* Icon font */
+      i.es,
+      span.es {
+        font-family: "esfonticon" !important;
+        speak: never;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .esprit-fi-rr-search:before {
+        content: "\ea26";
+      }
+
+      .esprit-fi-rr-home:before {
+        content: "\e9c3";
+      }
+
+      .esprit-fi-rr-globe:before {
+        content: "\e9b8";
+      }
+
+      /* CSS Variables */
+      :root {
+        --blue-gray-50: hsl(231, 36%, 98%);
+        --blue-gray-100: hsl(231, 36%, 94%);
+        --blue-gray-200: hsl(229, 35%, 88%);
+        --blue-gray-300: hsl(231, 36%, 77%);
+        --blue-gray-400: hsl(232, 36%, 59%);
+        --blue-gray-600: hsl(232, 36%, 38%);
+        --blue-gray-700: hsl(231, 36%, 33%);
+        --blue-gray-800: hsl(230, 36%, 25%);
+        --gray-50: hsl(0, 0%, 98%);
+        --gray-200: hsl(220, 5%, 92%);
+        --gray-400: hsl(220, 6%, 66%);
+        --gray-600: hsl(220, 8%, 35%);
+        --gray-700: hsl(220, 11%, 29%);
+      }
+
+      /* Form elements focus */
+      .inputbox:focus,
+      input[type=text]:focus,
+      input[type=search]:focus,
+      button:focus {
+        border-color: #0d6efd !important;
+        outline: none !important;
+        box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2) !important;
+      }
+
+      /* Button styles */
+      .nes-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        font-family: inherit;
+        transition: linear 0.2s;
+      }
+
+      .nes-btn-primary {
+        background: hsl(232, 36%, 38%);
+        color: #fff;
+      }
+
+      .nes-btn-primary:hover {
+        background: hsl(229, 35%, 88%);
+        color: hsl(230, 36%, 25%);
+      }
+
+      /* 404 Creative Page Styles */
+      .general-404-creative {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+        padding: 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .general-404-creative__bg-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .general-404-creative__float-circle {
+        position: absolute;
+        border-radius: 9999px;
+        background: rgba(62, 71, 132, 0.05);
+      }
+
+      .general-404-creative__float-circle--1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        right: -100px;
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .general-404-creative__float-circle--2 {
+        width: 200px;
+        height: 200px;
+        bottom: -50px;
+        left: -50px;
+        animation: float 15s infinite ease-in-out reverse;
+      }
+
+      .general-404-creative__float-circle--3 {
+        width: 150px;
+        height: 150px;
+        top: 50%;
+        left: 10%;
+        animation: float 18s infinite ease-in-out;
+      }
+
+      .general-404-creative__container {
+        background: #fff;
+        border-radius: 16px;
+        padding: 64px 32px;
+        text-align: center;
+        max-width: 700px;
+        width: 100%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      .general-404-creative__illustration {
+        margin-bottom: 32px;
+      }
+
+      .general-404-creative__number-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .general-404-creative__number {
+        font-size: 8rem;
+        font-weight: 800;
+        color: hsl(232, 36%, 38%);
+        line-height: 1;
+        animation: bounceIn 0.8s ease-out;
+        animation-fill-mode: both;
+      }
+
+      .general-404-creative__content {
+        margin-bottom: 32px;
+      }
+
+      .general-404__heading {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: hsl(220, 11%, 29%);
+        margin-bottom: 16px;
+        animation: fadeIn 0.8s ease-out 0.4s;
+        animation-fill-mode: both;
+      }
+
+      .general-404__message {
+        color: hsl(220, 8%, 35%);
+        font-size: 1rem;
+        line-height: 1.8;
+        /* max-width: 500px; */
+        margin: 0 auto;
+        animation: fadeIn 0.8s ease-out 0.5s;
+        animation-fill-mode: both;
+      }
+
+      .general-404-creative__search {
+        margin-bottom: 32px;
+        animation: fadeIn 0.8s ease-out 0.6s;
+        animation-fill-mode: both;
+      }
+
+      .general-404-creative__search-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: hsl(0, 0%, 98%);
+        border: 2px solid hsl(220, 5%, 92%);
+        border-radius: 9999px;
+        padding: 8px 12px;
+        transition: all 0.3s ease;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .general-404-creative__search-box:focus-within {
+        border-color: hsl(232, 36%, 38%);
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(62, 71, 132, 0.15);
+      }
+
+      .general-404-creative__search-icon {
+        font-size: 1.25rem;
+        color: hsl(220, 6%, 66%);
+        flex-shrink: 0;
+        margin-inline-start: 12px;
+      }
+
+      .general-404-creative__search-input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        font-size: 1rem;
+        color: hsl(220, 11%, 29%);
+        outline: none;
+        padding: 12px 0;
+        font-family: inherit;
+      }
+
+      .general-404-creative__search-input::placeholder {
+        color: hsl(220, 6%, 66%);
+      }
+
+      .general-404-creative__search-input[type=text]:focus {
+        box-shadow: none !important;
+      }
+
+      .general-404-creative__search-btn {
+        background: hsl(232, 36%, 38%);
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 9999px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+        font-family: inherit;
+      }
+
+      .general-404-creative__search-btn:hover {
+        background: hsl(231, 36%, 33%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(62, 71, 132, 0.3);
+      }
+
+      .general-404-creative__search-btn:active {
+        transform: translateY(0);
+      }
+
+      .general-404-creative__actions {
+        margin-bottom: 32px;
+        animation: fadeIn 0.8s ease-out 0.8s;
+        animation-fill-mode: both;
+      }
+
+      .general-404-creative__home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1rem;
+        padding: 16px 32px;
+      }
+
+      .general-404-creative__home-btn i {
+        font-size: 1.25rem;
+      }
+
+      .general-404-creative__footer {
+        padding-top: 24px;
+        border-top: 1px solid hsl(220, 5%, 92%);
+        animation: fadeIn 0.8s ease-out 0.9s;
+        animation-fill-mode: both;
+      }
+
+      .general-404-creative__portal-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: hsl(220, 8%, 35%);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 12px 16px;
+        border-radius: 6px;
+      }
+
+      .general-404-creative__portal-link i {
+        font-size: 1.125rem;
+        color: hsl(232, 36%, 38%);
+        transition: all 0.3s ease;
+      }
+
+      .general-404-creative__portal-link:hover {
+        color: hsl(231, 36%, 33%);
+        background: hsl(0, 0%, 98%);
+      }
+
+      .general-404-creative__portal-link:hover i {
+        transform: rotate(360deg);
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0) translateX(0);
+        }
+        25% {
+          transform: translateY(-20px) translateX(10px);
+        }
+        50% {
+          transform: translateY(-10px) translateX(-10px);
+        }
+        75% {
+          transform: translateY(-30px) translateX(5px);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .general-404-creative__container {
+          padding: 32px 16px;
+        }
+        .general-404-creative__number {
+          font-size: 5rem;
+        }
+        .general-404__heading {
+          font-size: 1.5rem;
+        }
+        .general-404__message {
+          font-size: 1rem;
+        }
+        .general-404-creative__search-box {
+          flex-direction: column;
+          padding: 16px;
+          border-radius: 8px;
+        }
+        .general-404-creative__search-input {
+          width: 100%;
+          text-align: center;
+        }
+        .general-404-creative__search-btn {
+          width: 100%;
+        }
+        .general-404-creative__float-circle--1 {
+          width: 200px;
+          height: 200px;
+        }
+        .general-404-creative__float-circle--2 {
+          width: 150px;
+          height: 150px;
+        }
+        .general-404-creative__float-circle--3 {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .general-404-creative__number {
+          font-size: 4rem;
+        }
       }
     </style>
   </head>
@@ -127,16 +545,16 @@
 
         <!-- Text Content -->
         <div class="general-404-creative__content">
-          <h1 class="general-404__heading" data-i18n="general.404Creative.heading">صفحه مورد نظر یافت نشد!</h1>
-          <p class="general-404__message" data-i18n="general.404Creative.message">متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا ممکن است حذف شده باشد.</p>
+          <h1 class="general-404__heading" data-i18n="heading">صفحه مورد نظر یافت نشد!</h1>
+          <p class="general-404__message" data-i18n="message">متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا ممکن است حذف شده باشد.</p>
         </div>
 
         <!-- Search Box -->
-        <form class="general-404-creative__search" action="/جستجو" method="post" data-i18n="[action]general.404Creative.searchAction">
+        <form class="general-404-creative__search" action="/جستجو" method="post" data-i18n-action="searchAction">
           <div class="general-404-creative__search-box">
             <i class="es esprit-fi-rr-search general-404-creative__search-icon"></i>
-            <input name="q" type="text" class="general-404-creative__search-input" data-i18n="[placeholder]general.404Creative.searchPlaceholder" placeholder="جستجو در سایت..." />
-            <button class="general-404-creative__search-btn" data-i18n="general.404Creative.searchButton">جستجو</button>
+            <input name="q" type="text" class="general-404-creative__search-input" data-i18n-placeholder="searchPlaceholder" placeholder="جستجو در سایت..." />
+            <button class="general-404-creative__search-btn" data-i18n="searchButton">جستجو</button>
           </div>
         </form>
 
@@ -144,7 +562,7 @@
         <div class="general-404-creative__actions">
           <a href="/" class="nes-btn nes-btn-primary general-404-creative__home-btn">
             <i class="es esprit-fi-rr-home"></i>
-            <span data-i18n="general.404Creative.homeButton">بازگشت به صفحه اصلی</span>
+            <span data-i18n="homeButton">بازگشت به صفحه اصلی</span>
           </a>
         </div>
 
@@ -152,12 +570,110 @@
         <div class="general-404-creative__footer">
           <a href="#" class="general-404-creative__portal-link">
             <i class="es esprit-fi-rr-globe"></i>
-            <span data-i18n="general.404Creative.portalLink">پورتال اسپریت</span>
+            <span data-i18n="portalLink">پورتال اسپریت</span>
           </a>
         </div>
       </div>
     </div>
 
-    <script type="module" src="/src/404-main.js"></script>
+    <script>
+      // Translations object for fa, en, ar
+      const translations = {
+        fa: {
+          pageTitle: "صفحه پیدا نشد",
+          heading: "صفحه مورد نظر یافت نشد!",
+          message: "متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا ممکن است حذف شده باشد.",
+          searchPlaceholder: "جستجو در سایت...",
+          searchButton: "جستجو",
+          searchAction: "/جستجو",
+          homeButton: "بازگشت به صفحه اصلی",
+          portalLink: "پورتال اسپریت"
+        },
+        en: {
+          pageTitle: "Page Not Found",
+          heading: "Page Not Found!",
+          message: "Unfortunately, the page you are looking for does not exist or may have been removed.",
+          searchPlaceholder: "Search ...",
+          searchButton: "Search",
+          searchAction: "/search",
+          homeButton: "Go to Homepage",
+          portalLink: "Esprit Portal"
+        },
+        ar: {
+          pageTitle: "الصفحة غير موجودة",
+          heading: "الصفحة المطلوبة غير موجودة!",
+          message: "للأسف، الصفحة التي تبحث عنها غير موجودة أو ربما تم حذفها.",
+          searchPlaceholder: "البحث في نيافام...",
+          searchButton: "بحث",
+          searchAction: "/بحث",
+          homeButton: "العودة إلى الصفحة الرئيسية",
+          portalLink: "بوابة إسبريت"
+        }
+      };
+
+      // Language direction mapping
+      const languageDirections = {
+        fa: 'rtl',
+        en: 'ltr',
+        ar: 'rtl'
+      };
+
+      // Get current language from HTML attribute or browser default
+      function getCurrentLanguage() {
+        const htmlLang = document.documentElement.getAttribute('lang');
+        if (htmlLang && translations[htmlLang]) {
+          return htmlLang;
+        }
+
+        // Try browser language
+        const browserLang = navigator.language.split('-')[0];
+        if (translations[browserLang]) {
+          return browserLang;
+        }
+
+        // Default to Persian
+        return 'fa';
+      }
+
+      // Apply translations to the page
+      function applyTranslations(lang) {
+        const t = translations[lang];
+
+        // Update page title
+        document.title = t.pageTitle;
+
+        // Update HTML lang and dir attributes
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', languageDirections[lang]);
+
+        // Update elements with data-i18n attribute (text content)
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          if (t[key]) {
+            element.textContent = t[key];
+          }
+        });
+
+        // Update elements with data-i18n-placeholder attribute
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+          const key = element.getAttribute('data-i18n-placeholder');
+          if (t[key]) {
+            element.placeholder = t[key];
+          }
+        });
+
+        // Update form action
+        const form = document.querySelector('[data-i18n-action]');
+        if (form && t.searchAction) {
+          form.action = t.searchAction;
+        }
+      }
+
+      // Initialize on page load
+      (function init() {
+        const currentLang = getCurrentLanguage();
+        applyTranslations(currentLang);
+      })();
+    </script>
   </body>
 </html>
