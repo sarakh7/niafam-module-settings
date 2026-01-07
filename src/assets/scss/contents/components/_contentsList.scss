@@ -108,7 +108,7 @@
   &-decorative-line {
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, $blue-gray-600, $blue-gray-400);
+    background: $blue-gray-600;
     margin: $spacing-4 auto 0;
     border-radius: $radius-full;
 
@@ -144,6 +144,63 @@
     position: relative;
     opacity: 0;
     transform: translateY(20px);
+
+    &--1 {
+      .esprit-contents-list-icon {
+        &::before {
+          content: "\e98f";
+        }
+      }
+    }
+
+    &--2 {
+      .esprit-contents-list-icon {
+        &::before {
+          content: "\e952";
+        }
+      }
+    }
+
+    &--3 {
+      .esprit-contents-list-icon {
+        &::before {
+          content: "\ea6c";
+        }
+      }
+    }
+
+    &--4 {
+      .esprit-contents-list-icon {
+        &::before {
+          content: "\e9e6";
+        }
+      }
+    }
+
+    &--5 {
+      .esprit-contents-list-icon {
+        &::before {
+          content: "\ea6c";
+        }
+      }
+    }
+
+    &--6 {
+      .esprit-contents-list-icon {
+        &::before {
+          content: "\ea6c";
+        }
+      }
+    }
+
+    &--7 {
+      .esprit-contents-list-icon {
+        &::before {
+          content: "\e98f";
+        }
+      }
+    }
+
 
     @include respond-to(sm) {
       padding: $spacing-2;
@@ -307,7 +364,7 @@
     position: absolute;
     top: $spacing-2;
     right: $spacing-2;
-    background: linear-gradient(135deg, #d97706, #f59e0b);
+    background: linear-gradient(135deg, $yellow-title, #f59e0b);
     color: #fff;
     font-size: map.get($text-sizes, 12);
     font-weight: $text-bold;
@@ -355,7 +412,7 @@
     }
 
     // Category color coding
-    color: $blue-gray-400; // Deep indigo
+    color: $yellow-title; // Deep indigo
   }
 
   &-headline {
