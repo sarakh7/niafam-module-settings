@@ -2,3 +2,7 @@
 @forward 'mixins';
 @forward 'colors';
 @forward 'breakpoints';
+
+.d-none {
+    display: none;
+}

@@ -74,6 +74,12 @@ $text-sm: 0.875em;
     }
   }
 
+  &__email {
+    color: $gray-500;
+    font-size: $text-sm;
+    font-weight: $text-medium;
+  }
+
   &__logout-form {
     margin-top: auto;
     padding-top: $spacing-4;

@@ -1,11 +1,12 @@
-/* Error: Undefined variable.
+/* Error: expected "{".
  *   ,
- * 5 |   src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?ron46o') format('truetype'),
- *   |               ^^^^^^^^^^^^^^^^^^
+ * 6 | .d-none
+ *   |        ^
  *   '
- *   src\assets\scss\common\esfonticon\_style.scss 5:15  @use
- *   src\assets\scss\contents\main.scss 9:1              @forward
- *   src\assets\scss\contents.scss 2:1                   root stylesheet */
+ *   src\assets\scss\common\base\_globals.scss 6:8  @use
+ *   src\assets\scss\contents\_layout.scss 3:1      @use
+ *   src\assets\scss\contents\main.scss 12:1        @forward
+ *   src\assets\scss\contents.scss 2:1              root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -15,5 +16,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 5 \2502    src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?ron46o') format('truetype'),\d\a   \2502                ^^^^^^^^^^^^^^^^^^\a   \2575 \a   src\\assets\\scss\\common\\esfonticon\\_style.scss 5:15  @use\a   src\\assets\\scss\\contents\\main.scss 9:1              @forward\a   src\\assets\\scss\\contents.scss 2:1                   root stylesheet";
+  content: 'Error: expected "{".\a   \2577 \a 6 \2502  .d-none\a   \2502         ^\a   \2575 \a   src\\assets\\scss\\common\\base\\_globals.scss 6:8  @use\a   src\\assets\\scss\\contents\\_layout.scss 3:1      @use\a   src\\assets\\scss\\contents\\main.scss 12:1        @forward\a   src\\assets\\scss\\contents.scss 2:1              root stylesheet';
 }

@@ -348,8 +348,9 @@
       "birthdatePlaceholder": "تاریخ تولد خود را انتخاب کنید",
       "gender": "جنسیت",
       "genderNone": "بدون انتخاب",
-      "genderMale": "مذکر",
-      "genderFemale": "مونث",
+      "genderWoman": "زن",
+      "genderMan": "مرد",
+      "genderOther": "سایر",
       "website": "وب سایت",
       "websitePlaceholder": "آدرس وب سایت خود را وارد کنید",
       "linkedin": "لینکدین",
@@ -612,6 +613,7 @@
     "sounds": {
       "title": "صوت‌ها"
     },
+    "imageGalleries": "گالری‌های تصویری",
     "relatedGalleries": "گالری‌های مرتبط",
     "archive": "آرشیو گالری"
   },
@@ -635,5 +637,8 @@
       "analytics": "آمار و گزارش",
       "security": "امنیت"
     }
+  },
+  "routes": {
+    "editProfile": "/ویرایش-پروفایل"
   }
 }

@@ -8,6 +8,39 @@ import { initCopyShortUrl } from "./features/common/copyShortUrl";
 import "./assets/scss/gallery.scss";
 
 /**
+ * Hide empty gallery sections
+ */
+function hideEmptySections() {
+  // Hide images section if gallery is empty
+  const imagesSection = document.getElementById('gallery-section-images');
+  const galleryImages = document.getElementById('gallery-images');
+  if (imagesSection && galleryImages && galleryImages.children.length === 0) {
+    imagesSection.style.display = 'none';
+  }
+
+  // Hide videos section if video list is empty
+  const videosSection = document.getElementById('gallery-section-videos');
+  const videoListScroll = videosSection?.querySelector('.video-list__scroll');
+  if (videosSection && videoListScroll && videoListScroll.children.length === 0) {
+    videosSection.style.display = 'none';
+  }
+
+  // Hide sounds section if sound list is empty
+  const soundsSection = document.getElementById('gallery-section-sounds');
+  const soundListScroll = soundsSection?.querySelector('.sound-list__scroll');
+  if (soundsSection && soundListScroll && soundListScroll.children.length === 0) {
+    soundsSection.style.display = 'none';
+  }
+
+  // Hide related galleries section if there are no news items
+  const relatedGalleriesSection = document.getElementById('gallery-related-galleries');
+  const relatedNewsItems = relatedGalleriesSection?.querySelectorAll('.esprit-article__news-item');
+  if (relatedGalleriesSection && (!relatedNewsItems || relatedNewsItems.length === 0)) {
+    relatedGalleriesSection.style.display = 'none';
+  }
+}
+
+/**
  * Initialize gallery application features
  */
 async function initializeGalleryApp() {
@@ -41,6 +74,9 @@ async function initializeGalleryApp() {
 
     // Initialize short URL copy functionality
     initCopyShortUrl();
+
+    // Hide empty sections
+    hideEmptySections();
 
     // console.log("Gallery page initialized successfully");
   } catch (error) {

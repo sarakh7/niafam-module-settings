@@ -395,6 +395,7 @@
     "sounds": {
       "title": "Аудио"
     },
+    "imageGalleries": "Фото галереи",
     "relatedGalleries": "Связанные галереи",
     "archive": "Архив галереи"
   },
@@ -452,8 +453,9 @@
       "birthdatePlaceholder": "Выберите дату рождения",
       "gender": "Пол",
       "genderNone": "Не выбрано",
-      "genderMale": "Мужской",
-      "genderFemale": "Женский",
+      "genderWoman": "Женщина",
+      "genderMan": "Мужчина",
+      "genderOther": "Другой",
       "website": "Веб-сайт",
       "websitePlaceholder": "Введите URL вашего веб-сайта",
       "linkedin": "LinkedIn",
@@ -659,5 +661,8 @@
       "analytics": "Статистика и отчеты",
       "security": "Безопасность"
     }
+  },
+  "routes": {
+    "editProfile": "/редактировать-профиль"
   }
 }

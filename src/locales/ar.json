@@ -394,6 +394,7 @@
     "sounds": {
       "title": "الصوتيات"
     },
+    "imageGalleries": "معارض الصور",
     "relatedGalleries": "معارض ذات صلة",
     "archive": "أرشيف المعرض"
   },
@@ -451,8 +452,9 @@
       "birthdatePlaceholder": "اختر تاريخ ميلادك",
       "gender": "الجنس",
       "genderNone": "غير محدد",
-      "genderMale": "ذكر",
-      "genderFemale": "أنثى",
+      "genderWoman": "امرأة",
+      "genderMan": "رجل",
+      "genderOther": "آخر",
       "website": "الموقع الإلكتروني",
       "websitePlaceholder": "أدخل عنوان موقعك الإلكتروني",
       "linkedin": "لينكدإن",
@@ -658,5 +660,8 @@
       "analytics": "الإحصائيات والتقارير",
       "security": "الأمن"
     }
+  },
+  "routes": {
+    "editProfile": "/تعديل-الملف-الشخصي"
   }
 }

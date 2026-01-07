@@ -394,6 +394,7 @@
     "sounds": {
       "title": "Sesler"
     },
+    "imageGalleries": "Resim Galerileri",
     "relatedGalleries": "İlgili Galeriler",
     "archive": "Galeri Arşivi"
   },
@@ -451,8 +452,9 @@
       "birthdatePlaceholder": "Doğum tarihinizi seçin",
       "gender": "Cinsiyet",
       "genderNone": "Seçilmedi",
-      "genderMale": "Erkek",
-      "genderFemale": "Kadın",
+      "genderWoman": "Kadın",
+      "genderMan": "Erkek",
+      "genderOther": "Diğer",
       "website": "Web Sitesi",
       "websitePlaceholder": "Web sitenizin adresini girin",
       "linkedin": "LinkedIn",
@@ -658,5 +660,8 @@
       "analytics": "İstatistikler ve Raporlar",
       "security": "Güvenlik"
     }
+  },
+  "routes": {
+    "editProfile": "/profil-duzenle"
   }
 }

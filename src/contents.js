@@ -110,8 +110,8 @@ async function initializeApp() {
 
     // Initialize related content - only if related news section exists
     if (document.getElementById("article-related-news") || document.querySelector(".esprit-article__related-news")) {
-      initRelatedContent();
       initRelatedNews();
+      initRelatedContent();
       initScrollNav("related-content-list");
     }
 

@@ -6,6 +6,7 @@ import { initTabNavigation } from "./features/profile/tabNavigation";
 import { initProfileForm } from "./features/profile/profileForm";
 import { initPasswordForm } from "./features/profile/passwordForm";
 import { initAvatarUpload } from "./features/profile/avatarUpload";
+import { initGenderDisplay } from "./features/profile/genderDisplay";
 import "./assets/scss/profile.scss";
 
 /**
@@ -25,6 +26,9 @@ async function initializeProfileApp() {
     }
 
     initLocalization();
+
+    // Initialize gender display translation
+    initGenderDisplay();
 
     // Initialize dashboard menu toggle
     initDashboardMenu();

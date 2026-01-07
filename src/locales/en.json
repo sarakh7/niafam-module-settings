@@ -359,8 +359,9 @@
       "birthdatePlaceholder": "Select your birth date",
       "gender": "Gender",
       "genderNone": "Not Selected",
-      "genderMale": "Male",
-      "genderFemale": "Female",
+      "genderWoman": "Woman",
+      "genderMan": "Man",
+      "genderOther": "Other",
       "website": "Website",
       "websitePlaceholder": "Enter your website URL",
       "linkedin": "LinkedIn",
@@ -519,6 +520,7 @@
     "sounds": {
       "title": "Audios"
     },
+    "imageGalleries": "Image Galleries",
     "relatedGalleries": "Related Galleries",
     "archive": "Gallery Archive"
   },
@@ -542,5 +544,8 @@
       "analytics": "Statistics and Reports",
       "security": "Security"
     }
+  },
+  "routes": {
+    "editProfile": "/edit-profile"
   }
 }

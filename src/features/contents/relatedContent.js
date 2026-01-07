@@ -5,13 +5,17 @@
  */
 
 /**
- * Check if an element with the specified ID exists in the DOM
+ * Check if an element with the specified ID exists and is visible in the DOM
  * @param {string} targetId - The element ID to check (without #)
- * @returns {boolean} - Returns true if element exists
+ * @returns {boolean} - Returns true if element exists and is visible
  */
 function isTargetExists(targetId) {
   const element = document.getElementById(targetId);
-  return element !== null && element !== undefined;
+  if (!element) return false;
+
+  // Check if element is visible (offsetParent is null when display:none)
+  // offsetParent returns null if element or any ancestor has display:none
+  return element.offsetParent !== null;
 }
 
 /**

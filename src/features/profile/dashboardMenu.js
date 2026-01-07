@@ -21,8 +21,12 @@ export function initDashboardMenu() {
     suppressScrollX: true,
   });
 
-  // Find all links with submenus
-  const menuToggles = navigationElement.querySelectorAll('a.has-submenu');
+  // Find all links with submenus (links that have a UL as next sibling)
+  const allLinks = navigationElement.querySelectorAll('a');
+  const menuToggles = Array.from(allLinks).filter(link => {
+    const nextSibling = link.nextElementSibling;
+    return nextSibling && nextSibling.tagName === 'UL';
+  });
 
   menuToggles.forEach((toggle) => {
     // Add arrow icon if it doesn't exist
@@ -37,8 +41,7 @@ export function initDashboardMenu() {
       e.preventDefault();
 
       // Close other open submenus
-      const allToggles = navigationElement.querySelectorAll('a.has-submenu');
-      allToggles.forEach((otherToggle) => {
+      menuToggles.forEach((otherToggle) => {
         if (otherToggle !== toggle && otherToggle.classList.contains('open')) {
           otherToggle.classList.remove('open');
           const otherSubmenu = otherToggle.nextElementSibling;
@@ -67,9 +70,12 @@ export function initDashboardMenu() {
 
   // Handle active state for current page
   const currentPath = window.location.pathname;
-  const allLinks = navigationElement.querySelectorAll('a:not(.has-submenu)');
+  const regularLinks = Array.from(navigationElement.querySelectorAll('a')).filter(link => {
+    const nextSibling = link.nextElementSibling;
+    return !(nextSibling && nextSibling.tagName === 'UL');
+  });
 
-  allLinks.forEach((link) => {
+  regularLinks.forEach((link) => {
     // Skip hash-only links (they're placeholders, not real navigation)
     const href = link.getAttribute('href');
     if (!href || href === '#' || href === 'javascript:void(0)' || href === 'javascript:;') {
@@ -85,18 +91,16 @@ export function initDashboardMenu() {
         // If this link is in a submenu, open the parent submenu
         const parentLi = link.closest('li').parentElement.closest('li');
         if (parentLi) {
-          const parentLink = parentLi.querySelector('a.has-submenu');
-          if (parentLink) {
+          const parentLink = parentLi.querySelector('a');
+          if (parentLink && parentLink.nextElementSibling && parentLink.nextElementSibling.tagName === 'UL') {
             parentLink.classList.add('open');
             const submenu = parentLink.nextElementSibling;
-            if (submenu && submenu.tagName === 'UL') {
-              submenu.classList.add('open');
+            submenu.classList.add('open');
 
-              // Update PerfectScrollbar after submenu is opened
-              setTimeout(() => {
-                ps.update();
-              }, 300);
-            }
+            // Update PerfectScrollbar after submenu is opened
+            setTimeout(() => {
+              ps.update();
+            }, 300);
           }
         }
       }
