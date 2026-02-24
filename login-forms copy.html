@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{logintitle} - Niafam</title>
     <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/espritstyle.css" />
     <link rel="stylesheet" href="/assets/css/reset.css" />
 
     <script src="/assets/js/jquery.js"></script>
@@ -92,7 +91,7 @@
             <div class="user-dropdown__wrapper">
               <button class="user-dropdown__trigger" aria-expanded="false" aria-haspopup="true">
                 <!-- <img src="/assets/img/avatar-placeholder.png" alt="User Avatar" class="user-dropdown__avatar user-dropdown__avatar--initials" data-initials="JD" /> -->
-                T
+              T
               </button>
               <span class="user-dropdown__name">{User_Name}</span>
               <i class="es esprit-fi-rr-angle-down arrow user-dropdown__icon"></i>
@@ -240,8 +239,8 @@
 
         <!-- 2. OTP Login Form -->
         <section id="otp-form" class="auth-section">
+          <h2 class="nes-section-title">{OTP_Title}</h2>
           <div class="nes-card">
-            <h2 class="nes-card-title">بازیابی رمز عبور</h2>
             <!-- Step Indicators -->
             <div class="auth-otp__steps">
               <div class="auth-otp__step auth-otp__step--active" data-step="1">1</div>
@@ -251,123 +250,98 @@
 
             <!-- Step 1: Phone Number Entry -->
             <div class="auth-otp__step-1" id="otp-step-1">
-              <h3 class="auth-step-title">{Recover_Password_msg}</h3>
+              <h3 class="auth-step-title">{OTP_Step1_Title}</h3>
 
-              <form class="nes-form" id="otp-phone-form" action="" method="post">
+              <form class="nes-form" id="otp-phone-form">
                 <div class="nes-form-group">
-                  <label class="nes-label" data-i18n="auth.login.username">{Username_Label}</label>
-                  <input type="text" class="nes-input" id="otp-username" name="username" placeholder="نام کاربری" required />
+                  <label class="nes-label">{Username_Label}</label>
+                  <input type="text" class="nes-input" id="otp-username" name="username" placeholder="{Enter_Your_Username}" required />
                 </div>
 
                 <div class="nes-form-group">
-                  <label class="nes-label">شماره تماس یا آدرس ایمیل</label>
-                  <input type="tel" class="nes-input" id="otp-phone" name="phone" placeholder="شماره تماس یا آدرس ایمیل" required />
+                  <label class="nes-label">{Phone_Label}</label>
+                  <input type="tel" class="nes-input" id="otp-phone" name="phone" placeholder="{Enter_Your_Phone_Number}" required />
                 </div>
 
                 <div class="nes-captcha-row">
-                  <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
+                  <label class="nes-label">{Captcha_Label}</label>
                   {captchahtml}
                 </div>
 
                 <div class="nes-form-actions">
-                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="recoveryformconfirmform" />
                   <button type="submit" class="nes-btn nes-btn-primary">
-                    <span>{Recover_Password_Btn}</span>
+                    <span>{Send_Code_Btn}</span>
                   </button>
                 </div>
               </form>
-
-              <div class="auth-form-links">
-                <form action="" method="post" class="auth-form-links__form">
-                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="login" />
-                  <button type="submit" class="auth-link">{signin}</button>
-                </form>
-                <form action="" method="post" class="auth-form-links__form">
-                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signupform" />
-                  <button type="submit" class="auth-link">{Sign_Up}</button>
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- Alerts Container -->
-          <div id="alerts">{error_msg}</div>
-        </section>
-
-        <!-- 2. OTP Login Form -->
-        <section id="otp-form" class="auth-section">
-          <div class="nes-card">
-            <h2 class="nes-card-title">بازیابی رمز عبور</h2>
-            <!-- Step Indicators -->
-            <div class="auth-otp__steps">
-              <div class="auth-otp__step" data-step="1">1</div>
-              <div class="auth-otp__step-divider"></div>
-              <div class="auth-otp__step auth-otp__step--active" data-step="2">2</div>
             </div>
 
             <!-- Step 2: Verification Code Entry -->
-            <div class="auth-otp__step-2" id="otp-step-2">
-              <form class="nes-form" id="otp-verify-form" action="" method="post">
+            <div class="auth-otp__step-2 " id="otp-step-2">
+              <h3 class="auth-step-title">{OTP_Step2_Title}</h3>
+
+              <form class="nes-form" id="otp-verify-form">
                 <div class="nes-form-group">
-                  <label class="nes-label">{confirm_form_Title}</label>
-                  <input type="text" class="nes-input auth-otp-code-input" autocomplete="off" name="confirmcode" id="confirmcode" required="" placeholder="کد 6 رقمی" maxlength="6" required />
+                  <label class="nes-label">{Verification_Code_Label}</label>
+                  <input type="text" class="nes-input auth-otp-code-input" id="otp-code" name="code" placeholder="{Enter_6_Digit_Code}" maxlength="6" required />
                 </div>
 
                 <div class="auth-resend-timer">
-                  <span id="otp-timer-text" class="">{resend_count_msg}</span>
-                  <div class="auth-link" id="es-resendcode-parent">{resendcode}</div>
+                  <span id="otp-timer-text" class="">{Resend_In_Text}</span>
+                  <button type="button" class="auth-link " id="otp-resend-btn">{Resend_Code}</button>
                 </div>
 
                 <div class="nes-form-actions">
-                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="sendconfirmcode" />
-                  <input type="hidden" autocomplete="off" name="username_username" id="username_username" value="{username_username}" />
-                  <input type="hidden" autocomplete="off" name="username_mail_mobile" id="username_mail_mobile" value="{username_mail_mobile}" />
-                  <button type="submit" class="nes-btn nes-btn-primary">
-                    <span>{submit}</span>
+                  <button type="submit" class="nes-btn nes-btn-success">
+                    <span>{Verify_Login_Btn}</span>
+                  </button>
+                  <button type="button" class="nes-btn nes-btn-danger" id="otp-back-btn">
+                    <span>{Edit_Phone_Btn}</span>
                   </button>
                 </div>
               </form>
             </div>
           </div>
           <!-- Alerts Container -->
-          <div id="alerts">{error_msg}</div>
+          <div id="alerts"></div>
         </section>
 
         <!-- 3. Registration Form -->
         <section id="registration-form" class="auth-section">
+          <h2 class="nes-section-title">{signuptitle}</h2>
           <div class="nes-card">
-            <h2 class="nes-card-title">{signuptitle}</h2>
             <form class="nes-form" id="registration-form-element" action="" method="post">
-              {signupmsg}
+              {signupmsg} {error_msg}
               <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signup" />
               <div class="nes-form-row">
                 <div class="nes-input-wrapper">
-                  <label class="nes-label">{firstname_Placeholder}</label>
-                  <input type="text" class="nes-input" id="firstname" name="firstname" placeholder="{firstname_Placeholder}" required value="{firstname_value}" />
+                  <label class="nes-label">{First_Name_Label}</label>
+                  <input type="text" class="nes-input" id="firstname" name="firstname" placeholder="{firstname_Placeholder}" required />
                 </div>
                 <div class="nes-input-wrapper">
-                  <label class="nes-label">{lastname_Placeholder}</label>
-                  <input type="text" class="nes-input" id="lastname" name="lastname" placeholder="{lastname_Placeholder}" required value="{lastname_value}" />
-                </div>
-              </div>
-
-              <div class="nes-form-row">
-                <div class="nes-input-wrapper">
-                  <label class="nes-label">{email_Placeholder}</label>
-                  <input type="email" class="nes-input" id="email" name="email" placeholder="{email_Placeholder}" value="{email_value}" />
-                </div>
-                <div class="nes-input-wrapper">
-                  <label class="nes-label">{tellphon_Placeholder}</label>
-                  <input type="tel" class="nes-input" id="tellphon" name="tellphon" placeholder="{tellphon_Placeholder}" required value="{tellphon_value}" />
+                  <label class="nes-label">{Last_Name_Label}</label>
+                  <input type="text" class="nes-input" id="lastname" name="lastname" placeholder="{lastname_Placeholder}" required />
                 </div>
               </div>
 
               <div class="nes-form-row">
                 <div class="nes-input-wrapper">
-                  <label class="nes-label">{national_code_Placeholder}</label>
-                  <input type="text" class="nes-input" id="national_code" name="national_code" placeholder="{national_code_Placeholder}" value="{national_code_value}" />
+                  <label class="nes-label">{Email_Label}</label>
+                  <input type="email" class="nes-input" id="email" name="email" placeholder="{email_Placeholder}" />
                 </div>
                 <div class="nes-input-wrapper">
-                  <label class="nes-label">{gender}</label>
+                  <label class="nes-label">{Phone_Label}</label>
+                  <input type="tel" class="nes-input" id="tellphon" name="tellphon" placeholder="{tellphon_Placeholder}" required />
+                </div>
+              </div>
+
+              <div class="nes-form-row">
+                <div class="nes-input-wrapper">
+                  <label class="nes-label">{National_Code_Label}</label>
+                  <input type="text" class="nes-input" id="national_code" name="national_code" placeholder="{national_code_Placeholder}" />
+                </div>
+                <div class="nes-input-wrapper">
+                  <label class="nes-label">{Gender_Label}</label>
                   <select class="nes-input" id="gender" name="gender">
                     <option value="1">{male}</option>
                     <option value="0">{female}</option>
@@ -376,23 +350,14 @@
               </div>
 
               <div class="nes-form-group">
-                <label class="nes-label">{Username_Placeholder}</label>
-                <input type="text" class="nes-input" id="username" name="username" placeholder="{Username_Placeholder}" required value="{username_value}" />
+                <label class="nes-label">{Username_Label}</label>
+                <input type="text" class="nes-input" id="username" name="username" placeholder="{Username_Placeholder}" required />
               </div>
 
               <div class="nes-form-group">
-                <label class="nes-label">{Password_Placeholder}</label>
+                <label class="nes-label">{Password_Label}</label>
                 <div class="auth-password-wrapper">
-                  <input
-                    type="password"
-                    class="nes-input"
-                    id="password"
-                    name="password"
-                    placeholder="{Password_Placeholder}"
-                    required
-                    data-validation-pattern-message="{Password_Validation}"
-                    value="{password_value}"
-                  />
+                  <input type="password" class="nes-input" id="password" name="password" placeholder="{Password_Placeholder}" required />
                   <button type="button" class="auth-password-toggle" id="password-toggle">
                     <i class="es esprit-eye"></i>
                   </button>
@@ -403,20 +368,9 @@
               </div>
 
               <div class="nes-form-group">
-                <label class="nes-label">{rePassword_Placeholder}</label>
+                <label class="nes-label">{Confirm_Password_Label}</label>
                 <div class="auth-password-wrapper">
-                  <input
-                    type="password"
-                    class="nes-input"
-                    id="repassword"
-                    name="repassword"
-                    placeholder="{rePassword_Placeholder}"
-                    required
-                    data-validation-matches-match="password"
-                    data-validation-matches-message="{Match_Validation}"
-                    aria-invalid="false"
-                    value="{repassword_value}"
-                  />
+                  <input type="password" class="nes-input" id="repassword" name="repassword" placeholder="{rePassword_Placeholder}" required />
                   <button type="button" class="auth-password-toggle" id="repassword-toggle">
                     <i class="es esprit-eye"></i>
                   </button>
@@ -424,13 +378,13 @@
               </div>
 
               <div class="nes-captcha-row">
-                <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
+                <label class="nes-label">{Captcha_Label}</label>
                 {captchahtml}
               </div>
 
               <div class="nes-form-actions">
-                <button type="submit" class="nes-btn nes-btn-primary">
-                  <span>{signup_btn}</span>
+                <button type="submit" class="nes-btn nes-btn-success">
+                  <span>{Create_Account_Btn}</span>
                 </button>
               </div>
             </form>
@@ -448,75 +402,6 @@
           </div>
           <!-- Alerts Container -->
           <div id="alerts"></div>
-        </section>
-
-        <section id="otp-form" class="auth-section">
-          <div class="nes-card">
-            <!--<h2 class="nes-card-title">{confirm_form_Title}</h2>-->
-            <h2 class="nes-card-title">تایید ثبت نام</h2>
-
-            <div class="auth-otp__step-2">
-              <form class="nes-form" id="otp-verify-form" action="" method="post">
-                <div class="nes-form-group">
-                  <label class="nes-label">کد ارسال شده را وارد نمایید</label>
-                  <input type="text" class="nes-input auth-otp-code-input" autocomplete="off" name="confirmcode" id="confirmcode" required="" placeholder="کد 5 رقمی" maxlength="5" required />
-                  <input type="hidden" autocomplete="off" name="firstname" id="firstname" value="{firstname}" />
-                  <input type="hidden" autocomplete="off" name="lastname" id="lastname" value="{lastname}" />
-                  <input type="hidden" autocomplete="off" name="email" id="email" value="{email}" />
-                  <input type="hidden" autocomplete="off" name="tellphon" id="tellphon" value="{tellphon}" />
-                  <input type="hidden" autocomplete="off" name="national_code" id="national_code" value="{national_code}" />
-                  <input type="hidden" autocomplete="off" name="gender" id="gender" value="{gender}" />
-                  <input type="hidden" autocomplete="off" name="username" id="username" value="{username}" />
-                  <input type="hidden" autocomplete="off" name="password" id="password" value="{password}" />
-                  <input type="hidden" autocomplete="off" name="repassword" id="repassword" value="{repassword}" />
-                  <input type="hidden" autocomplete="off" name="codemd5" id="codemd5" value="{codemd5}" />
-                </div>
-                <!-- Alerts Container -->
-                <div id="alerts">{error_msg}</div>
-
-                <div class="auth-resend-timer">
-                  <span id="otp-timer-text" class="">{resend_count_msg}</span>
-                  <div class="auth-link d-none" id="es-resendcode-parent">{resendcode}</div>
-                </div>
-
-                <div class="nes-form-actions">
-                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signup" />
-                  <input type="hidden" autocomplete="off" name="username_mail_mobile" id="username_mail_mobile" value="{username_mail_mobile}" />
-                  <button type="submit" class="nes-btn nes-btn-primary">
-                    <span>{submit}</span>
-                  </button>
-                </div>
-              </form>
-
-              <div class="auth-form-links">
-                <form class="auth-form-links__form" action="" method="post">
-                  <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout" />
-                  <button type="submit" class="auth-link auth-link--danger" id="logout-btn">
-                    <span>
-                      <i class="es esprit-fi-rr-sign-out-alt"></i>
-                      خروج
-                    </span>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="success-message" class="auth-section">
-          <div class="nes-card auth-success-card">
-            <h2 class="nes-card-title">{Success_Title}</h2>
-            <div class="auth-success-icon">
-              <i class="es esprit-fi-rr-check"></i>
-            </div>
-            <!--    <h3 class="auth-success-title">{Success_Subtitle}</h3>-->
-            <p class="auth-success-message">{Success_msg}</p>
-            <div class="nes-form-actions">
-              <a href="{backlink_title}" class="nes-btn nes-btn-primary">
-                <span>{backlink_title}</span>
-              </a>
-            </div>
-          </div>
         </section>
 
         <!-- 4. Password Recovery Form -->

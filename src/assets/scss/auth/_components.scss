@@ -47,6 +47,12 @@
   font-size: 0.9rem;
   flex-wrap: wrap;
   gap: $spacing-2;
+
+  // Form wrapper for inline forms
+  &__form {
+    display: inline;
+    margin: 0;
+  }
 }
 
 .auth-link {
@@ -54,6 +60,12 @@
   text-decoration: none;
   font-weight: $text-medium;
   transition: $transition;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
 
   &:hover {
     color: $blue-gray-700;
@@ -156,11 +168,11 @@
     padding: $spacing-4;
   }
 
-  .auth-form-links {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
-  }
+  // .auth-form-links {
+  //   flex-direction: column;
+  //   align-items: flex-start;
+  //   text-align: center;
+  // }
 
   .auth-page-header {
     padding: $spacing-2 0;

@@ -18,21 +18,21 @@
 
   // Add subtle separation from main grid if both are present on same page
   &:not(:first-of-type) {
-    margin-top: $spacing-6;
-    padding-top: $spacing-5;
+    // margin-top: $spacing-6;
+    // padding-top: $spacing-5;
 
     // Optional: Add a subtle divider line
     position: relative;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: $gray-200;
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   height: 1px;
+    //   background: $gray-200;
+    // }
 
     @media (max-width: 768px) {
       margin-top: $spacing-5;
@@ -110,7 +110,6 @@
       // Icon sizing for list mode
       .general-subcats-card__icon {
         margin-bottom: 0;
-        margin-inline-end: $spacing-3;
 
         // Font icon sizing
         &.es,

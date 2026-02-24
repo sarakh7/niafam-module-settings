@@ -446,7 +446,7 @@
     }
 
     @include respond-to(sm) {
-      display: none;
+      display: none !important;
     }
 
     .esprit-contents-list-item:hover & {

@@ -61,4 +61,10 @@
         border-bottom: 1px dashed $gray-300;
         margin-bottom: 12px;
     }
+
+    &:has(.esprit-article-info__wrapper:empty){
+        .esprit-article-info__divider{
+            display: none;
+        }
+    }
 }

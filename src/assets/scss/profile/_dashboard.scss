@@ -223,22 +223,22 @@ $text-sm: 0.875em;
         font-weight: $text-semi-bold;
       }
 
-      &.has-submenu {
-        .arrow {
-          margin-right: auto;
-          font-size: 0.75em;
-          transition: transform 0.3s ease;
 
-          [dir="ltr"] & {
-            margin-right: 0;
-            margin-left: auto;
-          }
-        }
+      .arrow {
+        margin-right: auto;
+        font-size: 0.75em;
+        transition: transform 0.3s ease;
 
-        &.open .arrow {
-          transform: rotate(180deg);
+        [dir="ltr"] & {
+          margin-right: 0;
+          margin-left: auto;
         }
       }
+
+      &.open .arrow {
+        transform: rotate(180deg);
+      }
+
 
       i:not(.arrow) {
         font-size: 1.1em;

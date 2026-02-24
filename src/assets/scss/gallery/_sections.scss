@@ -320,3 +320,13 @@
     transform: scale(-1);
   }
 }
+
+.esprit-article__news-short-title,
+.esprit-article__news-description,
+.esprit-article__news-icon {
+    display: none !important;
+}
+
+.esprit-article__news-image-wrapper {
+    width: 98px;
+}

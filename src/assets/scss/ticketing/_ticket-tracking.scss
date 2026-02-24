@@ -43,6 +43,22 @@ $page-bg: #F5F7FA;
 $conversation-area-bg: #F0F4F9; // Subtle blue-tinted background
 
 // ============================================================================
+// RESET
+// ============================================================================
+#es-content .es-submits-parent {
+    border-bottom: unset;
+    border-left: unset;
+    border-right: unset;
+}
+textarea {
+    background: unset;
+    color: unset;
+    height: unset;
+}
+.es-btn-block {
+    width: unset;
+}
+// ============================================================================
 // UTILITY CLASSES
 // ============================================================================
 
@@ -820,4 +836,34 @@ $conversation-area-bg: #F0F4F9; // Subtle blue-tinted background
 
 #replayForm {
   max-width: 600px;
+}
+
+.alert {
+  height: auto;
+  font-size: $text-xs;
+  line-height: 16px;
+  overflow: hidden;
+  padding: $spacing-3;
+  text-align: left;
+  // margin-bottom: $spacing-4;
+  font-weight: 400;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  clear: both;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border: 0;
+  background-color: #ffd56c;
+  color: #222;
+  border-radius: $radius-default;
+  text-align: center;
+  background-color: #f5825e;
+  color: #fff;
+
+  &--success {
+    background-color: #63c76a;
+  }
 }

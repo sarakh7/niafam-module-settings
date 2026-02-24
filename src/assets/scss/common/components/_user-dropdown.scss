@@ -27,6 +27,11 @@
     border: none;
     cursor: pointer;
     transition: $transition;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $blue-gray-400;
+    color: #fff;
 
     &:hover {
       opacity: 0.8;
@@ -223,8 +228,10 @@
   }
 
   &:hover {
-    background: rgba($error, 0.1);
-    color: $error-700;
+    background: rgba($error, 0.1) !important;
+    color: $error-700 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important
   }
 
   &:focus {
