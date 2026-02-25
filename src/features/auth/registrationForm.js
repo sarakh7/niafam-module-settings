@@ -206,7 +206,7 @@ function setupPasswordToggle(passwordId, toggleId) {
 
     const icon = toggleBtn.querySelector('i');
     if (icon) {
-      icon.className = isPassword ? 'es esprit-eye-off' : 'es esprit-eye';
+      icon.className = isPassword ? 'es esprit-fi-rr-eye-crossed' : 'es esprit-fi-rr-eye';
     }
   });
 }
