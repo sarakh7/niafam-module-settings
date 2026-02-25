@@ -75,16 +75,16 @@
     <header class="auth-page-header">
       <div class="auth-page-header__container">
         <div class="auth-page-header__logo">
-          <h1 class="auth-page-header__title">{Site_Title}</h1>
+          <h1 class="auth-page-header__title" data-i18n="auth.demo.siteTitle">Niafam Demo</h1>
         </div>
 
         <div class="auth-page-header__actions">
           <!-- Submit/Login Link (shown before login) -->
           <a href="#login-form" class="auth-page-header__login-link">
             <i class="es esprit-fi-rr-sign-in"></i>
-            <span>{Login_Link}</span>
+            <span data-i18n="auth.loginLink">Login</span>
             <span class="auth-page-header__separator">/</span>
-            <span>{Submit_Link}</span>
+            <span data-i18n="auth.submitLink">Submit</span>
           </a>
 
           <!-- User Dropdown Component (shown after login) -->
@@ -94,27 +94,27 @@
                 <!-- <img src="/assets/img/avatar-placeholder.png" alt="User Avatar" class="user-dropdown__avatar user-dropdown__avatar--initials" data-initials="JD" /> -->
                 T
               </button>
-              <span class="user-dropdown__name">{User_Name}</span>
+              <span class="user-dropdown__name" data-i18n="auth.demo.userName">John Doe</span>
               <i class="es esprit-fi-rr-angle-down arrow user-dropdown__icon"></i>
             </div>
 
             <div class="user-dropdown__menu">
               <div class="user-dropdown__header">
-                <div class="user-dropdown__header-name">{User_Full_Name}</div>
-                <div class="user-dropdown__header-email">{User_Email}</div>
+                <div class="user-dropdown__header-name" data-i18n="auth.demo.userFullName">John Doe</div>
+                <div class="user-dropdown__header-email" data-i18n="auth.demo.userEmail">john.doe@example.com</div>
               </div>
 
               <ul class="user-dropdown__list">
                 <li class="user-dropdown__item">
                   <a href="/profile-view.html" class="user-dropdown__link">
                     <i class="es esprit-fi-rr-user"></i>
-                    <span>{View_Profile}</span>
+                    <span data-i18n="auth.userDropdown.viewProfile">View Profile</span>
                   </a>
                 </li>
                 <li class="user-dropdown__item">
                   <a href="/profile-edit.html" class="user-dropdown__link">
                     <i class="es esprit-fi-rr-edit"></i>
-                    <span>{Edit_Profile}</span>
+                    <span data-i18n="auth.userDropdown.editProfile">Edit Profile</span>
                   </a>
                 </li>
               </ul>
@@ -122,7 +122,7 @@
                 <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="logout" />
                 <button type="submit" class="profile-dashboard__logout-btn">
                   <i class="es esprit-fi-rr-sign-out-alt"></i>
-                  <span>{Logout_Btn}</span>
+                  <span data-i18n="auth.userDropdown.logout">Logout</span>
                 </button>
               </form>
             </div>
@@ -137,37 +137,37 @@
         <li class="auth-nav__item">
           <a href="#login-form" class="auth-nav__link auth-nav__link--active">
             <i class="es esprit-user"></i>
-            <span>{Nav_Login}</span>
+            <span data-i18n="auth.nav.login">Login</span>
           </a>
         </li>
         <li class="auth-nav__item">
           <a href="#otp-form" class="auth-nav__link">
             <i class="es esprit-smart-phone"></i>
-            <span>{Nav_OTP}</span>
+            <span data-i18n="auth.nav.otp">OTP Login</span>
           </a>
         </li>
         <li class="auth-nav__item">
           <a href="#registration-form" class="auth-nav__link">
             <i class="es esprit-user-plus"></i>
-            <span>{Nav_Register}</span>
+            <span data-i18n="auth.nav.register">Register</span>
           </a>
         </li>
         <li class="auth-nav__item">
           <a href="#password-recovery-form" class="auth-nav__link">
             <i class="es esprit-key"></i>
-            <span>{Nav_Recovery}</span>
+            <span data-i18n="auth.nav.recovery">Password Recovery</span>
           </a>
         </li>
         <li class="auth-nav__item">
           <a href="#success-message" class="auth-nav__link">
             <i class="es esprit-fi-rr-check"></i>
-            <span>{Nav_Success}</span>
+            <span data-i18n="auth.nav.success">Success</span>
           </a>
         </li>
         <li class="auth-nav__item">
           <a href="#two-factor-confirm" class="auth-nav__link">
             <i class="es esprit-fi-rr-shield-check"></i>
-            <span>{Nav_TwoFactor}</span>
+            <span data-i18n="auth.nav.twoFactor">2FA Confirm</span>
           </a>
         </li>
       </ul>
@@ -179,19 +179,19 @@
         <!-- 1. Login Form -->
         <section id="login-form" class="auth-section">
           <div class="nes-card">
-            <h2 class="nes-card-title">{logintitle}</h2>
+            <h2 class="nes-card-title" data-i18n="auth.login.title">Login</h2>
             <form class="nes-form" id="login-form-element" action="" method="post">
               {loginmsg} {success_msg}
               <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="login" />
               <div class="nes-form-group">
                 <label class="nes-label" data-i18n="auth.login.username">Username</label>
-                <input type="text" class="nes-input" id="login-username" name="username" placeholder="{Username_Placeholder}" required />
+                <input type="text" class="nes-input" id="login-username" name="username" data-i18n="[placeholder]auth.login.usernamePlaceholder" placeholder="Enter your username" required />
               </div>
 
               <div class="nes-form-group">
                 <label class="nes-label" data-i18n="auth.login.password">Password</label>
                 <div class="auth-password-wrapper">
-                  <input type="password" class="nes-input" id="login-password" name="password" placeholder="{Password_Placeholder}" required />
+                  <input type="password" class="nes-input" id="login-password" name="password" data-i18n="[placeholder]auth.login.passwordPlaceholder" placeholder="Enter your password" required />
                   <button type="button" class="auth-password-toggle" id="login-password-toggle">
                     <i class="es esprit-fi-rr-eye"></i>
                   </button>
@@ -220,7 +220,7 @@
 
               <div class="nes-form-actions">
                 <button type="submit" class="nes-btn nes-btn-primary">
-                  <span>{Login_Btn}</span>
+                  <span data-i18n="auth.login.submitButton">Login</span>
                 </button>
               </div>
             </form>
@@ -228,11 +228,11 @@
             <div class="auth-form-links">
               <form action="" method="post" class="auth-form-links__form">
                 <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="recoveryform" />
-                <button type="submit" class="auth-link">{Recover_Password}</button>
+                <button type="submit" class="auth-link" data-i18n="auth.recovery.linkText">Forgot Password?</button>
               </form>
               <form action="" method="post" class="auth-form-links__form">
                 <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signupform" />
-                <button type="submit" class="auth-link">{Sign_Up}</button>
+                <button type="submit" class="auth-link" data-i18n="auth.common.signupLink">Sign Up</button>
               </form>
             </div>
           </div>
@@ -241,7 +241,7 @@
         <!-- 2. OTP Login Form -->
         <section id="otp-form" class="auth-section">
           <div class="nes-card">
-            <h2 class="nes-card-title">بازیابی رمز عبور</h2>
+            <h2 class="nes-card-title" data-i18n="auth.recovery.title">Password Recovery</h2>
             <!-- Step Indicators -->
             <div class="auth-otp__steps">
               <div class="auth-otp__step auth-otp__step--active" data-step="1">1</div>
@@ -251,17 +251,17 @@
 
             <!-- Step 1: Phone Number Entry -->
             <div class="auth-otp__step-1" id="otp-step-1">
-              <h3 class="auth-step-title">{Recover_Password_msg}</h3>
+              <h3 class="auth-step-title" data-i18n="auth.recovery.message">Enter your username and email/phone to recover your password</h3>
 
               <form class="nes-form" id="otp-phone-form" action="" method="post">
                 <div class="nes-form-group">
-                  <label class="nes-label" data-i18n="auth.login.username">{Username_Label}</label>
-                  <input type="text" class="nes-input" id="otp-username" name="username" placeholder="نام کاربری" required />
+                  <label class="nes-label" data-i18n="auth.recovery.usernameLabel">Username</label>
+                  <input type="text" class="nes-input" id="otp-username" name="username" data-i18n="[placeholder]auth.recovery.usernamePlaceholder" placeholder="Enter your username" required />
                 </div>
 
                 <div class="nes-form-group">
-                  <label class="nes-label">شماره تماس یا آدرس ایمیل</label>
-                  <input type="tel" class="nes-input" id="otp-phone" name="phone" placeholder="شماره تماس یا آدرس ایمیل" required />
+                  <label class="nes-label" data-i18n="auth.recovery.emailPhoneLabel">Email or Phone Number</label>
+                  <input type="tel" class="nes-input" id="otp-phone" name="phone" data-i18n="[placeholder]auth.recovery.emailPhonePlaceholder" placeholder="Enter email or phone number" required />
                 </div>
 
                 <div class="nes-captcha-row">
@@ -272,7 +272,7 @@
                 <div class="nes-form-actions">
                   <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="recoveryformconfirmform" />
                   <button type="submit" class="nes-btn nes-btn-primary">
-                    <span>{Recover_Password_Btn}</span>
+                    <span data-i18n="auth.recovery.submitButton">Recover Password</span>
                   </button>
                 </div>
               </form>
@@ -280,11 +280,11 @@
               <div class="auth-form-links">
                 <form action="" method="post" class="auth-form-links__form">
                   <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="login" />
-                  <button type="submit" class="auth-link">{signin}</button>
+                  <button type="submit" class="auth-link" data-i18n="auth.common.signinLink">Sign In</button>
                 </form>
                 <form action="" method="post" class="auth-form-links__form">
                   <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signupform" />
-                  <button type="submit" class="auth-link">{Sign_Up}</button>
+                  <button type="submit" class="auth-link" data-i18n="auth.common.signupLink">Sign Up</button>
                 </form>
               </div>
             </div>
@@ -296,7 +296,7 @@
         <!-- 2. OTP Login Form -->
         <section id="otp-form" class="auth-section">
           <div class="nes-card">
-            <h2 class="nes-card-title">بازیابی رمز عبور</h2>
+            <h2 class="nes-card-title" data-i18n="auth.recovery.title">Password Recovery</h2>
             <!-- Step Indicators -->
             <div class="auth-otp__steps">
               <div class="auth-otp__step" data-step="1">1</div>
@@ -308,13 +308,13 @@
             <div class="auth-otp__step-2" id="otp-step-2">
               <form class="nes-form" id="otp-verify-form" action="" method="post">
                 <div class="nes-form-group">
-                  <label class="nes-label">{confirm_form_Title}</label>
-                  <input type="text" class="nes-input auth-otp-code-input" autocomplete="off" name="confirmcode" id="confirmcode" required="" placeholder="کد 6 رقمی" maxlength="6" required />
+                  <label class="nes-label" data-i18n="auth.otp.confirmLabel">Enter the code sent to you</label>
+                  <input type="text" class="nes-input auth-otp-code-input" autocomplete="off" name="confirmcode" id="confirmcode" data-i18n="[placeholder]auth.otp.codePlaceholder" placeholder="6-digit code" maxlength="6" required />
                 </div>
 
                 <div class="auth-resend-timer">
-                  <span id="otp-timer-text" class="">{resend_count_msg}</span>
-                  <div class="auth-link" id="es-resendcode-parent">{resendcode}</div>
+                  <span id="otp-timer-text" class="" data-i18n="auth.otp.resendTimer">Resend code in {seconds} seconds</span>
+                  <div class="auth-link" id="es-resendcode-parent" data-i18n="auth.otp.resendButton">Resend Code</div>
                 </div>
 
                 <div class="nes-form-actions">
@@ -322,7 +322,7 @@
                   <input type="hidden" autocomplete="off" name="username_username" id="username_username" value="{username_username}" />
                   <input type="hidden" autocomplete="off" name="username_mail_mobile" id="username_mail_mobile" value="{username_mail_mobile}" />
                   <button type="submit" class="nes-btn nes-btn-primary">
-                    <span>{submit}</span>
+                    <span data-i18n="auth.common.submitButton">Submit</span>
                   </button>
                 </div>
               </form>
@@ -335,62 +335,63 @@
         <!-- 3. Registration Form -->
         <section id="registration-form" class="auth-section">
           <div class="nes-card">
-            <h2 class="nes-card-title">{signuptitle}</h2>
+            <h2 class="nes-card-title" data-i18n="auth.register.title">Register</h2>
             <form class="nes-form" id="registration-form-element" action="" method="post">
               {signupmsg}
               <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signup" />
               <div class="nes-form-row">
                 <div class="nes-input-wrapper">
-                  <label class="nes-label">{firstname_Placeholder}</label>
-                  <input type="text" class="nes-input" id="firstname" name="firstname" placeholder="{firstname_Placeholder}" required value="{firstname_value}" />
+                  <label class="nes-label" data-i18n="auth.register.firstNameLabel">First Name</label>
+                  <input type="text" class="nes-input" id="firstname" name="firstname" data-i18n="[placeholder]auth.register.firstNamePlaceholder" placeholder="First Name" required value="{firstname_value}" />
                 </div>
                 <div class="nes-input-wrapper">
-                  <label class="nes-label">{lastname_Placeholder}</label>
-                  <input type="text" class="nes-input" id="lastname" name="lastname" placeholder="{lastname_Placeholder}" required value="{lastname_value}" />
-                </div>
-              </div>
-
-              <div class="nes-form-row">
-                <div class="nes-input-wrapper">
-                  <label class="nes-label">{email_Placeholder}</label>
-                  <input type="email" class="nes-input" id="email" name="email" placeholder="{email_Placeholder}" value="{email_value}" />
-                </div>
-                <div class="nes-input-wrapper">
-                  <label class="nes-label">{tellphon_Placeholder}</label>
-                  <input type="tel" class="nes-input" id="tellphon" name="tellphon" placeholder="{tellphon_Placeholder}" required value="{tellphon_value}" />
+                  <label class="nes-label" data-i18n="auth.register.lastNameLabel">Last Name</label>
+                  <input type="text" class="nes-input" id="lastname" name="lastname" data-i18n="[placeholder]auth.register.lastNamePlaceholder" placeholder="Last Name" required value="{lastname_value}" />
                 </div>
               </div>
 
               <div class="nes-form-row">
                 <div class="nes-input-wrapper">
-                  <label class="nes-label">{national_code_Placeholder}</label>
-                  <input type="text" class="nes-input" id="national_code" name="national_code" placeholder="{national_code_Placeholder}" value="{national_code_value}" />
+                  <label class="nes-label" data-i18n="auth.register.emailLabel">Email</label>
+                  <input type="email" class="nes-input" id="email" name="email" data-i18n="[placeholder]auth.register.emailPlaceholder" placeholder="Email Address" value="{email_value}" />
                 </div>
                 <div class="nes-input-wrapper">
-                  <label class="nes-label">{gender}</label>
+                  <label class="nes-label" data-i18n="auth.register.phoneLabel">Phone Number</label>
+                  <input type="tel" class="nes-input" id="tellphon" name="tellphon" data-i18n="[placeholder]auth.register.phonePlaceholder" placeholder="Phone Number" required value="{tellphon_value}" />
+                </div>
+              </div>
+
+              <div class="nes-form-row">
+                <div class="nes-input-wrapper">
+                  <label class="nes-label" data-i18n="auth.register.nationalCodeLabel">National Code</label>
+                  <input type="text" class="nes-input" id="national_code" name="national_code" data-i18n="[placeholder]auth.register.nationalCodePlaceholder" placeholder="National Code" value="{national_code_value}" />
+                </div>
+                <div class="nes-input-wrapper">
+                  <label class="nes-label" data-i18n="auth.register.genderLabel">Gender</label>
                   <select class="nes-input" id="gender" name="gender">
-                    <option value="1">{male}</option>
-                    <option value="0">{female}</option>
+                    <option value="1" data-i18n="auth.register.male">Male</option>
+                    <option value="0" data-i18n="auth.register.female">Female</option>
                   </select>
                 </div>
               </div>
 
               <div class="nes-form-group">
-                <label class="nes-label">{Username_Placeholder}</label>
-                <input type="text" class="nes-input" id="username" name="username" placeholder="{Username_Placeholder}" required value="{username_value}" />
+                <label class="nes-label" data-i18n="auth.register.usernameLabel">Username</label>
+                <input type="text" class="nes-input" id="username" name="username" data-i18n="[placeholder]auth.register.usernamePlaceholder" placeholder="Username" required value="{username_value}" />
               </div>
 
               <div class="nes-form-group">
-                <label class="nes-label">{Password_Placeholder}</label>
+                <label class="nes-label" data-i18n="auth.register.passwordLabel">Password</label>
                 <div class="auth-password-wrapper">
                   <input
                     type="password"
                     class="nes-input"
                     id="password"
                     name="password"
-                    placeholder="{Password_Placeholder}"
+                    data-i18n="[placeholder]auth.register.passwordPlaceholder;[data-validation-pattern-message]auth.register.passwordValidation"
+                    placeholder="Password"
                     required
-                    data-validation-pattern-message="{Password_Validation}"
+                    data-validation-pattern-message="Password must contain uppercase, lowercase, and number"
                     value="{password_value}"
                   />
                   <button type="button" class="auth-password-toggle" id="password-toggle">
@@ -403,17 +404,18 @@
               </div>
 
               <div class="nes-form-group">
-                <label class="nes-label">{rePassword_Placeholder}</label>
+                <label class="nes-label" data-i18n="auth.register.confirmPasswordLabel">Confirm Password</label>
                 <div class="auth-password-wrapper">
                   <input
                     type="password"
                     class="nes-input"
                     id="repassword"
                     name="repassword"
-                    placeholder="{rePassword_Placeholder}"
+                    data-i18n="[placeholder]auth.register.confirmPasswordPlaceholder;[data-validation-matches-message]auth.register.passwordMatchValidation"
+                    placeholder="Confirm Password"
                     required
                     data-validation-matches-match="password"
-                    data-validation-matches-message="{Match_Validation}"
+                    data-validation-matches-message="Passwords must match"
                     aria-invalid="false"
                     value="{repassword_value}"
                   />
@@ -430,7 +432,7 @@
 
               <div class="nes-form-actions">
                 <button type="submit" class="nes-btn nes-btn-primary">
-                  <span>{signup_btn}</span>
+                  <span data-i18n="auth.register.submitButton">Register</span>
                 </button>
               </div>
             </form>
@@ -438,11 +440,11 @@
             <div class="auth-form-links">
               <form action="" method="post" class="auth-form-links__form">
                 <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="recoveryform" />
-                <button type="submit" class="auth-link">{Recover_Password}</button>
+                <button type="submit" class="auth-link" data-i18n="auth.recovery.linkText">Forgot Password?</button>
               </form>
               <form action="" method="post" class="auth-form-links__form">
                 <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="login" />
-                <button type="submit" class="auth-link">{signin}</button>
+                <button type="submit" class="auth-link" data-i18n="auth.common.signinLink">Sign In</button>
               </form>
             </div>
           </div>
@@ -453,13 +455,13 @@
         <section id="otp-form" class="auth-section">
           <div class="nes-card">
             <!--<h2 class="nes-card-title">{confirm_form_Title}</h2>-->
-            <h2 class="nes-card-title">تایید ثبت نام</h2>
+            <h2 class="nes-card-title" data-i18n="auth.register.confirmTitle">Registration Confirmation</h2>
 
             <div class="auth-otp__step-2">
               <form class="nes-form" id="otp-verify-form" action="" method="post">
                 <div class="nes-form-group">
-                  <label class="nes-label">کد ارسال شده را وارد نمایید</label>
-                  <input type="text" class="nes-input auth-otp-code-input" autocomplete="off" name="confirmcode" id="confirmcode" required="" placeholder="کد 5 رقمی" maxlength="5" required />
+                  <label class="nes-label" data-i18n="auth.register.confirmCodeLabel">Enter the code sent to you</label>
+                  <input type="text" class="nes-input auth-otp-code-input" autocomplete="off" name="confirmcode" id="confirmcode" data-i18n="[placeholder]auth.register.confirmCodePlaceholder" placeholder="5-digit code" maxlength="5" required />
                   <input type="hidden" autocomplete="off" name="firstname" id="firstname" value="{firstname}" />
                   <input type="hidden" autocomplete="off" name="lastname" id="lastname" value="{lastname}" />
                   <input type="hidden" autocomplete="off" name="email" id="email" value="{email}" />
@@ -475,15 +477,15 @@
                 <div id="alerts">{error_msg}</div>
 
                 <div class="auth-resend-timer">
-                  <span id="otp-timer-text" class="">{resend_count_msg}</span>
-                  <div class="auth-link d-none" id="es-resendcode-parent">{resendcode}</div>
+                  <span id="otp-timer-text" class="" data-i18n="auth.otp.resendTimer">Resend code in {seconds} seconds</span>
+                  <div class="auth-link d-none" id="es-resendcode-parent" data-i18n="auth.otp.resendButton">Resend Code</div>
                 </div>
 
                 <div class="nes-form-actions">
                   <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signup" />
                   <input type="hidden" autocomplete="off" name="username_mail_mobile" id="username_mail_mobile" value="{username_mail_mobile}" />
                   <button type="submit" class="nes-btn nes-btn-primary">
-                    <span>{submit}</span>
+                    <span data-i18n="auth.common.submitButton">Submit</span>
                   </button>
                 </div>
               </form>
@@ -494,7 +496,7 @@
                   <button type="submit" class="auth-link auth-link--danger" id="logout-btn">
                     <span>
                       <i class="es esprit-fi-rr-sign-out-alt"></i>
-                      خروج
+                      <span data-i18n="auth.userDropdown.logout">Logout</span>
                     </span>
                   </button>
                 </form>
@@ -505,12 +507,12 @@
 
         <section id="success-message" class="auth-section">
           <div class="nes-card auth-success-card">
-            <h2 class="nes-card-title">{Success_Title}</h2>
+            <h2 class="nes-card-title" data-i18n="auth.success.title">Success!</h2>
             <div class="auth-success-icon">
               <i class="es esprit-fi-rr-check"></i>
             </div>
             <!--    <h3 class="auth-success-title">{Success_Subtitle}</h3>-->
-            <p class="auth-success-message">{Success_msg}</p>
+            <p class="auth-success-message" data-i18n="auth.success.message">Your request has been processed successfully</p>
             <div class="nes-form-actions">
               <a href="{backlink_title}" class="nes-btn nes-btn-primary">
                 <span>{backlink_title}</span>
@@ -521,31 +523,31 @@
 
         <!-- 4. Password Recovery Form -->
         <section id="password-recovery-form" class="auth-section">
-          <h2 class="nes-section-title">{Recover_Password_Title}</h2>
+          <h2 class="nes-section-title" data-i18n="auth.recovery.title">Password Recovery</h2>
           <div class="nes-card">
-            <p class="auth-form-description">{Recover_Password_msg}</p>
+            <p class="auth-form-description" data-i18n="auth.recovery.message">Enter your username and email/phone to recover your password</p>
 
             <form class="nes-form" id="password-reset-form" action="" method="post">
               {error_msg}
               <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="recoveryformconfirmform" />
               <div class="nes-form-group">
-                <label class="nes-label">{Email_Phone_Username_Label}</label>
-                <input type="text" class="nes-input" id="username_mail_mobile" name="username_mail_mobile" placeholder="{username_mail_mobile_Placeholder}" required />
+                <label class="nes-label" data-i18n="auth.recovery.emailPhoneLabel">Email or Phone Number</label>
+                <input type="text" class="nes-input" id="username_mail_mobile" name="username_mail_mobile" data-i18n="[placeholder]auth.recovery.emailPhonePlaceholder" placeholder="Enter email or phone number" required />
               </div>
 
               <div class="nes-form-group">
-                <label class="nes-label">{Username_Label}</label>
-                <input type="text" class="nes-input" id="username_username" name="username_username" placeholder="{username_Placeholder}" required />
+                <label class="nes-label" data-i18n="auth.recovery.usernameLabel">Username</label>
+                <input type="text" class="nes-input" id="username_username" name="username_username" data-i18n="[placeholder]auth.recovery.usernamePlaceholder" placeholder="Enter your username" required />
               </div>
 
               <div class="nes-captcha-row">
-                <label class="nes-label">{Captcha_Label}</label>
+                <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
                 {captchahtml}
               </div>
 
               <div class="nes-form-actions">
                 <button type="submit" class="nes-btn nes-btn-primary">
-                  <span>{Recover_Password_Btn}</span>
+                  <span data-i18n="auth.recovery.submitButton">Recover Password</span>
                 </button>
               </div>
             </form>
@@ -553,11 +555,11 @@
             <div class="auth-form-links">
               <form action="" method="post" class="auth-form-links__form">
                 <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="login" />
-                <button type="submit" class="auth-link">{signin}</button>
+                <button type="submit" class="auth-link" data-i18n="auth.common.signinLink">Sign In</button>
               </form>
               <form action="" method="post" class="auth-form-links__form">
                 <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="signupform" />
-                <button type="submit" class="auth-link">{Sign_Up}</button>
+                <button type="submit" class="auth-link" data-i18n="auth.common.signupLink">Sign Up</button>
               </form>
             </div>
           </div>
@@ -567,16 +569,16 @@
 
         <!-- 5. Success Message -->
         <section id="success-message" class="auth-section">
-          <h2 class="nes-section-title">{Success_Title}</h2>
+          <h2 class="nes-section-title" data-i18n="auth.success.title">Success!</h2>
           <div class="nes-card auth-success-card">
             <div class="auth-success-icon">
               <i class="es esprit-fi-rr-check"></i>
             </div>
-            <h3 class="auth-success-title">{Success_Subtitle}</h3>
-            <p class="auth-success-message">{Success_msg}</p>
+            <h3 class="auth-success-title" data-i18n="auth.success.subtitle">Operation Completed Successfully</h3>
+            <p class="auth-success-message" data-i18n="auth.success.message">Your request has been processed successfully</p>
             <div class="nes-form-actions">
               <a href="#login-form" class="nes-btn nes-btn-primary">
-                <span>{Back_To_Login_Btn}</span>
+                <span data-i18n="auth.success.backToLogin">Back to Login</span>
               </a>
             </div>
           </div>
@@ -584,14 +586,14 @@
 
         <!-- 6. Two-Factor Authentication Confirmation -->
         <section id="two-factor-confirm" class="auth-section">
-          <h2 class="nes-section-title">{confirm_form_Title}</h2>
+          <h2 class="nes-section-title" data-i18n="auth.twoFactor.title">Two-Factor Authentication</h2>
           <div class="nes-card">
             <div class="auth-2fa-header">
               <div class="auth-2fa-icon">
                 <i class="es esprit-fi-rr-shield-check"></i>
               </div>
-              <h3 class="auth-step-title">{Confirm_Code_Title}</h3>
-              <p class="auth-form-description">{Confirm_Code_Description}</p>
+              <h3 class="auth-step-title" data-i18n="auth.twoFactor.confirmTitle">Enter Confirmation Code</h3>
+              <p class="auth-form-description" data-i18n="auth.twoFactor.description">We've sent a verification code to your registered device. Please enter it below to continue.</p>
             </div>
 
             <form class="nes-form" id="two-factor-confirm-form" action="" method="post">
@@ -599,38 +601,38 @@
               <input type="hidden" autocomplete="off" name="espritaction" id="espritaction" value="sendconfirmcode" />
 
               <div class="nes-form-group">
-                <label class="nes-label">{Verification_Code_Label}</label>
-                <input type="text" class="nes-input auth-2fa-code-input" id="confirmcode" name="confirmcode" placeholder="{Code_Placeholder}" maxlength="6" autocomplete="off" required />
+                <label class="nes-label" data-i18n="auth.twoFactor.codeLabel">Verification Code</label>
+                <input type="text" class="nes-input auth-2fa-code-input" id="confirmcode" name="confirmcode" data-i18n="[placeholder]auth.twoFactor.codePlaceholder" placeholder="Enter 6-digit code" maxlength="6" autocomplete="off" required />
               </div>
 
               <!-- Resend Timer Section -->
               <div class="auth-2fa-timer">
                 <div class="auth-2fa-timer-wrapper">
-                  <span id="two-factor-timer-text">{resend_count_msg}</span>
+                  <span id="two-factor-timer-text" data-i18n="auth.otp.resendTimer">Resend code in {seconds} seconds</span>
                 </div>
-                <div id="two-factor-resend-parent" class="d-none">{resendcode}</div>
+                <div id="two-factor-resend-parent" class="d-none" data-i18n="auth.twoFactor.resendCode">Resend Code</div>
               </div>
 
               <div class="nes-captcha-row">
-                <label class="nes-label">{Captcha_Label}</label>
+                <label class="nes-label" data-i18n="auth.captcha.label">Security Code</label>
                 {captchahtml}
               </div>
 
               <div class="nes-form-actions">
                 <button type="submit" class="nes-btn nes-btn-success">
                   <i class="es esprit-fi-rr-unlock"></i>
-                  <span>{Verify_Continue_Btn}</span>
+                  <span data-i18n="auth.twoFactor.submit">Verify & Continue</span>
                 </button>
               </div>
 
               <!-- Logout Option -->
               <div class="auth-2fa-logout">
-                <p class="auth-2fa-logout-text">{Not_You_Text}</p>
+                <p class="auth-2fa-logout-text" data-i18n="auth.twoFactor.notYou">Not you?</p>
                 <form class="auth-2fa-logout-form" action="" method="post">
                   <input type="hidden" autocomplete="off" name="espritaction" id="espritaction-logout" value="logout" />
                   <button type="submit" class="auth-link auth-link--danger" id="two-factor-logout-btn">
                     <i class="es esprit-fi-rr-sign-out-alt"></i>
-                    <span>{Logout_Btn}</span>
+                    <span data-i18n="auth.twoFactor.logout">Logout</span>
                   </button>
                 </form>
               </div>

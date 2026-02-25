@@ -522,7 +522,9 @@
     },
     "demo": {
       "siteTitle": "Niafam Demo",
-      "userName": "John Doe"
+      "userName": "John Doe",
+      "userFullName": "John Doe",
+      "userEmail": "john.doe@example.com"
     },
     "userDropdown": {
       "viewProfile": "Profili Görüntüle",
@@ -535,14 +537,57 @@
       "usernamePlaceholder": "Kullanıcı adınızı girin",
       "password": "Şifre",
       "passwordPlaceholder": "Şifrenizi girin",
+      "submitButton": "Giriş Yap",
       "submit": "Giriş Yap",
       "submitting": "Giriş yapılıyor...",
       "forgotPassword": "Şifrenizi mi unuttunuz?",
       "signUp": "Kayıt Ol",
       "noAccount": "Hesabınız yok mu?"
     },
+    "register": {
+      "title": "Kayıt Ol",
+      "confirmTitle": "Kayıt Onayı",
+      "confirmCodeLabel": "Size gönderilen kodu girin",
+      "confirmCodePlaceholder": "5 haneli kod",
+      "firstNameLabel": "Ad",
+      "firstNamePlaceholder": "Ad",
+      "lastNameLabel": "Soyad",
+      "lastNamePlaceholder": "Soyad",
+      "emailLabel": "E-posta",
+      "emailPlaceholder": "E-posta Adresi",
+      "phoneLabel": "Cep Telefonu Numarası",
+      "phonePlaceholder": "Cep Telefonu Numarası",
+      "nationalCodeLabel": "Ulusal Kod",
+      "nationalCodePlaceholder": "Ulusal Kod",
+      "genderLabel": "Cinsiyet",
+      "male": "Erkek",
+      "female": "Kadın",
+      "usernameLabel": "Kullanıcı Adı",
+      "usernamePlaceholder": "Kullanıcı Adı",
+      "passwordLabel": "Şifre",
+      "passwordPlaceholder": "Şifre",
+      "passwordValidation": "Şifre büyük harf, küçük harf ve rakam içermelidir",
+      "confirmPasswordLabel": "Şifreyi Tekrarla",
+      "confirmPasswordPlaceholder": "Şifreyi Tekrarla",
+      "passwordMatchValidation": "Şifreler eşleşmiyor",
+      "submitButton": "Kayıt Ol"
+    },
+    "recovery": {
+      "title": "Şifre Kurtarma",
+      "message": "Şifrenizi kurtarmak için kullanıcı adınızı ve e-posta/telefon numaranızı girin",
+      "linkText": "Şifrenizi mi unuttunuz?",
+      "submitButton": "Şifreyi Kurtar",
+      "emailPhoneLabel": "E-posta veya Telefon Numarası",
+      "emailPhonePlaceholder": "E-posta veya telefon numarasını girin",
+      "usernameLabel": "Kullanıcı Adı",
+      "usernamePlaceholder": "Kullanıcı adınızı girin"
+    },
     "otp": {
-      "title": "Cep Telefonu Numarasıyla Giriş",
+      "title": "Onay Kodunu Girin",
+      "confirmLabel": "Size gönderilen kodu girin",
+      "codePlaceholder": "6 haneli kod",
+      "resendTimer": "{seconds} saniye içinde kodu tekrar gönder",
+      "resendButton": "Kodu Tekrar Gönder",
       "step1Title": "Cep telefonu numaranızı girin",
       "step2Title": "Doğrulama kodunu girin",
       "username": "Kullanıcı Adı",
@@ -551,7 +596,6 @@
       "phonePlaceholder": "Cep telefonu numaranızı girin",
       "sendCode": "Doğrulama Kodu Gönder",
       "verificationCode": "6 Haneli Doğrulama Kodu",
-      "codePlaceholder": "000000",
       "resendCode": "Kodu Tekrar Gönder",
       "resendIn": "{{time}} içinde tekrar gönder",
       "verifyCode": "Doğrula ve Giriş Yap",
@@ -613,9 +657,15 @@
     },
     "success": {
       "title": "Başarılı!",
-      "registrationComplete": "Kayıt başarıyla tamamlandı",
-      "message": "Hesabınız oluşturuldu ve artık kontrol panelinize giriş yapabilirsiniz.",
-      "backToLogin": "Giriş sayfasına git"
+      "subtitle": "İşlem Başarıyla Tamamlandı",
+      "message": "Talebiniz başarıyla işlendi",
+      "backToLogin": "Giriş Sayfasına Dön",
+      "registrationComplete": "Kayıt başarıyla tamamlandı"
+    },
+    "common": {
+      "submitButton": "Gönder",
+      "signinLink": "Giriş Yap",
+      "signupLink": "Kayıt Ol"
     },
     "validation": {
       "required": "Bu alan zorunludur",

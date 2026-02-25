@@ -522,7 +522,9 @@
     },
     "demo": {
       "siteTitle": "عرض نيافام",
-      "userName": "جون دو"
+      "userName": "جون دو",
+      "userFullName": "جون دو",
+      "userEmail": "john.doe@example.com"
     },
     "userDropdown": {
       "viewProfile": "عرض الملف الشخصي",
@@ -535,14 +537,57 @@
       "usernamePlaceholder": "أدخل اسم المستخدم",
       "password": "كلمة المرور",
       "passwordPlaceholder": "أدخل كلمة المرور",
+      "submitButton": "تسجيل الدخول",
       "submit": "تسجيل الدخول",
       "submitting": "جاري تسجيل الدخول...",
       "forgotPassword": "هل نسيت كلمة المرور؟",
       "signUp": "التسجيل",
       "noAccount": "ليس لديك حساب؟"
     },
+    "register": {
+      "title": "التسجيل",
+      "confirmTitle": "تأكيد التسجيل",
+      "confirmCodeLabel": "أدخل الرمز المرسل إليك",
+      "confirmCodePlaceholder": "رمز مكون من 5 أرقام",
+      "firstNameLabel": "الاسم الأول",
+      "firstNamePlaceholder": "الاسم الأول",
+      "lastNameLabel": "اسم العائلة",
+      "lastNamePlaceholder": "اسم العائلة",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "عنوان البريد الإلكتروني",
+      "phoneLabel": "رقم الهاتف المحمول",
+      "phonePlaceholder": "رقم الهاتف المحمول",
+      "nationalCodeLabel": "الرقم الوطني",
+      "nationalCodePlaceholder": "الرقم الوطني",
+      "genderLabel": "الجنس",
+      "male": "ذكر",
+      "female": "أنثى",
+      "usernameLabel": "اسم المستخدم",
+      "usernamePlaceholder": "اسم المستخدم",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "كلمة المرور",
+      "passwordValidation": "يجب أن تحتوي كلمة المرور على أحرف كبيرة وصغيرة وأرقام",
+      "confirmPasswordLabel": "تكرار كلمة المرور",
+      "confirmPasswordPlaceholder": "تكرار كلمة المرور",
+      "passwordMatchValidation": "كلمات المرور غير متطابقة",
+      "submitButton": "التسجيل"
+    },
+    "recovery": {
+      "title": "استعادة كلمة المرور",
+      "message": "أدخل اسم المستخدم والبريد الإلكتروني/الهاتف لاستعادة كلمة المرور",
+      "linkText": "هل نسيت كلمة المرور؟",
+      "submitButton": "استعادة كلمة المرور",
+      "emailPhoneLabel": "البريد الإلكتروني أو رقم الهاتف",
+      "emailPhonePlaceholder": "أدخل البريد الإلكتروني أو رقم الهاتف",
+      "usernameLabel": "اسم المستخدم",
+      "usernamePlaceholder": "أدخل اسم المستخدم"
+    },
     "otp": {
-      "title": "تسجيل الدخول برقم الهاتف المحمول",
+      "title": "أدخل رمز التأكيد",
+      "confirmLabel": "أدخل الرمز المرسل إليك",
+      "codePlaceholder": "رمز مكون من 6 أرقام",
+      "resendTimer": "إعادة إرسال الرمز خلال {seconds} ثانية",
+      "resendButton": "إعادة إرسال الرمز",
       "step1Title": "أدخل رقم هاتفك المحمول",
       "step2Title": "أدخل رمز التحقق",
       "username": "اسم المستخدم",
@@ -551,7 +596,6 @@
       "phonePlaceholder": "أدخل رقم هاتفك المحمول",
       "sendCode": "إرسال رمز التحقق",
       "verificationCode": "رمز التحقق المكون من 6 أرقام",
-      "codePlaceholder": "000000",
       "resendCode": "إعادة إرسال الرمز",
       "resendIn": "إعادة الإرسال خلال {{time}}",
       "verifyCode": "التحقق وتسجيل الدخول",
@@ -613,9 +657,15 @@
     },
     "success": {
       "title": "نجح!",
-      "registrationComplete": "تم التسجيل بنجاح",
-      "message": "تم إنشاء حسابك ويمكنك الآن الدخول إلى لوحة التحكم الخاصة بك.",
-      "backToLogin": "الانتقال إلى صفحة تسجيل الدخول"
+      "subtitle": "تمت العملية بنجاح",
+      "message": "تمت معالجة طلبك بنجاح",
+      "backToLogin": "العودة إلى تسجيل الدخول",
+      "registrationComplete": "تم التسجيل بنجاح"
+    },
+    "common": {
+      "submitButton": "إرسال",
+      "signinLink": "تسجيل الدخول",
+      "signupLink": "التسجيل"
     },
     "validation": {
       "required": "هذا الحقل مطلوب",

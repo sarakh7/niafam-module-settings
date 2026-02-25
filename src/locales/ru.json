@@ -523,7 +523,9 @@
     },
     "demo": {
       "siteTitle": "Демо Niafam",
-      "userName": "Джон Доу"
+      "userName": "Джон Доу",
+      "userFullName": "Джон Доу",
+      "userEmail": "john.doe@example.com"
     },
     "userDropdown": {
       "viewProfile": "Просмотр профиля",
@@ -536,14 +538,57 @@
       "usernamePlaceholder": "Введите ваше имя пользователя",
       "password": "Пароль",
       "passwordPlaceholder": "Введите ваш пароль",
+      "submitButton": "Войти",
       "submit": "Войти",
       "submitting": "Вход...",
       "forgotPassword": "Забыли пароль?",
       "signUp": "Регистрация",
       "noAccount": "Нет аккаунта?"
     },
+    "register": {
+      "title": "Регистрация",
+      "confirmTitle": "Подтверждение регистрации",
+      "confirmCodeLabel": "Введите код, отправленный вам",
+      "confirmCodePlaceholder": "5-значный код",
+      "firstNameLabel": "Имя",
+      "firstNamePlaceholder": "Имя",
+      "lastNameLabel": "Фамилия",
+      "lastNamePlaceholder": "Фамилия",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Адрес электронной почты",
+      "phoneLabel": "Номер мобильного телефона",
+      "phonePlaceholder": "Номер мобильного телефона",
+      "nationalCodeLabel": "Национальный код",
+      "nationalCodePlaceholder": "Национальный код",
+      "genderLabel": "Пол",
+      "male": "Мужской",
+      "female": "Женский",
+      "usernameLabel": "Имя пользователя",
+      "usernamePlaceholder": "Имя пользователя",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "Пароль",
+      "passwordValidation": "Пароль должен содержать заглавные, строчные буквы и цифры",
+      "confirmPasswordLabel": "Повторите пароль",
+      "confirmPasswordPlaceholder": "Повторите пароль",
+      "passwordMatchValidation": "Пароли не совпадают",
+      "submitButton": "Регистрация"
+    },
+    "recovery": {
+      "title": "Восстановление пароля",
+      "message": "Введите ваше имя пользователя и email/телефон для восстановления пароля",
+      "linkText": "Забыли пароль?",
+      "submitButton": "Восстановить пароль",
+      "emailPhoneLabel": "Email или номер телефона",
+      "emailPhonePlaceholder": "Введите email или номер телефона",
+      "usernameLabel": "Имя пользователя",
+      "usernamePlaceholder": "Введите ваше имя пользователя"
+    },
     "otp": {
-      "title": "Вход по номеру мобильного телефона",
+      "title": "Введите код подтверждения",
+      "confirmLabel": "Введите код, отправленный вам",
+      "codePlaceholder": "6-значный код",
+      "resendTimer": "Повторная отправка кода через {seconds} секунд",
+      "resendButton": "Отправить код повторно",
       "step1Title": "Введите ваш номер мобильного телефона",
       "step2Title": "Введите код подтверждения",
       "username": "Имя пользователя",
@@ -552,7 +597,6 @@
       "phonePlaceholder": "Введите ваш номер мобильного телефона",
       "sendCode": "Отправить код подтверждения",
       "verificationCode": "6-значный код подтверждения",
-      "codePlaceholder": "000000",
       "resendCode": "Отправить код повторно",
       "resendIn": "Повторная отправка через {{time}}",
       "verifyCode": "Подтвердить и войти",
@@ -614,9 +658,15 @@
     },
     "success": {
       "title": "Успешно!",
-      "registrationComplete": "Регистрация успешно завершена",
-      "message": "Ваш аккаунт создан и теперь вы можете войти в панель управления.",
-      "backToLogin": "Перейти на страницу входа"
+      "subtitle": "Операция успешно завершена",
+      "message": "Ваш запрос успешно обработан",
+      "backToLogin": "Вернуться к входу",
+      "registrationComplete": "Регистрация успешно завершена"
+    },
+    "common": {
+      "submitButton": "Отправить",
+      "signinLink": "Войти",
+      "signupLink": "Регистрация"
     },
     "validation": {
       "required": "Это поле обязательно",

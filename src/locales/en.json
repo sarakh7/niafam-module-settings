@@ -421,7 +421,9 @@
     "loginLink": "Login",
     "demo": {
       "siteTitle": "Niafam Demo",
-      "userName": "John Doe"
+      "userName": "John Doe",
+      "userFullName": "John Doe",
+      "userEmail": "john.doe@example.com"
     },
     "userDropdown": {
       "viewProfile": "View Profile",
@@ -435,6 +437,75 @@
       "recovery": "Password Recovery",
       "success": "Success",
       "twoFactor": "2FA Confirm"
+    },
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "usernamePlaceholder": "Enter your username",
+      "passwordPlaceholder": "Enter your password",
+      "submitButton": "Login"
+    },
+    "register": {
+      "title": "Register",
+      "confirmTitle": "Registration Confirmation",
+      "confirmCodeLabel": "Enter the code sent to you",
+      "confirmCodePlaceholder": "5-digit code",
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "First Name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Last Name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email Address",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "Phone Number",
+      "nationalCodeLabel": "National Code",
+      "nationalCodePlaceholder": "National Code",
+      "genderLabel": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "Username",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Password",
+      "passwordValidation": "Password must contain uppercase, lowercase, and number",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm Password",
+      "passwordMatchValidation": "Passwords must match",
+      "submitButton": "Register"
+    },
+    "recovery": {
+      "title": "Password Recovery",
+      "message": "Enter your username and email/phone to recover your password",
+      "linkText": "Forgot Password?",
+      "submitButton": "Recover Password",
+      "emailPhoneLabel": "Email or Phone Number",
+      "emailPhonePlaceholder": "Enter email or phone number",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "Enter your username"
+    },
+    "otp": {
+      "title": "Enter Confirmation Code",
+      "confirmLabel": "Enter the code sent to you",
+      "codePlaceholder": "6-digit code",
+      "resendTimer": "Resend code in {seconds} seconds",
+      "resendButton": "Resend Code"
+    },
+    "success": {
+      "title": "Success!",
+      "subtitle": "Operation Completed Successfully",
+      "message": "Your request has been processed successfully",
+      "backToLogin": "Back to Login"
+    },
+    "captcha": {
+      "label": "Security Code",
+      "placeholder": "Enter security code",
+      "refresh": "Refresh"
+    },
+    "common": {
+      "submitButton": "Submit",
+      "signinLink": "Sign In",
+      "signupLink": "Sign Up"
     },
     "twoFactor": {
       "title": "Two-Factor Authentication",
