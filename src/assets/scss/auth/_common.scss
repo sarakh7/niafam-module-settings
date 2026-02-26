@@ -162,3 +162,29 @@ i.es.esprit-refresh-captcha::before {
     border-radius: 0 8px 8px 0;
   }
 }
+
+ .auth-resend-timer .auth-link{
+    font-size: 0.875rem;
+    cursor: default;
+    color: #c2bfbf;
+  }
+  .auth-resend-timer .auth-link:hover{
+    text-decoration:none;
+  }
+  .auth-link button{
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: inherit;
+    transition: linear .2s;
+    background: #d6daeb;
+    color: #293057;
+  }
+  .auth-link button:hover{
+    background: #3e4784;
+    color: #fff;
+  }
