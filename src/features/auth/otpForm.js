@@ -65,6 +65,9 @@ export function initOTPForm() {
   const usernameField = document.getElementById('otp-username');
   const phoneField = document.getElementById('otp-phone');
 
+  usernameField?.addEventListener('blur', () => validateField(usernameField, 'required'));
+  phoneField?.addEventListener('blur', () => validateField(phoneField, 'phone'));
+
   usernameField?.addEventListener('input', () => clearFieldError(usernameField));
   phoneField?.addEventListener('input', () => clearFieldError(phoneField));
 }
@@ -97,17 +100,17 @@ async function handlePhoneSubmit(e) {
 
   // Validate captcha
   if (!captcha) {
-    showInlineAlert('error', 'Please confirm you are not a robot.', 'alerts');
+    showInlineAlert('error', 'Please confirm you are not a robot.', 'otp-step1-alerts');
     return;
   }
 
   if (!isValid) {
-    showInlineAlert('error', i18next.t('auth.validation.fixErrors', 'Please fix the errors'), 'alerts');
+    showInlineAlert('error', i18next.t('auth.validation.fixErrors', 'Please fix the errors'), 'otp-step1-alerts');
     return;
   }
 
   // Clear previous alerts
-  clearInlineAlerts('alerts');
+  clearInlineAlerts('otp-step1-alerts');
 
   // Show loading state
   const originalText = submitBtn.innerHTML;
@@ -127,7 +130,7 @@ async function handlePhoneSubmit(e) {
       // Extract timer value from server
       serverTimerValue = result.time || 120;
 
-      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpSent', 'Verification code sent!'), 'alerts');
+      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpSent', 'Verification code sent!'), 'otp-step1-alerts');
 
       // Move to step 2
       goToStep(2);
@@ -147,14 +150,14 @@ async function handlePhoneSubmit(e) {
         errorMsg = 'نام کاربری وجود ندارد!';
       }
 
-      showInlineAlert('error', errorMsg, 'alerts');
+      showInlineAlert('error', errorMsg, 'otp-step1-alerts');
 
       // Reset captcha
       resetCaptcha();
     }
   } catch (error) {
     console.error('OTP send error:', error);
-    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'alerts');
+    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'otp-step1-alerts');
 
     // Reset captcha on error
     resetCaptcha();
@@ -177,12 +180,12 @@ async function handleVerifySubmit(e) {
 
   // Validate code
   if (!validateField(codeField, 'otp')) {
-    showInlineAlert('error', i18next.t('auth.validation.invalidOTP', 'Code must be 6 digits'), 'alerts');
+    showInlineAlert('error', i18next.t('auth.validation.invalidOTP', 'Code must be 6 digits'), 'otp-step2-alerts');
     return;
   }
 
   // Clear previous alerts
-  clearInlineAlerts('alerts');
+  clearInlineAlerts('otp-step2-alerts');
 
   // Show loading state
   const originalText = submitBtn.innerHTML;
@@ -197,7 +200,7 @@ async function handleVerifySubmit(e) {
     });
 
     if (result.status === 'success') {
-      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpSuccess', 'Login successful!'), 'alerts');
+      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpSuccess', 'Login successful!'), 'otp-step2-alerts');
 
       // Stop timer
       stopOTPTimer();
@@ -211,11 +214,11 @@ async function handleVerifySubmit(e) {
       let errorMsg = result.msg || i18next.t('auth.messages.otpInvalid', 'Invalid code');
       errorMsg = errorMsg.replace(/^"(.*)"$/, '$1');
 
-      showInlineAlert('error', errorMsg, 'alerts');
+      showInlineAlert('error', errorMsg, 'otp-step2-alerts');
     }
   } catch (error) {
     console.error('OTP verify error:', error);
-    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'alerts');
+    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'otp-step2-alerts');
   } finally {
     submitBtn.disabled = false;
     submitBtn.innerHTML = originalText;
@@ -238,7 +241,7 @@ async function handleResendOTP() {
   }
 
   // Clear previous alerts
-  clearInlineAlerts('alerts');
+  clearInlineAlerts('otp-step2-alerts');
 
   try {
     // Real API call to resend OTP
@@ -251,7 +254,7 @@ async function handleResendOTP() {
       // Extract new timer value from server
       serverTimerValue = result.time || 120;
 
-      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpResent', 'Code resent!'), 'alerts');
+      showInlineAlert('success', result.msg || i18next.t('auth.messages.otpResent', 'Code resent!'), 'otp-step2-alerts');
 
       // Restart timer with new server value
       startOTPTimer();
@@ -260,7 +263,7 @@ async function handleResendOTP() {
       let errorMsg = result.msg || i18next.t('auth.messages.otpError', 'Failed to send code');
       errorMsg = errorMsg.replace(/^"(.*)"$/, '$1');
 
-      showInlineAlert('error', errorMsg, 'alerts');
+      showInlineAlert('error', errorMsg, 'otp-step2-alerts');
 
       // Re-enable resend button on error
       if (resendBtn) {
@@ -269,7 +272,7 @@ async function handleResendOTP() {
     }
   } catch (error) {
     console.error('OTP resend error:', error);
-    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'alerts');
+    showInlineAlert('error', i18next.t('auth.messages.serverError', 'Server error occurred'), 'otp-step2-alerts');
 
     // Re-enable resend button on error
     if (resendBtn) {
@@ -301,7 +304,7 @@ function goToStep(step) {
     stopOTPTimer();
 
     // Clear alerts when going back
-    clearInlineAlerts('alerts');
+    clearInlineAlerts('otp-step1-alerts');
 
     // Reset captcha when going back to step 1
     resetCaptcha();
@@ -315,7 +318,7 @@ function goToStep(step) {
     stepIndicators[1]?.classList.add('auth-otp__step--active');
 
     // Clear alerts when moving to step 2
-    clearInlineAlerts('alerts');
+    clearInlineAlerts('otp-step2-alerts');
 
     // Focus on code input
     const codeField = document.getElementById('otp-code');

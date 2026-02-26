@@ -42,7 +42,7 @@ function handlePasswordResetSubmit(e) {
   const form = e.target;
 
   // Clear previous alerts
-  clearInlineAlerts('alerts');
+  clearInlineAlerts('recovery-form-alerts');
 
   const identifierField = form.querySelector('#username_mail_mobile');
   const usernameField = form.querySelector('#username_username');
@@ -60,7 +60,7 @@ function handlePasswordResetSubmit(e) {
 
   if (!isValid) {
     e.preventDefault(); // Prevent form submission
-    showInlineAlert('error', i18next.t('auth.validation.fixErrors', 'Please fix the errors'), 'alerts');
+    showInlineAlert('error', i18next.t('auth.validation.fixErrors', 'Please fix the errors'), 'recovery-form-alerts');
     return;
   }
 

@@ -519,6 +519,16 @@
       "submit": "Verify & Continue",
       "notYou": "Not you?",
       "logout": "Logout"
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Invalid email format",
+      "invalidPhone": "Invalid phone number",
+      "weakPassword": "Password must contain uppercase, lowercase, and number",
+      "passwordMismatch": "Passwords do not match",
+      "invalidUsername": "Username must be 3-20 characters (letters, numbers, underscore)",
+      "invalidOTP": "Code must be 6 digits",
+      "fixErrors": "Please fix the form errors"
     }
   },
   "general": {

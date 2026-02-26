@@ -1,10 +1,4 @@
 import { initGallery } from "./features/common/gallery";
-import {
-  initAudioPlayer,
-  initReadingModeTts,
-  initTts,
-  initVideoPlayer,
-} from "./features/common/mediaPlayer";
 import { initAccessibilityActions } from "./features/contents/accessibility";
 import { initScrollNav } from "./utils/scrollNav";
 import { initCopyShortUrl } from "./features/common/copyShortUrl";
@@ -93,14 +87,28 @@ async function initializeApp() {
       initGallery();
     }
 
-    // Initialize video player - only if videos section exists
-    if (document.getElementById("article-videos") || document.getElementById("main-video")) {
-      initVideoPlayer();
+    // === Media Player (dynamic import — only loads on pages with media elements) ===
+
+    // 1. Auto-load TTS files FIRST (sets audio src before visibility check)
+    if (document.getElementById("tts-container")) {
+      initTtsAutoLoader();
     }
 
-    // Initialize audio player - only if sounds section exists
-    if (document.getElementById("article-sounds") || document.getElementById("main-audio")) {
-      initAudioPlayer();
+    // 2. Determine which player features are needed
+    const hasVideo    = !!(document.getElementById("article-videos") || document.getElementById("main-video"));
+    const hasAudio    = !!(document.getElementById("article-sounds") || document.getElementById("main-audio"));
+    const hasTts      = !!(document.getElementById("tts-container") && initTtsVisibility());
+    const hasReadMode = !!(document.getElementById("modal-reading-mode") && initReadingModeTtsVisibility());
+
+    // 3. Only download Plyr/mediaPlayer if at least one media element exists
+    if (hasVideo || hasAudio || hasTts || hasReadMode) {
+      const { initVideoPlayer, initAudioPlayer, initTts, initReadingModeTts } =
+        await import("./features/common/mediaPlayer");
+
+      if (hasVideo)    initVideoPlayer();
+      if (hasAudio)    initAudioPlayer();
+      if (hasTts)      initTts();
+      if (hasReadMode) initReadingModeTts();
     }
 
     // Initialize accessibility controls - only if controls container exists
@@ -133,22 +141,6 @@ async function initializeApp() {
     // Initialize share links - only if share container exists
     if (document.getElementById("es-article-share") || document.getElementById("esprit-article-tools-share")) {
       setShareLinks("");
-    }
-
-    // Auto-load generated TTS files into both players BEFORE initializing
-    // Only if TTS container exists
-    if (document.getElementById("tts-container")) {
-      initTtsAutoLoader();
-    }
-
-    // Check TTS visibility and initialize players
-    if (document.getElementById("tts-container") && initTtsVisibility()) {
-      initTts();
-    }
-
-    // Initialize reading mode TTS - only if modal exists
-    if (document.getElementById("modal-reading-mode") && initReadingModeTtsVisibility()) {
-      initReadingModeTts();
     }
 
     // Initialize sticky sidebar - only if sidebar exists
