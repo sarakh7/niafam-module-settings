@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header User Nav - Niafam Module</title>
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+        background: hsla(0, 0%, 98%, 1);
+        margin: 0;
+        padding: 0;
+      }
+
+      [dir="ltr"] body,
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+
+      /* ── nf-login-link ─────────────────────────────────────────── */
+
+      .nf-login-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: transparent;
+        border: 1px solid hsla(232, 36%, 38%, 1);
+        border-radius: 8px;
+        color: hsla(232, 36%, 38%, 1);
+        font-size: 0.875em;
+        font-weight: 500;
+        text-decoration: none;
+        transition: linear 0.2s;
+      }
+
+      .nf-login-link i {
+        font-size: 1rem;
+      }
+
+      .nf-login-link:hover {
+        background: hsla(232, 36%, 38%, 1);
+        color: #fff;
+      }
+
+      .nf-login-link:focus {
+        outline: 2px solid hsla(232, 36%, 38%, 1);
+        outline-offset: 2px;
+      }
+
+      .nf-login-link__sep {
+        color: hsla(220, 6%, 66%, 1);
+      }
+
+      /* ── nf-user-dropdown ──────────────────────────────────────── */
+
+      .nf-user-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .nf-user-dropdown__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+      }
+
+      .nf-user-dropdown__trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: linear 0.2s;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: hsla(232, 36%, 59%, 1);
+        color: #fff;
+      }
+
+      .nf-user-dropdown__trigger:hover {
+        opacity: 0.8;
+      }
+
+      .nf-user-dropdown__trigger:focus {
+        outline: 2px solid hsla(232, 36%, 38%, 1);
+        outline-offset: 2px;
+        border-radius: 50%;
+      }
+
+      .nf-user-dropdown__avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: hsla(232, 36%, 38%, 1);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      .nf-user-dropdown__avatar--initials::after {
+        content: attr(data-initials);
+      }
+
+      .nf-user-dropdown__name {
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: hsla(220, 11%, 29%, 1);
+        line-height: 1.2;
+      }
+
+      .nf-user-dropdown__icon {
+        font-size: 0.85rem;
+        transition: transform 0.3s ease;
+        color: hsla(220, 6%, 47%, 1);
+      }
+
+      .nf-user-dropdown--open .nf-user-dropdown__icon {
+        transform: rotate(180deg);
+      }
+
+      .nf-user-dropdown__menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 200px;
+        background: #fff;
+        border: 1px solid hsla(220, 5%, 92%, 1);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        overflow: hidden;
+      }
+
+      [dir="rtl"] .nf-user-dropdown__menu {
+        right: auto;
+        left: 0;
+      }
+
+      .nf-user-dropdown--open .nf-user-dropdown__menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nf-user-dropdown__header {
+        padding: 16px;
+        border-bottom: 1px solid hsla(220, 5%, 92%, 1);
+        background: hsla(0, 0%, 98%, 1);
+      }
+
+      .nf-user-dropdown__header-name {
+        font-weight: 600;
+        color: hsla(220, 11%, 29%, 1);
+        margin-bottom: 4px;
+      }
+
+      .nf-user-dropdown__header-email {
+        font-size: 0.85rem;
+        color: hsla(220, 8%, 35%, 1);
+      }
+
+      .nf-user-dropdown__list {
+        list-style: none;
+        margin: 0;
+        padding: 12px 0;
+      }
+
+      .nf-user-dropdown__item {
+        margin: 0;
+      }
+
+      .nf-user-dropdown__link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        color: hsla(220, 11%, 29%, 1);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: linear 0.2s;
+      }
+
+      .nf-user-dropdown__link i {
+        font-size: 1.1rem;
+        color: hsla(220, 6%, 47%, 1);
+      }
+
+      .nf-user-dropdown__link:hover {
+        background: hsla(0, 0%, 96%, 1);
+        color: hsla(231, 36%, 33%, 1);
+      }
+
+      .nf-user-dropdown__link:hover i {
+        color: hsla(232, 36%, 38%, 1);
+      }
+
+      .nf-user-dropdown__logout {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: transparent;
+        border: none;
+        border-top: 1px solid hsla(220, 5%, 92%, 1);
+        color: #ff3e30;
+        font-size: 0.9rem;
+        cursor: pointer;
+        text-align: start;
+        transition: linear 0.2s;
+      }
+
+      .nf-user-dropdown__logout i {
+        font-size: 1.1rem;
+      }
+
+      .nf-user-dropdown__logout:hover {
+        background: rgba(255, 62, 48, 0.1);
+        color: hsla(4, 76%, 40%, 1);
+      }
+
+      /* ── nf-logout-form / nf-logout-btn ───────────────────────── */
+
+      .nf-logout-form {
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid hsla(220, 5%, 92%, 1);
+      }
+
+      .nf-logout-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: transparent;
+        border: none;
+        color: #ff3e30;
+        font-size: 0.9rem;
+        font-weight: 400;
+        cursor: pointer;
+        text-align: start;
+        transition: linear 0.2s;
+        font-family: inherit;
+      }
+
+      .nf-logout-btn i {
+        font-size: 1.1rem;
+      }
+
+      .nf-logout-btn:hover {
+        background: rgba(255, 62, 48, 0.1) !important;
+        color: hsla(4, 76%, 40%, 1) !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+
+      .nf-logout-btn:focus {
+        outline: 2px solid #ff3e30;
+        outline-offset: -2px;
+      }
+
+      /* ── Responsive ────────────────────────────────────────────── */
+
+      @media (max-width: 768px) {
+        .nf-login-link {
+          padding: 8px;
+          font-size: 0.85rem;
+        }
+
+        .nf-login-link span:not(.nf-login-link__sep) {
+          display: none;
+        }
+
+        .nf-login-link .nf-login-link__sep {
+          display: none;
+        }
+
+        .nf-user-dropdown__name {
+          display: none;
+        }
+
+        .nf-user-dropdown__icon {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        .nf-user-dropdown__menu {
+          right: 0;
+          min-width: 180px;
+        }
+
+        [dir="rtl"] .nf-user-dropdown__menu {
+          left: 0;
+        }
+
+        .nf-user-dropdown__header-email {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* ── Demo page layout ──────────────────────────────────────── */
+
+      .demo-header {
+        background: #fff;
+        border-bottom: 1px solid hsla(220, 5%, 92%, 1);
+        padding: 16px 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      .demo-header__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .demo-header__title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: hsla(232, 36%, 38%, 1);
+        margin: 0;
+      }
+
+      .demo-header__actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .demo-section {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 24px;
+        color: hsla(220, 11%, 29%, 1);
+        line-height: 1.7;
+      }
+
+      .demo-section h2 {
+        font-size: 1rem;
+        color: hsla(220, 6%, 47%, 1);
+        margin-bottom: 16px;
+        border-bottom: 1px solid hsla(220, 5%, 92%, 1);
+        padding-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ── Demo: both components rendered inside a header ── -->
+    <header class="demo-header">
+      <div class="demo-header__container">
+        <h1 class="demo-header__title">Niafam</h1>
+
+        <div class="demo-header__actions">
+
+          <!-- Component 1: Login Link (shown when user is logged out) -->
+          <a href="#" class="nf-login-link">
+            <i class="es esprit-fi-rr-sign-in"></i>
+            <span>ورود</span>
+            <span class="nf-login-link__sep">/</span>
+            <span>عضویت</span>
+          </a>
+
+          <!-- Component 2: User Dropdown (shown when user is logged in) -->
+          <div class="nf-user-dropdown">
+            <div class="nf-user-dropdown__wrapper">
+              <button
+                class="nf-user-dropdown__trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                ت
+              </button>
+              <span class="nf-user-dropdown__name">تهران تست</span>
+              <i class="es esprit-fi-rr-angle-down arrow nf-user-dropdown__icon"></i>
+            </div>
+
+            <div class="nf-user-dropdown__menu" role="menu">
+              <div class="nf-user-dropdown__header">
+                <div class="nf-user-dropdown__header-name">تهران تست</div>
+                <div class="nf-user-dropdown__header-email">tehran@example.com</div>
+              </div>
+
+              <ul class="nf-user-dropdown__list">
+                <li class="nf-user-dropdown__item">
+                  <a href="/profile-view.html" class="nf-user-dropdown__link" role="menuitem">
+                    <i class="es esprit-fi-rr-user"></i>
+                    <span>مشاهده پروفایل</span>
+                  </a>
+                </li>
+                <li class="nf-user-dropdown__item">
+                  <a href="/profile-edit.html" class="nf-user-dropdown__link" role="menuitem">
+                    <i class="es esprit-fi-rr-edit"></i>
+                    <span>ویرایش پروفایل</span>
+                  </a>
+                </li>
+              </ul>
+
+              <form class="nf-logout-form" action="" method="post">
+                <input type="hidden" autocomplete="off" name="espritaction" value="logout" />
+                <button type="submit" class="nf-logout-btn" role="menuitem">
+                  <i class="es esprit-fi-rr-sign-out-alt"></i>
+                  <span>خروج</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <main class="demo-section">
+      <h2>ماژول header-user-nav — نمایش مستقل کامپوننت‌ها</h2>
+      <p>
+        برای استفاده از این کامپوننت‌ها در صفحات دیگر:
+      </p>
+      <ol>
+        <li>محتوای بلوک <code>&lt;style&gt;</code> را در <code>&lt;head&gt;</code> صفحه کپی کنید.</li>
+        <li>نشانه‌گذاری HTML کامپوننت‌های مورد نظر را در بدنه صفحه قرار دهید.</li>
+        <li>محتوای بلوک <code>&lt;script&gt;</code> را پیش از <code>&lt;/body&gt;</code> کپی کنید.</li>
+      </ol>
+    </main>
+
+    <script>
+      (function () {
+        var dropdown = document.querySelector('.nf-user-dropdown');
+        if (!dropdown) return;
+
+        var wrapper = dropdown.querySelector('.nf-user-dropdown__wrapper');
+        var trigger = dropdown.querySelector('.nf-user-dropdown__trigger');
+        var menu    = dropdown.querySelector('.nf-user-dropdown__menu');
+
+        if (!wrapper || !trigger || !menu) return;
+
+        function openDropdown() {
+          dropdown.classList.add('nf-user-dropdown--open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeDropdown() {
+          dropdown.classList.remove('nf-user-dropdown--open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+
+        function toggleDropdown() {
+          if (dropdown.classList.contains('nf-user-dropdown--open')) {
+            closeDropdown();
+          } else {
+            openDropdown();
+          }
+        }
+
+        // Toggle on wrapper click
+        wrapper.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleDropdown();
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function (e) {
+          if (!dropdown.contains(e.target)) {
+            closeDropdown();
+          }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            closeDropdown();
+          }
+        });
+      })();
+    </script>
+
+  </body>
+</html>
