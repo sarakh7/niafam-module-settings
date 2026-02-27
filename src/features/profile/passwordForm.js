@@ -88,12 +88,12 @@ function handlePasswordToggle(button) {
   if (inputField.type === 'password') {
     // Show password
     inputField.type = 'text';
-    icon.className = 'es esprit-eye-off';
+    icon.className = 'es esprit-fi-rr-eye-crossed';
     button.setAttribute('aria-label', 'Hide password');
   } else {
     // Hide password
     inputField.type = 'password';
-    icon.className = 'es esprit-eye';
+    icon.className = 'es esprit-fi-rr-eye';
     button.setAttribute('aria-label', 'Show password');
   }
 }

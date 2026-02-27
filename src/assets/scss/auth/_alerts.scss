@@ -39,6 +39,16 @@
     }
   }
 
+  &-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+
+    .inline-alert__icon {
+      color: #28a745;
+    }
+  }
+
   // Error alert (red)
   &--error {
     background-color: #f8d7da;
