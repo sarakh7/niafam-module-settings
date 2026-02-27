@@ -30,7 +30,7 @@ export default defineConfig({
         galleryLib:   resolve(__dirname, 'src/features/common/gallery.js'),
         modalLib:     resolve(__dirname, 'src/features/common/modal.js'),
         plyrSvg:     resolve(__dirname, 'src/assets/img/plyr.svg'),
-        plyrBlank:     resolve(__dirname, 'src/assets/blank.mp4'),
+        plyrBlank:     resolve(__dirname, 'src/assets/video/blank.mp4'),
       },
       output: {
         entryFileNames: 'assets/module-settings/js/[name].js',

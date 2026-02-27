@@ -3,6 +3,9 @@ import "plyr/dist/plyr.css";
 import { defaultSettings } from "../../config/settings";
 import i18next from "../../config/i18n";
 
+import plyrSvgUrl from "../../assets/img/plyr.svg";
+import plyrBlankUrl from "../../assets/video/blank.mp4";
+
 // Store all player instances to update them when language changes
 const playerInstances = [];
 
@@ -163,17 +166,14 @@ function createPlayer(element, customOptions = {}) {
   const settings = defaultSettings.mediaPlayer;
 
   const options = {
-    iconUrl: "../assets/module-settings/img/plyr.svg",
+    iconUrl: plyrSvgUrl,
+    blankVideo: plyrBlankUrl,
     ...settings,
     i18n: getPlyrI18n(),
     ...customOptions,
     preload: "none",
   };
 
-  // Override blank video source
-  if (window.Plyr) {
-    window.Plyr.defaults.blankVideo = "../assets/module-settings/video/blank.mp4";
-  }
   const player = new Plyr(element, options);
 
   // Store player instance and options for language updates
