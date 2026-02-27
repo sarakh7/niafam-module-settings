@@ -16,7 +16,9 @@ $text-xs: 0.75em;
 .d-none {
   display: none !important;
 }
-
+select.nes-input {
+  border-radius: $radius-default;
+}
 // Profile Edit
 .profile-edit {
   max-width: 900px;
