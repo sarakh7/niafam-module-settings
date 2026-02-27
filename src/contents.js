@@ -16,6 +16,7 @@ import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import { initCommentReplyToggle } from "./features/contents/commentReplyToggle";
 import { initTtsAutoLoader } from "./features/contents/ttsAutoLoader";
 import { initArticleMetadata } from "./features/contents/articleMetadata";
+import { initVideoPlayer, initAudioPlayer, initTts, initReadingModeTts } from "./features/common/mediaPlayer";
 import "./features/contents/ratingTooltip"; // Make showRatingTooltip globally accessible
 import "./assets/scss/contents.scss";
 
@@ -33,28 +34,32 @@ function initPdfGeneratorLazy() {
   }
 
   // Add click handler that lazy loads the PDF generator module
-  button.addEventListener("click", async () => {
-    try {
-      button.disabled = true;
-      button.classList.add("disabled");
+  button.addEventListener(
+    "click",
+    async () => {
+      try {
+        button.disabled = true;
+        button.classList.add("disabled");
 
-      // Dynamically import the PDF generator module (includes jsPDF ~150KB)
-      const { generatePDF } = await import("./features/contents/pdfGenerator");
+        // Dynamically import the PDF generator module (includes jsPDF ~150KB)
+        const { generatePDF } = await import("./features/contents/pdfGenerator");
 
-      // Generate the PDF
-      await generatePDF();
+        // Generate the PDF
+        await generatePDF();
 
-      button.disabled = false;
-      button.classList.remove("disabled");
-    } catch (error) {
-      console.error("PDF generation error:", error);
-      // Use i18next for error message if available
-      const errorMessage = window.i18next?.t("pdf.generationError") || "خطا در تولید PDF";
-      alert(errorMessage);
-      button.disabled = false;
-      button.classList.remove("disabled");
-    }
-  }, { once: false }); // Allow multiple PDF generations
+        button.disabled = false;
+        button.classList.remove("disabled");
+      } catch (error) {
+        console.error("PDF generation error:", error);
+        // Use i18next for error message if available
+        const errorMessage = window.i18next?.t("pdf.generationError") || "خطا در تولید PDF";
+        alert(errorMessage);
+        button.disabled = false;
+        button.classList.remove("disabled");
+      }
+    },
+    { once: false },
+  ); // Allow multiple PDF generations
 }
 
 /**
@@ -95,21 +100,16 @@ async function initializeApp() {
     }
 
     // 2. Determine which player features are needed
-    const hasVideo    = !!(document.getElementById("article-videos") || document.getElementById("main-video"));
-    const hasAudio    = !!(document.getElementById("article-sounds") || document.getElementById("main-audio"));
-    const hasTts      = !!(document.getElementById("tts-container") && initTtsVisibility());
+    const hasVideo = !!(document.getElementById("article-videos") || document.getElementById("main-video"));
+    const hasAudio = !!(document.getElementById("article-sounds") || document.getElementById("main-audio"));
+    const hasTts = !!(document.getElementById("tts-container") && initTtsVisibility());
     const hasReadMode = !!(document.getElementById("modal-reading-mode") && initReadingModeTtsVisibility());
 
     // 3. Only download Plyr/mediaPlayer if at least one media element exists
-    if (hasVideo || hasAudio || hasTts || hasReadMode) {
-      const { initVideoPlayer, initAudioPlayer, initTts, initReadingModeTts } =
-        await import("./features/common/mediaPlayer");
-
-      if (hasVideo)    initVideoPlayer();
-      if (hasAudio)    initAudioPlayer();
-      if (hasTts)      initTts();
-      if (hasReadMode) initReadingModeTts();
-    }
+    if (hasVideo) initVideoPlayer();
+    if (hasAudio) initAudioPlayer();
+    if (hasTts) initTts();
+    if (hasReadMode) initReadingModeTts();
 
     // Initialize accessibility controls - only if controls container exists
     if (document.getElementById("esprit-article-accessibility-controls")) {

@@ -11,7 +11,7 @@ export function initTabNavigation() {
   const tabPanes = document.querySelectorAll('.profile-edit__tab-pane');
 
   if (tabLinks.length === 0 || tabPanes.length === 0) {
-    console.warn('Profile Edit: Tab navigation elements not found');
+    // console.warn('Profile Edit: Tab navigation elements not found');
     return;
   }
 

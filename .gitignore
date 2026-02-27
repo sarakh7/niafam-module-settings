@@ -35,3 +35,12 @@ config/settings.json
 .env.production.local
 
 
+# Sass compiled files
+src/assets/css/*.css
+src/assets/css/*.map
+
+# Sass compiled files
+src/assets/scss/css/*.css
+src/assets/scss/css/*.map
+src/assets/scss/common/css/*.css
+src/assets/scss/common/css/*.map

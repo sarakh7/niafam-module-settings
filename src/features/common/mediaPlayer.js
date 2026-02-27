@@ -14,24 +14,24 @@ const playerInstances = [];
  */
 function generateVideoThumbnail(videoSrc, seekTo = 2.0) {
   return new Promise((resolve, reject) => {
-    const video = document.createElement('video');
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
+    const video = document.createElement("video");
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
 
-    video.crossOrigin = 'anonymous';
-    video.preload = 'metadata';
+    video.crossOrigin = "anonymous";
+    video.preload = "metadata";
     video.muted = true;
 
-    video.addEventListener('loadeddata', () => {
+    video.addEventListener("loadeddata", () => {
       video.currentTime = seekTo;
     });
 
-    video.addEventListener('seeked', () => {
+    video.addEventListener("seeked", () => {
       try {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        const dataUrl = canvas.toDataURL("image/jpeg", 0.8);
         resolve(dataUrl);
       } catch (error) {
         reject(error);
@@ -40,7 +40,7 @@ function generateVideoThumbnail(videoSrc, seekTo = 2.0) {
       }
     });
 
-    video.addEventListener('error', (e) => {
+    video.addEventListener("error", (e) => {
       reject(new Error(`Failed to load video: ${e.message}`));
       video.remove();
     });
@@ -55,41 +55,41 @@ function generateVideoThumbnail(videoSrc, seekTo = 2.0) {
  */
 function getPlyrI18n() {
   return {
-    restart: i18next.t('player.restart'),
-    rewind: i18next.t('player.rewind'),
-    play: i18next.t('player.play'),
-    pause: i18next.t('player.pause'),
-    fastForward: i18next.t('player.forward'),
-    seek: i18next.t('player.seek'),
-    seekLabel: i18next.t('player.seekLabel'),
-    played: i18next.t('player.played'),
-    buffered: i18next.t('player.buffered'),
-    currentTime: i18next.t('player.currentTime'),
-    duration: i18next.t('player.duration'),
-    volume: i18next.t('player.volume'),
-    mute: i18next.t('player.mute'),
-    unmute: i18next.t('player.unmute'),
-    enableCaptions: i18next.t('player.enableCaptions'),
-    disableCaptions: i18next.t('player.disableCaptions'),
-    download: i18next.t('player.download'),
-    enterFullscreen: i18next.t('player.enterFullscreen'),
-    exitFullscreen: i18next.t('player.exitFullscreen'),
-    frameTitle: i18next.t('player.frameTitle'),
-    captions: i18next.t('player.captions'),
-    settings: i18next.t('player.settings'),
-    pip: i18next.t('player.pip'),
-    menuBack: i18next.t('player.menuBack'),
-    speed: i18next.t('player.speed'),
-    normal: i18next.t('player.normal'),
-    quality: i18next.t('player.quality'),
-    loop: i18next.t('player.loop'),
-    start: i18next.t('player.start'),
-    end: i18next.t('player.end'),
-    all: i18next.t('player.all'),
-    reset: i18next.t('player.reset'),
-    disabled: i18next.t('player.disabled'),
-    enabled: i18next.t('player.enabled'),
-    advertisement: i18next.t('player.advertisement')
+    restart: i18next.t("player.restart"),
+    rewind: i18next.t("player.rewind"),
+    play: i18next.t("player.play"),
+    pause: i18next.t("player.pause"),
+    fastForward: i18next.t("player.forward"),
+    seek: i18next.t("player.seek"),
+    seekLabel: i18next.t("player.seekLabel"),
+    played: i18next.t("player.played"),
+    buffered: i18next.t("player.buffered"),
+    currentTime: i18next.t("player.currentTime"),
+    duration: i18next.t("player.duration"),
+    volume: i18next.t("player.volume"),
+    mute: i18next.t("player.mute"),
+    unmute: i18next.t("player.unmute"),
+    enableCaptions: i18next.t("player.enableCaptions"),
+    disableCaptions: i18next.t("player.disableCaptions"),
+    download: i18next.t("player.download"),
+    enterFullscreen: i18next.t("player.enterFullscreen"),
+    exitFullscreen: i18next.t("player.exitFullscreen"),
+    frameTitle: i18next.t("player.frameTitle"),
+    captions: i18next.t("player.captions"),
+    settings: i18next.t("player.settings"),
+    pip: i18next.t("player.pip"),
+    menuBack: i18next.t("player.menuBack"),
+    speed: i18next.t("player.speed"),
+    normal: i18next.t("player.normal"),
+    quality: i18next.t("player.quality"),
+    loop: i18next.t("player.loop"),
+    start: i18next.t("player.start"),
+    end: i18next.t("player.end"),
+    all: i18next.t("player.all"),
+    reset: i18next.t("player.reset"),
+    disabled: i18next.t("player.disabled"),
+    enabled: i18next.t("player.enabled"),
+    advertisement: i18next.t("player.advertisement"),
   };
 }
 
@@ -123,7 +123,7 @@ function updateAllPlayersI18n() {
       const options = {
         ...settings,
         i18n: newI18n,
-        ...customOptions
+        ...customOptions,
       };
 
       const newPlayer = new Plyr(element, options);
@@ -133,7 +133,7 @@ function updateAllPlayersI18n() {
         newPlayer.source = currentSource;
 
         // Wait for source to load before restoring time and play state
-        newPlayer.once('loadedmetadata', () => {
+        newPlayer.once("loadedmetadata", () => {
           if (currentTime > 0) {
             newPlayer.currentTime = currentTime;
           }
@@ -163,17 +163,23 @@ function createPlayer(element, customOptions = {}) {
   const settings = defaultSettings.mediaPlayer;
 
   const options = {
+    iconUrl: "../assets/module-settings/img/plyr.svg",
     ...settings,
     i18n: getPlyrI18n(),
-    ...customOptions
+    ...customOptions,
+    preload: "none",
   };
 
+  // Override blank video source
+  if (window.Plyr) {
+    window.Plyr.defaults.blankVideo = "../assets/module-settings/video/blank.mp4";
+  }
   const player = new Plyr(element, options);
 
   // Store player instance and options for language updates
   playerInstances.push({
     player: player,
-    customOptions: customOptions
+    customOptions: customOptions,
   });
 
   return player;
@@ -187,12 +193,7 @@ function createPlayer(element, customOptions = {}) {
  * @param {Object} customOptions - Custom Plyr options
  * @returns {Plyr|null} Plyr instance or null
  */
-export function initVideoPlayer(
-  videoSelector = "#main-video",
-  listSelector = ".video-list__item",
-  videoListSelector = ".video-list__scroll",
-  customOptions = {}
-) {
+export function initVideoPlayer(videoSelector = "#main-video", listSelector = ".video-list__item", videoListSelector = ".video-list__scroll", customOptions = {}) {
   const videoElement = document.querySelector(videoSelector);
   if (!videoElement) {
     console.warn(`Video element not found: ${videoSelector}`);
@@ -212,10 +213,7 @@ export function initVideoPlayer(
       if (videoSrc && imgElement) {
         const imgSrc = imgElement.src;
         // Check if image is placeholder, empty, or invalid
-        const needsThumbnail = !imgSrc ||
-                               imgSrc === '' ||
-                               imgSrc.endsWith('/') ||
-                               imgSrc.includes('video-placeholder');
+        const needsThumbnail = !imgSrc || imgSrc === "" || imgSrc.endsWith("/") || imgSrc.includes("video-placeholder");
 
         if (needsThumbnail) {
           generateVideoThumbnail(videoSrc, 2.0)
@@ -316,22 +314,34 @@ export function initVideoPlayer(
       });
 
       // Touch drag to scroll (for mobile)
-      tabList.addEventListener("touchstart", function (event) {
-        isDragging = true;
-        startX = event.touches[0].pageX - tabList.offsetLeft;
-        scrollLeft = tabList.scrollLeft;
-      }, { passive: true });
+      tabList.addEventListener(
+        "touchstart",
+        function (event) {
+          isDragging = true;
+          startX = event.touches[0].pageX - tabList.offsetLeft;
+          scrollLeft = tabList.scrollLeft;
+        },
+        { passive: true },
+      );
 
-      tabList.addEventListener("touchend", function () {
-        isDragging = false;
-      }, { passive: true });
+      tabList.addEventListener(
+        "touchend",
+        function () {
+          isDragging = false;
+        },
+        { passive: true },
+      );
 
-      tabList.addEventListener("touchmove", function (event) {
-        if (!isDragging) return;
-        const x = event.touches[0].pageX - tabList.offsetLeft;
-        const walk = (x - startX) * 2;
-        tabList.scrollLeft = scrollLeft - walk;
-      }, { passive: true });
+      tabList.addEventListener(
+        "touchmove",
+        function (event) {
+          if (!isDragging) return;
+          const x = event.touches[0].pageX - tabList.offsetLeft;
+          const walk = (x - startX) * 2;
+          tabList.scrollLeft = scrollLeft - walk;
+        },
+        { passive: true },
+      );
 
       // Move selected tab to center of page when clicked
       tabs.forEach((tab) => {
@@ -339,10 +349,7 @@ export function initVideoPlayer(
           const tabRect = tab.getBoundingClientRect();
           const listRect = tabList.getBoundingClientRect();
 
-          const scrollAmount =
-            tabList.scrollLeft +
-            (tabRect.left - listRect.left) -
-            (listRect.width / 2 - tabRect.width / 2);
+          const scrollAmount = tabList.scrollLeft + (tabRect.left - listRect.left) - (listRect.width / 2 - tabRect.width / 2);
 
           tabList.scrollTo({
             left: scrollAmount,
@@ -396,11 +403,7 @@ export function initVideoPlayer(
  * @param {Object} customOptions - Custom Plyr options
  * @returns {Plyr|null} Plyr instance or null
  */
-export function initAudioPlayer(
-  audioSelector = "#main-audio",
-  listSelector = ".sound-list__item",
-  customOptions = {}
-) {
+export function initAudioPlayer(audioSelector = "#main-audio", listSelector = ".sound-list__item", customOptions = {}) {
   const audioElement = document.querySelector(audioSelector);
   if (!audioElement) {
     console.warn(`Audio element not found: ${audioSelector}`);
@@ -418,9 +421,9 @@ export function initAudioPlayer(
       if (!audioSrc) return false;
 
       // Extract filename from path
-      const filename = audioSrc.split('/').pop();
+      const filename = audioSrc.split("/").pop();
       // Check if filename doesn't start with "generated_tts"
-      return !filename.startsWith('generated_tts');
+      return !filename.startsWith("generated_tts");
     });
 
     if (firstNonTtsItem) {
@@ -496,11 +499,7 @@ export function initTts(audioSelector = "#tts-audio", customOptions = {}) {
  * @param {Object} customOptions - Custom Plyr options
  * @returns {Plyr|null} Plyr instance or null
  */
-export function initReadingModeTts(
-  audioSelector = "#reading-mode-tts-audio",
-  closeButtonId = "modal-reading-mode0close",
-  customOptions = {}
-) {
+export function initReadingModeTts(audioSelector = "#reading-mode-tts-audio", closeButtonId = "modal-reading-mode0close", customOptions = {}) {
   const audioElement = document.querySelector(audioSelector);
   if (!audioElement) {
     console.warn(`Reading mode TTS audio element not found: ${audioSelector}`);
@@ -527,6 +526,6 @@ export function initReadingModeTts(
 }
 
 // Listen for language changes and update all player translations
-i18next.on('languageChanged', () => {
+i18next.on("languageChanged", () => {
   updateAllPlayersI18n();
 });
