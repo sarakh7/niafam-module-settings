@@ -20,7 +20,7 @@ export function initAvatarUpload() {
   const fileInput = document.getElementById('addpicurl-name');
 
   if (!uploadButton || !fileInput) {
-    console.warn('Avatar Upload: Required elements not found');
+    // console.warn('Avatar Upload: Required elements not found');
     return;
   }
 

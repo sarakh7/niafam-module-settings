@@ -37,7 +37,7 @@
       color: $blue-gray-700;
       background: #fff;
       border: 2px solid $blue-gray-200;
-      border-radius: $radius-lg;
+      border-radius: $radius-lg !important;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;

@@ -14,7 +14,7 @@ export function initProfileForm() {
   const form = document.getElementById('profileForm');
 
   if (!form) {
-    console.warn('Profile Form: Form element not found');
+    // console.warn('Profile Form: Form element not found');
     return;
   }
 

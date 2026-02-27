@@ -266,7 +266,7 @@ export async function loadSettingsFromFile() {
   } catch (error) {
     settingsLoadError = error.message;
     // console.warn('[Settings] Failed to load settings:', error.message);
-    console.warn('[Settings] Failed to load settings from window.NIAFAM_MODULE_SETTINGS');
+    // console.warn('[Settings] Failed to load settings from window.NIAFAM_MODULE_SETTINGS');
     // console.info('[Settings] Using built-in default settings');
     return null;
   }
