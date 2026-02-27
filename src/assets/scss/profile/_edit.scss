@@ -17,7 +17,7 @@ $text-xs: 0.75em;
   display: none !important;
 }
 select.nes-input {
-  border-radius: $radius-default;
+  border-radius: $radius-default !important;
 }
 // Profile Edit
 .profile-edit {
