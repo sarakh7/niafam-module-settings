@@ -1,0 +1,72 @@
+/**
+ * General Subcategories Header Component
+ * Centered page header with title and description
+ */
+@use '../common/base/globals' as *;
+
+.general-subcats-header {
+  margin-bottom: $spacing-6;
+  padding-bottom: $spacing-4;
+  border-bottom: 1px solid $gray-200;
+  text-align: center;
+  position: relative;
+
+  // Decorative accent line
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: $blue-gray-600;
+    border-radius: $radius-full;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: $spacing-5;
+    padding-bottom: $spacing-4;
+
+    &::after {
+      width: 60px;
+      height: 2px;
+    }
+  }
+}
+
+.general-subcats-header__title {
+  font-size: 2em;
+  font-weight: $text-bold;
+  color: $blue-gray-700;
+  margin: $spacing-4 0 0 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  @media (max-width: 768px) {
+    font-size: 1.75em;
+    margin-bottom: $spacing-2;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5em;
+  }
+}
+
+.general-subcats-header__description {
+  font-size: 1.125em;
+  line-height: 1.7;
+  color: $gray-600;
+  max-width: 700px;
+  margin: $spacing-1 auto;
+  font-weight: $text-regular;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9375em;
+    line-height: 1.6;
+  }
+}

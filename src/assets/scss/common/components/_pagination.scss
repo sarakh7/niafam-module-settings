@@ -1,0 +1,273 @@
+@use "sass:map";
+@use '../base/globals' as *;
+
+/**
+ * Pagination Component
+ * Reusable pagination component for all modules
+ * Supports RTL/LTR, responsive design, and multiple variants
+ */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-1;
+  list-style: none;
+  margin: $spacing-5 0 0 0;
+  padding: 0;
+
+  @include respond-to(sm) {
+    margin-top: $spacing-4;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: inline-block;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      height: 44px;
+      padding: $spacing-2;
+      font-size: map.get($text-sizes, 15);
+      font-weight: $text-semi-bold;
+      color: $blue-gray-700;
+      background: #fff;
+      border: 2px solid $blue-gray-200;
+      border-radius: $radius-lg;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+
+      @include respond-to(sm) {
+        min-width: 38px;
+        height: 38px;
+        font-size: map.get($text-sizes, 14);
+        padding: $spacing-1;
+      }
+
+      &:hover {
+        color: $blue-gray-800;
+        background: $blue-gray-50;
+        border-color: $blue-gray-400;
+        // transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(65, 70, 81, 0.15);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    // Active page
+    &.active a {
+      color: #fff;
+      background: linear-gradient(135deg, $blue-gray-600, $blue-gray-700);
+      border-color: transparent;
+      box-shadow: 0 4px 12px rgba(65, 70, 81, 0.3);
+      cursor: default;
+      pointer-events: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    // Disabled state
+    &.disabled a {
+      color: $blue-gray-300;
+      background: $blue-gray-50;
+      border-color: $blue-gray-100;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  // Small variant
+  &-sm {
+    gap: 6px;
+
+    @include respond-to(sm) {
+      gap: 4px;
+    }
+
+    li a {
+      min-width: 38px;
+      height: 38px;
+      font-size: map.get($text-sizes, 14);
+
+      @include respond-to(sm) {
+        min-width: 34px;
+        height: 34px;
+        font-size: map.get($text-sizes, 13);
+      }
+    }
+  }
+
+  // Large variant
+  &-lg {
+    gap: $spacing-2;
+
+    li a {
+      min-width: 50px;
+      height: 50px;
+      font-size: map.get($text-sizes, 16);
+      border-radius: $radius-xl;
+
+      @include respond-to(sm) {
+        min-width: 44px;
+        height: 44px;
+        font-size: map.get($text-sizes, 15);
+      }
+    }
+  }
+
+  // Minimal variant (no borders)
+  &-minimal {
+    li a {
+      border: none;
+      background: transparent;
+      color: $blue-gray-600;
+
+      &:hover {
+        background: $blue-gray-100;
+        color: $blue-gray-800;
+        border: none;
+      }
+    }
+
+    li.active a {
+      background: $blue-gray-600;
+      color: #fff;
+      border: none;
+    }
+  }
+
+  // Rounded variant (fully rounded buttons)
+  &-rounded {
+    li a {
+      border-radius: $radius-full;
+    }
+  }
+
+  // Previous/Next navigation arrows
+  .pagination-prev,
+  .pagination-next {
+    a {
+      position: relative;
+      font-size: map.get($text-sizes, 18);
+      font-weight: $text-bold;
+
+      @include respond-to(sm) {
+        font-size: map.get($text-sizes, 16);
+      }
+
+      &::before {
+        font-family: 'niafam';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  // RTL/LTR arrow directions
+  .pagination-prev a::before {
+    content: '\f053'; // Left arrow icon (previous in RTL)
+
+    [dir="ltr"] & {
+      content: '\f054'; // Right arrow icon (previous in LTR)
+    }
+  }
+
+  .pagination-next a::before {
+    content: '\f054'; // Right arrow icon (next in RTL)
+
+    [dir="ltr"] & {
+      content: '\f053'; // Left arrow icon (next in LTR)
+    }
+  }
+
+  // First/Last page indicators
+  .pagination-first,
+  .pagination-last {
+    a {
+      font-size: map.get($text-sizes, 14);
+
+      @include respond-to(sm) {
+        font-size: map.get($text-sizes, 13);
+      }
+    }
+  }
+
+  // Ellipsis (for skipped pages like 1 ... 5 6 7 ... 20)
+  .pagination-ellipsis {
+    a {
+      border: none;
+      background: transparent;
+      cursor: default;
+      pointer-events: none;
+      color: $blue-gray-400;
+      font-weight: $text-bold;
+
+      &:hover {
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+  }
+}
+
+// Pagination info text (e.g., "Showing 1-10 of 100")
+.pagination-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-3;
+  font-size: map.get($text-sizes, 14);
+  color: $blue-gray-600;
+
+  @include respond-to(sm) {
+    font-size: map.get($text-sizes, 13);
+    margin-top: $spacing-2;
+  }
+
+  strong {
+    font-weight: $text-semi-bold;
+    color: $blue-gray-800;
+  }
+}
+
+// Pagination container (wrapper for pagination + info)
+.pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: $spacing-5;
+
+  @include respond-to(sm) {
+    margin-top: $spacing-4;
+  }
+}
+
+// Compact pagination for sidebars or limited space
+.pagination-compact {
+  gap: 4px;
+
+  li a {
+    min-width: 32px;
+    height: 32px;
+    font-size: map.get($text-sizes, 13);
+    padding: 4px;
+
+    @include respond-to(sm) {
+      min-width: 28px;
+      height: 28px;
+      font-size: map.get($text-sizes, 12);
+    }
+  }
+}

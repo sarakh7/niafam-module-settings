@@ -1,0 +1,41 @@
+/**
+ * Gallery Categories Header Styles
+ */
+@use '../common/base/globals' as *;
+
+.gallery-categories-header {
+  margin-bottom: $spacing-5;
+  padding-bottom: $spacing-4;
+  border-bottom: 1px solid $gray-200;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    margin-bottom: $spacing-4;
+    padding-bottom: $spacing-3;
+  }
+}
+
+.gallery-categories-header__title {
+  font-size: 2.5em;
+  font-weight: $text-bold;
+  color: $blue-gray-700;
+  margin-bottom: $spacing-3;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 1.75em;
+    margin-bottom: $spacing-2;
+  }
+}
+
+.gallery-categories-header__description {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: $gray-600;
+  max-width: 800px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+}

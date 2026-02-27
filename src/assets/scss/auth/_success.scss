@@ -1,0 +1,77 @@
+/**
+ * Success Message Styles
+ * Success page with icon and message
+ */
+
+@use '../common/base/globals' as *;
+
+.auth-success-card {
+  text-align: center;
+  padding: $spacing-6 $spacing-5;
+
+  .nes-form-actions {
+    justify-content: center;
+  }
+}
+
+.auth-success-icon {
+  font-size: 4rem;
+  color: $success;
+  margin-bottom: $spacing-4;
+
+  i {
+    display: inline-block;
+    animation: successPulse 0.6s ease-out;
+  }
+}
+
+.auth-success-title {
+  font-size: 1.5rem;
+  font-weight: $text-bold;
+  color: $gray-700;
+  margin-bottom: $spacing-3;
+}
+
+.auth-success-message {
+  color: $gray-600;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: $spacing-5;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Success icon animation
+@keyframes successPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .auth-success-card {
+    padding: $spacing-5 $spacing-4;
+  }
+
+  .auth-success-icon {
+    font-size: 3rem;
+  }
+
+  .auth-success-title {
+    font-size: 1.25rem;
+  }
+
+  .auth-success-message {
+    font-size: 0.9rem;
+  }
+}

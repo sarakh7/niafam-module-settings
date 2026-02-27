@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="searchResults.pageTitle">نتایج جستجو - نیافام</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+      }
+
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Container -->
+    <main class="esprit-search-results-container">
+      <!-- Page Header -->
+      <header class="esprit-search-results-header">
+        <nav class="esprit-search-results-breadcrumb">
+          <a href="#" class="esprit-search-results-breadcrumb-link" data-i18n="searchResults.breadcrumbHome">صفحه اصلی</a>
+          <span class="esprit-search-results-breadcrumb-separator">/</span>
+          <span class="esprit-search-results-breadcrumb-current" data-i18n="searchResults.breadcrumbSearch">جستجو</span>
+        </nav>
+
+        <h1 class="esprit-search-results-title" data-i18n="searchResults.title">نتایج جستجو</h1>
+        
+      </header>
+
+      <!-- Search Form -->
+      <section class="esprit-search-results-search-section">
+        <form class="esprit-search-results-form" method="post" action="#">
+          <!-- Search Filters (Radio Buttons) -->
+          <div class="esprit-search-results-form-filters">
+            <label class="esprit-search-results-form-filter-option">
+              <input type="radio" name="m" value="2" class="esprit-search-results-form-radio" checked aria-label="OR search mode" />
+              <span class="esprit-search-results-form-radio-label" data-i18n="searchResults.filterOr">یا</span>
+            </label>
+            <label class="esprit-search-results-form-filter-option">
+              <input type="radio" name="m" value="3" class="esprit-search-results-form-radio" aria-label="AND search mode" />
+              <span class="esprit-search-results-form-radio-label" data-i18n="searchResults.filterAnd">و</span>
+            </label>
+            <label class="esprit-search-results-form-filter-option">
+              <input type="radio" name="m" value="4" class="esprit-search-results-form-radio" aria-label="Phrase search mode" />
+              <span class="esprit-search-results-form-radio-label" data-i18n="searchResults.filterPhrase">عبارت کامل</span>
+            </label>
+          </div>
+
+          <!-- Search Input and Button -->
+          <div class="esprit-search-results-form-input-wrapper">
+            <input
+              type="text"
+              name="q"
+              class="esprit-search-results-form-input"
+              placeholder="جستجو..."
+              data-i18n="[placeholder]searchResults.searchPlaceholder"
+              autocomplete="off"
+              value=""
+              aria-label="Search input"
+            />
+            <button type="submit" class="esprit-search-results-form-button" aria-label="Search button">
+              <span data-i18n="searchResults.searchButton">جستجو</span>
+            </button>
+          </div>
+
+          <input type="hidden" name="p" value="1" />
+        </form>
+      </section>
+
+      <!-- Results Section -->
+      <section class="esprit-search-results-section">
+        <p class="esprit-search-results-count">45 نتیجه یافت شد</p>
+        <div class="esprit-search-results-items">
+          <!-- Result 1 -->
+          <article class="esprit-search-results-item" style="animation-delay: 0.1s">
+            <a href="https://niafam.ir/news/12345" class="esprit-search-results-link">
+              <div class="esprit-search-results-content">
+                <div class="esprit-search-results-image-wrapper">
+                  <img class="esprit-search-results-image" src="/assets/img/related-text-thumb-1.jpg" alt="نتیجه جستجو" loading="lazy" />
+                </div>
+                <div class="esprit-search-results-caption">
+                  <h3 class="esprit-search-results-headline">برنامه‌ریزی جامع برای برگزاری باشکوه سالگرد دانشگاه علوم پزشکی تهران</h3>
+                  <p class="esprit-search-results-summary">
+                    دکتر سید رضا رئیس کرمی، سرپرست دانشگاه علوم پزشکی تهران، در نشستی با حضور مدیران ارشد دانشگاه بر ضرورت برنامه‌ریزی دقیق و جامع برای برگزاری باشکوه مراسم سالگرد تأکید کرد.
+                  </p>
+                  <div class="esprit-search-results-meta">
+                    <span class="esprit-search-results-url">https://niafam.ir/news/12345</span>
+                    <time class="esprit-search-results-date">۱۴۰۲/۰۹/۲۷</time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Result 2 -->
+          <article class="esprit-search-results-item" style="animation-delay: 0.2s">
+            <a href="https://niafam.ir/gallery/67890" class="esprit-search-results-link">
+              <div class="esprit-search-results-content">
+                <div class="esprit-search-results-image-wrapper">
+                  <img class="esprit-search-results-image" src="/assets/img/related-picture-thumb-1.jpg" alt="نتیجه جستجو" loading="lazy" />
+                </div>
+                <div class="esprit-search-results-caption">
+                  <h3 class="esprit-search-results-headline">افتتاح مرکز پیشرفته تحقیقات سرطان دانشگاه علوم پزشکی تهران</h3>
+                  <p class="esprit-search-results-summary">
+                    مرکز تحقیقاتی پیشرفته سرطان با حضور وزیر بهداشت، رئیس دانشگاه و جمعی از محققان برجسته کشور افتتاح شد. این مرکز مجهز به آزمایشگاه‌های مدرن و تجهیزات روز دنیا است.
+                  </p>
+                  <div class="esprit-search-results-meta">
+                    <span class="esprit-search-results-url">https://niafam.ir/gallery/67890</span>
+                    <time class="esprit-search-results-date">۱۴۰۲/۰۹/۲۶</time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Result 3 -->
+          <article class="esprit-search-results-item" style="animation-delay: 0.3s">
+            <a href="https://niafam.ir/video/24680" class="esprit-search-results-link">
+              <div class="esprit-search-results-content">
+                <div class="esprit-search-results-image-wrapper">
+                  <img class="esprit-search-results-image" src="/assets/img/related-video-thumb-1.jpg" alt="نتیجه جستجو" loading="lazy" />
+                </div>
+                <div class="esprit-search-results-caption">
+                  <h3 class="esprit-search-results-headline">بیمارستان امام خمینی؛ نماد پیشرفت در آموزش و درمان پزشکی ایران</h3>
+                  <p class="esprit-search-results-summary">گزارشی جامع از فعالیت‌های آموزشی، درمانی و پژوهشی بیمارستان امام خمینی که به عنوان یکی از بزرگترین مراکز آموزشی کشور شناخته می‌شود.</p>
+                  <div class="esprit-search-results-meta">
+                    <span class="esprit-search-results-url">https://niafam.ir/video/24680</span>
+                    <time class="esprit-search-results-date">۱۴۰۲/۰۹/۲۵</time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Result 4 -->
+          <article class="esprit-search-results-item" style="animation-delay: 0.4s">
+            <a href="https://niafam.ir/podcast/13579" class="esprit-search-results-link">
+              <div class="esprit-search-results-content">
+                <div class="esprit-search-results-image-wrapper">
+                  <img class="esprit-search-results-image" src="/assets/img/related-sound-thumb-1.jpg" alt="نتیجه جستجو" loading="lazy" />
+                </div>
+                <div class="esprit-search-results-caption">
+                  <h3 class="esprit-search-results-headline">سلامت روان در دوران پساکرونا؛ چالش‌ها و راهکارها</h3>
+                  <p class="esprit-search-results-summary">
+                    در این پادکست، متخصصان روانشناسی و روانپزشکی دانشگاه به بررسی تأثیرات روانی همه‌گیری کرونا و ارائه راهکارهای عملی برای مواجهه با آن پرداخته‌اند.
+                  </p>
+                  <div class="esprit-search-results-meta">
+                    <span class="esprit-search-results-url">https://niafam.ir/podcast/13579</span>
+                    <time class="esprit-search-results-date">۱۴۰۲/۰۹/۲۴</time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Result 5 -->
+          <article class="esprit-search-results-item" style="animation-delay: 0.5s">
+            <a href="https://niafam.ir/news/98765" class="esprit-search-results-link">
+              <div class="esprit-search-results-content">
+                <div class="esprit-search-results-image-wrapper">
+                  <img class="esprit-search-results-image" src="/assets/img/related-text-thumb-2.jpg" alt="نتیجه جستجو" loading="lazy" />
+                </div>
+                <div class="esprit-search-results-caption">
+                  <h3 class="esprit-search-results-headline">موفقیت محققان دانشگاه در توسعه داروی جدید ضد سرطان</h3>
+                  <p class="esprit-search-results-summary">
+                    تیم تحقیقاتی دانشکده داروسازی موفق به توسعه ترکیب دارویی نوینی شدند که در آزمایش‌های اولیه نتایج امیدوارکننده‌ای در درمان سرطان‌های خاص نشان داده است.
+                  </p>
+                  <div class="esprit-search-results-meta">
+                    <span class="esprit-search-results-url">https://niafam.ir/news/98765</span>
+                    <time class="esprit-search-results-date">۱۴۰۲/۰۹/۲۳</time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Result 6 -->
+          <article class="esprit-search-results-item" style="animation-delay: 0.6s">
+            <a href="https://niafam.ir/gallery/11223" class="esprit-search-results-link">
+              <div class="esprit-search-results-content">
+                <div class="esprit-search-results-image-wrapper">
+                  <img class="esprit-search-results-image" src="/assets/img/related-picture-thumb-2.jpg" alt="نتیجه جستجو" loading="lazy" />
+                </div>
+                <div class="esprit-search-results-caption">
+                  <h3 class="esprit-search-results-headline">همایش بین‌المللی نوآوری در علوم پزشکی با حضور محققان جهانی</h3>
+                  <p class="esprit-search-results-summary">دومین همایش بین‌المللی نوآوری در علوم پزشکی با حضور بیش از ۵۰۰ محقق از ۳۰ کشور جهان در تالار اجلاس سران برگزار شد.</p>
+                  <div class="esprit-search-results-meta">
+                    <span class="esprit-search-results-url">https://niafam.ir/gallery/11223</span>
+                    <time class="esprit-search-results-date">۱۴۰۲/۰۹/۲۲</time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Result 7 -->
+          <article class="esprit-search-results-item" style="animation-delay: 0.7s">
+            <a href="https://niafam.ir/video/55667" class="esprit-search-results-link">
+              <div class="esprit-search-results-content">
+                <div class="esprit-search-results-image-wrapper">
+                  <img class="esprit-search-results-image" src="/assets/img/related-video-thumb-2.jpg" alt="نتیجه جستجو" loading="lazy" />
+                </div>
+                <div class="esprit-search-results-caption">
+                  <h3 class="esprit-search-results-headline">تکنیک‌های نوین جراحی کم‌تهاجمی در دانشگاه علوم پزشکی</h3>
+                  <p class="esprit-search-results-summary">معرفی جدیدترین تکنیک‌های جراحی کم‌تهاجمی که در بیمارستان‌های آموزشی دانشگاه به کار گرفته می‌شود و نتایج بهتری برای بیماران به همراه دارد.</p>
+                  <div class="esprit-search-results-meta">
+                    <span class="esprit-search-results-url">https://niafam.ir/video/55667</span>
+                    <time class="esprit-search-results-date">۱۴۰۲/۰۹/۲۱</time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Result 8 -->
+          <article class="esprit-search-results-item" style="animation-delay: 0.8s">
+            <a href="https://niafam.ir/podcast/99887" class="esprit-search-results-link">
+              <div class="esprit-search-results-content">
+                <div class="esprit-search-results-image-wrapper">
+                  <img class="esprit-search-results-image" src="/assets/img/related-sound-thumb-2.jpg" alt="نتیجه جستجو" loading="lazy" />
+                </div>
+                <div class="esprit-search-results-caption">
+                  <h3 class="esprit-search-results-headline">گفت‌وگو با دکتر احمدی درباره آینده پزشکی هوشمند در ایران</h3>
+                  <p class="esprit-search-results-summary">مصاحبه‌ای با دکتر محمد احمدی، رئیس مرکز نوآوری دانشگاه، درباره نقش هوش مصنوعی و فناوری‌های نوین در تحول پزشکی کشور.</p>
+                  <div class="esprit-search-results-meta">
+                    <span class="esprit-search-results-url">https://niafam.ir/podcast/99887</span>
+                    <time class="esprit-search-results-date">۱۴۰۲/۰۹/۲۰</time>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="esprit-search-results-pagination-wrapper">
+          <ul class="pagination pagination-sm">
+            <li class="active"><a href="/1">1</a></li>
+            <li><a href="/2">2</a></li>
+            <li><a href="/3">3</a></li>
+            <li><a href="/4">4</a></li>
+            <li><a href="/5">5</a></li>
+            <li><a href="/6">6</a></li>
+          </ul>
+        </nav>
+      </section>
+    </main>
+
+    <script type="module" src="/src/search-results-main.js"></script>
+  </body>
+</html>

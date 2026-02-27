@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>پیگیری تیکت - Niafam</title>
     <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/espritstyle.css" />
     <link rel="stylesheet" href="/assets/css/reset.css" />
 
     <script src="/assets/js/jquery.js"></script>
@@ -152,49 +153,55 @@
       <!-- محتوای اصلی صفحه پیگیری تیکت -->
       <div class="ticket-tracking-container">
         <div class="es-tracking-request">
-          <form action="#" id="trackingForm">
-            <div class="nes-form-group">
-              <div class="nes-form-row">
-                <label for="trackingRequest" data-i18n="ticketing.form.trackingCodeLabel">کد پیگیری خود را وارد نمایید :</label>
-                <input
-                  type="text"
-                  class="uniqueid-input nes-input just-eng-text"
-                  id="uniqueid"
-                  name="uniqueid"
-                  data-i18n="[placeholder]ticketing.form.trackingCodePlaceholder"
-                  placeholder="کد پیگیری"
-                  maxlength="9"
-                  tabindex="1"
-                />
-                <!-- {es} -->
-              </div>
-            </div>
 
-            <div class="nes-form-group">
-              <div class="nes-captcha-group es-row">
-                <div class="nes-captcha-text">
-                  <label data-i18n="form.captchaInstruction">متن موجود در تصویر را وارد کنید:</label>
+          <div class="es-container nes-container nes-container--gray">
+            <h2 class="nes-section-title nes-section-title--large" data-i18n="ticketing.sections.trackingForm">پیگیری تیکت</h2>
+          
+            <form action="#" id="trackingForm">
+              <div class="nes-form-group">
+                <div class="nes-form-row">
+                  <label for="trackingRequest" data-i18n="ticketing.form.trackingCodeLabel">کد پیگیری خود را وارد نمایید :</label>
+                  <input
+                    type="text"
+                    class="uniqueid-input nes-input just-eng-text"
+                    id="uniqueid"
+                    name="uniqueid"
+                    data-i18n="[placeholder]ticketing.form.trackingCodePlaceholder"
+                    placeholder="کد پیگیری"
+                    maxlength="9"
+                    tabindex="1"
+                  />
+                  <!-- {es} -->
                 </div>
-                <img class="nes-captcha-img es-captcha-img" alt="کد امنیتی" src="./assets/img/captcha.jpg" data-i18n="[alt]form.captcha" />
-                <button type="button" class="nes-btn nes-btn-icon es-btn es-captcha-refresh refreshCaptcha" data-i18n="[aria-label]form.captchaRefresh">
-                  <i class="es esprit-fi-rr-refresh"></i>
-                </button>
-                <input class="nes-captcha-input es-form-captcha" name="captcha_uniqueid" id="captcha_uniqueid" autocomplete="off" type="text" maxlength="6" tabindex="2" />
               </div>
-            </div>
-            <div class="es-form-group es-row">
-              <div class="col">
-                <button class="nes-btn nes-btn-primary submit-button-unique es-btn-block" type="submit" tabindex="3">
-                  <i class="es esprit-search"></i>
-                  <span data-i18n="ticketing.form.trackButton">پیگیری</span>
-                </button>
+  
+              <div class="nes-form-group">
+                <div class="nes-captcha-group">
+                  <div class="nes-captcha-text">
+                    <label data-i18n="form.captchaInstruction">متن موجود در تصویر را وارد کنید:</label>
+                  </div>
+                  <img class="nes-captcha-img es-captcha-img" alt="کد امنیتی" src="./assets/img/captcha.jpg" data-i18n="[alt]form.captcha" />
+                  <button type="button" class="nes-btn nes-btn-icon es-btn es-captcha-refresh refreshCaptcha" data-i18n="[aria-label]form.captchaRefresh">
+                    <i class="es esprit-fi-rr-refresh"></i>
+                  </button>
+                  <input class="nes-captcha-input es-form-captcha" name="captcha_uniqueid" id="captcha_uniqueid" autocomplete="off" type="text" maxlength="6" tabindex="2" />
+                </div>
               </div>
-            </div>
-          </form>
+              <div class="es-form-group">
+                <div class="col">
+                  <button class="nes-btn nes-btn-primary submit-button-unique es-btn-block" type="submit" tabindex="3">
+                    <i class="es esprit-fi-rr-search"></i>
+                    <span data-i18n="ticketing.form.trackButton">پیگیری</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
           <div id="es-msg-form-success">
             <div class="es-ticketing-body">
-              <div id="es-content-submits" class="es-container">
-                <h2 class="es-section-title" data-i18n="ticketing.sections.submittedInfo">اطلاعات ارسال شده</h2>
+              <div id="es-content-submits" class="es-container nes-container">
+                <h2 class="nes-section-title nes-section-title--large" data-i18n="ticketing.sections.submittedInfo">اطلاعات ارسال شده</h2>
                 <div class="es-submits-parent">
                   <div class="es-submits-label" data-i18n="ticketing.result.firstName">نام</div>
                   <div class="es-submits-value">حسن</div>
@@ -232,78 +239,215 @@
                   <div class="es-submits-value">H69M3QZ58</div>
                 </div>
               </div>
-              <div class="es-container ticketing-replay-container">
-                <h2 class="es-section-title" data-i18n="ticketing.sections.conversations">گفتگوها</h2>
-                <div class="es-card es-ticketing-replay-{ticketing_replay_type} es-ticketing-replay-card">
-                  <div class="es-card-header">
-                    <span data-i18n="ticketing.reply.sentByUser">ارسال شده توسط کاربر</span>
-                    (حسن تقی زده)
-                  </div>
-                  <div class="es-card-body">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                    تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم
-                    افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها
-                    و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+              <div class="ticketing-replay-container">
+                <h2 class="nes-section-title nes-section-title--large" data-i18n="ticketing.sections.conversations">گفتگوها</h2>
 
-                    <audio class="{voicereplay_hide}" controls="" src="/assets/sounds/generated_tts_1164.mp3"></audio>
-                    <div>
-                      <a
-                        class="{filereplay_hide} small btn-link"
-                        href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0"
-                        target="_blank"
-                        data-i18n="ticketing.reply.attachedFile"
-                      >
-                        فایل ضمیمه شده
-                      </a>
+                <div class="conversation-messages">
+                  <!-- Example: Customer Message (es-ticketing-replay-1) -->
+                  <div class="es-ticketing-replay-card es-ticketing-replay-1">
+                    <div class="message-bubble">
+                      <div class="message-sender">
+                        <span class="sender-badge"><i class="es esprit-fi-rr-user"></i></span>
+                        <span>ارسال شده توسط کاربر (حسن تقی زاده)</span>
+                      </div>
+                      <div class="message-content">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
+                        فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                      </div>
+
+                      <div class="message-attachments">
+                        <audio class="attachment-audio {voicereplay_hide}" controls src="/assets/sounds/generated_tts_1164.mp3"></audio>
+                        <div class="attachment-item {filereplay_hide}">
+                          <a class="attachment-link" href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0" target="_blank">
+                            <span class="attachment-icon"><i class="es esprit-fi-rr-document"></i></span>
+                            <span data-i18n="ticketing.reply.attachedFile">فایل ضمیمه شده</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="message-time">
+                        <span class="time-icon"><i class="es esprit-fi-rr-clock"></i></span>
+                        <span>99/12/24 14:17</span>
+                      </div>
                     </div>
-                    <footer class="blockquote-footer">
-                      <cite title="{ticketing_replay_date}">99/12/24 14:17</cite>
-                    </footer>
                   </div>
-                </div>
-                <div class="es-card es-ticketing-replay-{ticketing_replay_type} es-ticketing-replay-card">
-                  <div class="es-card-header">{ticketing_replay_title}</div>
-                  <div class="es-card-body">
-                    {ticketing_replay_blockquote}
-                    <audio class="{voicereplay_hide}" controls="" src="{voicereplay}"></audio>
-                    <div>
-                      <a
-                        class="{filereplay_hide} small"
-                        href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0"
-                        target="_blank"
-                        data-i18n="ticketing.reply.attachedFile"
-                      >
-                        فایل ضمیمه شده
-                      </a>
+                  <!-- Example: Customer Message (es-ticketing-replay-2) -->
+                  <div class="es-ticketing-replay-card es-ticketing-replay-3">
+                    <div class="message-bubble">
+                      <div class="message-sender">
+                        <span class="sender-badge"><i class="es esprit-fi-rr-user"></i></span>
+                        <span>توضیحات</span>
+                      </div>
+                      <div class="message-content">تیکت توسط کارشناس : احسان احمدی روت به کارشناس : احسان احمدی روت (root) ارجاع داده شد .</div>
+
+                      <div class="message-attachments">
+                        <audio class="attachment-audio {voicereplay_hide}" controls src="/assets/sounds/generated_tts_1164.mp3"></audio>
+                        <div class="attachment-item {filereplay_hide}">
+                          <a class="attachment-link" href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0" target="_blank">
+                            <span class="attachment-icon"><i class="es esprit-fi-rr-clock"></i></span>
+                            <span data-i18n="ticketing.reply.attachedFile">فایل ضمیمه شده</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="message-time">
+                        <span class="time-icon"><i class="es esprit-fi-rr-clock"></i></span>
+                        <span>99/12/24 14:17</span>
+                      </div>
                     </div>
-                    <footer class="blockquote-footer">
-                      <cite title="{ticketing_replay_date}">{ticketing_replay_date}</cite>
-                    </footer>
                   </div>
-                </div>
-                <div class="es-card es-ticketing-replay-{ticketing_replay_type} es-ticketing-replay-card">
-                  <div class="es-card-header">{ticketing_replay_title}</div>
-                  <div class="es-card-body">
-                    {ticketing_replay_blockquote}
-                    <audio class="{voicereplay_hide}" controls="" src="{voicereplay}"></audio>
-                    <div>
-                      <a
-                        class="{filereplay_hide} small"
-                        href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0"
-                        target="_blank"
-                        data-i18n="ticketing.reply.attachedFile"
-                      >
-                        فایل ضمیمه شده
-                      </a>
+                  <!-- Example: Admin Message (es-ticketing-replay-2) -->
+                  <div class="es-ticketing-replay-card es-ticketing-replay-2">
+                    <div class="message-bubble">
+                      <div class="message-sender">
+                        <span class="sender-badge"><i class="es esprit-fi-rr-user"></i></span>
+                        <span>ارسال شده توسط کارشناس (احسان احمدی (root))</span>
+                      </div>
+                      <div class="message-content">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
+                        فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                      </div>
+
+                      <div class="message-attachments">
+                        <audio class="attachment-audio {voicereplay_hide}" controls src="/assets/sounds/generated_tts_1164.mp3"></audio>
+                        <div class="attachment-item {filereplay_hide}">
+                          <a class="attachment-link" href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0" target="_blank">
+                            <span class="attachment-icon"><i class="es esprit-fi-rr-document"></i></span>
+                            <span data-i18n="ticketing.reply.attachedFile">فایل ضمیمه شده</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="message-time">
+                        <span class="time-icon"><i class="es esprit-fi-rr-clock"></i></span>
+                        <span>99/12/24 14:17</span>
+                      </div>
                     </div>
-                    <footer class="blockquote-footer">
-                      <cite title="{ticketing_replay_date}">{ticketing_replay_date}</cite>
-                    </footer>
                   </div>
+                  <!-- Example: Customer Message (es-ticketing-replay-1) -->
+                  <div class="es-ticketing-replay-card es-ticketing-replay-1">
+                    <div class="message-bubble">
+                      <div class="message-sender">
+                        <span class="sender-badge"><i class="es esprit-fi-rr-user"></i></span>
+                        <span>ارسال شده توسط کاربر (حسن تقی زاده)</span>
+                      </div>
+                      <div class="message-content">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
+                        فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                      </div>
+
+                      <div class="message-attachments">
+                        <audio class="attachment-audio {voicereplay_hide}" controls src="/assets/sounds/generated_tts_1164.mp3"></audio>
+                        <div class="attachment-item {filereplay_hide}">
+                          <a class="attachment-link" href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0" target="_blank">
+                            <span class="attachment-icon"><i class="es esprit-fi-rr-document"></i></span>
+                            <span data-i18n="ticketing.reply.attachedFile">فایل ضمیمه شده</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="message-time">
+                        <span class="time-icon"><i class="es esprit-fi-rr-clock"></i></span>
+                        <span>99/12/24 14:17</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Example: Customer Message (es-ticketing-replay-2) -->
+                  <div class="es-ticketing-replay-card es-ticketing-replay-3">
+                    <div class="message-bubble">
+                      <div class="message-sender">
+                        <span class="sender-badge"><i class="es esprit-fi-rr-user"></i></span>
+                        <span>توضیحات</span>
+                      </div>
+                      <div class="message-content">وضعیت تیکت شما به در انتظار پاسخ کاربر تغییر یافت</div>
+
+                      <div class="message-attachments">
+                        <audio class="attachment-audio {voicereplay_hide}" controls src="/assets/sounds/generated_tts_1164.mp3"></audio>
+                        <div class="attachment-item {filereplay_hide}">
+                          <a class="attachment-link" href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0" target="_blank">
+                            <span class="attachment-icon"><i class="es esprit-fi-rr-clock"></i></span>
+                            <span data-i18n="ticketing.reply.attachedFile">فایل ضمیمه شده</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="message-time">
+                        <span class="time-icon"><i class="es esprit-fi-rr-clock"></i></span>
+                        <span>99/12/24 14:17</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Example: Admin Message (es-ticketing-replay-2) -->
+                  <div class="es-ticketing-replay-card es-ticketing-replay-2">
+                    <div class="message-bubble">
+                      <div class="message-sender">
+                        <span class="sender-badge"><i class="es esprit-fi-rr-user"></i></span>
+                        <span>ارسال شده توسط کارشناس (احسان احمدی (root))</span>
+                      </div>
+                      <div class="message-content">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
+                        فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                      </div>
+
+                      <div class="message-attachments">
+                        <audio class="attachment-audio {voicereplay_hide}" controls src="/assets/sounds/generated_tts_1164.mp3"></audio>
+                        <div class="attachment-item {filereplay_hide}">
+                          <a class="attachment-link" href="https://espritportal.io/inc/ajax.ashx?action=form_download_file&filename={filereplay}&pid=0" target="_blank">
+                            <span class="attachment-icon"><i class="es esprit-fi-rr-document"></i></span>
+                            <span data-i18n="ticketing.reply.attachedFile">فایل ضمیمه شده</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="message-time">
+                        <span class="time-icon"><i class="es esprit-fi-rr-clock"></i></span>
+                        <span>99/12/24 14:17</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Backend will populate messages here with structure below -->
+                  <!-- For type 1 (customer) or type 2 (admin): -->
+                  <!--
+                  <div class="es-ticketing-replay-card es-ticketing-replay-{type}">
+                    <div class="message-bubble">
+                      <div class="message-sender">
+                        <span class="sender-badge">{initial}</span>
+                        {sender_name}
+                      </div>
+                      <div class="message-content">{message_text}</div>
+                      <div class="message-attachments">
+                        <audio class="attachment-audio {hide_if_no_audio}" controls src="{audio_url}"></audio>
+                        <div class="attachment-item {hide_if_no_file}">
+                          <a class="attachment-link" href="{file_url}" target="_blank">
+                            <span class="attachment-icon">📎</span>
+                            <span>{file_name}</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="message-time">
+                        <span class="time-icon">🕐</span>
+                        <span>{date_time}</span>
+                      </div>
+                    </div>
+                  </div>
+                  -->
+
+                  <!-- For type 3 (status notification): -->
+                  <!--
+                  <div class="es-ticketing-replay-card es-ticketing-replay-3">
+                    <div class="message-bubble">
+                      <div class="message-content">
+                        <span class="status-icon">✓</span>
+                        {status_message}
+                      </div>
+                    </div>
+                  </div>
+                  -->
                 </div>
               </div>
               <div class="es-send-request">
-                <h2 class="es-section-title" data-i18n="ticketing.sections.sendReply">ارسال پاسخ</h2>
+                <h2 class="nes-section-title nes-section-title--large" data-i18n="ticketing.sections.sendReply">ارسال پاسخ</h2>
                 <form action="#" id="replayForm">
                   <div class="nes-form-group">
                     <label for="replaytext" data-i18n="ticketing.form.replyMessage">ارسال پیام :</label>
@@ -314,7 +458,8 @@
                       rows="5"
                       tabindex="4"
                       data-i18n="[placeholder]ticketing.form.replyMessagePlaceholder"
-                      placeholder="پیام خود را اینجا بنویسید..."></textarea>
+                      placeholder="پیام خود را اینجا بنویسید..."
+                    ></textarea>
                   </div>
 
                   <div class="nes-form-group">
@@ -322,11 +467,11 @@
                       <label for="ticket_replay_file" data-i18n="ticketing.form.attachFileLabel">فایل ضمیمه :</label>
                       <input class="d-none" type="text" name="ticket_replay_file" id="ticket_replay_file" />
                       <input class="d-none" type="file" name="addpicurl-name" id="addpicurl-name" />
-                      <div class="form-message"></div>
                       <button class="nes-btn nes-btn-warning es-btn-block send-file" id="addpicurl" type="button" tabindex="5">
                         <i class="fas fa-camera"></i>
                         <span data-i18n="ticketing.form.addFile">افزودن فایل</span>
                       </button>
+                      <div class="form-message"><div class="alert alert--success"> فایل با موفقیت بارگذاری شد </div></div>
                       <div class="progress">
                         <div class="progress-bar" style="width: 0%"></div>
                       </div>
@@ -334,7 +479,7 @@
                   </div>
 
                   <div class="nes-form-group">
-                    <div class="nes-captcha-group es-row">
+                    <div class="nes-captcha-group">
                       <div class="nes-captcha-text">
                         <label data-i18n="form.captchaInstruction">متن موجود در تصویر را وارد کنید:</label>
                       </div>
@@ -353,7 +498,7 @@
 
                   <div id="es-msg-form-replay"></div>
 
-                  <div class="es-form-group es-row">
+                  <div class="es-form-group">
                     <div class="col">
                       <button class="nes-btn nes-btn-primary es-btn-block" type="submit" tabindex="7">
                         <i class="es esprit-send"></i>

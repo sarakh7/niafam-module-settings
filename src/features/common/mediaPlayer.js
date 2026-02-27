@@ -3,6 +3,9 @@ import "plyr/dist/plyr.css";
 import { defaultSettings } from "../../config/settings";
 import i18next from "../../config/i18n";
 
+// Store all player instances to update them when language changes
+const playerInstances = [];
+
 /**
  * Generate thumbnail from video at specified time
  * @param {string} videoSrc - Video source URL
@@ -91,6 +94,66 @@ function getPlyrI18n() {
 }
 
 /**
+ * Update i18n for all player instances
+ * Called when language changes to update player UI translations
+ * Recreates players to apply new translations
+ */
+function updateAllPlayersI18n() {
+  const newI18n = getPlyrI18n();
+
+  playerInstances.forEach((playerData, index) => {
+    if (playerData && playerData.player && !playerData.player.destroyed) {
+      const player = playerData.player;
+      const element = player.elements.original;
+
+      // Save current state
+      const currentSource = player.source;
+      const currentTime = player.currentTime;
+      const isPaused = player.paused;
+      const currentVolume = player.volume;
+
+      // Get the original custom options used when creating this player
+      const customOptions = playerData.customOptions || {};
+
+      // Destroy old player
+      player.destroy();
+
+      // Create new player with updated i18n
+      const settings = defaultSettings.mediaPlayer;
+      const options = {
+        ...settings,
+        i18n: newI18n,
+        ...customOptions
+      };
+
+      const newPlayer = new Plyr(element, options);
+
+      // Restore source and state
+      if (currentSource) {
+        newPlayer.source = currentSource;
+
+        // Wait for source to load before restoring time and play state
+        newPlayer.once('loadedmetadata', () => {
+          if (currentTime > 0) {
+            newPlayer.currentTime = currentTime;
+          }
+          newPlayer.volume = currentVolume;
+
+          if (!isPaused) {
+            newPlayer.play().catch(() => {
+              // Autoplay might be blocked
+            });
+          }
+        });
+      }
+
+      // Update the stored reference
+      playerInstances[index].player = newPlayer;
+    }
+  });
+}
+
+/**
  * Create Plyr instance with i18n configuration
  * @param {HTMLElement} element - Media element
  * @param {Object} customOptions - Custom Plyr options
@@ -98,14 +161,22 @@ function getPlyrI18n() {
  */
 function createPlayer(element, customOptions = {}) {
   const settings = defaultSettings.mediaPlayer;
-  
+
   const options = {
     ...settings,
     i18n: getPlyrI18n(),
     ...customOptions
   };
 
-  return new Plyr(element, options);
+  const player = new Plyr(element, options);
+
+  // Store player instance and options for language updates
+  playerInstances.push({
+    player: player,
+    customOptions: customOptions
+  });
+
+  return player;
 }
 
 /**
@@ -243,6 +314,24 @@ export function initVideoPlayer(
         const walk = (x - startX) * 2;
         tabList.scrollLeft = scrollLeft - walk;
       });
+
+      // Touch drag to scroll (for mobile)
+      tabList.addEventListener("touchstart", function (event) {
+        isDragging = true;
+        startX = event.touches[0].pageX - tabList.offsetLeft;
+        scrollLeft = tabList.scrollLeft;
+      }, { passive: true });
+
+      tabList.addEventListener("touchend", function () {
+        isDragging = false;
+      }, { passive: true });
+
+      tabList.addEventListener("touchmove", function (event) {
+        if (!isDragging) return;
+        const x = event.touches[0].pageX - tabList.offsetLeft;
+        const walk = (x - startX) * 2;
+        tabList.scrollLeft = scrollLeft - walk;
+      }, { passive: true });
 
       // Move selected tab to center of page when clicked
       tabs.forEach((tab) => {
@@ -436,3 +525,8 @@ export function initReadingModeTts(
     return null;
   }
 }
+
+// Listen for language changes and update all player translations
+i18next.on('languageChanged', () => {
+  updateAllPlayersI18n();
+});

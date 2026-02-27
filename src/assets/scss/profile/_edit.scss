@@ -3,6 +3,7 @@
  * Modern redesign with pill-style tabs, two-column forms, and enhanced UX
  */
 @use '../common/base/globals' as *;
+@use 'sass:color';
 
 $white: #fff;
 $text-xl: 1.25em;
@@ -16,15 +17,12 @@ $text-xs: 0.75em;
   display: none !important;
 }
 
-// Main Container
-.profile-edit-container {
-  min-height: 100vh;
-  padding: $spacing-5 0;
-  // background: $gray-50;
-}
-
 // Profile Edit
 .profile-edit {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: $spacing-5 $spacing-4;
+
   // Modern Pill-Style Tabs
   &__tabs {
     display: flex;
@@ -370,7 +368,7 @@ $text-xs: 0.75em;
   .alert-success {
     background: rgba($success, 0.1);
     border: 1px solid $success;
-    color: darken($success, 15%);
+    color: color.scale($success, $lightness: -15%);
     padding: $spacing-2 $spacing-3;
     border-radius: $radius-lg;
   }
@@ -378,7 +376,7 @@ $text-xs: 0.75em;
   .alert-danger {
     background: rgba($error, 0.1);
     border: 1px solid $error;
-    color: darken($error, 10%);
+    color: color.scale($error, $lightness: -10%);
     padding: $spacing-2 $spacing-3;
     border-radius: $radius-lg;
   }
@@ -416,11 +414,9 @@ $text-xs: 0.75em;
 }
 
 @media (max-width: 768px) {
-  .profile-edit-container {
-    padding: $spacing-3 0;
-  }
-
   .profile-edit {
+    padding: $spacing-3;
+
     &__tabs {
       flex-direction: column;
       padding: $spacing-1;

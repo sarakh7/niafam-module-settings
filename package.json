@@ -8,9 +8,17 @@
     "build": "vite build",
     "build:root": "cross-env VITE_BASE_PATH=/ vite build",
     "build:starling": "cross-env VITE_BASE_PATH=/uploads/starling/ vite build",
+    "build:143": "cross-env VITE_BASE_PATH=/uploads/143/ vite build",
     "preview": "vite preview",
     "sass": "sass src/assets/scss/contents.scss public/assets/css/espritstyle.css --watch",
-    "sass:about": "sass src/assets/scss/about.scss public/assets/css/about.css --watch"
+    "sass:about": "sass src/assets/scss/about.scss public/assets/css/about.css --watch",
+    "sass:auth": "sass src/assets/scss/auth.scss public/assets/css/auth.css --watch",
+    "sass:404": "sass src/assets/scss/404.scss public/assets/css/404.css --watch",
+    "sass:contents-list": "sass src/assets/scss/contents-list.scss public/assets/css/contents-list.css --watch",
+    "sass:search-results": "sass src/assets/scss/search-results.scss public/assets/css/search-results.css --watch",
+    "sass:gallery": "sass src/assets/scss/gallery.scss public/assets/css/gallery.css --watch",
+    "sass:gallery-categories": "sass src/assets/scss/gallery-categories.scss public/assets/css/gallery-categories.css --watch",
+    "sass:general-subcategories": "sass src/assets/scss/general-subcategories.scss public/assets/css/general-subcategories.css --watch"
   },
   "devDependencies": {
     "cross-env": "^10.1.0",

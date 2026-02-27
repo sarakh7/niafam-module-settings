@@ -4,7 +4,7 @@
  */
 
 import i18next from 'i18next';
-import { showSuccessToast, showErrorToast } from '../common/toast';
+import { showInlineAlert, clearInlineAlerts } from '../common/inlineAlert';
 
 // Maximum file size: 5MB
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -32,7 +32,7 @@ export function initAvatarUpload() {
   // Handle file selection
   fileInput.addEventListener('change', handleFileSelection);
 
-  console.log('Avatar Upload: Initialized');
+  // console.log('Avatar Upload: Initialized');
 }
 
 /**
@@ -48,7 +48,7 @@ function handleFileSelection(e) {
   // Validate file
   const validation = validateFile(file);
   if (!validation.valid) {
-    showErrorToast(validation.message);
+    showInlineAlert('error', validation.message, 'file-info');
     fileInput.value = ''; // Clear file input
     return;
   }
@@ -60,7 +60,7 @@ function handleFileSelection(e) {
   previewImage(file);
 
   // Upload file
-  uploadFile(file, fileInput);
+  window.uploadAvatarFile(file, fileInput);
 }
 
 /**
@@ -127,86 +127,64 @@ function previewImage(file) {
 }
 
 /**
- * Upload file to server
- * @param {File} file - File to upload
- * @param {HTMLInputElement} fileInput - File input element
+ * Handle avatar upload success event from HTML script
  */
-function uploadFile(file, fileInput) {
-  // Use jQuery simpleUpload plugin for compatibility with existing backend
-  const $fileInput = $(fileInput);
+window.addEventListener('avatarUploadSuccess', (event) => {
+  const data = event.detail.data;
   const $progressContainer = $('#upload-progress');
-  const $progressBar = $('#progress-bar');
-  const $progressText = $('#progress-text');
   const $messageContainer = $('.form-message');
 
-  $fileInput.simpleUpload('/inc/ajax.ashx?action=change_avatar', {
-    start: function (file) {
-      // Show progress bar
-      $progressContainer.show();
-      $progressBar.css('width', '0%');
-      $progressText.text('0%');
+  try {
+    const response = JSON.parse(data);
 
-      // Clear previous messages
-      $messageContainer.html('');
-    },
+    if (response.status === 'success') {
+      showInlineAlert(
+        'success',
+        i18next.t('profile.messages.avatarUploadSuccess', 'تصویر پروفایل با موفقیت تغییر کرد'),
+        'file-info'
+      );
 
-    progress: function (progress) {
-      // Update progress bar
-      const progressPercent = Math.round(progress);
-      $progressBar.css('width', progressPercent + '%');
-      $progressText.text(progressPercent + '%');
-    },
+      $messageContainer.html(
+        `<div class="alert-success">${i18next.t('profile.messages.avatarUploadSuccess', 'تصویر پروفایل با موفقیت تغییر کرد')}</div>`
+      );
 
-    success: function (data) {
-      try {
-        const response = JSON.parse(data);
-
-        if (response.status === 'success') {
-          showSuccessToast(
-            i18next.t('profile.messages.avatarUploadSuccess', 'تصویر پروفایل با موفقیت تغییر کرد')
-          );
-
-          $messageContainer.html(
-            `<div class="alert-success">${i18next.t('profile.messages.avatarUploadSuccess', 'تصویر پروفایل با موفقیت تغییر کرد')}</div>`
-          );
-
-          // Hide progress bar after a delay
-          setTimeout(() => {
-            $progressContainer.fadeOut();
-          }, 1500);
-        } else {
-          const errorMessage =
-            response.msg ||
-            i18next.t('profile.messages.avatarUploadError', 'خطا در آپلود تصویر');
-
-          showErrorToast(errorMessage);
-          $messageContainer.html(`<div class="alert-danger">${errorMessage}</div>`);
-
-          // Hide progress bar
-          $progressContainer.fadeOut();
-        }
-      } catch (error) {
-        console.error('Avatar Upload: Parse error', error);
-
-        const errorMessage = data || i18next.t('profile.messages.unknownError', 'خطای ناشناخته');
-        showErrorToast(errorMessage);
-        $messageContainer.html(`<div class="alert-danger">${errorMessage}</div>`);
-
+      // Hide progress bar after a delay
+      setTimeout(() => {
         $progressContainer.fadeOut();
-      }
-    },
-
-    error: function (error) {
-      console.error('Avatar Upload: Upload error', error);
-
+      }, 1500);
+    } else {
       const errorMessage =
-        error || i18next.t('profile.messages.avatarUploadError', 'خطا در آپلود تصویر');
+        response.msg ||
+        i18next.t('profile.messages.avatarUploadError', 'خطا در آپلود تصویر');
 
-      showErrorToast(errorMessage);
+      showInlineAlert('error', errorMessage, 'file-info');
       $messageContainer.html(`<div class="alert-danger">${errorMessage}</div>`);
-
-      // Hide progress bar
       $progressContainer.fadeOut();
-    },
-  });
-}
+    }
+  } catch (error) {
+    console.error('Avatar Upload: Parse error', error);
+
+    const errorMessage = data || i18next.t('profile.messages.unknownError', 'خطای ناشناخته');
+    showInlineAlert('error', errorMessage, 'file-info');
+    $messageContainer.html(`<div class="alert-danger">${errorMessage}</div>`);
+    $progressContainer.fadeOut();
+  }
+});
+
+/**
+ * Handle avatar upload error event from HTML script
+ */
+window.addEventListener('avatarUploadError', (event) => {
+  const error = event.detail.error;
+  const $progressContainer = $('#upload-progress');
+  const $messageContainer = $('.form-message');
+
+  console.error('Avatar Upload: Upload error', error);
+
+  const errorMessage =
+    error || i18next.t('profile.messages.avatarUploadError', 'خطا در آپلود تصویر');
+
+  showInlineAlert('error', errorMessage, 'file-info');
+  $messageContainer.html(`<div class="alert-danger">${errorMessage}</div>`);
+  $progressContainer.fadeOut();
+});

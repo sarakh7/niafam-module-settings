@@ -1,0 +1,190 @@
+/**
+ * Common Authentication Styles
+ * Shared styles and utilities for auth module
+ */
+
+@use '../common/base/globals' as *;
+
+// Captcha refresh spin animation
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Focus styles for better accessibility
+.nes-input:focus,
+.nes-textarea:focus,
+.nes-btn:focus {
+  outline: 2px solid $blue-gray-600;
+  outline-offset: 2px;
+}
+
+// Loading button state
+.nes-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+// Form row responsive behavior
+.nes-form-row {
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .nes-input-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+// Utility classes
+.d-none {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// RTL support for password toggle
+[dir="rtl"] {
+  .auth-password-toggle {
+    left: 8px;
+    right: auto;
+  }
+
+  .auth-password-wrapper .nes-input {
+    padding-right: 12px;
+    padding-left: 45px;
+  }
+}
+
+[dir="ltr"] {
+  .auth-password-toggle {
+    right: 8px;
+    left: auto;
+  }
+
+  .auth-password-wrapper .nes-input {
+    padding-left: 12px;
+    padding-right: 45px;
+  }
+}
+
+.nes-form-actions {
+  margin-top: $spacing-1;
+}
+
+i.es.esprit-refresh-captcha::before {
+  content: "\ea1b";
+}
+
+.nes-captcha-row {
+  .es-input-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .es-col-6 {
+    display: flex;
+    align-items: center;
+  }
+
+  #captchaImage3 {
+    aspect-ratio: 238 / 76;
+    height: 50px;
+    object-fit: cover;
+    border: 1px solid hsl(231, 36%, 77%);
+    border-radius: 8px;
+  }
+
+  #refreshCaptcha3 {
+    display: inline-block;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    text-align: center;
+    font-family: inherit;
+    transition: linear 0.2s;
+    background: #f8f9fa;
+    border: 1px solid hsl(231, 36%, 77%);
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1;
+    height: 50px;
+
+    &:hover {
+      background: #e9ecef;
+    }
+  }
+
+  #g-recaptcha-response {
+    padding: 12px;
+    border: 1px solid hsl(231, 36%, 77%);
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    height: 50px;
+    width: 90px;
+   
+    &:focus {
+      border-color: #0d6efd !important;
+      outline: none !important;
+      box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2) !important;
+    }
+  }
+}
+
+.es-login-msg {
+  color: #ff3e30;
+}
+
+.nes-card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: $spacing-3;
+  margin-top: 0;
+  margin-bottom: $spacing-3;
+  border-bottom: 1px solid hsl(220, 5%, 92%);
+  font-size: 1.25rem;
+  color: $blue-gray-600;
+}
+
+[dir="ltr"] {
+  #refreshCaptcha3 {
+    border-radius: 8px 0 0 8px;
+  }
+  #g-recaptcha-response {
+    border-radius: 0 8px 8px 0;
+  }
+}
+
+ .auth-resend-timer .auth-link{
+    font-size: 0.875rem;
+    cursor: default;
+    color: #c2bfbf;
+  }
+  .auth-resend-timer .auth-link:hover{
+    text-decoration:none;
+  }
+  .auth-link button{
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: inherit;
+    transition: linear .2s;
+    background: #d6daeb;
+    color: #293057;
+  }
+  .auth-link button:hover{
+    background: #3e4784;
+    color: #fff;
+  }

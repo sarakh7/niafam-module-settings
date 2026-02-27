@@ -1,0 +1,246 @@
+<div class="es-blank-page login-form-area">
+  <div class="es-content-wrapper">
+    <div class="es-col-12 es-d-flex es-align-items-center es-justify-content-center">
+      <div class="es-col-xs-12 es-col-md-6 es-col-lg-6 es-col-12 es-box-shadow-2 es-p-0">
+        <!-- بخش alerts -->
+        <div class="es-card es-border-lighten-3 es-m-0">
+          <div class="es-card-header es-border-0">
+            <h6 class="es-card-subtitle es-line-on-side es-text-muted es-text-center es-font-small-3 es-pt-2">
+              <span id="form-title">{Login_With_Phone_Number}</span>
+            </h6>
+          </div>
+          <div class="es-card-content">
+            <div class="es-card-body">
+              <!-- فرم ورود با شماره همراه -->
+              <form id="phone-form" class="es-form-horizontal es-form-simple">
+                <fieldset class="es-form-group es-position-relative es-has-icon-right">
+                  <input type="text" class="es-form-control es-form-control-lg es-dir-rtl es-input-field-right-placeholder" name="username" id="username" placeholder="{Enter_Your_Username}" required>
+                  <div class="es-form-control-position"><i class="es esprit-user"></i></div>
+                </fieldset>
+                <fieldset class="es-form-group es-position-relative es-has-icon-right">
+                  <input type="tel" class="es-form-control es-form-control-lg es-dir-rtl es-input-field-right-placeholder" name="phone" id="phone" placeholder="{Enter_Your_Phone_Number}" required>
+                  <div class="es-form-control-position"><i class="es esprit-phone"></i></div>
+                </fieldset>
+                <div class="es-form-group es-row">
+                  {captchahtml}
+                </div>
+                <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block">
+                  <span>{Send_Verification_Code}</span>
+                </button>
+                <button type="button" id="reload-page" class="es-btn es-btn-outline-danger es-btn-info es-btn-lg es-btn-block">{Back}</button>
+              </form>
+
+              <!-- فرم تأیید کد -->
+              <form id="otp-form" class="es-form-horizontal es-form-simple d-none">
+                <fieldset class="es-form-group es-position-relative es-has-icon-right">
+                  <input type="text"
+                         class="es-form-control es-form-control-lg es-dir-rtl es-input-field-right-placeholder"
+                         autocomplete="off" name="otp" id="otp"
+                         placeholder="{Enter_6_Digit_Verification_Code}" required>
+                  <div class="es-form-control-position">
+                    <i class="es esprit-key"></i>
+                  </div>
+                </fieldset>
+                <div class="es-form-group es-position-relative es-has-icon-right d-flex">
+                  <button type="button" id="resend-code" class="es-btn es-btn-link es-text-primary es-p-0 es-d-block es-text-center mt-1" style="display: none;" disabled="disabled">
+                    {Resend_Code}
+                  </button>
+                  <small id="resend-text" class="es-text-muted es-d-block es-text-center mt-1" style="display: none;"></small>
+                </div>
+                <button type="submit" class="es-btn es-btn-info es-btn-lg es-btn-block">
+                  <span>{Confirm_And_Login}</span>
+                </button>
+                <button type="button" id="back-to-phone"  class="es-btn es-btn-outline-secondary es-btn-lg es-btn-block mt-2">
+                  <span>{Edit_Phone_Number}</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="alerts" class="es-p-2"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+  var fake = false;
+  var counter_time = 120;
+
+  //showAlert bc
+  /*    function showAlert(type, message) {
+    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+    const alertHtml = `
+<div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+${message}
+<button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+`;
+    $("#alerts").html(alertHtml);
+  }*/
+
+  // تابع نمایش پیام‌ها
+  function showAlert(type, message) {
+    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+    const alertHtml = `
+<div class="alert ${alertClass} alert-dismissible show" role="alert">
+${message}
+<button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+`;
+    $("#alerts").html(alertHtml);
+  }
+
+  $(document).ready(function () {
+    $("#phone-form").submit(function (e) {
+      e.preventDefault();
+      let phone = $("#phone").val().trim();
+      let username = $("#username").val().trim();
+      let captcha = $("#g-recaptcha-response").val().trim();
+      if (!captcha) {
+        showAlert('error', 'Please confirm you are not a robot.');
+        return;
+      }
+      $.ajax({
+        url: "/inc/ajax.ashx",
+        type: "POST",
+        data: {
+          action: "send_otp",
+          phone: phone,
+          username: username,
+          "g-recaptcha-response": captcha
+        },
+        beforeSend: function () {
+          $("button[type=submit]").attr("disabled", true);
+        },
+        success: function (res) {
+          res =   JSON.parse(res);
+          $("button[type=submit]").attr("disabled", false);
+          if (res.status == "success") {
+            counter_time = res.time;
+            $("#phone-form").addClass("d-none");
+            $("#otp-form").removeClass("d-none");
+            $("#form-title").text("{Resend_Code}");
+            startTimer();
+            $("#captchaImage3").attr("src", "/inc/ajax.ashx?action=captcha&" + Math.random())
+            if (typeof grecaptcha !== 'undefined') {
+              grecaptcha.reset();
+            }
+          } else {
+            let cleanMsg = res.msg.replace(/^"(.*)"$/, '$1');
+            if (cleanMsg === "User not found!") {
+              showAlert('error', "نام کاربری وجود ندارد!");
+            }
+            else {
+              showAlert('error', res.msg);
+            }
+            $("#captchaImage3").attr("src", "/inc/ajax.ashx?action=captcha&" + Math.random())
+            if (typeof grecaptcha !== 'undefined') {
+              grecaptcha.reset();
+            }
+          }
+        },
+        error: function () {
+          $("button[type=submit]").attr("disabled", false);
+          showAlert('error', 'There was an issue connecting to the server.');
+        }
+      });
+    });
+
+    $("#otp-form").submit(function (e) {
+      e.preventDefault();
+      let otp = $("#otp").val().trim();
+
+      $.ajax({
+        url: "/inc/ajax.ashx",
+        type: "POST",
+        data: {
+          action: "verify_otp",
+          otp: otp
+        },
+        beforeSend: function () {
+          $("button[type=submit]").attr("disabled", true);
+        },
+        success: function (res) {
+          res =   JSON.parse(res);
+          $("button[type=submit]").attr("disabled", false);
+          if (res.status == "success") {
+            showAlert('success', 'Successful login!');
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
+          } else {
+            showAlert('error', res.msg);
+          }
+        },
+        error: function () {
+          $("button[type=submit]").attr("disabled", false);
+          showAlert('error', 'There was an issue connecting to the server.');
+        }
+      });
+    });
+
+    $("#resend-code").click(function () {
+      let phone = $("#phone").val().trim();
+
+      $.ajax({
+        url: "/inc/ajax.ashx",
+        type: "POST",
+        data: {
+          action: "resend_otp",
+          phone: phone
+        },
+        beforeSend: function () {
+          $("#resend-code").attr("disabled", true);
+        },
+        success: function (res) {
+          res =   JSON.parse(res);
+          if (res.status == "success") {
+            showAlert('success', 'The code has been resent..');
+            startTimer();
+          } else {
+            showAlert('error', res.msg);
+          }
+        },
+        error: function () {
+          $("#resend-code").attr("disabled", false);
+          showAlert('error', 'A problem occurred with the server connection..');
+        }
+      });
+    });
+
+    function startTimer() {
+      $("#resend-code").attr("disabled", true);
+      $("#resend-text").show();
+
+      let countdown = counter_time;
+      let timer = setInterval(function () {
+        if (countdown > 0) {
+          $("#resend-text").text(`${countdown} {Second}`);
+          countdown--;
+        } else {
+          $("#resend-text").text(``);
+          $("#resend-text").hide();
+          $("#resend-code").show();
+          $("#resend-code").attr("disabled", false);
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+
+    $("#back-to-phone").click(function () {
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.reset();
+      }
+      $("#g-recaptcha-response").val("") 
+      $("#otp-form").addClass("d-none");
+      $("#phone-form").removeClass("d-none");
+      $("#form-title").text("{Login_With_Phone_Number}");
+    });
+
+
+    $("#reload-page").click(function () {
+      history.back();
+    });
+  });
+</script>

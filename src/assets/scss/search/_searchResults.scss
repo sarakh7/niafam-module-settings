@@ -1,0 +1,471 @@
+/**
+ * Search Results Component
+ * Results display with pagination
+ */
+@use '../common/base/globals' as *;
+
+// ============================================
+// Container
+// ============================================
+.esprit-search-results-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: $spacing-6 $spacing-4 $spacing-5;
+  background: $blue-gray-50; // Solid color background
+
+  @include respond-to(sm) {
+    padding: $spacing-3 $spacing-2;
+  }
+}
+
+// ============================================
+// Header
+// ============================================
+.esprit-search-results-header {
+  text-align: center;
+  margin-bottom: $spacing-3;
+
+  @include respond-to(sm) {
+    margin-bottom: $spacing-2;
+  }
+}
+
+// ============================================
+// Search Form Section
+// ============================================
+.esprit-search-results-search-section {
+  margin-bottom: $spacing-4;
+
+  @include respond-to(sm) {
+    margin-bottom: $spacing-3;
+  }
+}
+
+.esprit-search-results-form {
+  background: #fff;
+  border-radius: $radius-xl;
+  padding: $spacing-4;
+  box-shadow: 0 2px 8px rgba(65, 70, 81, 0.08), 0 1px 3px rgba(65, 70, 81, 0.06);
+
+  @include respond-to(sm) {
+    padding: $spacing-3;
+    border-radius: $radius-lg;
+  }
+}
+
+// Radio Filters
+.esprit-search-results-form-filters {
+  display: flex;
+  gap: $spacing-3;
+  justify-content: center;
+  margin-bottom: $spacing-3;
+  flex-wrap: wrap;
+
+  @include respond-to(sm) {
+    gap: $spacing-2;
+    margin-bottom: $spacing-2;
+  }
+}
+
+.esprit-search-results-form-filter-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.esprit-search-results-form-radio {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid $blue-gray-400;
+  border-radius: $radius-full;
+  margin-inline-end: $spacing-1;
+  cursor: pointer;
+  transition: $transition;
+  position: relative;
+
+  &:checked {
+    border-color: $blue-gray-600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background: $blue-gray-600;
+      border-radius: $radius-full;
+    }
+  }
+
+  &:hover {
+    border-color: $blue-gray-600;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(65, 70, 81, 0.1);
+  }
+
+  @include respond-to(sm) {
+    width: 16px;
+    height: 16px;
+
+    &:checked::after {
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+.esprit-search-results-form-radio-label {
+  font-size: 0.9375em;
+  color: $gray-700;
+  font-weight: $text-medium;
+  cursor: pointer;
+
+  @include respond-to(sm) {
+    font-size: 0.875em;
+  }
+}
+
+// Input Wrapper
+.esprit-search-results-form-input-wrapper {
+  display: flex;
+  gap: $spacing-2;
+
+  @include respond-to(sm) {
+    flex-direction: column;
+    gap: $spacing-2;
+  }
+}
+
+.esprit-search-results-form-input {
+  flex: 1;
+  padding: $spacing-2 $spacing-3;
+  border: 2px solid $blue-gray-300;
+  border-radius: $radius-lg;
+  font-size: 1em;
+  font-family: inherit;
+  color: $gray-900;
+  transition: $transition;
+
+  &::placeholder {
+    color: $gray-400;
+  }
+
+  &:hover {
+    border-color: $blue-gray-400;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $blue-gray-600;
+    box-shadow: 0 0 0 3px rgba(65, 70, 81, 0.1);
+  }
+
+  @include respond-to(sm) {
+    padding: $spacing-2;
+    font-size: 0.9375em;
+  }
+}
+
+.esprit-search-results-form-button {
+  padding: $spacing-2 $spacing-4;
+  background: $blue-gray-600;
+  color: #fff;
+  border: none;
+  border-radius: $radius-lg;
+  font-size: 1em;
+  font-weight: $text-semi-bold;
+  font-family: inherit;
+  cursor: pointer;
+  transition: $transition;
+  white-space: nowrap;
+
+  &:hover {
+    background: $blue-gray-700;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(65, 70, 81, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(65, 70, 81, 0.2);
+  }
+
+  @include respond-to(sm) {
+    padding: $spacing-2 $spacing-3;
+    font-size: 0.9375em;
+    width: 100%;
+  }
+}
+
+// Breadcrumb Navigation
+.esprit-search-results-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  font-size: 0.875em;
+  color: $gray-600;
+  margin-bottom: $spacing-3;
+
+  a {
+    color: $blue-gray-600;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      color: $blue-gray-700;
+      text-decoration: underline;
+    }
+  }
+
+  &-separator {
+    color: $gray-400;
+  }
+
+  @include respond-to(sm) {
+    font-size: 0.8125em;
+    gap: $spacing-1;
+  }
+}
+
+// Page Title
+.esprit-search-results-title {
+  font-size: 1.75em;
+  font-weight: $text-bold;
+  color: $blue-gray-600;
+  margin-bottom: $spacing-2;
+
+  @include respond-to(sm) {
+    font-size: 1.5em;
+  }
+}
+
+// Result Count Display
+.esprit-search-results-count {
+  font-size: 1em;
+  color: $gray-600;
+  font-weight: $text-medium;
+
+  @include respond-to(sm) {
+    font-size: 0.9375em;
+  }
+}
+
+// ============================================
+// Results Section
+// ============================================
+.esprit-search-results-section {
+  margin-bottom: $spacing-5;
+}
+
+// Results Items Container
+.esprit-search-results-items {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+
+  @include respond-to(sm) {
+    gap: $spacing-2;
+  }
+}
+
+// ============================================
+// Individual Result Item
+// ============================================
+.esprit-search-results-item {
+  opacity: 0;
+  transform: translateY(20px);
+
+  // Animation class
+  &--animate {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+
+.esprit-search-results-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.esprit-search-results-content {
+  background: #fff;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(65, 70, 81, 0.08), 0 1px 3px rgba(65, 70, 81, 0.06);
+  display: flex;
+  gap: $spacing-3;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  padding: $spacing-2;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(65, 70, 81, 0.12), 0 4px 8px rgba(65, 70, 81, 0.08);
+    // transform: translateY(-6px);
+  }
+
+  @include respond-to(md) {
+    gap: $spacing-2;
+  }
+
+  @include respond-to(sm) {
+    gap: $spacing-2;
+    padding: $spacing-1;
+  }
+}
+
+// ============================================
+// Image Section
+// ============================================
+.esprit-search-results-image-wrapper {
+  position: relative;
+  width: 240px;
+  aspect-ratio: 240 / 160;
+  flex-shrink: 0;
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include respond-to(md) {
+    width: 180px;
+    aspect-ratio: 180 / 120;
+  }
+
+  @include respond-to(sm) {
+    width: 120px;
+    aspect-ratio: 120 / 90;
+    border-radius: $radius-md;
+  }
+}
+
+.esprit-search-results-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// ============================================
+// Content Section
+// ============================================
+.esprit-search-results-caption {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+
+  @include respond-to(sm) {
+    padding: $spacing-2;
+    gap: $spacing-1;
+  }
+}
+
+// Headline (Title)
+.esprit-search-results-headline {
+  font-size: 1.0625em;
+  font-weight: $text-semi-bold;
+  color: $gray-900;
+  line-height: 1.5;
+  margin: 0;
+  @include lineClamp(2); // Max 2 lines with ellipsis
+
+  @include respond-to(sm) {
+    font-size: 0.9375em;
+  }
+}
+
+// Summary (Description)
+.esprit-search-results-summary {
+  font-size: 0.875em;
+  color: $gray-600;
+  line-height: 1.6;
+  margin: 0;
+  @include lineClamp(2); // Max 2 lines with ellipsis
+
+  @include respond-to(sm) {
+    display: none !important; // Hide on mobile
+  }
+}
+
+// Meta Section (URL + Date)
+.esprit-search-results-meta {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+  margin-top: auto;
+  font-size: 0.8125em;
+
+  @include respond-to(sm) {
+    font-size: 0.75em;
+  }
+}
+
+// URL Display
+.esprit-search-results-url {
+  color: $blue-gray-600;
+  text-decoration: none;
+  font-weight: $text-medium;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include respond-to(sm) {
+    display: none !important; // Hide on mobile
+  }
+}
+
+// Date
+.esprit-search-results-date {
+  color: $gray-500;
+}
+
+// ============================================
+// Pagination Wrapper
+// ============================================
+.esprit-search-results-pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-5;
+
+  @include respond-to(sm) {
+    margin-top: $spacing-3;
+  }
+}
+
+// ============================================
+// Animations
+// ============================================
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// RTL/LTR Support
+// ============================================
+[dir="ltr"] {
+  .esprit-search-results-breadcrumb-separator {
+    transform: scaleX(-1);
+  }
+}

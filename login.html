@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Niafam</title>
+
+    <style>
+      @font-face {
+        font-family: Vazir-FD;
+        src: url("/assets/fonts/Vazir-Regular-FD.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Vazir-FD;
+        src: url("/assets/fonts/Vazir-Bold-FD.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Vazir-FD;
+        src: url("/assets/Vazir-Medium-FD.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      /* en font */
+      @font-face {
+        font-family: vazir;
+        src: url("/assets/fonts/Vazir-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: vazir;
+        src: url("/assets/fonts/Vazir-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: vazir;
+        src: url("/assets/Vazir-Medium.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      html body{
+        font-size: 16px;
+        font-family: Vazir-FD;
+      }
+
+      html:not([lang="fa"]):not([lang="ar"]) body{
+        font-family: vazir;
+      }
+    </style>
+
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Color Variables */
+        :root {
+            --blue-gray-50: hsla(231, 36%, 98%, 1);
+            --blue-gray-100: hsla(231, 36%, 94%, 1);
+            --blue-gray-200: hsla(229, 35%, 88%, 1);
+            --blue-gray-300: hsla(231, 36%, 77%, 1);
+            --blue-gray-400: hsla(232, 36%, 59%, 1);
+            --blue-gray-600: hsla(232, 36%, 38%, 1);
+            --blue-gray-700: hsla(231, 36%, 33%, 1);
+            --blue-gray-800: hsla(230, 36%, 25%, 1);
+            --gray-25: hsla(0, 0%, 99%, 1);
+            --gray-50: hsla(0, 0%, 98%, 1);
+            --gray-100: hsla(0, 0%, 96%, 1);
+            --gray-200: hsla(220, 5%, 92%, 1);
+            --gray-300: hsla(220, 6%, 85%, 1);
+            --gray-400: hsla(220, 6%, 66%, 1);
+            --gray-500: hsla(220, 6%, 47%, 1);
+            --gray-600: hsla(220, 8%, 35%, 1);
+            --gray-700: hsla(220, 11%, 29%, 1);
+            --gray-900: hsla(220, 24%, 12%, 1);
+            --error: #ff3e30;
+            --success: #179c52;
+        }
+
+        body {
+            /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; */
+            background: linear-gradient(135deg, var(--blue-gray-50) 0%, var(--gray-50) 25%, var(--blue-gray-100) 50%, var(--gray-100) 75%, var(--blue-gray-50) 100%);
+            color: var(--gray-900);
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        /* Main Container */
+        .login-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Image Slider Section */
+        .slider-section {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .slides-container {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .slide {
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Slider Controls */
+        .slider-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .slider-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        .slider-dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        .slider-arrow svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* Login Form Section */
+        .form-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            /* background-color: white; */
+            position: relative;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: absolute;
+            top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        html[dir="rtl"] .language-selector {
+            left: 30px;
+        }
+
+        html[dir="ltr"] .language-selector {
+            right: 30px;
+        }
+
+        .language-selector select {
+            padding: 8px 32px 8px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            background-color: white;
+            color: var(--gray-700);
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M1 1.5L6 6.5L11 1.5" stroke="%23374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/%3e%3c/svg%3e');
+            background-repeat: no-repeat;
+            background-position: left 12px center;
+            font-family: inherit;
+        }
+
+        html[dir="ltr"] .language-selector select {
+            padding: 8px 12px 8px 32px;
+            background-position: right 12px center;
+        }
+
+        .language-selector select:hover {
+            border-color: var(--blue-gray-400);
+        }
+
+        .language-selector select:focus {
+            border-color: var(--blue-gray-600);
+            box-shadow: 0 0 0 3px var(--blue-gray-50);
+        }
+
+        /* Logo/Title */
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-logo {
+            width: 180px;
+            height: auto;
+            margin: 0 auto 16px;
+            display: block;
+        }
+
+        .form-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-700);
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        html[dir="rtl"] .input-icon {
+            right: 14px;
+        }
+
+        html[dir="ltr"] .input-icon {
+            left: 14px;
+        }
+
+        .input-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 15px;
+            color: var(--gray-900);
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        html[dir="rtl"] .form-input.with-icon {
+            padding-right: 44px;
+        }
+
+        html[dir="ltr"] .form-input.with-icon {
+            padding-left: 44px;
+        }
+
+        .form-input:hover {
+            border-color: var(--gray-400);
+        }
+
+        .form-input:focus {
+            border-color: var(--blue-gray-600);
+            box-shadow: 0 0 0 3px var(--blue-gray-50);
+        }
+
+        .form-input.error {
+            border-color: var(--error);
+        }
+
+        .error-message {
+            display: none;
+            font-size: 13px;
+            color: var(--error);
+            margin-top: 6px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Captcha */
+        .captcha-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .captcha-display {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .captcha-question {
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            background-color: var(--gray-50);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+            text-align: center;
+        }
+
+        .captcha-input {
+            flex: 1;
+        }
+
+        .refresh-btn {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .refresh-btn:hover {
+            background-color: var(--gray-50);
+            border-color: var(--gray-400);
+        }
+
+        .refresh-btn:active {
+            transform: rotate(180deg);
+        }
+
+        .refresh-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Login Button */
+        .login-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background-color: var(--blue-gray-600);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+            font-family: inherit;
+        }
+
+        .login-btn:hover {
+            background-color: var(--blue-gray-700);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Forgot Password Link */
+        .forgot-password {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 16px;
+            color: var(--blue-gray-600);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: var(--blue-gray-700);
+        }
+
+        .forgot-password svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Footer Branding */
+        .form-footer {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .product-info {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+        }
+
+        .version-info {
+            font-size: 12px;
+            color: var(--gray-400);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            .slider-section {
+                height: 40vh;
+                padding: 30px 20px;
+            }
+
+            .slider-wrapper {
+                height: 100%;
+                border-radius: 16px;
+            }
+
+            .slide img {
+                border-radius: 16px;
+            }
+
+            .form-section {
+                height: 60vh;
+                overflow-y: auto;
+                padding: 30px 20px;
+            }
+
+            .language-selector {
+                top: 15px;
+            }
+
+            html[dir="rtl"] .language-selector {
+                left: 15px;
+            }
+
+            html[dir="ltr"] .language-selector {
+                right: 15px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+            }
+
+            .slider-arrow.prev {
+                left: 10px;
+            }
+
+            .slider-arrow.next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .captcha-wrapper {
+                flex-direction: column;
+            }
+
+            .captcha-display {
+                width: 100%;
+            }
+
+            .captcha-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+                <!-- Login Form Section -->
+        <div class="form-section">
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="fa">فارسی</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+
+            <div class="form-container">
+                <!-- Form Header -->
+                <div class="form-header">
+                    <img src="public/assets/img/login/logo-admin.png" alt="Esprit Portal" class="form-logo">
+                    <p class="form-subtitle" data-translate="subtitle">لطفا  خود را وارد کنید</p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <!-- Username Field -->
+                    <div class="form-group">
+                        <label class="form-label" for="username" data-translate="username">نام کاربری</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#5E6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <input
+                                type="text"
+                                id="username"
+                                class="form-input with-icon"
+                                data-translate-placeholder="usernamePlaceholder"
+                                placeholder="نام کاربری خود را وارد کنید"
+                                autocomplete="username"
+                            >
+                        </div>
+                        <div class="error-message" id="usernameError" data-translate="usernameError">لطفا نام کاربری را وارد کنید</div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label class="form-label" for="password" data-translate="password">رمز عبور</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11M5 11H19C20.1046 11 21 11.8954 21 13V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V13C3 11.8954 3.89543 11 5 11Z" stroke="#5E6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <input
+                                type="password"
+                                id="password"
+                                class="form-input with-icon"
+                                data-translate-placeholder="passwordPlaceholder"
+                                placeholder="رمز عبور خود را وارد کنید"
+                                autocomplete="current-password"
+                            >
+                        </div>
+                        <div class="error-message" id="passwordError" data-translate="passwordError">لطفا رمز عبور را وارد کنید</div>
+                    </div>
+
+                    <!-- Captcha Field -->
+                    <div class="form-group">
+                        <label class="form-label" for="captcha" data-translate="captcha">کد امنیتی</label>
+                        <div class="captcha-wrapper">
+                            <div class="captcha-display">
+                                <div class="captcha-question" id="captchaQuestion">5 + 3 = ?</div>
+                                <div class="captcha-input">
+                                    <input
+                                        type="text"
+                                        id="captcha"
+                                        class="form-input"
+                                        data-translate-placeholder="captchaPlaceholder"
+                                        placeholder="پاسخ را وارد کنید"
+                                        autocomplete="off"
+                                        maxlength="3"
+                                    >
+                                </div>
+                            </div>
+                            <button type="button" class="refresh-btn" id="refreshCaptcha" title="تازه‌سازی کد امنیتی">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4.00001V10M1 10H7M1 10L5.64 5.64001C6.71475 4.56473 8.04437 3.77922 9.50481 3.35679C10.9652 2.93436 12.5089 2.88877 13.9917 3.22427C15.4745 3.55978 16.8482 4.26545 17.9845 5.27543C19.1209 6.28542 19.9828 7.5668 20.49 9.00001M23 20V14M23 14H17M23 14L18.36 18.36C17.2853 19.4353 15.9556 20.2208 14.4952 20.6432C13.0348 21.0657 11.4911 21.1113 10.0083 20.7758C8.52547 20.4402 7.1518 19.7346 6.01547 18.7246C4.87913 17.7146 4.01717 16.4332 3.51 15" stroke="#5E6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="error-message" id="captchaError" data-translate="captchaError">کد امنیتی اشتباه است</div>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" class="login-btn" data-translate="login">ورود</button>
+
+                    <!-- Forgot Password Link -->
+                    <a href="#" class="forgot-password">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5003 7.5L19.0003 4M21.0003 2L19.0003 4L21.0003 2ZM11.3903 11.61C11.9066 12.1195 12.3171 12.726 12.598 13.3948C12.879 14.0635 13.0249 14.7813 13.0273 15.5066C13.0297 16.232 12.8887 16.9507 12.6122 17.6213C12.3357 18.2919 11.9293 18.9012 11.4164 19.4141C10.9035 19.9271 10.2942 20.3334 9.62358 20.6099C8.95296 20.8864 8.23427 21.0275 7.50891 21.025C6.78354 21.0226 6.06582 20.8767 5.39707 20.5958C4.72831 20.3148 4.12174 19.9043 3.61227 19.388C2.6104 18.3507 2.05604 16.9614 2.06857 15.5193C2.0811 14.0772 2.65953 12.6977 3.67927 11.678C4.69902 10.6583 6.07849 10.0798 7.52057 10.0673C8.96265 10.0548 10.352 10.6091 11.3893 11.611L11.3903 11.61ZM11.3903 11.61L15.5003 7.5L11.3903 11.61ZM15.5003 7.5L18.5003 10.5L22.0003 7L19.0003 4L15.5003 7.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span data-translate="forgotPassword">رمز عبور خود را فراموش کرده‌اید؟</span>
+                    </a>
+                </form>
+
+                <!-- Footer Branding -->
+                <div class="form-footer">
+                    <p class="product-info" data-translate="product">محصولی از niafam.com</p>
+                    <p class="version-info">version : 3.1.32.1395</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Slider Section -->
+        <div class="slider-section">
+            <div class="slider-wrapper">
+                <div class="slides-container">
+                    <div class="slide">
+                        <img src="public/assets/img/login/login-page-slide-4.jpg" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img src="public/assets/img/login/login-page-slide-5.jpg" alt="Slide 2">
+                    </div>
+                    <div class="slide">
+                        <img src="public/assets/img/login/login-page-slide-5.jpg" alt="Slide 3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+
+            <!-- Slider Arrows -->
+            <div class="slider-arrow prev">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="slider-arrow next">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Translations Object
+        const translations = {
+            fa: {
+                subtitle: 'ورود به پنل مدیریت',
+                username: 'نام کاربری',
+                usernamePlaceholder: 'نام کاربری خود را وارد کنید',
+                usernameError: 'لطفا نام کاربری را وارد کنید',
+                password: 'رمز عبور',
+                passwordPlaceholder: 'رمز عبور خود را وارد کنید',
+                passwordError: 'لطفا رمز عبور را وارد کنید',
+                captcha: 'کد امنیتی',
+                captchaPlaceholder: 'پاسخ را وارد کنید',
+                captchaError: 'کد امنیتی اشتباه است',
+                login: 'ورود',
+                forgotPassword: 'رمز عبور خود را فراموش کرده‌اید؟',
+                product: 'محصولی از niafam.com'
+            },
+            en: {
+                subtitle: 'Login to Admin Panel',
+                username: 'Username',
+                usernamePlaceholder: 'Enter your username',
+                usernameError: 'Please enter your username',
+                password: 'Password',
+                passwordPlaceholder: 'Enter your password',
+                passwordError: 'Please enter your password',
+                captcha: 'Captcha',
+                captchaPlaceholder: 'Enter the answer',
+                captchaError: 'Incorrect captcha',
+                login: 'Login',
+                forgotPassword: 'Forgot your password?',
+                product: 'A Product From niafam.com'
+            }
+        };
+
+        // Current Language
+        let currentLang = 'fa';
+
+        // Captcha Variables
+        let captchaAnswer = 0;
+
+        // Slider Variables
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let sliderInterval;
+        let isTransitioning = false;
+
+        // DOM Elements
+        const languageSelect = document.getElementById('languageSelect');
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const captchaInput = document.getElementById('captcha');
+        const refreshCaptchaBtn = document.getElementById('refreshCaptcha');
+        const slidesContainer = document.querySelector('.slides-container');
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevArrow = document.querySelector('.slider-arrow.prev');
+        const nextArrow = document.querySelector('.slider-arrow.next');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            generateCaptcha();
+            initializeLanguage();
+            initializeSlider();
+            startSlider();
+        });
+
+        // Initialize Slider with Clones for Infinite Loop
+        function initializeSlider() {
+            // Clone first and last slides for seamless looping
+            const firstSlide = slides[0].cloneNode(true);
+            const lastSlide = slides[slides.length - 1].cloneNode(true);
+
+            // Add clones
+            slidesContainer.appendChild(firstSlide); // Clone of first at end
+            slidesContainer.insertBefore(lastSlide, slides[0]); // Clone of last at beginning
+
+            // Set initial position to first real slide (index 1 in DOM)
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            const translateValue = isRTL ? 100 : -100;
+            slidesContainer.style.transform = `translateX(${translateValue}%)`;
+        }
+
+        // Language Switching
+        function initializeLanguage() {
+            // Set initial language
+            const savedLang = localStorage.getItem('language') || 'fa';
+            currentLang = savedLang;
+            languageSelect.value = savedLang;
+            updateLanguage(savedLang);
+        }
+
+        languageSelect.addEventListener('change', function(e) {
+            const selectedLang = e.target.value;
+            currentLang = selectedLang;
+            localStorage.setItem('language', selectedLang);
+            updateLanguage(selectedLang);
+        });
+
+        function updateLanguage(lang) {
+            // Update direction
+            const html = document.documentElement;
+            html.setAttribute('lang', lang);
+            html.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    element.setAttribute('placeholder', translations[lang][key]);
+                }
+            });
+
+            // Update slider position for new direction (instant, no animation)
+            showSlide(currentSlide, true);
+        }
+
+        // Captcha Generation
+        function generateCaptcha() {
+            const num1 = Math.floor(Math.random() * 10) + 1;
+            const num2 = Math.floor(Math.random() * 10) + 1;
+            const operator = Math.random() > 0.5 ? '+' : '-';
+
+            if (operator === '+') {
+                captchaAnswer = num1 + num2;
+            } else {
+                // Ensure positive result
+                if (num1 >= num2) {
+                    captchaAnswer = num1 - num2;
+                } else {
+                    captchaAnswer = num2 - num1;
+                    const temp = num1;
+                    num1 = num2;
+                    num2 = temp;
+                }
+            }
+
+            document.getElementById('captchaQuestion').textContent = `${num1} ${operator} ${num2} = ?`;
+            captchaInput.value = '';
+
+            // Remove error state
+            captchaInput.classList.remove('error');
+            document.getElementById('captchaError').classList.remove('show');
+        }
+
+        refreshCaptchaBtn.addEventListener('click', generateCaptcha);
+
+        // Image Slider Functions
+        function startSlider() {
+            sliderInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlider() {
+            clearInterval(sliderInterval);
+        }
+
+        function showSlide(index, instant = false) {
+            // Get current direction
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+
+            // Real index in DOM (accounting for clone at beginning)
+            const slideIndex = index + 1;
+
+            // Calculate transform value
+            const translateValue = isRTL ? slideIndex * 100 : -(slideIndex * 100);
+
+            // Disable transition for instant jump
+            if (instant) {
+                slidesContainer.style.transition = 'none';
+                slidesContainer.style.transform = `translateX(${translateValue}%)`;
+                // Force reflow
+                slidesContainer.offsetHeight;
+                slidesContainer.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            } else {
+                slidesContainer.style.transform = `translateX(${translateValue}%)`;
+            }
+
+            // Update dots (normalize index to 0-2)
+            const dotIndex = ((index % totalSlides) + totalSlides) % totalSlides;
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[dotIndex]) {
+                dots[dotIndex].classList.add('active');
+            }
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            currentSlide++;
+            showSlide(currentSlide);
+
+            // After transition ends, check if we need to jump
+            setTimeout(() => {
+                if (currentSlide >= totalSlides) {
+                    currentSlide = 0;
+                    showSlide(currentSlide, true); // Instant jump to real first slide
+                }
+                isTransitioning = false;
+            }, 800); // Match transition duration
+        }
+
+        function prevSlide() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            currentSlide--;
+            showSlide(currentSlide);
+
+            // After transition ends, check if we need to jump
+            setTimeout(() => {
+                if (currentSlide < 0) {
+                    currentSlide = totalSlides - 1;
+                    showSlide(currentSlide, true); // Instant jump to real last slide
+                }
+                isTransitioning = false;
+            }, 800); // Match transition duration
+        }
+
+        // Slider Event Listeners
+        nextArrow.addEventListener('click', function() {
+            nextSlide();
+            stopSlider();
+            startSlider();
+        });
+
+        prevArrow.addEventListener('click', function() {
+            prevSlide();
+            stopSlider();
+            startSlider();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                if (isTransitioning) return;
+                if (currentSlide === index) return; // Already on this slide
+
+                isTransitioning = true;
+                currentSlide = index;
+                showSlide(index);
+                stopSlider();
+                startSlider();
+
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 800);
+            });
+        });
+
+        // Pause slider on hover
+        document.querySelector('.slider-section').addEventListener('mouseenter', stopSlider);
+        document.querySelector('.slider-section').addEventListener('mouseleave', startSlider);
+
+        // Form Validation
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let isValid = true;
+
+            // Reset all errors
+            document.querySelectorAll('.error-message').forEach(msg => msg.classList.remove('show'));
+            document.querySelectorAll('.form-input').forEach(input => input.classList.remove('error'));
+
+            // Validate username
+            if (usernameInput.value.trim() === '') {
+                usernameInput.classList.add('error');
+                document.getElementById('usernameError').classList.add('show');
+                isValid = false;
+            }
+
+            // Validate password
+            if (passwordInput.value.trim() === '') {
+                passwordInput.classList.add('error');
+                document.getElementById('passwordError').classList.add('show');
+                isValid = false;
+            }
+
+            // Validate captcha
+            const userCaptchaAnswer = parseInt(captchaInput.value.trim());
+            if (isNaN(userCaptchaAnswer) || userCaptchaAnswer !== captchaAnswer) {
+                captchaInput.classList.add('error');
+                document.getElementById('captchaError').classList.add('show');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Form is valid - submit or handle login
+                alert(currentLang === 'fa' ? 'فرم با موفقیت ارسال شد!' : 'Form submitted successfully!');
+                // Here you would normally send the data to your server
+                // loginForm.submit();
+            }
+        });
+
+        // Clear error on input
+        [usernameInput, passwordInput, captchaInput].forEach(input => {
+            input.addEventListener('input', function() {
+                this.classList.remove('error');
+                const errorId = this.id + 'Error';
+                document.getElementById(errorId).classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>

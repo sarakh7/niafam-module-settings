@@ -29,7 +29,7 @@ export function initTabNavigation() {
     link.addEventListener('click', handleTabClick);
   });
 
-  console.log('Profile Edit: Tab navigation initialized');
+  // console.log('Profile Edit: Tab navigation initialized');
 }
 
 /**

@@ -1,0 +1,15 @@
+/**
+ * Gallery Page Container Styles
+ */
+@use '../common/base/globals' as *;
+
+
+.gallery-page-main {
+  background: #fff;
+  border-radius: $radius-xl;
+  padding: $spacing-5;
+
+  @media (max-width: 768px) {
+    padding: $spacing-2;
+  }
+}

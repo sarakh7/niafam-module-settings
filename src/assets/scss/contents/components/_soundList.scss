@@ -8,6 +8,10 @@
         background: $blue-gray-200;
         padding-top: $spacing-1;
         padding-bottom: $spacing-4;
+
+        @include respond-to(xs) {
+            margin: 0;
+        }
     }
 
     &__sound-player {

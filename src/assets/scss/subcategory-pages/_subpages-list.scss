@@ -1,0 +1,209 @@
+/**
+ * General Subcategories - Subpages List Component
+ * List mode display for general module subpages (404, about, etc.)
+ * This is a subset display mode showing auxiliary pages
+ */
+@use '../common/base/globals' as *;
+
+// ========================================
+// Subpages List Container
+// ========================================
+
+// This targets the second grid with data-list-mode attribute
+// Used for displaying general module subpages in a compact list format
+.general-subcats-grid[data-list-mode="true"] {
+  // Single column layout for list display
+  grid-template-columns: 1fr;
+  gap: $spacing-2;
+
+  // Add subtle separation from main grid if both are present on same page
+  &:not(:first-of-type) {
+    // margin-top: $spacing-6;
+    // padding-top: $spacing-5;
+
+    // Optional: Add a subtle divider line
+    position: relative;
+
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   height: 1px;
+    //   background: $gray-200;
+    // }
+
+    @media (max-width: 768px) {
+      margin-top: $spacing-5;
+      padding-top: $spacing-4;
+    }
+  }
+
+  // ========================================
+  // List Mode Card Overrides
+  // ========================================
+
+  .general-subcats-card {
+    border-radius: $radius-lg;
+    justify-content: start;
+
+    // Cards with images in list mode
+    &--with-image {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+
+      .general-subcats-card__image-wrapper {
+        padding-top: 0;
+        height: 100%;
+        min-height: 140px;
+      }
+
+      .general-subcats-card__content {
+        padding: $spacing-4 $spacing-5;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: 120px 1fr;
+
+        .general-subcats-card__image-wrapper {
+          min-height: 100px;
+        }
+
+        .general-subcats-card__content {
+          padding: $spacing-3;
+        }
+      }
+
+      @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+
+        .general-subcats-card__image-wrapper {
+          padding-top: 40%;
+          min-height: auto;
+        }
+      }
+    }
+
+    // Cards without images in list mode (most common for subpages)
+    &--no-image {
+      min-height: auto;
+
+      .general-subcats-card__content--centered {
+        flex-direction: row;
+        text-align: start;
+        padding: $spacing-3 $spacing-4;
+        justify-content: flex-start;
+
+        @media (max-width: 768px) {
+          padding: $spacing-3 $spacing-4;
+        }
+
+        @media (max-width: 480px) {
+          padding: $spacing-3;
+        }
+      }
+
+      // Icon sizing for list mode
+      .general-subcats-card__icon {
+        margin-bottom: 0;
+
+        // Font icon sizing
+        &.es,
+        &[class*="esprit-"],
+        &[class*="icon-"] {
+          font-size: 2.5em;
+
+          @media (max-width: 768px) {
+            font-size: 2em;
+            margin-inline-end: $spacing-2;
+          }
+        }
+
+        // Image icon sizing
+        &[src] {
+          width: 48px;
+          height: 48px;
+
+          @media (max-width: 768px) {
+            width: 40px;
+            height: 40px;
+          }
+
+          @media (max-width: 480px) {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+
+      // Title sizing for list mode
+      .general-subcats-card__title {
+        font-size: 1.125em;
+
+        @media (max-width: 768px) {
+          font-size: 1.125em;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  // Reduce gap on mobile
+  @media (max-width: 480px) {
+    gap: $spacing-2;
+  }
+}
+
+// ========================================
+// Optional: Subpages List Header
+// ========================================
+
+// If you want to add a section header for the subpages list
+.general-subcats-subpages-header {
+  margin-bottom: $spacing-4;
+  padding-bottom: $spacing-3;
+  border-bottom: 1px solid $gray-200;
+
+  @media (max-width: 768px) {
+    margin-bottom: $spacing-3;
+    padding-bottom: $spacing-2;
+  }
+}
+
+.general-subcats-subpages-header__title {
+  font-size: 1.5em;
+  font-weight: $text-semi-bold;
+  color: $blue-gray-700;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.25em;
+  }
+}
+
+// ========================================
+// RTL/LTR Support
+// ========================================
+
+[dir="rtl"] {
+  .general-subcats-grid[data-list-mode="true"] {
+    .general-subcats-card__content {
+      // Icons and text flow naturally with flex
+    }
+  }
+}
+
+[dir="ltr"] {
+  .general-subcats-grid[data-list-mode="true"] {
+    .general-subcats-card__content {
+      // Icons and text flow naturally with flex
+    }
+  }
+}

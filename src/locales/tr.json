@@ -55,6 +55,230 @@
     "retry": "Yeniden Dene",
     "close": "Kapat"
   },
+  "pdf": {
+    "generationError": "PDF oluşturulurken hata oluştu. Lütfen tekrar deneyin.",
+    "contentNotFound": "İçerik öğesi bulunamadı!",
+    "imageNotAvailable": "[Resim mevcut değil]",
+    "contentInfo": "İçerik Üretim Bilgileri",
+    "page": "Sayfa",
+    "of": "/",
+    "generationDate": "Oluşturma Tarihi",
+    "metadata": {
+      "author": "Yazar",
+      "publishDate": "Yayın Tarihi",
+      "photographer": "Fotoğrafçı",
+      "videographer": "Kameraman",
+      "editor": "Editör",
+      "newsCode": "Haber Kodu",
+      "newsGroup": "Haber Grubu",
+      "readingTime": "Okuma süresi",
+      "minutes": "Dakika"
+    }
+  },
+  "print": {
+    "error": "Yazdırma hatası",
+    "contentNotFound": "İçerik öğesi bulunamadı!"
+  },
+  "nav": {
+    "contactUs": "Bize Ulaşın",
+    "organizationalPortal": "Portal",
+    "aboutUs": "Hakkımızda",
+    "login": "Giriş Yap"
+  },
+  "breadcrumb": {
+    "home": "Ana Sayfa",
+    "content": "İçerik",
+    "news": "Haberler",
+    "ticketing": "Biletleme",
+    "ticketTracking": "Bilet Takibi",
+    "dashboard": "Kontrol Paneli",
+    "profile": "Profil",
+    "editProfile": "Profili Düzenle",
+    "profileDetails": "Profil Detayları"
+  },
+  "tools": {
+    "toolbox": "Araç Kutusu",
+    "shortlink": {
+      "title": "Kısa Link",
+      "copy": "Linki Kopyala",
+      "copied": "Kopyalandı!",
+      "failed": "Kopyalama başarısız!"
+    },
+    "print": "Yazdır",
+    "pdf": "PDF",
+    "sendToFriend": "Arkadaşa Gönder"
+  },
+  "accessibility": {
+    "fontSize": "Font Boyutu",
+    "wordSpacing": "Kelime Aralığı",
+    "lineHeight": "Satır Yüksekliği",
+    "lineHeightAdjust": "Satır Yüksekliğini Ayarla",
+    "wordSpacingAdjust": "Kelime Aralığını Ayarla",
+    "backgroundColor": "Arka Planı Değiştir",
+    "reset": "Sıfırla",
+    "reloadPage": "Sayfayı Yeniden Yükle",
+    "textOnly": "Sadece Metin",
+    "textOnlyMode": "Sadece Metin Modu"
+  },
+  "tts": {
+    "title": "Metinden Konuşmaya",
+    "play": "Oynat",
+    "pause": "Duraklat",
+    "stop": "Durdur",
+    "speed": "Hız",
+    "voice": "Ses"
+  },
+  "share": {
+    "title": "Paylaş",
+    "shareButton": "Paylaş",
+    "facebook": "Facebook'ta Paylaş",
+    "telegram": "Telegram'da Paylaş",
+    "whatsapp": "WhatsApp'ta Paylaş",
+    "eitaa": "Eitaa'da Paylaş",
+    "bale": "Bale'de Paylaş",
+    "twitter": "X'te (Twitter) Paylaş",
+    "linkedin": "LinkedIn'de Paylaş"
+  },
+  "relatedContent": {
+    "title": "Bu Haberle İlgili İçerik",
+    "description": "Her bölüme hızlı erişim için istediğiniz başlığa tıklayın.",
+    "attachments": "Ekler",
+    "images": "Resimler",
+    "videos": "Videolar",
+    "audios": "Sesler",
+    "relatedNews": "İlgili Haberler"
+  },
+  "article": {
+    "attachments": "İndirilebilir Dosyalar",
+    "pictures": "Resimler",
+    "videos": "Videolar",
+    "audios": "Sesler",
+    "relatedNews": "İlgili Haberler",
+    "tags": "Etiketler",
+    "textNews": "Metin Haberleri",
+    "pictureNews": "Resimli Haberler",
+    "videoNews": "Video Haberler",
+    "audioNews": "Ses Haberleri",
+    "video": "Video",
+    "audio": "Ses",
+    "picture": "Resim"
+  },
+  "metadata": {
+    "author": "Yazar",
+    "publishDate": "Yayın Tarihi:",
+    "views": "Görüntülenme:",
+    "newsCode": "Haber Kodu",
+    "newsGroup": "Haber Grubu",
+    "photographer": "Fotoğrafçı:",
+    "videographer": "Kameraman:",
+    "editor": "Editör:",
+    "photographers": "Fotoğrafçılar:",
+    "videographers": "Kameramanlar:",
+    "editors": "Editörler:",
+    "readingTime": "Okuma Süresi:",
+    "minutes": "dakika",
+    "lastUpdateDate": "Son Güncelleme Tarihi:",
+    "lastUpdateTime": "Güncelleme Saati:",
+    "contentProducer": "İçerik Üreticisi:"
+  },
+  "modal": {
+    "sendToFriend": {
+      "title": "Arkadaşa Gönder",
+      "yourEmail": "E-postanız",
+      "recipientEmail": "Alıcı E-postası",
+      "captchaLabel": "Resimdeki metni girin:",
+      "submit": "Gönder",
+      "cancel": "İptal"
+    },
+    "readingMode": {
+      "title": "Okuma Modu",
+      "themes": {
+        "light": "Açık",
+        "dark": "Koyu",
+        "yellow": "Sarı",
+        "blue": "Mavi"
+      },
+      "sampleCharacter": "A"
+    }
+  },
+  "comments": {
+    "title": "Yorumlar",
+    "count": "bu haber için yorum",
+    "reply": "Yanıtla",
+    "submitComment": "Yorum Gönder",
+    "cancel": "İptal",
+    "leaveComment": "Yorum Bırakın"
+  },
+  "form": {
+    "fullName": "Ad Soyad",
+    "fullNameRequired": "Ad Soyad *",
+    "email": "E-posta",
+    "emailRequired": "E-posta *",
+    "comment": "Yorumunuzu girin ...",
+    "captcha": "Güvenlik Kodu",
+    "captchaInstruction": "Resimdeki metni girin:",
+    "captchaRefresh": "Güvenlik Kodunu Yenile",
+    "yourComment": "Yorumunuz"
+  },
+  "vote": {
+    "question": "Bu haber faydalı oldu mu?",
+    "yes": "Evet",
+    "no": "Hayır",
+    "useful": "Faydalı",
+    "notUseful": "Faydalı Değil",
+    "voteGroup": "Habere Oy Ver"
+  },
+  "rating": {
+    "alreadyVoted": "Bu yorum için zaten oy kullandınız"
+  },
+  "audio": {
+    "player": "Metinden Konuşmaya Oynatıcı",
+    "unsupported": "Tarayıcınız ses oynatmayı desteklemiyor."
+  },
+  "images": {
+    "author": "Yazar Resmi",
+    "commenter": "Yorumcu Resmi"
+  },
+  "about": {
+    "title": "Niafam Hakkında",
+    "subtitle": "Çok dilli desteğe sahip önde gelen haber platformu",
+    "cta": "Daha Fazla Bilgi",
+    "mission": {
+      "title": "Misyonumuz",
+      "text": "Çok dilli destekle dünya çapındaki kullanıcılara doğru, zamanında ve tarafsız haberler sunmak."
+    },
+    "vision": {
+      "title": "Vizyonumuz",
+      "text": "Teknoloji ve yenilik yoluyla bölgenin en güvenilir haber kaynağı olmak."
+    },
+    "values": {
+      "title": "Değerlerimiz",
+      "text": "Yaptığımız her şeyde dürüstlük, şeffaflık, yenilik ve kaliteye bağlılık."
+    },
+    "features": {
+      "multilingual": {
+        "title": "🌍 Çok Dilli",
+        "text": "5 dil desteği: Farsça, İngilizce, Arapça, Türkçe ve Rusça"
+      },
+      "responsive": {
+        "title": "📱 Duyarlı",
+        "text": "Mobil cihazdan masaüstüne tüm cihazlar için optimize edilmiş tasarım"
+      },
+      "accessible": {
+        "title": "♿ Erişilebilir",
+        "text": "Tüm kullanıcılar için erişilebilirlik özellikleri"
+      }
+    },
+    "modal": {
+      "title": "Daha Fazla Bilgi",
+      "content": "Bu, projeye nasıl yeni modüller ekleyebileceğinizi gösteren bir test modülüdür. Bu modül i18n, modal ve özel stiller kullanır.",
+      "feature1": "Tam i18n desteği",
+      "feature2": "MicroModal ile Modal",
+      "feature3": "Özel stiller",
+      "feature4": "Akıcı animasyonlar",
+      "close": "Kapat"
+    }
+  },
   "ticketing": {
     "form": {
       "trackingCodeLabel": "Takip kodunuzu girin:",
@@ -81,9 +305,413 @@
       "attachedFile": "Ekli Dosya"
     },
     "sections": {
+      "trackingForm": "Bilet Takibi",
       "submittedInfo": "Gönderilen Bilgiler",
       "conversations": "Konuşmalar",
       "sendReply": "Yanıt Gönder"
     }
+  },
+  "auth": {
+    "pageTitle": "Kimlik Doğrulama Formları - Niafam",
+    "submitLink": "Kayıt Ol",
+    "loginLink": "Giriş Yap",
+    "demo": {
+      "siteTitle": "Niafam Demo",
+      "userName": "John Doe"
+    },
+    "userDropdown": {
+      "viewProfile": "Profili Görüntüle",
+      "editProfile": "Profili Düzenle",
+      "logout": "Çıkış Yap"
+    }
+  },
+  "general": {
+    "404": {
+      "number": "404",
+      "heading": "Sayfa Bulunamadı",
+      "message": "Üzgünüz, aradığınız sayfa mevcut değil veya kaldırılmış olabilir.",
+      "button": "Ana Sayfaya Dön"
+    },
+    "404Creative": {
+      "pageTitle": "Sayfa Bulunamadı",
+      "heading": "İstenilen Sayfa Bulunamadı!",
+      "message": "Maalesef, aradığınız sayfa mevcut değil veya kaldırılmış olabilir.",
+      "searchPlaceholder": "Niafam'da ara...",
+      "searchButton": "Ara",
+      "quickLinksTitle": "Veya bunları deneyebilirsiniz:",
+      "homeLink": "Ana Sayfa",
+      "aboutLink": "Hakkımızda",
+      "profileLink": "Profil",
+      "supportLink": "Destek",
+      "homeButton": "Ana Sayfaya Dön",
+      "portalLink": "Esprit Portalı"
+    }
+  },
+  "contentsList": {
+    "pageTitle": "İçerik Listesi - Niafam",
+    "breadcrumb": "İçerik Listesi",
+    "title": "İçerik Listesi",
+    "description": "Tüm haberler, makaleler, videolar ve ses içeriğini görüntüleyin",
+    "categoryText": "Tıp Üniversitesi",
+    "categoryImage": "Fotoğraf Raporu",
+    "categoryVideo": "Video Raporu",
+    "categoryAudio": "Uzman Podcast",
+    "readTime": "dakika okuma",
+    "featured": "Öne Çıkan",
+    "loadMore": "Daha Fazla İçerik Yükle"
+  },
+  "breadcrumb": {
+    "home": "Ana Sayfa",
+    "content": "İçerik"
+  },
+  "searchResults": {
+    "pageTitle": "Arama Sonuçları - Niafam",
+    "title": "Arama Sonuçları",
+    "breadcrumbHome": "Ana Sayfa",
+    "breadcrumbSearch": "Arama",
+    "resultCount": "{{count}} sonuç bulundu",
+    "resultCountSingular": "1 sonuç bulundu",
+    "noResults": "Sonuç bulunamadı",
+    "categoryText": "Makale",
+    "categoryImage": "Galeri",
+    "categoryVideo": "Video",
+    "categoryAudio": "Podcast",
+    "filterOr": "VEYA",
+    "filterAnd": "VE",
+    "filterPhrase": "Tam ifade",
+    "searchPlaceholder": "Ara...",
+    "searchButton": "Ara"
+  },
+  "gallery": {
+    "pageTitle": "Galeri - Niafam",
+    "breadcrumb": "Galeri",
+    "images": {
+      "title": "Resimler"
+    },
+    "videos": {
+      "title": "Videolar"
+    },
+    "sounds": {
+      "title": "Sesler"
+    },
+    "imageGalleries": "Resim Galerileri",
+    "relatedGalleries": "İlgili Galeriler",
+    "archive": "Galeri Arşivi"
+  },
+  "galleryCategories": {
+    "pageTitle": "Galeri Kategorileri - Niafam",
+    "breadcrumb": "Galeri Kategorileri",
+    "title": "Galeri Kategorileri",
+    "description": "Tahran Tıp Bilimleri Üniversitesi'nin fotoğraf, video ve ses galerilerine konuya göre göz atın",
+    "galleryCount": "Galeri"
+  },
+  "profileDetails": {
+    "pageTitle": "Profil Detayları - Niafam",
+    "personalInfo": "Kişisel Bilgiler",
+    "contactInfo": "İletişim ve Konum Bilgileri",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "nickname": "Takma Ad",
+    "gender": "Cinsiyet",
+    "birthdate": "Doğum Tarihi",
+    "nationalCode": "Ulusal Kod",
+    "birthCode": "Doğum Belgesi Numarası",
+    "email": "E-posta",
+    "mobile": "Cep Telefonu",
+    "province": "İl",
+    "city": "Şehir",
+    "address": "Adres",
+    "postalCode": "Posta Kodu",
+    "bio": "Hakkımda",
+    "memberSince": "Üyelik Tarihi"
+  },
+  "profile": {
+    "greeting": "Merhaba",
+    "dear": "!",
+    "logout": "Çıkış Yap",
+    "editProfile": "Profili Düzenle",
+    "email": "E-posta:",
+    "mobile": "Cep Telefonu Numarası:",
+    "birthdate": "Doğum Tarihi:",
+    "website": "Web Sitesi:",
+    "tabs": {
+      "basicInfo": "Temel Bilgiler",
+      "changePassword": "Şifre Değiştir",
+      "uploadAvatar": "Avatar Yükle"
+    },
+    "form": {
+      "firstName": "Ad",
+      "firstNamePlaceholder": "Adınızı girin",
+      "lastName": "Soyad",
+      "lastNamePlaceholder": "Soyadınızı girin",
+      "email": "E-posta",
+      "emailPlaceholder": "E-postanızı girin",
+      "mobile": "Cep Telefonu Numarası",
+      "mobilePlaceholder": "Cep telefonu numaranızı girin",
+      "birthdate": "Doğum Tarihi",
+      "birthdatePlaceholder": "Doğum tarihinizi seçin",
+      "gender": "Cinsiyet",
+      "genderNone": "Seçilmedi",
+      "genderWoman": "Kadın",
+      "genderMan": "Erkek",
+      "genderOther": "Diğer",
+      "website": "Web Sitesi",
+      "websitePlaceholder": "Web sitenizin adresini girin",
+      "linkedin": "LinkedIn",
+      "linkedinPlaceholder": "LinkedIn adresinizi girin",
+      "instagram": "Instagram",
+      "instagramPlaceholder": "Instagram adresinizi girin",
+      "telegram": "Telegram",
+      "telegramPlaceholder": "Telegram adresinizi girin",
+      "city": "Şehir",
+      "cityPlaceholder": "Şehrinizi girin",
+      "province": "İl",
+      "provincePlaceholder": "İlinizi girin",
+      "postalCode": "Posta Kodu",
+      "postalCodePlaceholder": "Posta kodunuzu girin",
+      "address": "Adres",
+      "addressPlaceholder": "Tam adresinizi girin",
+      "description": "Açıklama",
+      "descriptionPlaceholder": "Açıklamanızı girin",
+      "oldPassword": "Eski Şifre",
+      "oldPasswordPlaceholder": "Eski şifrenizi girin",
+      "newPassword": "Yeni Şifre",
+      "newPasswordPlaceholder": "Yeni şifrenizi girin",
+      "repeatPassword": "Şifreyi Tekrarla",
+      "repeatPasswordPlaceholder": "Yeni şifrenizi tekrar girin",
+      "addFile": "Dosya Ekle",
+      "chooseAvatar": "Avatar Seç",
+      "avatarHelp": "Resim 5MB'dan küçük olmalı ve JPG, PNG veya GIF formatında olmalıdır",
+      "passwordRequirements": "Şifre büyük harf, küçük harf ve rakam içermelidir",
+      "submit": "Gönder"
+    },
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "invalidEmail": "Geçersiz e-posta adresi",
+      "invalidURL": "Geçersiz web sitesi adresi",
+      "weakPassword": "Şifre büyük harf, küçük harf ve rakam içermelidir",
+      "passwordMismatch": "Şifreler eşleşmiyor",
+      "fixErrors": "Lütfen form hatalarını düzeltin",
+      "invalidFileType": "Yalnızca JPG, PNG ve GIF dosyalarına izin verilir",
+      "fileTooLarge": "Dosya boyutu 5MB'ı geçmemelidir"
+    },
+    "messages": {
+      "saveSuccess": "Bilgiler başarıyla kaydedildi",
+      "saveError": "Bilgileri kaydetme hatası",
+      "passwordChangeSuccess": "Şifre başarıyla değiştirildi",
+      "passwordChangeError": "Şifre değiştirme hatası",
+      "avatarUploadSuccess": "Avatar başarıyla güncellendi",
+      "avatarUploadError": "Avatar yükleme hatası",
+      "unknownError": "Bilinmeyen hata"
+    }
+  },
+  "common": {
+    "loading": "Gönderiliyor..."
+  },
+  "auth": {
+    "pageTitle": "Kimlik Doğrulama Formları - Niafam",
+    "submitLink": "Kayıt Ol",
+    "loginLink": "Giriş Yap",
+    "nav": {
+      "login": "Giriş Yap",
+      "otp": "Telefonla Giriş",
+      "register": "Kayıt Ol",
+      "recovery": "Şifre Kurtarma",
+      "success": "Başarılı",
+      "twoFactor": "İki Faktörlü Doğrulama"
+    },
+    "demo": {
+      "siteTitle": "Niafam Demo",
+      "userName": "John Doe",
+      "userFullName": "John Doe",
+      "userEmail": "john.doe@example.com"
+    },
+    "userDropdown": {
+      "viewProfile": "Profili Görüntüle",
+      "editProfile": "Profili Düzenle",
+      "logout": "Çıkış Yap"
+    },
+    "login": {
+      "title": "Hesabınıza Giriş Yapın",
+      "username": "Kullanıcı Adı",
+      "usernamePlaceholder": "Kullanıcı adınızı girin",
+      "password": "Şifre",
+      "passwordPlaceholder": "Şifrenizi girin",
+      "submitButton": "Giriş Yap",
+      "submit": "Giriş Yap",
+      "submitting": "Giriş yapılıyor...",
+      "forgotPassword": "Şifrenizi mi unuttunuz?",
+      "signUp": "Kayıt Ol",
+      "noAccount": "Hesabınız yok mu?"
+    },
+    "register": {
+      "title": "Kayıt Ol",
+      "confirmTitle": "Kayıt Onayı",
+      "confirmCodeLabel": "Size gönderilen kodu girin",
+      "confirmCodePlaceholder": "5 haneli kod",
+      "firstNameLabel": "Ad",
+      "firstNamePlaceholder": "Ad",
+      "lastNameLabel": "Soyad",
+      "lastNamePlaceholder": "Soyad",
+      "emailLabel": "E-posta",
+      "emailPlaceholder": "E-posta Adresi",
+      "phoneLabel": "Cep Telefonu Numarası",
+      "phonePlaceholder": "Cep Telefonu Numarası",
+      "nationalCodeLabel": "Ulusal Kod",
+      "nationalCodePlaceholder": "Ulusal Kod",
+      "genderLabel": "Cinsiyet",
+      "male": "Erkek",
+      "female": "Kadın",
+      "usernameLabel": "Kullanıcı Adı",
+      "usernamePlaceholder": "Kullanıcı Adı",
+      "passwordLabel": "Şifre",
+      "passwordPlaceholder": "Şifre",
+      "passwordValidation": "Şifre büyük harf, küçük harf ve rakam içermelidir",
+      "confirmPasswordLabel": "Şifreyi Tekrarla",
+      "confirmPasswordPlaceholder": "Şifreyi Tekrarla",
+      "passwordMatchValidation": "Şifreler eşleşmiyor",
+      "submitButton": "Kayıt Ol"
+    },
+    "recovery": {
+      "title": "Şifre Kurtarma",
+      "message": "Şifrenizi kurtarmak için kullanıcı adınızı ve e-posta/telefon numaranızı girin",
+      "linkText": "Şifrenizi mi unuttunuz?",
+      "submitButton": "Şifreyi Kurtar",
+      "emailPhoneLabel": "E-posta veya Telefon Numarası",
+      "emailPhonePlaceholder": "E-posta veya telefon numarasını girin",
+      "usernameLabel": "Kullanıcı Adı",
+      "usernamePlaceholder": "Kullanıcı adınızı girin"
+    },
+    "otp": {
+      "title": "Onay Kodunu Girin",
+      "confirmLabel": "Size gönderilen kodu girin",
+      "codePlaceholder": "6 haneli kod",
+      "resendTimer": "{seconds} saniye içinde kodu tekrar gönder",
+      "resendButton": "Kodu Tekrar Gönder",
+      "step1Title": "Cep telefonu numaranızı girin",
+      "step2Title": "Doğrulama kodunu girin",
+      "username": "Kullanıcı Adı",
+      "usernamePlaceholder": "Kullanıcı adınızı girin",
+      "phone": "Cep Telefonu Numarası",
+      "phonePlaceholder": "Cep telefonu numaranızı girin",
+      "sendCode": "Doğrulama Kodu Gönder",
+      "verificationCode": "6 Haneli Doğrulama Kodu",
+      "resendCode": "Kodu Tekrar Gönder",
+      "resendIn": "{{time}} içinde tekrar gönder",
+      "verifyCode": "Doğrula ve Giriş Yap",
+      "editPhone": "Cep Telefonu Numarasını Düzenle"
+    },
+    "registration": {
+      "title": "Yeni Hesap Oluştur",
+      "firstName": "Ad",
+      "firstNamePlaceholder": "Adınızı girin",
+      "lastName": "Soyad",
+      "lastNamePlaceholder": "Soyadınızı girin",
+      "email": "E-posta",
+      "emailPlaceholder": "E-postanızı girin (isteğe bağlı)",
+      "phone": "Cep Telefonu Numarası",
+      "phonePlaceholder": "Cep telefonu numaranızı girin",
+      "nationalCode": "Ulusal Kod",
+      "nationalCodePlaceholder": "Ulusal kodunuzu girin (isteğe bağlı)",
+      "gender": "Cinsiyet",
+      "male": "Erkek",
+      "female": "Kadın",
+      "username": "Kullanıcı Adı",
+      "usernamePlaceholder": "Bir kullanıcı adı seçin",
+      "password": "Şifre",
+      "passwordPlaceholder": "Güçlü bir şifre seçin",
+      "confirmPassword": "Şifreyi Tekrarla",
+      "confirmPasswordPlaceholder": "Şifreyi tekrar girin",
+      "submit": "Hesap Oluştur",
+      "haveAccount": "Zaten kayıt oldunuz mu?",
+      "signIn": "Giriş Yap"
+    },
+    "passwordReset": {
+      "title": "Şifre Kurtarma",
+      "description": "Kurtarma kodunu almak için e-postanızı, telefon numaranızı veya kullanıcı adınızı girin",
+      "emailPhoneUsername": "E-posta, Telefon veya Kullanıcı Adı",
+      "identifierPlaceholder": "E-posta, telefon numarası veya kullanıcı adı",
+      "username": "Kullanıcı Adı",
+      "usernamePlaceholder": "Kullanıcı adınızı girin",
+      "submit": "Kurtarma Kodu Gönder",
+      "backToLogin": "Giriş sayfasına dön"
+    },
+    "twoFactor": {
+      "title": "İki Faktörlü Kimlik Doğrulama",
+      "confirmTitle": "Onay Kodunu Girin",
+      "description": "Kayıtlı cihazınıza bir doğrulama kodu gönderdik. Devam etmek için lütfen aşağıya girin.",
+      "codeLabel": "Doğrulama Kodu",
+      "codePlaceholder": "6 haneli kodu girin",
+      "codeExpiresIn": "Kodun geçerlilik süresi",
+      "error": "Geçersiz kod. Lütfen tekrar deneyin.",
+      "resendCode": "Kodu Tekrar Gönder",
+      "submit": "Doğrula ve Devam Et",
+      "notYou": "Siz değil misiniz?",
+      "logout": "Çıkış Yap"
+    },
+    "confirmation": {
+      "title": "Hesap Onayı",
+      "enterCode": "6 haneli kodu girin",
+      "submit": "Onayla",
+      "resendCode": "Kodu Tekrar Gönder"
+    },
+    "success": {
+      "title": "Başarılı!",
+      "subtitle": "İşlem Başarıyla Tamamlandı",
+      "message": "Talebiniz başarıyla işlendi",
+      "backToLogin": "Giriş Sayfasına Dön",
+      "registrationComplete": "Kayıt başarıyla tamamlandı"
+    },
+    "common": {
+      "submitButton": "Gönder",
+      "signinLink": "Giriş Yap",
+      "signupLink": "Kayıt Ol"
+    },
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "invalidEmail": "Geçersiz e-posta formatı",
+      "invalidPhone": "Geçersiz cep telefonu numarası",
+      "weakPassword": "Şifre büyük harf, küçük harf ve rakam içermelidir",
+      "passwordMismatch": "Şifreler eşleşmiyor",
+      "invalidUsername": "Kullanıcı adı 3-20 karakter olmalıdır (harf, rakam ve alt çizgi)",
+      "invalidOTP": "Kod 6 rakamdan oluşmalıdır",
+      "fixErrors": "Lütfen form hatalarını düzeltin"
+    },
+    "captcha": {
+      "label": "Güvenlik Kodu",
+      "placeholder": "Kodu girin",
+      "refresh": "Yenile"
+    },
+    "messages": {
+      "loginSuccess": "Giriş başarılı!",
+      "loginError": "Kullanıcı adı veya şifre yanlış",
+      "otpSent": "Doğrulama kodu gönderildi",
+      "otpResent": "Kod tekrar gönderildi",
+      "otpSuccess": "Giriş başarılı!",
+      "otpInvalid": "Girilen kod geçersiz",
+      "otpError": "Kod gönderme hatası",
+      "registrationSuccess": "Kayıt başarılı!",
+      "registrationError": "Kayıt hatası",
+      "passwordResetSent": "Kurtarma kodu e-postanıza/telefonunuza gönderildi",
+      "passwordResetError": "Kurtarma kodu gönderme hatası",
+      "serverError": "Sunucu hatası oluştu"
+    }
+  },
+  "generalSubcategories": {
+    "pageTitle": "Genel Alt Kategoriler - Niafam",
+    "breadcrumb": "Genel Alt Kategoriler",
+    "title": "Genel Alt Kategoriler",
+    "description": "Yönetim sisteminin farklı bölümlerine hızlı erişim",
+    "items": {
+      "settings": "Temel Ayarlar",
+      "documents": "Belgeler ve Dokümanlar",
+      "users": "Kullanıcı Yönetimi",
+      "notifications": "Bildirimler",
+      "analytics": "İstatistikler ve Raporlar",
+      "security": "Güvenlik"
+    }
+  },
+  "routes": {
+    "editProfile": "/profil-duzenle"
   }
 }

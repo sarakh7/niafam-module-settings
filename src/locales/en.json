@@ -176,7 +176,10 @@
     "videographers": "Videographers:",
     "editors": "Editors:",
     "readingTime": "Reading Time:",
-    "minutes": "minutes"
+    "minutes": "minutes",
+    "lastUpdateDate": "Last Update Date:",
+    "lastUpdateTime": "Update Time:",
+    "contentProducer": "Content Producer:"
   },
   "modal": {
     "sendToFriend": {
@@ -244,6 +247,7 @@
       "attachedFile": "Attached File"
     },
     "sections": {
+      "trackingForm": "Ticket Tracking",
       "submittedInfo": "Submitted Information",
       "conversations": "Conversations",
       "sendReply": "Send Reply"
@@ -355,8 +359,9 @@
       "birthdatePlaceholder": "Select your birth date",
       "gender": "Gender",
       "genderNone": "Not Selected",
-      "genderMale": "Male",
-      "genderFemale": "Female",
+      "genderWoman": "Woman",
+      "genderMan": "Man",
+      "genderOther": "Other",
       "website": "Website",
       "websitePlaceholder": "Enter your website URL",
       "linkedin": "LinkedIn",
@@ -409,5 +414,219 @@
   },
   "common": {
     "loading": "Sending..."
+  },
+  "auth": {
+    "pageTitle": "Authentication Forms - Niafam",
+    "submitLink": "Submit",
+    "loginLink": "Login",
+    "demo": {
+      "siteTitle": "Niafam Demo",
+      "userName": "John Doe",
+      "userFullName": "John Doe",
+      "userEmail": "john.doe@example.com"
+    },
+    "userDropdown": {
+      "viewProfile": "View Profile",
+      "editProfile": "Edit Profile",
+      "logout": "Logout"
+    },
+    "nav": {
+      "login": "Login",
+      "otp": "OTP Login",
+      "register": "Register",
+      "recovery": "Password Recovery",
+      "success": "Success",
+      "twoFactor": "2FA Confirm"
+    },
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "usernamePlaceholder": "Enter your username",
+      "passwordPlaceholder": "Enter your password",
+      "submitButton": "Login"
+    },
+    "register": {
+      "title": "Register",
+      "confirmTitle": "Registration Confirmation",
+      "confirmCodeLabel": "Enter the code sent to you",
+      "confirmCodePlaceholder": "5-digit code",
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "First Name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Last Name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email Address",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "Phone Number",
+      "nationalCodeLabel": "National Code",
+      "nationalCodePlaceholder": "National Code",
+      "genderLabel": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "Username",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Password",
+      "passwordValidation": "Password must contain uppercase, lowercase, and number",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm Password",
+      "passwordMatchValidation": "Passwords must match",
+      "submitButton": "Register"
+    },
+    "recovery": {
+      "title": "Password Recovery",
+      "message": "Enter your username and email/phone to recover your password",
+      "linkText": "Forgot Password?",
+      "submitButton": "Recover Password",
+      "emailPhoneLabel": "Email or Phone Number",
+      "emailPhonePlaceholder": "Enter email or phone number",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "Enter your username"
+    },
+    "otp": {
+      "title": "Enter Confirmation Code",
+      "confirmLabel": "Enter the code sent to you",
+      "codePlaceholder": "6-digit code",
+      "resendTimer": "Resend code in {seconds} seconds",
+      "resendButton": "Resend Code"
+    },
+    "success": {
+      "title": "Success!",
+      "subtitle": "Operation Completed Successfully",
+      "message": "Your request has been processed successfully",
+      "backToLogin": "Back to Login"
+    },
+    "captcha": {
+      "label": "Security Code",
+      "placeholder": "Enter security code",
+      "refresh": "Refresh"
+    },
+    "common": {
+      "submitButton": "Submit",
+      "signinLink": "Sign In",
+      "signupLink": "Sign Up"
+    },
+    "twoFactor": {
+      "title": "Two-Factor Authentication",
+      "confirmTitle": "Enter Confirmation Code",
+      "description": "We've sent a verification code to your registered device. Please enter it below to continue.",
+      "codeLabel": "Verification Code",
+      "codePlaceholder": "Enter 6-digit code",
+      "codeExpiresIn": "Code expires in",
+      "error": "Invalid code. Please try again.",
+      "resendCode": "Resend Code",
+      "submit": "Verify & Continue",
+      "notYou": "Not you?",
+      "logout": "Logout"
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Invalid email format",
+      "invalidPhone": "Invalid phone number",
+      "weakPassword": "Password must contain uppercase, lowercase, and number",
+      "passwordMismatch": "Passwords do not match",
+      "invalidUsername": "Username must be 3-20 characters (letters, numbers, underscore)",
+      "invalidOTP": "Code must be 6 digits",
+      "fixErrors": "Please fix the form errors"
+    }
+  },
+  "general": {
+    "404": {
+      "number": "404",
+      "heading": "Page Not Found",
+      "message": "Sorry, the page you are looking for doesn't exist or may have been removed.",
+      "button": "Go to Homepage"
+    },
+    "404Creative": {
+      "pageTitle": "Page Not Found",
+      "heading": "Page Not Found!",
+      "message": "Unfortunately, the page you are looking for does not exist or may have been removed.",
+      "searchPlaceholder": "Search ...",
+      "searchButton": "Search",
+      "searchAction": "/search",
+      "quickLinksTitle": "Or you can try these:",
+      "homeLink": "Home",
+      "aboutLink": "About Us",
+      "profileLink": "Profile",
+      "supportLink": "Support",
+      "homeButton": "Go to Homepage",
+      "portalLink": "Esprit Portal"
+    }
+  },
+  "contentsList": {
+    "pageTitle": "Contents List - Niafam",
+    "breadcrumb": "Contents List",
+    "title": "Contents List",
+    "description": "View all news, articles, videos, and audio content",
+    "categoryText": "Medical University",
+    "categoryImage": "Photo Report",
+    "categoryVideo": "Video Report",
+    "categoryAudio": "Specialized Podcast",
+    "readTime": "min read",
+    "featured": "Featured",
+    "loadMore": "Load More Content"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "content": "Content"
+  },
+  "searchResults": {
+    "pageTitle": "Search Results - Niafam",
+    "title": "Search Results",
+    "breadcrumbHome": "Home",
+    "breadcrumbSearch": "Search",
+    "resultCount": "{{count}} results found",
+    "resultCountSingular": "1 result found",
+    "noResults": "No results found",
+    "categoryText": "Article",
+    "categoryImage": "Gallery",
+    "categoryVideo": "Video",
+    "categoryAudio": "Podcast",
+    "filterOr": "OR",
+    "filterAnd": "AND",
+    "filterPhrase": "Exact phrase",
+    "searchPlaceholder": "Search...",
+    "searchButton": "Search"
+  },
+  "gallery": {
+    "pageTitle": "Gallery - Niafam",
+    "breadcrumb": "Gallery",
+    "images": {
+      "title": "Images"
+    },
+    "videos": {
+      "title": "Videos"
+    },
+    "sounds": {
+      "title": "Audios"
+    },
+    "imageGalleries": "Image Galleries",
+    "relatedGalleries": "Related Galleries",
+    "archive": "Gallery Archive"
+  },
+  "galleryCategories": {
+    "pageTitle": "Gallery Categories - Niafam",
+    "breadcrumb": "Gallery Categories",
+    "title": "Gallery Categories",
+    "description": "Browse photo, video and audio galleries of Tehran University of Medical Sciences by topic",
+    "galleryCount": "Galleries"
+  },
+  "generalSubcategories": {
+    "pageTitle": "General Subcategories - Niafam",
+    "breadcrumb": "General Subcategories",
+    "title": "General Subcategories",
+    "description": "Quick access to different sections of the management system",
+    "items": {
+      "settings": "Base Settings",
+      "documents": "Documents",
+      "users": "User Management",
+      "notifications": "Notifications",
+      "analytics": "Statistics and Reports",
+      "security": "Security"
+    }
+  },
+  "routes": {
+    "editProfile": "/edit-profile"
   }
 }

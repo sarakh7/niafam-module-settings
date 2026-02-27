@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="gallery.pageTitle">گالری - Niafam</title>
+    <link rel="icon" href="/assets/img/niafam-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "niafam";
+        src: url("/assets/fonts/niafam.woff?ahg0bg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Black.woff");
+        font-weight: 900;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-DemiBold.woff");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: dana;
+        src: url("/assets/fonts/DanaFaNum-ExtraBold.woff");
+        font-weight: 800;
+        font-display: swap;
+      }
+
+      /* en font */
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Regular.woff");
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Bold.woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("/assets/fonts/Roboto-Medium.woff");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      body {
+        font-size: 16px;
+        font-family: dana;
+      }
+
+      body[dir="ltr"] {
+        font-family: Roboto;
+      }
+      ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        margin: 0;
+      }
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+      }
+      ul.breadcrumb li a {
+        color: #000;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      ul.breadcrumb li + li:before {
+        padding: 0;
+        color: #000;
+        content: "/ ";
+      }
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+    </style>
+
+    <!-- Settings Configuration (Dynamic Settings Only) -->
+    <script>
+      window.NIAFAM_MODULE_SETTINGS = {
+        // Layout breakpoints (dynamic - can be customized per deployment)
+        layout: {
+          mobileContentMax: 955,
+        },
+
+        // Social share enable/disable flags (dynamic)
+        socialShare: {
+          enabled: true,
+          platforms: {
+            facebook: { enabled: true },
+            twitter: { enabled: true },
+            telegram: { enabled: true },
+            whatsapp: { enabled: true },
+            linkedin: { enabled: false },
+            email: { enabled: false },
+          },
+        },
+
+        // Reading mode default theme (dynamic)
+        readingMode: {
+          defaultTheme: "yellow",
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+    <header class="header">
+      <img class="vector" src="/assets/img/niafam-logo.png" alt="Niafam Logo" width="148" height="60" />
+      <nav class="auto-layout">
+        <a href="#" class="text-wrapper" data-i18n="nav.contactUs">تماس با ما</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.organizationalPortal">پورتال سازمانی</a>
+        <a href="#" class="text-wrapper" data-i18n="nav.aboutUs">درباره نیافام</a>
+        <a href="#" class="style-filled"><span class="do-something" data-i18n="nav.login">ورود کاربران</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-content-wrapper">
+        <div class="page-content-breadcrumb">
+          <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+              <a itemprop="item" href="/">
+                <span itemprop="name" data-i18n="breadcrumb.home">صفحه اصلی</span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+              <a itemprop="item" href="/gallery.html">
+                <span itemprop="name" data-i18n="gallery.breadcrumb">گالری</span>
+              </a>
+              <meta itemprop="position" content="2" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="gallery-page-main">
+          <!-- Gallery Header -->
+          <header class="gallery-header">
+            <h1 class="gallery-header__title">گالری رویداد علمی دانشگاه علوم پزشکی تهران</h1>
+            <p class="gallery-header__description">
+              مجموعه تصاویر، ویدئوها و صوت‌های مربوط به نشست هیئت‌رئیسه دانشگاه علوم پزشکی تهران که در تاریخ 27 آبان 1403 برگزار شد. این گالری شامل لحظات مهم جلسه، گزارش پیشرفت برنامه‌های ویژه سالگرد و بررسی راهکارهای بهبود دسترسی معاونت‌ها است.
+            </p>
+          </header>
+
+          <!-- Gallery Metadata -->
+          <div class="gallery-metadata">
+            <div class="gallery-metadata__item">
+              <i class="es esprit-fi-rr-calendar"></i>
+              <span class="gallery-metadata__label" data-i18n="metadata.lastUpdateDate">تاریخ آخرین بروزرسانی:</span>
+              <span class="gallery-metadata__value">1403/10/01</span>
+            </div>
+            <div class="gallery-metadata__item">
+              <i class="es esprit-fi-rr-clock"></i>
+              <span class="gallery-metadata__label" data-i18n="metadata.lastUpdateTime">ساعت بروزرسانی:</span>
+              <span class="gallery-metadata__value">14:25</span>
+            </div>
+            <div class="gallery-metadata__item">
+              <i class="es esprit-fi-rr-user"></i>
+              <span class="gallery-metadata__label" data-i18n="metadata.contentProducer">تولید محتوا:</span>
+              <span class="gallery-metadata__value">سینا رسانه - دانشگاه علوم پزشکی تهران</span>
+            </div>
+          </div>
+
+          <!-- Images Section -->
+          <section id="gallery-section-images" class="gallery-section">
+            <h2 class="gallery-section__title" data-i18n="gallery.images.title">تصاویر</h2>
+
+            <div id="gallery-loader" class="gallery-loader">
+              <div class="spinner"></div>
+            </div>
+
+            <div class="esprit-article__gallery" id="gallery-images">
+              <a href="/assets/img/img-09.jpg" class="esprit-article__gallery-item">
+                <i class="es esprit-fi-rr-zoom-in esprit-article__gallery-icon"></i>
+                <img class="esprit-article__gallery-image" src="/assets/img/img-09.jpg" alt="Conference participants in discussion at meeting table" loading="lazy" />
+                <span class="esprit-article__gallery-caption">عنوان تصویر اول</span>
+              </a>
+              <a href="/assets/img/img-10.jpg" class="esprit-article__gallery-item">
+                <i class="es esprit-fi-rr-zoom-in esprit-article__gallery-icon"></i>
+                <img class="esprit-article__gallery-image" src="/assets/img/img-10.jpg" alt="Three participants reviewing documents at conference" loading="lazy" />
+                <span class="esprit-article__gallery-caption">عنوان تصویر دوم</span>
+              </a>
+              <a href="/assets/img/img-11.jpg" class="esprit-article__gallery-item">
+                <i class="es esprit-fi-rr-zoom-in esprit-article__gallery-icon"></i>
+                <img class="esprit-article__gallery-image" src="/assets/img/img-11.jpg" alt="Conference attendees seated at meeting table" loading="lazy" />
+              </a>
+              <a href="/assets/img/img-12.jpg" class="esprit-article__gallery-item">
+                <i class="es esprit-fi-rr-zoom-in esprit-article__gallery-icon"></i>
+                <img class="esprit-article__gallery-image" src="/assets/img/img-12.jpg" alt="Group discussion during conference meeting" loading="lazy" />
+              </a>
+              <a href="/assets/img/nature-1.jpg" class="esprit-article__gallery-item">
+                <i class="es esprit-fi-rr-zoom-in esprit-article__gallery-icon"></i>
+                <img class="esprit-article__gallery-image" src="/assets/img/nature-1.jpg" alt="Group discussion during conference meeting" loading="lazy" />
+              </a>
+              <a href="/assets/img/img-13.jpg" class="esprit-article__gallery-item">
+                <i class="es esprit-fi-rr-zoom-in esprit-article__gallery-icon"></i>
+                <img class="esprit-article__gallery-image" src="/assets/img/img-13.jpg" alt="Participants taking notes during meeting" loading="lazy" />
+              </a>
+              <a href="/assets/img/img-14.jpg" class="esprit-article__gallery-item">
+                <i class="es esprit-fi-rr-zoom-in esprit-article__gallery-icon"></i>
+                <img class="esprit-article__gallery-image" src="/assets/img/img-14.jpg" alt="Two attendees reviewing documents" loading="lazy" />
+              </a>
+              <a href="/assets/img/nature-2.jpg" class="esprit-article__gallery-item">
+                <i class="es esprit-fi-rr-zoom-in esprit-article__gallery-icon"></i>
+                <img class="esprit-article__gallery-image" src="/assets/img/nature-2.jpg" alt="Two attendees reviewing documents" loading="lazy" />
+              </a>
+            </div>
+          </section>
+
+          <!-- Videos Section -->
+          <section id="gallery-section-videos" class="gallery-section">
+            <h2 class="gallery-section__title" data-i18n="gallery.videos.title">ویدئوها</h2>
+
+            <!-- Video player -->
+            <div class="esprit-article__video-player accessible-keep">
+              <div class="video-player__container">
+                <video id="gallery-video" class="video-player__video" controls>
+                  <source src="" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <!-- Video playlist -->
+            <div class="esprit-article__video-list">
+              <div class="video-list__container">
+                <div class="video-list__scroll">
+                  <div class="video-list__item gallery-video-item" data-video-src="/assets/video/1 Minute Sample Video 2.mp4">
+                    <div class="video-list__img">
+                      <i class="es esprit-fi-rr-play"></i>
+                      <img src="/assets/img/video-placeholder.svg" alt="ویدئو ارتقای زیرساخت‌های بهداشت و درمان" class="video-list__thumbnail" width="110" height="73" />
+                    </div>
+                    <div class="video-list__caption">
+                      <div class="video-list__subtitle">
+                        <i class="es esprit-fi-rr-video-camera"></i>
+                        <span data-i18n="article.video">ویدئو</span>
+                      </div>
+                      <div class="video-list__title">ارتقای زیرساخت‌های بهداشت و درمان: اولویت‌های دانشگاه علوم پزشکی تهران</div>
+                    </div>
+                  </div>
+                  <div class="video-list__item gallery-video-item" data-video-src="/assets/video/06a6655199a0aa8e6f936a42249242fe26909895-360p.mp4">
+                    <div class="video-list__img">
+                      <i class="es esprit-fi-rr-play"></i>
+                      <img src="" alt="ویدئو ارتقای زیرساخت‌های بهداشت و درمان" class="video-list__thumbnail" width="110" height="73" />
+                    </div>
+                    <div class="video-list__caption">
+                      <div class="video-list__subtitle">
+                        <i class="es esprit-fi-rr-video-camera"></i>
+                        <span data-i18n="article.video">ویدئو</span>
+                      </div>
+                      <div class="video-list__title">ارتقای زیرساخت‌های بهداشت و درمان: اولویت‌های دانشگاه علوم پزشکی تهران</div>
+                    </div>
+                  </div>
+                  <div class="video-list__item gallery-video-item" data-video-src="/assets/video/6 AM.mp4">
+                    <div class="video-list__img">
+                      <i class="es esprit-fi-rr-play"></i>
+                      <img src="/assets/img/video-thumb-2.jpg" alt="ویدئو گفت‌وگو با دکتر رئیس کرمی" class="video-list__thumbnail" width="110" height="73" />
+                    </div>
+                    <div class="video-list__caption">
+                      <div class="video-list__subtitle">
+                        <i class="es esprit-fi-rr-video-camera"></i>
+                        <span data-i18n="article.video">ویدئو</span>
+                      </div>
+                      <div class="video-list__title">گفت‌وگو با دکتر رئیس کرمی: برنامه‌ریزی جامع برای آینده دانشگاه علوم پزشکی تهران</div>
+                    </div>
+                  </div>
+                  <div class="video-list__item gallery-video-item" data-video-src="/assets/video/1 Minute Sample Video 2.mp4">
+                    <div class="video-list__img">
+                      <i class="es esprit-fi-rr-play"></i>
+                      <img src="/assets/img/video-thumb-1.jpg" alt="ویدئو ارتقای زیرساخت‌های بهداشت و درمان" class="video-list__thumbnail" width="110" height="73" />
+                    </div>
+                    <div class="video-list__caption">
+                      <div class="video-list__subtitle">
+                        <i class="es esprit-fi-rr-video-camera"></i>
+                        <span data-i18n="article.video">ویدئو</span>
+                      </div>
+                      <div class="video-list__title">ارتقای زیرساخت‌های بهداشت و درمان: اولویت‌های دانشگاه علوم پزشکی تهران</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Sounds Section -->
+          <section id="gallery-section-sounds" class="gallery-section">
+            <h2 class="gallery-section__title" data-i18n="gallery.sounds.title">صوت‌ها</h2>
+
+            <div class="esprit-article__sounds-container">
+              <!-- Audio player -->
+              <div class="esprit-article__sound-player">
+                <div class="sound-player__container accessible-keep">
+                  <audio id="gallery-audio" class="sound-player__audio" controls>
+                    <source src="" type="audio/mp3" />
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              </div>
+
+              <!-- Audio playlist -->
+              <div class="esprit-article__sound-list">
+                <div class="sound-list__container">
+                  <div class="sound-list__scroll">
+                    <div class="sound-list__item gallery-sound-item" data-audio-src="/assets/sounds/06 For The Fallen.mp3">
+                      <i class="es esprit-fi-rr-microphone"></i>
+                      <div class="sound-list__title">برگزاری باشکوه سالگرد دانشگاه علوم پزشکی تهران: تأکید بر همدلی و مشارکت جمعی</div>
+                    </div>
+                    <div class="sound-list__item gallery-sound-item" data-audio-src="/assets/sounds/11 Midnight Thoughts.mp3">
+                      <i class="es esprit-fi-rr-microphone"></i>
+                      <div class="sound-list__title">تحول در درمان سرطان: راه‌اندازی بیمارستان جدید انستیتو کانسر</div>
+                    </div>
+                    <div class="sound-list__item gallery-sound-item" data-audio-src="/assets/sounds/11 Midnight Thoughts.mp3">
+                      <i class="es esprit-fi-rr-microphone"></i>
+                      <div class="sound-list__title">دانشگاه علوم پزشکی تهران در رتبه‌بندی شانگهای: موفقیت‌های چشمگیر در حوزه‌های پزشکی</div>
+                    </div>
+                    <div class="sound-list__item gallery-sound-item" data-audio-src="/assets/sounds/11 Midnight Thoughts.mp3">
+                      <i class="es esprit-fi-rr-microphone"></i>
+                      <div class="sound-list__title">گفت‌وگو با دکتر رئیس کرمی: برنامه‌ریزی جامع برای آینده دانشگاه علوم پزشکی تهران</div>
+                    </div>
+                    <div class="sound-list__item gallery-sound-item" data-audio-src="/assets/sounds/11 Midnight Thoughts.mp3">
+                      <i class="es esprit-fi-rr-microphone"></i>
+                      <div class="sound-list__title">ارتقای زیرساخت‌های بهداشت و درمان: اولویت‌های دانشگاه علوم پزشکی تهران</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Galleries Section -->
+          <section id="gallery-related-galleries" class="esprit-article__section esprit-article__related-news">
+            <h2 class="gallery-section__title" data-i18n="gallery.relatedGalleries">گالری‌های مرتبط</h2>
+            <div class="article-related-news__inner">
+              <!-- بخش گالری‌های تصویری -->
+              <div class="esprit-article__news-section">
+                <div class="esprit-article__news-list">
+                  <article class="esprit-article__news-item esprit-article__news-item--image">
+                    <a href="#" class="esprit-article__news-link">
+                      <div class="esprit-article__news-content">
+                        <div class="esprit-article__news-image-wrapper">
+                          <img class="esprit-article__news-image" src="/assets/img/related-text-thumb-1.jpg" alt="گالری نشست هیئت رئیسه" loading="lazy" />
+                          <i class="es esprit-fi-rr-picture esprit-article__news-icon esprit-article__news-icon--image"></i>
+                        </div>
+                        <div class="esprit-article__news-caption">
+                          <span class="esprit-article__news-short-title">نشست هیئت رئیسه</span>
+                          <h3 class="esprit-article__news-headline">گالری نشست هیئت رئیسه - مهر 1403</h3>
+                          <p class="esprit-article__news-description">تصاویر نشست هیئت رئیسه دانشگاه علوم پزشکی تهران در مهر ماه 1403</p>
+                          <time class="esprit-article__news-date">۱۴۰۳/۰۷/۱۵</time>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                  <article class="esprit-article__news-item esprit-article__news-item--image">
+                    <a href="#" class="esprit-article__news-link">
+                      <div class="esprit-article__news-content">
+                        <div class="esprit-article__news-image-wrapper">
+                          <img class="esprit-article__news-image" src="/assets/img/related-picture-thumb-1.jpg" alt="گالری افتتاح بیمارستان" loading="lazy" />
+                          <i class="es esprit-fi-rr-picture esprit-article__news-icon esprit-article__news-icon--image"></i>
+                        </div>
+                        <div class="esprit-article__news-caption">
+                          <span class="esprit-article__news-short-title">افتتاح بیمارستان</span>
+                          <h3 class="esprit-article__news-headline">گالری افتتاح بیمارستان جدید انستیتو کانسر</h3>
+                          <p class="esprit-article__news-description">تصاویر مراسم افتتاح بیمارستان جدید با حضور مسئولان دانشگاه</p>
+                          <time class="esprit-article__news-date">۱۴۰۳/۰۶/۲۰</time>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                  <article class="esprit-article__news-item esprit-article__news-item--image">
+                    <a href="#" class="esprit-article__news-link">
+                      <div class="esprit-article__news-content">
+                        <div class="esprit-article__news-image-wrapper">
+                          <img class="esprit-article__news-image" src="/assets/img/related-text-thumb-2.jpg" alt="گالری همایش علمی" loading="lazy" />
+                          <i class="es esprit-fi-rr-picture esprit-article__news-icon esprit-article__news-icon--image"></i>
+                        </div>
+                        <div class="esprit-article__news-caption">
+                          <span class="esprit-article__news-short-title">همایش علمی</span>
+                          <h3 class="esprit-article__news-headline">گالری همایش علمی پزشکی</h3>
+                          <p class="esprit-article__news-description">تصاویر همایش ملی پیشرفت‌های علوم پزشکی برگزار شده در دانشگاه</p>
+                          <time class="esprit-article__news-date">۱۴۰۳/۰۵/۱۰</time>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Short Link Section -->
+          <div id="esprit-article-shortlink-wrapper" class="esprit-article-shortlink">
+            <!-- Right side - Short link -->
+            <input id="shorturlitem" type="hidden" value="https://niafam.com/gallery" class="" />
+            <div id="copy-shorturl-btn" class="esprit-article-shortlink__link-container" role="button" tabindex="0" data-i18n="[aria-label]tools.shortlink.copy">
+              <span id="shortur-alert" class="esprit-article-shortlink__alert accessible-hidden" data-i18n="tools.shortlink.copied">کپی شد!</span>
+              <span class="esprit-article-shortlink__link-icon">
+                <i class="es esprit-fi-rr-copy"></i>
+              </span>
+              <span class="esprit-article-shortlink__text" data-i18n="tools.shortlink.copy">کپی لینک</span>
+            </div>
+
+            <!-- Gallery Navigation List -->
+            <div class="gallery-navigation">
+              <a href="#" class="gallery-navigation__item">
+                <i class="es esprit-fi-rr-arrow-left"></i>
+                <span data-i18n="gallery.archive">آرشیو گالری</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="/src/gallery-main.js"></script>
+  </body>
+</html>

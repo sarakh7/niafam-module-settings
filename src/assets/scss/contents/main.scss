@@ -16,6 +16,7 @@
 @use '../common/components/modal';
 @use '../common/components/form';
 @use '../common/components/toast';
+@use '../common/components/pagination';
 
 // Import news-specific components
 @use './components/article';

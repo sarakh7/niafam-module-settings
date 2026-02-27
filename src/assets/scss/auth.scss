@@ -1,0 +1,24 @@
+/**
+ * Authentication Module Styles
+ * Main SCSS file for authentication forms
+ */
+
+// Import common base styles
+@use './common/base/variables' as *;
+@use './common/base/mixins';
+@use './common/base/colors' as *;
+@use './common/esfonticon/style';
+@use './common/components/form';
+@use './common/components/section-title';
+@use './common/components/user-dropdown';
+@use './common/components/pagination';
+
+// Import auth-specific component styles
+@use './auth/nav';
+@use './auth/components';
+@use './auth/password';
+@use './auth/otp';
+@use './auth/success';
+@use './auth/two-factor';
+@use './auth/common';
+@use './auth/alerts';

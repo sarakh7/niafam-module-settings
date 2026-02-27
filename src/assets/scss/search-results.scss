@@ -1,0 +1,14 @@
+/**
+ * Search Results Page Styles
+ * Main SCSS file for search-results page
+ */
+
+// Import common base styles
+@use './common/base/variables' as *;
+@use './common/base/mixins';
+@use './common/base/colors' as *;
+@use './common/esfonticon/style';
+@use './common/components/pagination';
+
+// Import search results specific styles
+@use './search/searchResults';

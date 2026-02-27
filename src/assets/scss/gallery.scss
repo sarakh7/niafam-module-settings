@@ -1,0 +1,24 @@
+/**
+ * Gallery Page Styles
+ * Main SCSS entry for gallery module
+ */
+
+// Import common base styles
+@use './common/base/variables' as *;
+@use './common/base/mixins';
+@use './common/base/colors' as *;
+@use './common/esfonticon/style';
+
+// Import common components
+@use './common/components/pagination';
+
+// Reuse existing components (from index.html)
+@use './common/components/gallery';
+@use './contents/components/videoList';
+@use './contents/components/soundList';
+@use './contents/components/shortLink';
+@use './contents/components/relatedNews';
+
+// Gallery page specific styles
+@use './gallery/container';
+@use './gallery/sections';

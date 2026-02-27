@@ -1,0 +1,93 @@
+/**
+ * OTP Form Styles
+ * Multi-step OTP login with step indicators
+ */
+
+@use '../common/base/globals' as *;
+
+// Step indicators
+.auth-otp__steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  margin-bottom: $spacing-5;
+}
+
+.auth-otp__step {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $gray-200;
+  color: $gray-500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: $text-semi-bold;
+  font-size: 0.9rem;
+  transition: $transition;
+
+  &--active {
+    background: $blue-gray-600;
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba($blue-gray-600, 0.2);
+  }
+
+  &--completed {
+    background: $success;
+    color: #fff;
+
+    &::after {
+      content: '✓';
+    }
+  }
+}
+
+.auth-otp__step-divider {
+  width: 40px;
+  height: 2px;
+  background: $gray-200;
+}
+
+// OTP code input styling
+.auth-otp-code-input {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  font-weight: $text-semi-bold;
+}
+
+// Resend timer
+.auth-resend-timer {
+  text-align: center;
+  margin: $spacing-3 0;
+  min-height: 24px;
+
+  span {
+    color: $gray-600;
+    font-size: 0.9rem;
+  }
+
+  .auth-link {
+    display: inline-block;
+    padding: $spacing-1 $spacing-2;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .auth-otp__step {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .auth-otp__step-divider {
+    width: 30px;
+  }
+
+  .auth-otp-code-input {
+    font-size: 1.25rem;
+    letter-spacing: 0.3rem;
+  }
+}

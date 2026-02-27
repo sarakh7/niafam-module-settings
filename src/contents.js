@@ -1,10 +1,4 @@
 import { initGallery } from "./features/common/gallery";
-import {
-  initAudioPlayer,
-  initReadingModeTts,
-  initTts,
-  initVideoPlayer,
-} from "./features/common/mediaPlayer";
 import { initAccessibilityActions } from "./features/contents/accessibility";
 import { initScrollNav } from "./utils/scrollNav";
 import { initCopyShortUrl } from "./features/common/copyShortUrl";
@@ -17,7 +11,8 @@ import { initI18n } from "./config/i18n";
 import { initLocalization } from "./utils/i18n-localizer";
 import { initTtsVisibility, initReadingModeTtsVisibility } from "./features/contents/ttsManager";
 import { initRelatedContent } from "./features/contents/relatedContent";
-import { loadSettingsFromFile } from "./config/settings";
+import { initRelatedNews } from "./features/contents/relatedNews";
+import { loadSettingsFromFile, getDirectionFromHTML } from "./config/settings";
 import { initCommentReplyToggle } from "./features/contents/commentReplyToggle";
 import { initTtsAutoLoader } from "./features/contents/ttsAutoLoader";
 import { initArticleMetadata } from "./features/contents/articleMetadata";
@@ -72,6 +67,12 @@ async function initializeApp() {
 
     // CRITICAL: Initialize i18n SECOND
     await initI18n();
+
+    // Auto-detect and set direction if not already set in HTML
+    if (!document.documentElement.dir) {
+      document.documentElement.dir = getDirectionFromHTML();
+    }
+
     // console.log("i18n initialized successfully");
     initLocalization();
 
@@ -86,14 +87,28 @@ async function initializeApp() {
       initGallery();
     }
 
-    // Initialize video player - only if videos section exists
-    if (document.getElementById("article-videos") || document.getElementById("main-video")) {
-      initVideoPlayer();
+    // === Media Player (dynamic import — only loads on pages with media elements) ===
+
+    // 1. Auto-load TTS files FIRST (sets audio src before visibility check)
+    if (document.getElementById("tts-container")) {
+      initTtsAutoLoader();
     }
 
-    // Initialize audio player - only if sounds section exists
-    if (document.getElementById("article-sounds") || document.getElementById("main-audio")) {
-      initAudioPlayer();
+    // 2. Determine which player features are needed
+    const hasVideo    = !!(document.getElementById("article-videos") || document.getElementById("main-video"));
+    const hasAudio    = !!(document.getElementById("article-sounds") || document.getElementById("main-audio"));
+    const hasTts      = !!(document.getElementById("tts-container") && initTtsVisibility());
+    const hasReadMode = !!(document.getElementById("modal-reading-mode") && initReadingModeTtsVisibility());
+
+    // 3. Only download Plyr/mediaPlayer if at least one media element exists
+    if (hasVideo || hasAudio || hasTts || hasReadMode) {
+      const { initVideoPlayer, initAudioPlayer, initTts, initReadingModeTts } =
+        await import("./features/common/mediaPlayer");
+
+      if (hasVideo)    initVideoPlayer();
+      if (hasAudio)    initAudioPlayer();
+      if (hasTts)      initTts();
+      if (hasReadMode) initReadingModeTts();
     }
 
     // Initialize accessibility controls - only if controls container exists
@@ -103,6 +118,7 @@ async function initializeApp() {
 
     // Initialize related content - only if related news section exists
     if (document.getElementById("article-related-news") || document.querySelector(".esprit-article__related-news")) {
+      initRelatedNews();
       initRelatedContent();
       initScrollNav("related-content-list");
     }
@@ -125,22 +141,6 @@ async function initializeApp() {
     // Initialize share links - only if share container exists
     if (document.getElementById("es-article-share") || document.getElementById("esprit-article-tools-share")) {
       setShareLinks("");
-    }
-
-    // Auto-load generated TTS files into both players BEFORE initializing
-    // Only if TTS container exists
-    if (document.getElementById("tts-container")) {
-      initTtsAutoLoader();
-    }
-
-    // Check TTS visibility and initialize players
-    if (document.getElementById("tts-container") && initTtsVisibility()) {
-      initTts();
-    }
-
-    // Initialize reading mode TTS - only if modal exists
-    if (document.getElementById("modal-reading-mode") && initReadingModeTtsVisibility()) {
-      initReadingModeTts();
     }
 
     // Initialize sticky sidebar - only if sidebar exists

@@ -1,0 +1,15 @@
+/**
+ * 404 Not Found Page Styles
+ * Main SCSS file for 404 error page module (creative variant)
+ */
+
+// Import common base styles
+@use './common/base/variables' as *;
+@use './common/base/mixins';
+@use './common/base/colors' as *;
+@use './common/esfonticon/style';
+@use './common/components/form';
+@use './common/components/pagination';
+
+// Import 404-specific styles (creative variant)
+@use './404/not-found-creative';

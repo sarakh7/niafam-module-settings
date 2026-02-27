@@ -1,12 +1,122 @@
 @use '../base/globals' as *;
 @use 'sass:color';
 
+// RESET 
+.col-lg-1,
+.col-md-1,
+.col-sm-1,
+.col-xl-1,
+.es-col,
+.es-col-1,
+.es-col-10,
+.es-col-11,
+.es-col-12,
+.es-col-2,
+.es-col-3,
+.es-col-4,
+.es-col-5,
+.es-col-6,
+.es-col-7,
+.es-col-8,
+.es-col-9,
+.es-col-auto,
+.es-col-lg,
+.es-col-lg-10,
+.es-col-lg-11,
+.es-col-lg-12,
+.es-col-lg-2,
+.es-col-lg-3,
+.es-col-lg-4,
+.es-col-lg-5,
+.es-col-lg-6,
+.es-col-lg-7,
+.es-col-lg-8,
+.es-col-lg-9,
+.es-col-lg-auto,
+.es-col-md,
+.es-col-md-10,
+.es-col-md-11,
+.es-col-md-12,
+.es-col-md-2,
+.es-col-md-3,
+.es-col-md-4,
+.es-col-md-5,
+.es-col-md-6,
+.es-col-md-7,
+.es-col-md-8,
+.es-col-md-9,
+.es-col-md-auto,
+.es-col-sm,
+.es-col-sm-10,
+.es-col-sm-11,
+.es-col-sm-12,
+.es-col-sm-2,
+.es-col-sm-3,
+.es-col-sm-4,
+.es-col-sm-5,
+.es-col-sm-6,
+.es-col-sm-7,
+.es-col-sm-8,
+.es-col-sm-9,
+.es-col-sm-auto,
+.es-col-xl,
+.es-col-xl-10,
+.es-col-xl-11,
+.es-col-xl-12,
+.es-col-xl-2,
+.es-col-xl-3,
+.es-col-xl-4,
+.es-col-xl-5,
+.es-col-xl-6,
+.es-col-xl-7,
+.es-col-xl-8,
+.es-col-xl-9,
+.es-col-xl-auto {
+    width: unset;
+    padding-inline-start: unset;
+    padding-inline-end: unset;
+}
+
+.es-col-6 {
+    flex: unset;
+    max-width: unset;
+}
+
+.es-dir-ltr {
+    direction: unset;
+    text-align: unset;
+}
+
+.es-input-group {
+    position: unset;
+    width: unset;
+    flex-wrap: unset;
+}
+
+.es-btn-primary {
+    color: unset;
+}
+
+.es-btn {
+    font-weight: unset;
+    white-space: unset;
+    vertical-align: unset;
+    -webkit-user-select: unset;
+    -moz-user-select: unset;
+    user-select: unset;
+
+    &:hover {
+        color: unset;
+    }
+}
+
 // 🎨 Variables
 $border-radius: $radius-default;
 $border-color: $blue-gray-300;
 $focus-color: #0d6efd;
 $btn-success-bg: #28a745;
 $btn-danger-bg: #dc3545;
+$btn-warning-bg: #ffc107;
 $btn-text-color: #fff;
 $spacing: $spacing-2;
 
@@ -164,7 +274,7 @@ textarea:focus {
     color: #fff;
 
     &:hover {
-      background: $blue-gray-700;
+      background-color: color.adjust($blue-gray-600, $lightness: -5%);
     }
   }
 
@@ -183,6 +293,14 @@ textarea:focus {
 
     &:hover {
       background-color: color.adjust($btn-danger-bg, $lightness: -5%);
+    }
+  }
+  &.nes-btn-warning {
+    background-color: $btn-warning-bg;
+    color: $gray-900;
+
+    &:hover {
+      background-color: color.adjust($btn-warning-bg, $lightness: -5%);
     }
   }
 }

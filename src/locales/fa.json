@@ -165,7 +165,10 @@
     "videographers": "فیلمبرداران:",
     "editors": "تدوین‌گران:",
     "readingTime": "زمان مطالعه:",
-    "minutes": "دقیقه"
+    "minutes": "دقیقه",
+    "lastUpdateDate": "تاریخ آخرین بروزرسانی:",
+    "lastUpdateTime": "ساعت بروزرسانی:",
+    "contentProducer": "تولید محتوا:"
   },
   "modal": {
     "sendToFriend": {
@@ -233,6 +236,7 @@
       "attachedFile": "فایل ضمیمه شده"
     },
     "sections": {
+      "trackingForm": "پیگیری تیکت",
       "submittedInfo": "اطلاعات ارسال شده",
       "conversations": "گفتگوها",
       "sendReply": "ارسال پاسخ"
@@ -344,8 +348,9 @@
       "birthdatePlaceholder": "تاریخ تولد خود را انتخاب کنید",
       "gender": "جنسیت",
       "genderNone": "بدون انتخاب",
-      "genderMale": "مذکر",
-      "genderFemale": "مونث",
+      "genderWoman": "زن",
+      "genderMan": "مرد",
+      "genderOther": "سایر",
       "website": "وب سایت",
       "websitePlaceholder": "آدرس وب سایت خود را وارد کنید",
       "linkedin": "لینکدین",
@@ -398,5 +403,292 @@
   },
   "common": {
     "loading": "در حال ارسال..."
+  },
+  "auth": {
+    "pageTitle": "فرم‌های احراز هویت - نیافام",
+    "submitLink": "ثبت نام",
+    "loginLink": "ورود",
+    "nav": {
+      "login": "ورود",
+      "otp": "ورود با موبایل",
+      "register": "ثبت نام",
+      "recovery": "بازیابی رمز",
+      "success": "موفقیت",
+      "twoFactor": "تأیید دو مرحله‌ای"
+    },
+    "demo": {
+      "siteTitle": "دمو نیافام",
+      "userName": "جان دو",
+      "userFullName": "جان دو",
+      "userEmail": "john.doe@example.com"
+    },
+    "userDropdown": {
+      "viewProfile": "مشاهده پروفایل",
+      "editProfile": "ویرایش پروفایل",
+      "logout": "خروج"
+    },
+    "login": {
+      "title": "ورود به حساب کاربری",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری خود را وارد کنید",
+      "password": "رمز عبور",
+      "passwordPlaceholder": "رمز عبور خود را وارد کنید",
+      "submitButton": "ورود",
+      "submit": "ورود",
+      "submitting": "در حال ورود...",
+      "forgotPassword": "رمز عبور را فراموش کرده‌اید؟",
+      "signUp": "ثبت نام",
+      "noAccount": "حساب کاربری ندارید؟"
+    },
+    "otp": {
+      "title": "کد تأیید را وارد کنید",
+      "confirmLabel": "کد ارسال شده را وارد نمایید",
+      "codePlaceholder": "کد ۶ رقمی",
+      "resendTimer": "ارسال مجدد کد در {seconds} ثانیه",
+      "resendButton": "ارسال مجدد کد",
+      "step1Title": "شماره موبایل خود را وارد کنید",
+      "step2Title": "کد تأیید را وارد کنید",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری خود را وارد کنید",
+      "phone": "شماره موبایل",
+      "phonePlaceholder": "شماره موبایل خود را وارد کنید",
+      "sendCode": "ارسال کد تأیید",
+      "verificationCode": "کد تأیید ۶ رقمی",
+      "resendCode": "ارسال مجدد کد",
+      "resendIn": "ارسال مجدد در {{time}}",
+      "verifyCode": "تأیید و ورود",
+      "editPhone": "ویرایش شماره موبایل"
+    },
+    "register": {
+      "title": "ثبت نام",
+      "confirmTitle": "تایید ثبت نام",
+      "confirmCodeLabel": "کد ارسال شده را وارد نمایید",
+      "confirmCodePlaceholder": "کد 5 رقمی",
+      "firstNameLabel": "نام",
+      "firstNamePlaceholder": "نام",
+      "lastNameLabel": "نام خانوادگی",
+      "lastNamePlaceholder": "نام خانوادگی",
+      "emailLabel": "ایمیل",
+      "emailPlaceholder": "آدرس ایمیل",
+      "phoneLabel": "شماره موبایل",
+      "phonePlaceholder": "شماره موبایل",
+      "nationalCodeLabel": "کد ملی",
+      "nationalCodePlaceholder": "کد ملی",
+      "genderLabel": "جنسیت",
+      "male": "مرد",
+      "female": "زن",
+      "usernameLabel": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری",
+      "passwordLabel": "رمز عبور",
+      "passwordPlaceholder": "رمز عبور",
+      "passwordValidation": "رمز عبور باید شامل حروف بزرگ، کوچک و عدد باشد",
+      "confirmPasswordLabel": "تکرار رمز عبور",
+      "confirmPasswordPlaceholder": "تکرار رمز عبور",
+      "passwordMatchValidation": "رمزهای عبور مطابقت ندارند",
+      "submitButton": "ثبت نام"
+    },
+    "registration": {
+      "title": "ایجاد حساب کاربری جدید",
+      "firstName": "نام",
+      "firstNamePlaceholder": "نام خود را وارد کنید",
+      "lastName": "نام خانوادگی",
+      "lastNamePlaceholder": "نام خانوادگی خود را وارد کنید",
+      "email": "ایمیل",
+      "emailPlaceholder": "ایمیل خود را وارد کنید (اختیاری)",
+      "phone": "شماره موبایل",
+      "phonePlaceholder": "شماره موبایل خود را وارد کنید",
+      "nationalCode": "کد ملی",
+      "nationalCodePlaceholder": "کد ملی خود را وارد کنید (اختیاری)",
+      "gender": "جنسیت",
+      "male": "مرد",
+      "female": "زن",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری دلخواه را انتخاب کنید",
+      "password": "رمز عبور",
+      "passwordPlaceholder": "یک رمز عبور قوی انتخاب کنید",
+      "confirmPassword": "تکرار رمز عبور",
+      "confirmPasswordPlaceholder": "رمز عبور را مجدداً وارد کنید",
+      "submit": "ایجاد حساب کاربری",
+      "haveAccount": "قبلاً ثبت نام کرده‌اید؟",
+      "signIn": "ورود"
+    },
+    "recovery": {
+      "title": "بازیابی رمز عبور",
+      "message": "نام کاربری و ایمیل/شماره تماس خود را برای بازیابی رمز عبور وارد کنید",
+      "linkText": "رمز عبور را فراموش کرده‌اید؟",
+      "submitButton": "بازیابی رمز عبور",
+      "emailPhoneLabel": "ایمیل یا شماره تماس",
+      "emailPhonePlaceholder": "ایمیل یا شماره تماس را وارد کنید",
+      "usernameLabel": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری خود را وارد کنید"
+    },
+    "passwordReset": {
+      "title": "بازیابی رمز عبور",
+      "description": "ایمیل، شماره موبایل یا نام کاربری خود را برای دریافت کد بازیابی وارد کنید",
+      "emailPhoneUsername": "ایمیل، موبایل یا نام کاربری",
+      "identifierPlaceholder": "ایمیل، شماره موبایل یا نام کاربری",
+      "username": "نام کاربری",
+      "usernamePlaceholder": "نام کاربری خود را وارد کنید",
+      "submit": "ارسال کد بازیابی",
+      "backToLogin": "بازگشت به صفحه ورود"
+    },
+    "twoFactor": {
+      "title": "احراز هویت دو مرحله‌ای",
+      "confirmTitle": "کد تأیید را وارد کنید",
+      "description": "ما یک کد تأیید به دستگاه ثبت شده شما ارسال کرده‌ایم. لطفاً آن را در زیر وارد کنید.",
+      "codeLabel": "کد تأیید",
+      "codePlaceholder": "کد ۶ رقمی را وارد کنید",
+      "codeExpiresIn": "انقضای کد در",
+      "error": "کد نامعتبر است. لطفاً دوباره تلاش کنید.",
+      "resendCode": "ارسال مجدد کد",
+      "submit": "تأیید و ادامه",
+      "notYou": "شما نیستید؟",
+      "logout": "خروج"
+    },
+    "confirmation": {
+      "title": "تأیید حساب کاربری",
+      "enterCode": "کد ۶ رقمی را وارد کنید",
+      "submit": "تأیید",
+      "resendCode": "ارسال مجدد کد"
+    },
+    "success": {
+      "title": "موفقیت!",
+      "subtitle": "عملیات با موفقیت انجام شد",
+      "message": "درخواست شما با موفقیت انجام شد",
+      "backToLogin": "بازگشت به صفحه ورود",
+      "registrationComplete": "ثبت نام با موفقیت انجام شد"
+    },
+    "validation": {
+      "required": "این فیلد الزامی است",
+      "invalidEmail": "فرمت ایمیل معتبر نیست",
+      "invalidPhone": "شماره موبایل معتبر نیست",
+      "weakPassword": "رمز عبور باید شامل حروف بزرگ، کوچک و عدد باشد",
+      "passwordMismatch": "رمزهای عبور مطابقت ندارند",
+      "invalidUsername": "نام کاربری باید ۳ تا ۲۰ کاراکتر (حروف، اعداد و زیرخط) باشد",
+      "invalidOTP": "کد باید ۶ رقم باشد",
+      "fixErrors": "لطفاً خطاهای فرم را برطرف کنید"
+    },
+    "captcha": {
+      "label": "کد امنیتی",
+      "placeholder": "کد را وارد کنید",
+      "refresh": "تازه‌سازی"
+    },
+    "common": {
+      "submitButton": "ارسال",
+      "signinLink": "ورود",
+      "signupLink": "ثبت نام"
+    },
+    "messages": {
+      "loginSuccess": "ورود موفقیت‌آمیز!",
+      "loginError": "نام کاربری یا رمز عبور اشتباه است",
+      "otpSent": "کد تأیید ارسال شد",
+      "otpResent": "کد مجدداً ارسال شد",
+      "otpSuccess": "ورود موفقیت‌آمیز!",
+      "otpInvalid": "کد وارد شده نامعتبر است",
+      "otpError": "خطا در ارسال کد",
+      "registrationSuccess": "ثبت نام با موفقیت انجام شد!",
+      "registrationError": "خطا در ثبت نام",
+      "passwordResetSent": "کد بازیابی به ایمیل/موبایل شما ارسال شد",
+      "passwordResetError": "خطا در ارسال کد بازیابی",
+      "serverError": "خطای سرور رخ داد"
+    }
+  },
+  "general": {
+    "404": {
+      "number": "404",
+      "heading": "صفحه مورد نظر یافت نشد",
+      "message": "متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا ممکن است حذف شده باشد.",
+      "button": "بازگشت به صفحه اصلی"
+    },
+    "404Creative": {
+      "pageTitle": "صفحه پیدا نشد",
+      "heading": "صفحه مورد نظر یافت نشد!",
+      "message": "متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا ممکن است حذف شده باشد.",
+      "searchPlaceholder": "جستجو در سایت...",
+      "searchButton": "جستجو",
+      "searchAction": "/جستجو",
+      "quickLinksTitle": "یا می‌تونید اینجا رو امتحان کنید:",
+      "homeLink": "صفحه اصلی",
+      "aboutLink": "درباره ما",
+      "profileLink": "پروفایل",
+      "supportLink": "پشتیبانی",
+      "homeButton": "بازگشت به صفحه اصلی",
+      "portalLink": "اسپریت پورتال"
+    }
+  },
+  "contentsList": {
+    "pageTitle": "فهرست محتوا - نیافام",
+    "breadcrumb": "فهرست محتوا",
+    "title": "فهرست محتوا",
+    "description": "مشاهده تمامی اخبار، مقالات، ویدئوها و محتوای صوتی",
+    "categoryText": "دانشگاه علوم پزشکی",
+    "categoryImage": "گزارش تصویری",
+    "categoryVideo": "گزارش ویدئویی",
+    "categoryAudio": "پادکست تخصصی",
+    "readTime": "دقیقه مطالعه",
+    "featured": "ویژه",
+    "loadMore": "بارگذاری محتوای بیشتر"
+  },
+  "breadcrumb": {
+    "home": "صفحه اصلی",
+    "content": "محتوا"
+  },
+  "searchResults": {
+    "pageTitle": "نتایج جستجو - نیافام",
+    "title": "نتایج جستجو",
+    "breadcrumbHome": "صفحه اصلی",
+    "breadcrumbSearch": "جستجو",
+    "resultCount": "{{count}} نتیجه یافت شد",
+    "resultCountSingular": "۱ نتیجه یافت شد",
+    "noResults": "نتیجه‌ای یافت نشد",
+    "categoryText": "مقاله",
+    "categoryImage": "گالری تصاویر",
+    "categoryVideo": "ویدئو",
+    "categoryAudio": "پادکست",
+    "filterOr": "یا",
+    "filterAnd": "و",
+    "filterPhrase": "عبارت کامل",
+    "searchPlaceholder": "جستجو...",
+    "searchButton": "جستجو"
+  },
+  "gallery": {
+    "pageTitle": "گالری - نیافام",
+    "breadcrumb": "گالری",
+    "images": {
+      "title": "تصاویر"
+    },
+    "videos": {
+      "title": "ویدئوها"
+    },
+    "sounds": {
+      "title": "صوت‌ها"
+    },
+    "imageGalleries": "گالری‌های تصویری",
+    "relatedGalleries": "گالری‌های مرتبط",
+    "archive": "آرشیو گالری"
+  },
+  "galleryCategories": {
+    "pageTitle": "دسته‌بندی گالری - نیافام",
+    "breadcrumb": "دسته‌بندی گالری",
+    "title": "دسته‌بندی گالری‌ها",
+    "description": "مرور گالری‌های تصویری، ویدئویی و صوتی دانشگاه علوم پزشکی تهران بر اساس دسته‌بندی موضوعی",
+    "galleryCount": "گالری"
+  },
+  "generalSubcategories": {
+    "pageTitle": "زیرمجموعه‌های عمومی - نیافام",
+    "breadcrumb": "زیرمجموعه‌های عمومی",
+    "title": "زیرمجموعه‌های عمومی",
+    "description": "دسترسی سریع به بخش‌های مختلف سیستم مدیریتی",
+    "items": {
+      "settings": "تنظیمات پایه",
+      "documents": "اسناد و مدارک",
+      "users": "مدیریت کاربران",
+      "notifications": "اعلانات",
+      "analytics": "آمار و گزارش",
+      "security": "امنیت"
+    }
+  },
+  "routes": {
+    "editProfile": "/ویرایش-پروفایل"
   }
 }

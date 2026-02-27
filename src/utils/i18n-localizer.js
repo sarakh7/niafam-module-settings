@@ -5,7 +5,7 @@
  */
 
 import i18next from '../config/i18n';
-import { SUPPORTED_LANGUAGES, LANGUAGE_NAMES } from '../config/constants';
+import { SUPPORTED_LANGUAGES, LANGUAGE_NAMES, DEFAULT_LANGUAGE } from '../config/constants';
 import { languageDirections } from './languageDirections';
 import DOMPurify from 'dompurify';
 
@@ -64,9 +64,9 @@ function localizeElement(element) {
 
 /**
  * Localize all elements with data-i18n or data-label-i18n attributes in a container
- * @param {HTMLElement} [container=document.body] - Container to search in
+ * @param {HTMLElement} [container=document.documentElement] - Container to search in
  */
-export function localizeDOM(container = document.body) {
+export function localizeDOM(container = document.documentElement) {
   // Localize elements with data-i18n
   const i18nElements = container.querySelectorAll('[data-i18n]');
   i18nElements.forEach(localizeElement);
@@ -83,7 +83,7 @@ export function localizeDOM(container = document.body) {
 }
 
 /**
- * Change language and update DOM
+ * Change language and update DOM with lazy loading support
  * @param {string} lang - Language code (e.g., 'fa', 'en', 'ar', 'tr', 'ru')
  * @returns {Promise<void>}
  */
@@ -94,20 +94,30 @@ export async function changeLanguageAndLocalize(lang) {
     return;
   }
 
-  // Change i18next language
-  await i18next.changeLanguage(lang);
-  
-  // Update HTML attributes
-  document.documentElement.lang = lang;
-  
-  // Update direction (RTL/LTR) - use the languageDirections utility
-  const direction = isLanguageRTL(lang) ? 'rtl' : 'ltr';
-  document.documentElement.dir = direction;
-  
-  // Update all DOM elements
-  localizeDOM();
-  
-  console.log(`Language changed to: ${lang} (${direction})`);
+  try {
+    // Change i18next language (will trigger lazy load if needed)
+    await i18next.changeLanguage(lang);
+
+    // Update HTML attributes
+    document.documentElement.lang = lang;
+
+    // Update direction (RTL/LTR) - use the languageDirections utility
+    const direction = isLanguageRTL(lang) ? 'rtl' : 'ltr';
+    document.documentElement.dir = direction;
+
+    // Update all DOM elements
+    localizeDOM();
+
+    console.log(`Language changed to: ${lang} (${direction})`);
+  } catch (error) {
+    console.error(`Failed to change language to ${lang}:`, error);
+
+    // Fallback to Persian if not already on Persian
+    if (lang !== DEFAULT_LANGUAGE) {
+      console.warn(`Falling back to ${DEFAULT_LANGUAGE}`);
+      await changeLanguageAndLocalize(DEFAULT_LANGUAGE);
+    }
+  }
 }
 
 /**
@@ -129,7 +139,7 @@ export function initLocalization() {
     console.log(`i18next language changed: ${lang} (${direction})`);
   });
   
-  console.log('Localization system initialized');
+  // console.log('Localization system initialized');
 }
 
 /**
